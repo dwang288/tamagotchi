@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bg400klsakom2"]
+
+[ext_resource type="Script" path="res://inventory/InventoryItem.gd" id="1_ubexo"]
+[ext_resource type="Texture2D" uid="uid://bfh0yfqoixy7w" path="res://assets/items/serum.png" id="2_ekrou"]
+
+[resource]
+script = ExtResource("1_ubexo")
+name = "serum"
+texture = ExtResource("2_ekrou")
+maxAmount = 10

@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://dijkqwvc20tip"]
+
+[ext_resource type="PackedScene" uid="uid://bmlvlmj5ijc5" path="res://scenes/menu_lower.tscn" id="1_26lm1"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_mjsvt"]
+[ext_resource type="PackedScene" uid="uid://b7qpptii07lf6" path="res://scenes/tamagotchi.tscn" id="2_g6av3"]
+[ext_resource type="Resource" uid="uid://dn84gt5g4kpnd" path="res://inventory/inventory.tres" id="2_nct5o"]
+[ext_resource type="PackedScene" uid="uid://cnf22xe00uv5k" path="res://inventory/testButton.tscn" id="5_aba5k"]
+[ext_resource type="Texture2D" uid="uid://3wea2oja0s2x" path="res://assets/room/bg.png" id="6_y7pg6"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_mjsvt")
+inventory = ExtResource("2_nct5o")
+
+[node name="Menu_lower" parent="." instance=ExtResource("1_26lm1")]
+anchors_preset = 15
+anchor_bottom = 1.0
+offset_top = 108.0
+offset_right = 128.0
+offset_bottom = 128.0
+
+[node name="Tamagotchi" parent="." instance=ExtResource("2_g6av3")]
+z_index = 1
+position = Vector2(65, 90)
+script = null
+
+[node name="TestButton" parent="." instance=ExtResource("5_aba5k")]
+
+[node name="Room" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Room"]
+position = Vector2(64, 63)
+texture = ExtResource("6_y7pg6")
+
+[editable path="Menu_lower"]
+[editable path="Tamagotchi"]
+[editable path="TestButton"]

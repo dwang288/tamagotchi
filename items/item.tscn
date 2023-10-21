@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b82pp2eweitui"]
+
+[node name="Item" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+stretch_mode = 2

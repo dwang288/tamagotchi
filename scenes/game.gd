@@ -21,5 +21,5 @@ func _ready():
 	get_node("Menu_lower/HBoxContainer").get_child(0).get_node("ButtonUseItem").grab_focus
 	
 func click_item(slot: InventorySlot):
-	inventory.delete(slot)
 	get_node("Tamagotchi").use_item(slot.item)
+	inventory.delete(slot)

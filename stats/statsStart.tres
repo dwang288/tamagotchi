@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://d0a5j0jmy6a8d"]
+
+[ext_resource type="Script" path="res://stats/stats.gd" id="1_fqudm"]
+
+[resource]
+script = ExtResource("1_fqudm")
+hunger = 3000.0
+rest = 3000.0
+maxHunger = 3000.0
+maxRest = 3000.0

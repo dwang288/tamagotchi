@@ -6,5 +6,4 @@ signal sent_serum(item: InventoryItem)
 
 func _on_pressed():
 	var serum_item = load("res://items/serum.tres")
-	print("serum sending: ", serum_item.name)
 	sent_serum.emit(serum_item)

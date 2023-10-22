@@ -3,8 +3,14 @@ extends Panel
 @onready var itemIcon: TextureRect = $CenterContainer/Panel/item
 @onready var amountLabel: Label = $CenterContainer/Panel/Label
 
+@export var itemSlot: InventorySlot
+
+signal used_item(slot: InventorySlot)
+
 func update(slot: InventorySlot):
+
 	if slot.item:
+		itemSlot = slot
 		itemIcon.visible = true
 		itemIcon.texture = slot.item.texture
 		if slot.amount == 0 || slot.amount == 1:
@@ -13,7 +19,13 @@ func update(slot: InventorySlot):
 			amountLabel.visible = true
 			amountLabel.text = str(slot.amount)
 	else:
+		itemSlot = null
 		itemIcon.visible = false
 		amountLabel.visible = false
-		
-	print(itemIcon.visible)
+
+
+func _on_button_use_item_pressed():
+	print("pressed")
+	if itemSlot:
+		used_item.emit(itemSlot)
+		print("emitted")

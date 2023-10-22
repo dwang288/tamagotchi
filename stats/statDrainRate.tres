@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="StatDrainRates" load_steps=2 format=3 uid="uid://dmnc5ydl0gvwb"]
+
+[ext_resource type="Script" path="res://stats/statDrainRates.gd" id="1_lg52o"]
+
+[resource]
+script = ExtResource("1_lg52o")
+hunger = 0.3
+rest = 0.3

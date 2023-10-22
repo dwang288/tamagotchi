@@ -41,7 +41,13 @@ theme_override_fonts/font = ExtResource("2_gqy1x")
 theme_override_font_sizes/font_size = 6
 horizontal_alignment = 2
 
-[node name="ButtonUseItem" type="Button" parent="CenterContainer"]
+[node name="ButtonUseItem" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+z_index = 1
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
+offset_right = 18.0
+offset_bottom = 18.0
+focus_mode = 0
+
+[connection signal="pressed" from="ButtonUseItem" to="." method="_on_button_use_item_pressed"]

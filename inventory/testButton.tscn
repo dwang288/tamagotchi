@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnf22xe00uv5k"]
+[gd_scene load_steps=2 format=3 uid="uid://cnf22xe00uv5k"]
 
 [ext_resource type="Script" path="res://inventory/serumButton.gd" id="1_1jngr"]
-[ext_resource type="Script" path="res://inventory/Button2.gd" id="2_d6d1v"]
 
 [node name="TestButton" type="Control"]
 layout_mode = 3
@@ -18,13 +17,4 @@ offset_bottom = 17.0
 text = "add"
 script = ExtResource("1_1jngr")
 
-[node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 71.0
-offset_right = 128.0
-offset_bottom = 31.0
-text = "delete"
-script = ExtResource("2_d6d1v")
-
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]

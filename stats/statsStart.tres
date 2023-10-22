@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_fqudm")
-hunger = 3000.0
-rest = 3000.0
-maxHunger = 3000.0
-maxRest = 3000.0
+hunger = 100.0
+rest = 100.0
+maxHunger = 100.0
+maxRest = 100.0

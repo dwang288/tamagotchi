@@ -13,6 +13,22 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# TODO: only decrease when stat is over 0
 	stats.hunger -= delta * statDrainRates.hunger
 	stats.rest -= delta * statDrainRates.rest
 	on_stat_change.emit(self)
+
+func use_item(item: InventoryItem):
+	var newHunger = stats.hunger + item.hunger
+	var newRest = stats.rest + item.rest
+
+	# TODO: make less terrible
+	if newHunger <= stats.maxHunger:
+		stats.hunger = newHunger
+	else:
+		stats.hunger = stats.maxHunger
+
+	if newRest <= stats.maxRest:
+		stats.rest = newRest
+	else:
+		stats.rest = stats.maxRest

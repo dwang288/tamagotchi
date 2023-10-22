@@ -4,6 +4,8 @@ class_name Inventory
 
 signal updated
 
+# TODO: Change this so we're initializing the slots through code and not
+# onload in the menu_lower GUI
 @export var slots: Array[InventorySlot]
 
 func insert(item: InventoryItem):

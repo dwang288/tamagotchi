@@ -1,10 +1,12 @@
 extends Control
 
-
+# TODO: Really shouldn't be loading it in here, should pass it in at
+# the base class level on initialization
 @onready var inventory: Inventory = preload("res://inventory/inventory.tres")
 @onready var slots: Array = $HBoxContainer.get_children()
 
 func _ready():
+	# This should be connected at a shared ancestor's node
 	inventory.updated.connect(update)
 	update()
 

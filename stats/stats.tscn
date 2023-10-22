@@ -1,17 +1,99 @@
 [gd_scene load_steps=2 format=3 uid="uid://bfg0bc7qty7hq"]
 
-[ext_resource type="Script" path="res://hungerBar.gd" id="1_08nik"]
+[ext_resource type="Script" path="res://stats/hungerIndicator.gd" id="1_qpsnn"]
 
 [node name="Stats" type="Control"]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.148
+offset_top = 1.0
+offset_bottom = 0.0559998
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HungerBar" type="TextureProgressBar" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 128.0
-offset_bottom = 40.0
-script = ExtResource("1_08nik")
+offset_right = 96.0
+offset_bottom = 18.0
+theme_override_constants/separation = 1
+
+[node name="HungerPanel" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HungerIndicator" type="ColorRect" parent="HBoxContainer/HungerPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 1, 0, 1)
+script = ExtResource("1_qpsnn")
+fullColor = Color(0, 1, 0, 1)
+midColor = Color(1, 1, 0, 1)
+emptyColor = Color(1, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HungerPanel"]
+layout_mode = 2
+
+[node name="RestPanel" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RestIndicator" type="ColorRect" parent="HBoxContainer/RestPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 1, 0, 1)
+script = ExtResource("1_qpsnn")
+fullColor = Color(0, 1, 0, 1)
+midColor = Color(1, 1, 0, 1)
+emptyColor = Color(1, 0, 0, 1)
+
+[node name="HygienePanel" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HygieneIndicator" type="ColorRect" parent="HBoxContainer/HygienePanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 1, 0, 1)
+script = ExtResource("1_qpsnn")
+fullColor = Color(0, 1, 0, 1)
+midColor = Color(1, 1, 0, 1)
+emptyColor = Color(1, 0, 0, 1)
+
+[node name="FunPanel" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FunIndicator" type="ColorRect" parent="HBoxContainer/FunPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 1, 0, 1)
+script = ExtResource("1_qpsnn")
+fullColor = Color(0, 1, 0, 1)
+midColor = Color(1, 1, 0, 1)
+emptyColor = Color(1, 0, 0, 1)
+
+[node name="AffectionPanel" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AffectionIndicator" type="ColorRect" parent="HBoxContainer/AffectionPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 1, 0, 1)
+script = ExtResource("1_qpsnn")
+fullColor = Color(0, 1, 0, 1)
+midColor = Color(1, 1, 0, 1)
+emptyColor = Color(1, 0, 0, 1)
+
+[node name="HealthPanel" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HealthIndicator" type="ColorRect" parent="HBoxContainer/HealthPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 1, 0, 1)
+script = ExtResource("1_qpsnn")
+fullColor = Color(0, 1, 0, 1)
+midColor = Color(1, 1, 0, 1)
+emptyColor = Color(1, 0, 0, 1)

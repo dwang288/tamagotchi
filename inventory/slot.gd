@@ -5,7 +5,7 @@ extends Panel
 
 @export var itemSlot: InventorySlot
 
-signal used_item(slot: InventorySlot)
+signal clicked_item(slot: InventorySlot)
 
 func update(slot: InventorySlot):
 
@@ -27,5 +27,5 @@ func update(slot: InventorySlot):
 func _on_button_use_item_pressed():
 	print("pressed")
 	if itemSlot:
-		used_item.emit(itemSlot)
+		clicked_item.emit(itemSlot)
 		print("emitted")

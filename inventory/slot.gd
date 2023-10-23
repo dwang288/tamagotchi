@@ -25,7 +25,20 @@ func update(slot: InventorySlot):
 
 
 func _on_button_use_item_pressed():
-	print("pressed")
 	if itemSlot:
 		clicked_item.emit(itemSlot)
-		print("emitted")
+
+
+func _on_mouse_entered():
+	get_node("ButtonUseItem").grab_focus()
+	print(get_node("ButtonUseItem").has_focus())
+
+func _on_mouse_exited():
+	get_node("ButtonUseItem").release_focus()
+	print(get_node("ButtonUseItem").has_focus())
+
+func _on_button_use_item_focus_entered():
+	get_node("Selector").visible = true
+
+func _on_button_use_item_focus_exited():
+	get_node("Selector").visible = false

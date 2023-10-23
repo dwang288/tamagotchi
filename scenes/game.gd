@@ -17,9 +17,6 @@ func _ready():
 	# Connect on change signal between tamagotchi stat and stat menu
 	get_node("Tamagotchi").on_stat_change.connect(get_node("Stats/HBoxContainer/HungerPanel/HungerIndicator").update)
 	
-	# TODO: Fix grab focus
-	get_node("Menu_lower/HBoxContainer").get_child(0).get_node("ButtonUseItem").grab_focus
-	
 func click_item(slot: InventorySlot):
 	get_node("Tamagotchi").use_item(slot.item)
 	inventory.delete(slot)

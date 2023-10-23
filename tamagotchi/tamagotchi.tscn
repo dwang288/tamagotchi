@@ -1,13 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7qpptii07lf6"]
+[gd_scene load_steps=10 format=3 uid="uid://b7qpptii07lf6"]
 
+[ext_resource type="Script" path="res://tamagotchi/tamagotchi.gd" id="1_bkvew"]
 [ext_resource type="Texture2D" uid="uid://b1i6pgwlwdoof" path="res://assets/sprite_sheets/alternate_sheet.png" id="1_e4wd6"]
-
-[sub_resource type="GDScript" id="GDScript_i8rtu"]
-script/source = "extends Node2D
-
-class_name Player
-
-"
+[ext_resource type="PackedScene" uid="uid://c1un2smflu4vf" path="res://emotes/emote.tscn" id="2_u1764"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xun70"]
 atlas = ExtResource("1_e4wd6")
@@ -49,11 +44,15 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 6.0
 }]
 
 [node name="Tamagotchi" type="Node2D"]
-script = SubResource("GDScript_i8rtu")
+script = ExtResource("1_bkvew")
+
+[node name="Emote" parent="." instance=ExtResource("2_u1764")]
+z_index = 1
+position = Vector2(-13, -9)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_viwtp")

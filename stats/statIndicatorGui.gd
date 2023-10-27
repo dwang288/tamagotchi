@@ -6,8 +6,7 @@ extends ColorRect
 @export var emptyColor: Color
 
 # TODO: move script to Panel level, have it act on children's properties
-func update(tamagotchi: Tamagotchi):
-	value = tamagotchi.stats.hunger / tamagotchi.stats.maxHunger
+func update(value: float):
 	# Color should change from green at 100 to yellow at 50% to red at 0%
 	# and then to flashing
 	# TODO: Use the set colors instead of hardcoding

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfg0bc7qty7hq"]
+[gd_scene load_steps=5 format=3 uid="uid://bfg0bc7qty7hq"]
 
-[ext_resource type="Script" path="res://stats/hungerIndicator.gd" id="1_qpsnn"]
+[ext_resource type="Script" path="res://stats/statsUpdateGui.gd" id="1_dsglw"]
+[ext_resource type="Script" path="res://stats/statIndicatorGui.gd" id="2_knutf"]
 [ext_resource type="Texture2D" uid="uid://c3ffm52wixheb" path="res://assets/items/meat.png" id="2_y7sh1"]
+[ext_resource type="Texture2D" uid="uid://b0u0ukea4q73a" path="res://assets/gui/rest_indicator.png" id="3_53s1e"]
 
 [node name="Stats" type="Control"]
 layout_mode = 3
@@ -11,6 +13,7 @@ offset_top = 1.0
 offset_bottom = 0.0559998
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dsglw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -22,95 +25,70 @@ theme_override_constants/separation = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HungerIndicator" type="ColorRect" parent="HBoxContainer/HungerPanel"]
+[node name="Indicator" type="ColorRect" parent="HBoxContainer/HungerPanel"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 1, 0, 1)
-script = ExtResource("1_qpsnn")
-fullColor = Color(0, 1, 0, 1)
-midColor = Color(1, 1, 0, 1)
-emptyColor = Color(1, 0, 0, 1)
+script = ExtResource("2_knutf")
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/HungerPanel"]
 layout_mode = 2
 texture = ExtResource("2_y7sh1")
+stretch_mode = 3
 
 [node name="RestPanel" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RestIndicator" type="ColorRect" parent="HBoxContainer/RestPanel"]
+[node name="Indicator" type="ColorRect" parent="HBoxContainer/RestPanel"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 1, 0, 1)
-script = ExtResource("1_qpsnn")
-fullColor = Color(0, 1, 0, 1)
-midColor = Color(1, 1, 0, 1)
-emptyColor = Color(1, 0, 0, 1)
+script = ExtResource("2_knutf")
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/RestPanel"]
 layout_mode = 2
+texture = ExtResource("3_53s1e")
+stretch_mode = 3
 
 [node name="HygienePanel" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HygieneIndicator" type="ColorRect" parent="HBoxContainer/HygienePanel"]
+[node name="Indicator" type="ColorRect" parent="HBoxContainer/HygienePanel"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 1, 0, 1)
-script = ExtResource("1_qpsnn")
-fullColor = Color(0, 1, 0, 1)
-midColor = Color(1, 1, 0, 1)
-emptyColor = Color(1, 0, 0, 1)
+script = ExtResource("2_knutf")
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/HygienePanel"]
 layout_mode = 2
-
-[node name="FunPanel" type="PanelContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="FunIndicator" type="ColorRect" parent="HBoxContainer/FunPanel"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 1, 0, 1)
-script = ExtResource("1_qpsnn")
-fullColor = Color(0, 1, 0, 1)
-midColor = Color(1, 1, 0, 1)
-emptyColor = Color(1, 0, 0, 1)
-
-[node name="Icon" type="TextureRect" parent="HBoxContainer/FunPanel"]
-layout_mode = 2
+stretch_mode = 3
 
 [node name="AffectionPanel" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AffectionIndicator" type="ColorRect" parent="HBoxContainer/AffectionPanel"]
+[node name="Indicator" type="ColorRect" parent="HBoxContainer/AffectionPanel"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 1, 0, 1)
-script = ExtResource("1_qpsnn")
-fullColor = Color(0, 1, 0, 1)
-midColor = Color(1, 1, 0, 1)
-emptyColor = Color(1, 0, 0, 1)
+script = ExtResource("2_knutf")
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/AffectionPanel"]
 layout_mode = 2
+stretch_mode = 3
 
 [node name="HealthPanel" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HealthIndicator" type="ColorRect" parent="HBoxContainer/HealthPanel"]
+[node name="Indicator" type="ColorRect" parent="HBoxContainer/HealthPanel"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 1, 0, 1)
-script = ExtResource("1_qpsnn")
-fullColor = Color(0, 1, 0, 1)
-midColor = Color(1, 1, 0, 1)
-emptyColor = Color(1, 0, 0, 1)
+script = ExtResource("2_knutf")
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/HealthPanel"]
 layout_mode = 2
+stretch_mode = 3

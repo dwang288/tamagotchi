@@ -6,7 +6,7 @@ extends Control
 @onready var slots: Array = $HBoxContainer.get_children()
 
 func _ready():
-	# This should be connected at a shared ancestor's node
+	# TODO: This should be connected at a shared ancestor's node
 	inventory.updated.connect(update)
 	update()
 

@@ -37,6 +37,7 @@ offset_top = 0.0
 offset_bottom = 0.0
 
 [node name="TestButton" parent="." instance=ExtResource("5_aba5k")]
+visible = false
 
 [node name="Button" parent="TestButton" index="0"]
 offset_left = 89.0

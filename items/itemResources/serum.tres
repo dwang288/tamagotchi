@@ -8,5 +8,7 @@ script = ExtResource("1_ubexo")
 name = "serum"
 texture = ExtResource("2_ekrou")
 maxAmount = 10
+is_usable = true
+is_consumable = true
 hunger = 50.0
 rest = 0.0

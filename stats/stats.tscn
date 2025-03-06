@@ -36,21 +36,6 @@ layout_mode = 2
 texture = ExtResource("2_y7sh1")
 stretch_mode = 3
 
-[node name="RestPanel" type="PanelContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Indicator" type="ColorRect" parent="HBoxContainer/RestPanel"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 1, 0, 1)
-script = ExtResource("2_knutf")
-
-[node name="Icon" type="TextureRect" parent="HBoxContainer/RestPanel"]
-layout_mode = 2
-texture = ExtResource("3_53s1e")
-stretch_mode = 3
-
 [node name="HygienePanel" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -65,17 +50,17 @@ script = ExtResource("2_knutf")
 layout_mode = 2
 stretch_mode = 3
 
-[node name="AffectionPanel" type="PanelContainer" parent="HBoxContainer"]
+[node name="HappinessPanel" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Indicator" type="ColorRect" parent="HBoxContainer/AffectionPanel"]
+[node name="Indicator" type="ColorRect" parent="HBoxContainer/HappinessPanel"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 1, 0, 1)
 script = ExtResource("2_knutf")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/AffectionPanel"]
+[node name="Icon" type="TextureRect" parent="HBoxContainer/HappinessPanel"]
 layout_mode = 2
 stretch_mode = 3
 
@@ -91,4 +76,19 @@ script = ExtResource("2_knutf")
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/HealthPanel"]
 layout_mode = 2
+stretch_mode = 3
+
+[node name="RestPanel" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Indicator" type="ColorRect" parent="HBoxContainer/RestPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 1, 0, 1)
+script = ExtResource("2_knutf")
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/RestPanel"]
+layout_mode = 2
+texture = ExtResource("3_53s1e")
 stretch_mode = 3

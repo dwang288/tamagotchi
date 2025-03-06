@@ -15,12 +15,14 @@ func _ready():
 		print("connected")
 	
 	# Connect on change signal between tamagotchi stat and stat menu
-	get_node("Tamagotchi").on_stat_change.connect(get_node("Stats").update)
+	get_node("Tamagotchi").stat_changed.connect(get_node("Stats").update)
+	
+	get_node("Tamagotchi").item_consumed.connect(inventory.delete)
+	
+	# TODO: Clean this up
+	inventory.insert(load("res://items/itemResources/lollipop.tres"))
+	
+	get_node("Menu_lower/HBoxContainer/Slot1/ButtonUseItem").grab_focus()
 	
 func click_item(slot: InventorySlot):
-	# TODO: Only use if awake
-	# TODO: Move delete logic into use_item method, not all items
-	# get deleted
-	# if item is consumable
-	get_node("Tamagotchi").use_item(slot.item)
-	inventory.delete(slot)
+	get_node("Tamagotchi").use_item_in_slot(slot)

@@ -5,4 +5,7 @@
 [resource]
 script = ExtResource("1_sgj4h")
 hunger = 3.0
+hygiene = 0.0
+happiness = 0.0
+health = 0.0
 rest = 3.0

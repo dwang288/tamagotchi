@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Game
 
-@export var inventory: Inventory
+@export var inventory: InventoryResource
 
 
 func _ready():
@@ -24,5 +24,5 @@ func _ready():
 	
 	get_node("Menu_lower/HBoxContainer/Slot1/ButtonUseItem").grab_focus()
 	
-func click_item(slot: InventorySlot):
+func click_item(slot: InventorySlotResource):
 	get_node("Tamagotchi").use_item_in_slot(slot)

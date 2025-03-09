@@ -1,6 +1,6 @@
 extends Button
 
-signal sent_serum(item: InventoryItem)
+signal sent_serum(item: InventoryItemResource)
 # Called when the node enters the scene tree for the first time.
 
 

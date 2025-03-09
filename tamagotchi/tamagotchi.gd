@@ -3,7 +3,7 @@ extends Node2D
 class_name Tamagotchi
 
 signal stat_changed(tamagotchi: Tamagotchi)
-signal item_consumed(slot: InventorySlot)
+signal item_consumed(slot: InventorySlotResource)
 
 @export var statDrainRates: StatDrainRates = preload("res://stats/stat_drain_rate.tres")
 @export var stats: Stats = preload("res://stats/stats_start.tres")
@@ -53,7 +53,7 @@ func process_hygiene(delta):
 func process_happiness(delta):
 	# if some other stats at 0 then decay
 	pass
-func use_item_in_slot(slot: InventorySlot):
+func use_item_in_slot(slot: InventorySlotResource):
 	# TODO: loop through item properties and apply so I can add
 	# new stats in peace
 	if !is_awake:

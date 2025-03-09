@@ -3,11 +3,11 @@ extends Panel
 @onready var itemIcon: TextureRect = $CenterContainer/Panel/item
 @onready var amountLabel: Label = $CenterContainer/Panel/Label
 
-@export var itemSlot: InventorySlot
+@export var itemSlot: InventorySlotResource
 
-signal clicked_item(slot: InventorySlot)
+signal clicked_item(slot: InventorySlotResource)
 
-func update(slot: InventorySlot):
+func update(slot: InventorySlotResource):
 
 	if slot.item:
 		itemSlot = slot

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cnf22xe00uv5k"]
 
-[ext_resource type="Script" path="res://inventory/serumButton.gd" id="1_1jngr"]
+[ext_resource type="Script" path="res://inventory/serum_button.gd" id="1_lmqai"]
 
 [node name="TestButton" type="Control"]
 layout_mode = 3
@@ -20,6 +20,6 @@ offset_left = -39.0
 offset_bottom = 31.0
 grow_horizontal = 0
 text = "add"
-script = ExtResource("1_1jngr")
+script = ExtResource("1_lmqai")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

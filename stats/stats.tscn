@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfg0bc7qty7hq"]
 
-[ext_resource type="Script" path="res://stats/statsUpdateGui.gd" id="1_dsglw"]
-[ext_resource type="Script" path="res://stats/statIndicatorGui.gd" id="2_knutf"]
+[ext_resource type="Script" path="res://stats/stats_update_gui.gd" id="1_yqf36"]
+[ext_resource type="Script" path="res://stats/stat_indicator_gui.gd" id="2_wr3x8"]
 [ext_resource type="Texture2D" uid="uid://c3ffm52wixheb" path="res://assets/items/meat.png" id="2_y7sh1"]
 [ext_resource type="Texture2D" uid="uid://b0u0ukea4q73a" path="res://assets/gui/rest_indicator.png" id="3_53s1e"]
 
@@ -13,7 +13,7 @@ offset_top = 1.0
 offset_bottom = 0.0559998
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_dsglw")
+script = ExtResource("1_yqf36")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -29,7 +29,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 1, 0, 1)
-script = ExtResource("2_knutf")
+script = ExtResource("2_wr3x8")
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/HungerPanel"]
 layout_mode = 2
@@ -44,7 +44,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 1, 0, 1)
-script = ExtResource("2_knutf")
+script = ExtResource("2_wr3x8")
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/HygienePanel"]
 layout_mode = 2
@@ -58,7 +58,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 1, 0, 1)
-script = ExtResource("2_knutf")
+script = ExtResource("2_wr3x8")
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/HappinessPanel"]
 layout_mode = 2
@@ -72,7 +72,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 1, 0, 1)
-script = ExtResource("2_knutf")
+script = ExtResource("2_wr3x8")
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/HealthPanel"]
 layout_mode = 2
@@ -86,7 +86,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 1, 0, 1)
-script = ExtResource("2_knutf")
+script = ExtResource("2_wr3x8")
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/RestPanel"]
 layout_mode = 2

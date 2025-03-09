@@ -5,8 +5,8 @@ class_name Tamagotchi
 signal stat_changed(tamagotchi: Tamagotchi)
 signal item_consumed(slot: InventorySlot)
 
-@export var statDrainRates: StatDrainRates = preload("res://stats/statDrainRate.tres")
-@export var stats: Stats = preload("res://stats/statsStart.tres")
+@export var statDrainRates: StatDrainRates = preload("res://stats/stat_drain_rate.tres")
+@export var stats: Stats = preload("res://stats/stats_start.tres")
 @export var is_awake: bool
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]

@@ -2,7 +2,6 @@ extends Node2D
 
 class_name Tamagotchi
 
-@export var is_active: bool = false
 @export var resource: TamagotchiResource
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
@@ -20,21 +19,6 @@ func _ready():
 
 func initialize(r: TamagotchiResource):
 	resource = r
-
-# Remove old tamagotchi from being able to affect the stats UI, set to inactive
-func set_inactive_tamagotchi():
-	for connection in resource.stat_changed.get_connections():
-		resource.stat_changed.disconnect(connection["callable"])
-	is_active = false
-	visible = false
-
-# Connect new tamagotchi, set to active
-# TODO: pull this function out into a Tamagotchi collection node, esp the signal connection
-func set_active_tamagotchi(stats: Control):
-	resource.stat_changed.connect(stats.update)
-	print(resource.stat_changed.get_connections())
-	is_active = true
-	visible = true
 
 func _process(delta):
 	if resource.is_awake:

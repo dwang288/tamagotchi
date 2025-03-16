@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://debtsaphjnewd"]
 
-[ext_resource type="Script" path="res://inventory/inventory_item_resource.gd" id="1_e7w0y"]
+[ext_resource type="Script" path="res://items/inventory_item_resource.gd" id="1_e7w0y"]
 [ext_resource type="Texture2D" uid="uid://dphme3xuoux5u" path="res://assets/items/lollipop.png" id="2_kj5my"]
 
 [resource]

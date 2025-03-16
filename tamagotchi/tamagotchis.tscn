@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://tamagotchi/tamagotchis.gd" id="1_hguru"]
 [ext_resource type="Resource" uid="uid://etn86t24vnq6" path="res://tamagotchi/plave/yejun/yejun.tres" id="2_mhvtp"]
-[ext_resource type="Resource" uid="uid://bmmt261imy0gt" path="res://tamagotchi/wolfwood/wolfwood.tres" id="3_lwfwf"]
+[ext_resource type="Resource" uid="uid://bfuwgqpv05fwb" path="res://tamagotchi/plave/noah/noah.tres" id="3_r042d"]
 
 [node name="Tamagotchis" type="Node2D"]
 script = ExtResource("1_hguru")
-tamagotchi_resources = Array[Resource("res://tamagotchi/tamagotchi_resource.gd")]([ExtResource("2_mhvtp"), ExtResource("3_lwfwf")])
+tamagotchi_resources = Array[Resource("res://tamagotchi/tamagotchi_resource.gd")]([ExtResource("2_mhvtp"), ExtResource("3_r042d")])
 
 [node name="TamagotchiMarker2D" type="Marker2D" parent="."]
 position = Vector2(63, 104)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TamagotchiResource" load_steps=5 format=3 uid="uid://bfuwgqpv05fwb"]
+
+[ext_resource type="AnimationLibrary" uid="uid://diqulf2u2n6ct" path="res://tamagotchi/plave/noah/animations/animation.res" id="1_sevlt"]
+[ext_resource type="Script" path="res://tamagotchi/tamagotchi_resource.gd" id="2_1e06h"]
+[ext_resource type="Resource" uid="uid://dmnc5ydl0gvwb" path="res://stats/stat_drain_rate.tres" id="3_g5vku"]
+[ext_resource type="Resource" uid="uid://sxyfj5uum0x7" path="res://tamagotchi/plave/noah/noah_stats_start.tres" id="4_kwly4"]
+
+[resource]
+script = ExtResource("2_1e06h")
+statDrainRates = ExtResource("3_g5vku")
+stats = ExtResource("4_kwly4")
+is_awake = true
+animation_library = ExtResource("1_sevlt")

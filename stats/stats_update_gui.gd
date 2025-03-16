@@ -1,6 +1,6 @@
 extends Control
 
-func update(tamagotchi: Tamagotchi):
+func update(tamagotchi: TamagotchiResource):
 	var hungerValue = tamagotchi.stats.hunger / tamagotchi.stats.maxHunger
 	var restValue = tamagotchi.stats.rest / tamagotchi.stats.maxRest
 	

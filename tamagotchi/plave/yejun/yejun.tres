@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TamagotchiResource" load_steps=5 format=3 uid="uid://etn86t24vnq6"]
+
+[ext_resource type="AnimationLibrary" uid="uid://c3v84htefqeog" path="res://tamagotchi/plave/yejun/animations/animation.res" id="1_50ddu"]
+[ext_resource type="Script" path="res://tamagotchi/tamagotchi_resource.gd" id="2_8g3ex"]
+[ext_resource type="Resource" uid="uid://dmnc5ydl0gvwb" path="res://stats/stat_drain_rate.tres" id="3_m6sc5"]
+[ext_resource type="Resource" uid="uid://c0b3q4yg44wam" path="res://tamagotchi/plave/yejun/yejun_stats_start.tres" id="4_enxgh"]
+
+[resource]
+script = ExtResource("2_8g3ex")
+statDrainRates = ExtResource("3_m6sc5")
+stats = ExtResource("4_enxgh")
+is_awake = true
+animation_library = ExtResource("1_50ddu")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://inventory/slot.gd" id="1_20j7u"]
 [ext_resource type="FontFile" uid="uid://dbroep5o2wh2f" path="res://assets/TinyPixie2.ttf" id="2_gqy1x"]
-[ext_resource type="Texture2D" uid="uid://i0m0rfk6klu1" path="res://assets/gui/Inventory_select.png" id="3_d4qaf"]
+[ext_resource type="Texture2D" uid="uid://dto3dhr7uyu5e" path="res://assets/gui/inventory_select_hsh.png" id="3_7dlkj"]
 
 [node name="Slot1" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -59,7 +59,7 @@ offset_left = -1.0
 offset_right = 19.0
 offset_bottom = 20.0
 mouse_filter = 2
-texture = ExtResource("3_d4qaf")
+texture = ExtResource("3_7dlkj")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

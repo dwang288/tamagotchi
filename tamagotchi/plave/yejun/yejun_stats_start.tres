@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://c0b3q4yg44wam"]
+
+[ext_resource type="Script" path="res://stats/stats_resource.gd" id="1_uxaiu"]
+
+[resource]
+script = ExtResource("1_uxaiu")
+hunger = 100.0
+hygiene = 100.0
+happiness = 50.0
+health = 100.0
+rest = 100.0
+maxHunger = 100.0
+maxHygiene = 100.0
+maxHappiness = 100.0
+maxHealth = 100.0
+maxRest = 100.0

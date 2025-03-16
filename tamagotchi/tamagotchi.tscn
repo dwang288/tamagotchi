@@ -1,21 +1,28 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7qpptii07lf6"]
+[gd_scene load_steps=16 format=3 uid="uid://b7qpptii07lf6"]
 
 [ext_resource type="Script" path="res://tamagotchi/tamagotchi.gd" id="1_bkvew"]
-[ext_resource type="Texture2D" uid="uid://b1i6pgwlwdoof" path="res://assets/sprite_sheets/alternate_sheet.png" id="1_e4wd6"]
 [ext_resource type="PackedScene" uid="uid://c1un2smflu4vf" path="res://emotes/emote.tscn" id="2_u1764"]
-[ext_resource type="AnimationLibrary" uid="uid://bwsm0boyv2k8d" path="res://tamagotchi/wolfwood/animations/animation_wolfwood.res" id="4_q7wxo"]
+[ext_resource type="Texture2D" uid="uid://bmo2yyt4nu0mo" path="res://assets/sprite_sheets/plave/yejun_sheet.png" id="3_fmhcd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udhen"]
 size = Vector2(19, 31)
 
+[sub_resource type="Animation" id="Animation_l38w2"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cr776"]
+_data = {
+"RESET": SubResource("Animation_l38w2")
+}
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nk5ih"]
-animation = &"Feed"
+animation = &"animation/feed"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bnyln"]
-animation = &"Idle"
+animation = &"animation/idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u438w"]
-animation = &"Sleep"
+animation = &"animation/sleep"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_771hm"]
 advance_mode = 2
@@ -36,29 +43,35 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4xvuv"]
-states/Feed/node = SubResource("AnimationNodeAnimation_nk5ih")
-states/Feed/position = Vector2(374, 170.5)
-states/Idle/node = SubResource("AnimationNodeAnimation_bnyln")
-states/Idle/position = Vector2(311.5, 100)
-states/Sleep/node = SubResource("AnimationNodeAnimation_u438w")
-states/Sleep/position = Vector2(424, 54.5)
-transitions = ["Idle", "Sleep", SubResource("AnimationNodeStateMachineTransition_771hm"), "Idle", "Feed", SubResource("AnimationNodeStateMachineTransition_miiyu"), "Feed", "Idle", SubResource("AnimationNodeStateMachineTransition_mmiu0"), "Sleep", "Idle", SubResource("AnimationNodeStateMachineTransition_l50p5"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_xafwx")]
+states/feed/node = SubResource("AnimationNodeAnimation_nk5ih")
+states/feed/position = Vector2(374, 170.5)
+states/idle/node = SubResource("AnimationNodeAnimation_bnyln")
+states/idle/position = Vector2(311.5, 100)
+states/sleep/node = SubResource("AnimationNodeAnimation_u438w")
+states/sleep/position = Vector2(424, 54.5)
+transitions = ["idle", "sleep", SubResource("AnimationNodeStateMachineTransition_771hm"), "idle", "feed", SubResource("AnimationNodeStateMachineTransition_miiyu"), "feed", "idle", SubResource("AnimationNodeStateMachineTransition_mmiu0"), "sleep", "idle", SubResource("AnimationNodeStateMachineTransition_l50p5"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_xafwx")]
 graph_offset = Vector2(39.1049, 7.785)
 
 [node name="Tamagotchi" type="Node2D"]
+visible = false
+position = Vector2(0, -1)
 script = ExtResource("1_bkvew")
 
 [node name="Emote" parent="." instance=ExtResource("2_u1764")]
 z_index = 1
-position = Vector2(2, -28)
-region_rect = Rect2(96, 64, 48, 16)
+position = Vector2(-7, -28)
+region_rect = Rect2(0, 96, 48, 16)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9, -15)
-texture = ExtResource("1_e4wd6")
-hframes = 5
+position = Vector2(0, -15)
+texture = ExtResource("3_fmhcd")
+hframes = 4
+frame = 1
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 32)
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-9, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(9, -15)
@@ -66,7 +79,7 @@ shape = SubResource("RectangleShape2D_udhen")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": ExtResource("4_q7wxo")
+"": SubResource("AnimationLibrary_cr776")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

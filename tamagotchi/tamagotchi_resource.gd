@@ -2,14 +2,19 @@ extends Resource
 
 class_name TamagotchiResource
 
+# Resource change signals
 signal stat_changed(tamagotchi: TamagotchiResource)
 signal item_consumed(slot: InventorySlotResource)
 
-@export var statDrainRates: StatDrainRates = preload("res://stats/stat_drain_rate.tres")
-@export var stats: Stats = preload("res://stats/stats_start.tres")
+# Animation signals
+signal fed
+
+@export var stat_drain_rates: StatDrainRatesResource
+@export var stats: StatsResource
 @export var is_awake: bool
 @export var animation_library: AnimationLibrary
 
+# TODO: All data manipulation should be in a proper node, not a resource
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(delta):
@@ -21,7 +26,7 @@ func process(delta):
 # TODO: Process functions should be in another class/node
 func process_hunger(delta):
 	if is_awake:
-		var newHunger = stats.hunger - delta * statDrainRates.hunger
+		var newHunger = stats.hunger - delta * stat_drain_rates.hunger
 		stats.hunger = newHunger if newHunger >= 0 else 0
 	
 func process_rest(delta):
@@ -30,11 +35,11 @@ func process_rest(delta):
 	if stats.rest >= stats.maxRest && !is_awake:
 		is_awake = true
 	if is_awake:
-		var newRest = stats.rest - delta * statDrainRates.rest
+		var newRest = stats.rest - delta * stat_drain_rates.rest
 		stats.rest = newRest if newRest >= 0 else 0
 	else:
 		# TODO: Add real sleep
-		var newRest = stats.rest + delta * statDrainRates.rest
+		var newRest = stats.rest + delta * stat_drain_rates.rest
 		stats.rest = newRest if newRest <= stats.maxRest else stats.maxRest
 
 func process_health(delta):
@@ -49,13 +54,13 @@ func process_happiness(delta):
 func use_item_in_slot(slot: InventorySlotResource):
 	# TODO: loop through item properties and apply so I can add
 	# new stats in peace
-	if !is_awake:
-		return
 	if slot.item.is_usable:
 		var newHunger = stats.hunger + slot.item.hunger
 		var newRest = stats.rest + slot.item.rest
 
 		stats.hunger = newHunger if newHunger <= stats.maxHunger else stats.maxHunger
 		stats.rest = newRest if newRest <= stats.maxRest else stats.maxRest
+		fed.emit()
+		is_awake = true
 		if slot.item.is_consumable:
 			item_consumed.emit(slot)

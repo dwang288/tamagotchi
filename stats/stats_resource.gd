@@ -1,6 +1,6 @@
 extends Resource
 
-class_name Stats
+class_name StatsResource
 
 @export_group("Needs")
 @export var hunger: float

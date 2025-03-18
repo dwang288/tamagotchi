@@ -14,6 +14,8 @@ signal active_tamagotchi_changed(tamagotchi: Tamagotchi)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Instantiate and add tamagotchi node
+	tamagotchi_resources = GameStateManager.game_state.tamagotchis
+	print(tamagotchi_resources)
 	for i in tamagotchi_resources.size():
 
 		tamagotchi_nodes[i] = tamagotchi_scene.instantiate()
@@ -21,7 +23,6 @@ func _ready():
 		tamagotchi_nodes[i].initialize(tamagotchi_resources[i])
 		add_child(tamagotchi_nodes[i])
 
-	print(self.get_children())
 	set_active_tamagotchi(active_tamagotchi_index)
 
 func _unhandled_input(event):
@@ -37,7 +38,6 @@ func switch_active_tamagotchi():
 		active_tamagotchi_index += 1
 	set_inactive_tamagotchi(prev_active_tamagotchi_index)
 	set_active_tamagotchi(active_tamagotchi_index)
-	print(tamagotchi_nodes[active_tamagotchi_index].resource.is_awake)
 
 # Remove old tamagotchi from being able to affect the stats UI, set to inactive
 func set_inactive_tamagotchi(tamagotchi_index: int):
@@ -46,10 +46,8 @@ func set_inactive_tamagotchi(tamagotchi_index: int):
 	tamagotchi_nodes[tamagotchi_index].visible = false
 
 # Connect new tamagotchi, set to active
-# TODO: Shouldn't be passing the stats node in
 func set_active_tamagotchi(tamagotchi_index: int):
 	active_tamagotchi_changed.emit(tamagotchi_nodes[tamagotchi_index])
-	print("hi")
 	tamagotchi_nodes[tamagotchi_index].visible = true
 
 func click_item(slot: InventorySlotResource):

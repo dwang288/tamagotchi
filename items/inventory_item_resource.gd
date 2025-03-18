@@ -9,8 +9,6 @@ class_name InventoryItemResource
 @export var is_usable: bool
 @export var is_consumable: bool
 
-# TODO: Should contain a reference to an actual resource, which then stores the
-# stats
 @export_category("Stats")
 @export var hunger: float
 @export var hygiene: float

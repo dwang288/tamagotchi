@@ -1,10 +1,10 @@
 extends Control
 
-@export var inventory: InventoryResource
+@export var inventory = GameStateManager.game_state.inventory
 @onready var slots: Array = $HBoxContainer.get_children()
 
 func _ready():
-	# TODO: This should be connected at a shared ancestor's node
+
 	inventory.updated.connect(update)
 	update()
 

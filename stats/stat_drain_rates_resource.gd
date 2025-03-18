@@ -1,6 +1,6 @@
 extends Resource
 
-class_name StatDrainRates
+class_name StatDrainRatesResource
 
 @export var hunger: float
 @export var hygiene: float

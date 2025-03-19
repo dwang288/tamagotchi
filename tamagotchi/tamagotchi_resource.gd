@@ -19,6 +19,9 @@ signal fed
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(delta):
 	process_hunger(delta)
+	process_hygiene(delta)
+	process_happiness(delta)
+	process_health(delta)
 	process_rest(delta)
 
 	stat_changed.emit(self)
@@ -56,10 +59,17 @@ func use_item_in_slot(slot: InventorySlotResource):
 	# new stats in peace
 	if slot.item.is_usable:
 		var newHunger = stats.hunger + slot.item.hunger
+		var newHygiene = stats.hygiene + slot.item.hygiene
+		var newHappiness = stats.happiness + slot.item.happiness
+		var newHealth = stats.health + slot.item.health
 		var newRest = stats.rest + slot.item.rest
 
 		stats.hunger = newHunger if newHunger <= stats.maxHunger else stats.maxHunger
+		stats.hygiene = newHygiene if newHygiene <= stats.maxHygiene else stats.maxHygiene
+		stats.happiness = newHappiness if newHappiness <= stats.maxHappiness else stats.maxHappiness
+		stats.health = newHealth if newHealth <= stats.maxHealth else stats.maxHealth
 		stats.rest = newRest if newRest <= stats.maxRest else stats.maxRest
+
 		fed.emit()
 		is_awake = true
 		if slot.item.is_consumable:

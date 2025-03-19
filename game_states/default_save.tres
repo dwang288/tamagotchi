@@ -1,18 +1,19 @@
-[gd_resource type="Resource" script_class="GameStateResource" load_steps=29 format=3]
+[gd_resource type="Resource" script_class="GameStateResource" load_steps=30 format=3 uid="uid://dtw07npx7olge"]
 
 [ext_resource type="Script" path="res://inventory/inventory_resource.gd" id="1_yt4nl"]
 [ext_resource type="Script" path="res://game_states/game_state_resource.gd" id="2_8s45o"]
-[ext_resource type="Resource" path="res://items/itemResources/lollipop.tres" id="2_x84sv"]
+[ext_resource type="Resource" uid="uid://debtsaphjnewd" path="res://items/itemResources/lollipop.tres" id="2_x84sv"]
 [ext_resource type="Script" path="res://inventory/inventory_slot_resource.gd" id="3_pqsaf"]
-[ext_resource type="Animation" path="res://tamagotchi/plave/yejun/animations/feed.res" id="5_cndya"]
-[ext_resource type="Animation" path="res://tamagotchi/plave/yejun/animations/idle.res" id="6_yenr4"]
-[ext_resource type="Animation" path="res://tamagotchi/plave/yejun/animations/sleep.res" id="7_k55ce"]
+[ext_resource type="Resource" uid="uid://cvl6a7l4tsv8d" path="res://items/itemResources/candy.tres" id="4_v3wc8"]
+[ext_resource type="Animation" uid="uid://b3peq73tjwhlj" path="res://tamagotchi/plave/yejun/animations/feed.res" id="5_cndya"]
+[ext_resource type="Animation" uid="uid://dp7stbhasnxjj" path="res://tamagotchi/plave/yejun/animations/idle.res" id="6_yenr4"]
+[ext_resource type="Animation" uid="uid://bayyr1mv44uo1" path="res://tamagotchi/plave/yejun/animations/sleep.res" id="7_k55ce"]
 [ext_resource type="Script" path="res://tamagotchi/tamagotchi_resource.gd" id="8_jhcjf"]
 [ext_resource type="Script" path="res://stats/stat_drain_rates_resource.gd" id="9_56xx2"]
 [ext_resource type="Script" path="res://stats/stats_resource.gd" id="10_ct5jy"]
-[ext_resource type="Animation" path="res://tamagotchi/plave/noah/animations/feed.res" id="11_owrpn"]
-[ext_resource type="Animation" path="res://tamagotchi/plave/noah/animations/idle.res" id="12_mwcni"]
-[ext_resource type="Animation" path="res://tamagotchi/plave/noah/animations/sleep.res" id="13_yyis5"]
+[ext_resource type="Animation" uid="uid://cubnif68tgb6g" path="res://tamagotchi/plave/noah/animations/feed.res" id="11_owrpn"]
+[ext_resource type="Animation" uid="uid://cv6gfpcnhvqac" path="res://tamagotchi/plave/noah/animations/idle.res" id="12_mwcni"]
+[ext_resource type="Animation" uid="uid://dmltguiyy0602" path="res://tamagotchi/plave/noah/animations/sleep.res" id="13_yyis5"]
 
 [sub_resource type="Resource" id="Resource_soa3e"]
 script = ExtResource("3_pqsaf")
@@ -21,7 +22,8 @@ amount = 1
 
 [sub_resource type="Resource" id="Resource_pmm7q"]
 script = ExtResource("3_pqsaf")
-amount = 0
+item = ExtResource("4_v3wc8")
+amount = 10
 
 [sub_resource type="Resource" id="Resource_2iup4"]
 script = ExtResource("3_pqsaf")
@@ -60,11 +62,11 @@ rest = 3.0
 
 [sub_resource type="Resource" id="Resource_a0ded"]
 script = ExtResource("10_ct5jy")
-hunger = 68.9607
+hunger = 83.9938
 hygiene = 100.0
-happiness = 50.0
-health = 100.0
-rest = 9.78353
+happiness = 100.0
+health = 65.0
+rest = 3.42244
 maxHunger = 100.0
 maxHygiene = 100.0
 maxHappiness = 100.0
@@ -95,11 +97,11 @@ rest = 3.0
 
 [sub_resource type="Resource" id="Resource_waste"]
 script = ExtResource("10_ct5jy")
-hunger = 98.2378
+hunger = 18.3467
 hygiene = 100.0
 happiness = 50.0
 health = 100.0
-rest = 7.78726
+rest = 27.9253
 maxHunger = 100.0
 maxHygiene = 100.0
 maxHappiness = 100.0

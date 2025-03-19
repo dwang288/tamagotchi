@@ -6,10 +6,9 @@ func update(tamagotchi_resource: TamagotchiResource):
 	var happinessValue = tamagotchi_resource.stats.happiness / tamagotchi_resource.stats.maxHappiness
 	var healthValue = tamagotchi_resource.stats.health / tamagotchi_resource.stats.maxHealth
 	var restValue = tamagotchi_resource.stats.rest / tamagotchi_resource.stats.maxRest
-	
-	# TODO: Iterate through children
-	%Stats/HungerPanel/Indicator.update(hungerValue)
-	%Stats/HygienePanel/Indicator.update(hygieneValue)
-	%Stats/HappinessPanel/Indicator.update(happinessValue)
-	%Stats/HealthPanel/Indicator.update(healthValue)
-	%Stats/RestPanel/Indicator.update(restValue)
+
+	%Stats/HungerPanel.update(hungerValue)
+	%Stats/HygienePanel.update(hygieneValue)
+	%Stats/HappinessPanel.update(happinessValue)
+	%Stats/HealthPanel.update(healthValue)
+	%Stats/RestPanel.update(restValue)

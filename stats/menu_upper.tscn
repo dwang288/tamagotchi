@@ -1,14 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://bfg0bc7qty7hq"]
 
 [ext_resource type="Script" path="res://stats/stats_update_gui.gd" id="1_yqf36"]
-[ext_resource type="Script" path="res://stats/stat_indicator_gui.gd" id="2_wr3x8"]
-[ext_resource type="Texture2D" uid="uid://c3ffm52wixheb" path="res://assets/items/meat.png" id="2_y7sh1"]
+[ext_resource type="PackedScene" uid="uid://bfj5bos66gy5v" path="res://stats/stat_panel.tscn" id="2_0k51n"]
+[ext_resource type="Texture2D" uid="uid://by6cnm4pppisy" path="res://assets/gui/status_gui/hunger_indicator.png" id="3_xwsa4"]
 [ext_resource type="Texture2D" uid="uid://diddmi51k641w" path="res://assets/gui/status_gui/happiness_indicator.png" id="4_efjtb"]
+[ext_resource type="Texture2D" uid="uid://bole11g5srwvp" path="res://assets/gui/status_gui/hygiene_indicator.png" id="4_oje41"]
 [ext_resource type="Texture2D" uid="uid://bydopulk53x2b" path="res://assets/gui/status_gui/health_indicator.png" id="5_6nq4f"]
 [ext_resource type="Texture2D" uid="uid://b0u0ukea4q73a" path="res://assets/gui/status_gui/rest_indicator.png" id="6_tv4gm"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ebcly"]
-load_path = "res://.godot/imported/hygiene_indicator.png-2f90887bde05d98d644049d010a93dc6.ctex"
 
 [node name="MenuUpper" type="Control"]
 layout_mode = 3
@@ -33,80 +31,25 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 1
 
-[node name="HungerPanel" type="PanelContainer" parent="HBoxContainer/Stats"]
+[node name="HungerPanel" parent="HBoxContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
-size_flags_horizontal = 3
+icon_texture = ExtResource("3_xwsa4")
 
-[node name="Indicator" type="ColorRect" parent="HBoxContainer/Stats/HungerPanel"]
+[node name="HygienePanel" parent="HBoxContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 1, 0, 1)
-script = ExtResource("2_wr3x8")
+icon_texture = ExtResource("4_oje41")
 
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Stats/HungerPanel"]
+[node name="HappinessPanel" parent="HBoxContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
-texture = ExtResource("2_y7sh1")
-stretch_mode = 3
+icon_texture = ExtResource("4_efjtb")
 
-[node name="HygienePanel" type="PanelContainer" parent="HBoxContainer/Stats"]
+[node name="HealthPanel" parent="HBoxContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
-size_flags_horizontal = 3
+icon_texture = ExtResource("5_6nq4f")
 
-[node name="Indicator" type="ColorRect" parent="HBoxContainer/Stats/HygienePanel"]
+[node name="RestPanel" parent="HBoxContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 1, 0, 1)
-script = ExtResource("2_wr3x8")
-
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Stats/HygienePanel"]
-layout_mode = 2
-texture = SubResource("CompressedTexture2D_ebcly")
-stretch_mode = 3
-
-[node name="HappinessPanel" type="PanelContainer" parent="HBoxContainer/Stats"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Indicator" type="ColorRect" parent="HBoxContainer/Stats/HappinessPanel"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 1, 0, 1)
-script = ExtResource("2_wr3x8")
-
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Stats/HappinessPanel"]
-layout_mode = 2
-texture = ExtResource("4_efjtb")
-stretch_mode = 3
-
-[node name="HealthPanel" type="PanelContainer" parent="HBoxContainer/Stats"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Indicator" type="ColorRect" parent="HBoxContainer/Stats/HealthPanel"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 1, 0, 1)
-script = ExtResource("2_wr3x8")
-
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Stats/HealthPanel"]
-layout_mode = 2
-texture = ExtResource("5_6nq4f")
-stretch_mode = 3
-
-[node name="RestPanel" type="PanelContainer" parent="HBoxContainer/Stats"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Indicator" type="ColorRect" parent="HBoxContainer/Stats/RestPanel"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 1, 0, 1)
-script = ExtResource("2_wr3x8")
-
-[node name="Icon" type="TextureRect" parent="HBoxContainer/Stats/RestPanel"]
-layout_mode = 2
-texture = ExtResource("6_tv4gm")
-stretch_mode = 3
+icon_texture = ExtResource("6_tv4gm")
 
 [node name="MenuContainer" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2

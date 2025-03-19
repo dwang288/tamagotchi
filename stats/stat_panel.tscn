@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfj5bos66gy5v"]
+
+[ext_resource type="Script" path="res://stats/stat_indicator_gui.gd" id="1_onx5m"]
+[ext_resource type="Texture2D" uid="uid://c3ffm52wixheb" path="res://assets/items/meat.png" id="2_nnc0t"]
+
+[node name="StatPanel" type="PanelContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_onx5m")
+
+[node name="Indicator" type="ColorRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 1, 0, 1)
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_nnc0t")
+stretch_mode = 3

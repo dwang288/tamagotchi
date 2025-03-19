@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bmlvlmj5ijc5" path="res://scenes/menu_lower.tscn" id="1_26lm1"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_mjsvt"]
 [ext_resource type="PackedScene" uid="uid://b0hwch0cgemgf" path="res://room/room.tscn" id="3_oweaq"]
-[ext_resource type="PackedScene" uid="uid://bfg0bc7qty7hq" path="res://stats/stats.tscn" id="4_40pju"]
-[ext_resource type="PackedScene" uid="uid://cnf22xe00uv5k" path="res://inventory/testButton.tscn" id="5_aba5k"]
+[ext_resource type="PackedScene" uid="uid://bfg0bc7qty7hq" path="res://stats/menu_upper.tscn" id="4_40pju"]
 [ext_resource type="PackedScene" uid="uid://srysuxqoa2cn" path="res://tamagotchi/tamagotchis.tscn" id="6_4tleb"]
+[ext_resource type="PackedScene" uid="uid://b4c2wv0guy7fi" path="res://test/test_buttons.tscn" id="6_gfyqw"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_mjsvt")
@@ -19,17 +19,14 @@ offset_top = 108.0
 offset_right = 128.0
 offset_bottom = 128.0
 
-[node name="Stats" parent="." instance=ExtResource("4_40pju")]
+[node name="MenuUpper" parent="." instance=ExtResource("4_40pju")]
 offset_top = 0.0
 offset_bottom = 0.0
 
 [node name="Tamagotchis" parent="." instance=ExtResource("6_4tleb")]
 
-[node name="TestButton" parent="." instance=ExtResource("5_aba5k")]
-
-[node name="Button" parent="TestButton" index="0"]
-offset_left = 89.0
-offset_right = 128.0
-
-[editable path="MenuLower"]
-[editable path="TestButton"]
+[node name="TestButton" parent="." instance=ExtResource("6_gfyqw")]
+offset_left = 90.0
+offset_top = 4.0
+offset_right = 129.0
+offset_bottom = 35.0

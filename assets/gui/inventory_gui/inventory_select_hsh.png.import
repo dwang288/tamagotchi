@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dto3dhr7uyu5e"
-path="res://.godot/imported/inventory_select_hsh.png-c27aaf806dce0cd9e7e646c2a75d988b.ctex"
+path="res://.godot/imported/inventory_select_hsh.png-320cc5d814003c71ca33a9c0b857c722.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/inventory_select_hsh.png"
-dest_files=["res://.godot/imported/inventory_select_hsh.png-c27aaf806dce0cd9e7e646c2a75d988b.ctex"]
+source_file="res://assets/gui/inventory_gui/inventory_select_hsh.png"
+dest_files=["res://.godot/imported/inventory_select_hsh.png-320cc5d814003c71ca33a9c0b857c722.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i0m0rfk6klu1"
-path="res://.godot/imported/Inventory_select.png-fe873c2ca415bb5e328ddc9d5bfc9e41.ctex"
+uid="uid://bydopulk53x2b"
+path="res://.godot/imported/health_indicator.png-4ebac0b92c684e524ec039ad6c97a08c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/Inventory_select.png"
-dest_files=["res://.godot/imported/Inventory_select.png-fe873c2ca415bb5e328ddc9d5bfc9e41.ctex"]
+source_file="res://assets/gui/status_gui/health_indicator.png"
+dest_files=["res://.godot/imported/health_indicator.png-4ebac0b92c684e524ec039ad6c97a08c.ctex"]
 
 [params]
 

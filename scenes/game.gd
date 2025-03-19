@@ -7,11 +7,11 @@ class_name Game
 
 func _ready():
 	connection_setup()
-	$MenuLower/HBoxContainer/Slot1/ButtonUseItem.grab_focus()
 
 func connection_setup():
 	# Test add serum button
-	$TestButton/Button.sent_serum.connect($MenuLower.inventory.insert)
+	$TestButton/Button.sent_item.connect($MenuLower.inventory.insert)
+	$TestButton/Button2.new_game.connect(GameStateManager.new_game)
 	
 	# Connect active tamagotchi switch to stats gui
 	$Tamagotchis.active_tamagotchi_changed.connect(connect_to_stats_gui)
@@ -28,4 +28,4 @@ func connection_setup():
 			tamagotchi_node.resource.item_consumed.connect($MenuLower.inventory.delete)
 
 func connect_to_stats_gui(tamagotchi: Tamagotchi):
-	tamagotchi.resource.stat_changed.connect($Stats.update)
+	tamagotchi.resource.stat_changed.connect($MenuUpper.update)

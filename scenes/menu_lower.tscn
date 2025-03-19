@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://bmlvlmj5ijc5"]
 
 [ext_resource type="Script" path="res://scenes/menu_lower.gd" id="1_jsu87"]
-[ext_resource type="Texture2D" uid="uid://civwj381a1nuo" path="res://assets/gui/inventory_hsh.png" id="2_kons0"]
+[ext_resource type="Texture2D" uid="uid://civwj381a1nuo" path="res://assets/gui/inventory_gui/inventory_hsh.png" id="2_7l7pc"]
 [ext_resource type="PackedScene" uid="uid://biwqrmdna8qk2" path="res://inventory/slot.tscn" id="3_qstqa"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_raalj"]
 
-[node name="Menu_lower" type="Control"]
+[node name="MenuLower" type="Control"]
 custom_minimum_size = Vector2(128, 20)
 layout_mode = 3
 anchor_right = 1.0
@@ -23,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 0.992
 offset_bottom = -0.832001
 mouse_filter = 2
-texture = ExtResource("2_kons0")
+texture = ExtResource("2_7l7pc")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 material = SubResource("CanvasItemMaterial_raalj")

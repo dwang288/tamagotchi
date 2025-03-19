@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0u0ukea4q73a"
-path="res://.godot/imported/rest_indicator.png-89cccb017bf59fad418e6685917b6ccc.ctex"
+uid="uid://d73gul7f3uvf"
+path="res://.godot/imported/Mouse_Icons_Outlined (16 x 16).png-ab6ba7493fcbf18fff91acbd157078a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/rest_indicator.png"
-dest_files=["res://.godot/imported/rest_indicator.png-89cccb017bf59fad418e6685917b6ccc.ctex"]
+source_file="res://assets/gui/cursors/Mouse_Icons_Outlined (16 x 16).png"
+dest_files=["res://.godot/imported/Mouse_Icons_Outlined (16 x 16).png-ab6ba7493fcbf18fff91acbd157078a0.ctex"]
 
 [params]
 

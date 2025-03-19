@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4c2wv0guy7fi"]
+
+[ext_resource type="FontFile" uid="uid://dbroep5o2wh2f" path="res://assets/TinyPixie2.ttf" id="1_awtrg"]
+[ext_resource type="Script" path="res://test/new_item_button_test.gd" id="2_7ldn8"]
+[ext_resource type="Script" path="res://test/new_game_button_test.gd" id="3_p4al0"]
+
+[sub_resource type="Theme" id="Theme_3k4m0"]
+default_font = ExtResource("1_awtrg")
+default_font_size = 6
+
+[node name="TestButton" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -39.0
+offset_bottom = 31.0
+grow_horizontal = 0
+theme = SubResource("Theme_3k4m0")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -21.0
+offset_top = 14.0
+offset_right = -1.0
+offset_bottom = 29.0
+grow_horizontal = 0
+text = "add"
+script = ExtResource("2_7ldn8")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 31.0
+offset_right = 38.0
+offset_bottom = 45.0
+text = "new game"
+script = ExtResource("3_p4al0")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]

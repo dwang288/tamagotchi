@@ -17,7 +17,7 @@ func _ready():
 # TODO: Add new game function
 func new_game():
 	# create a new GameState resource with default child resources (unique)
-	pass
+	print("Hello")
 
 func save_game():
 	ResourceSaver.save(game_state, game_state.get_path())

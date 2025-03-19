@@ -5,6 +5,7 @@ extends Control
 
 func _ready():
 
+	$HBoxContainer/Slot1/ButtonUseItem.grab_focus()
 	inventory.updated.connect(update)
 	update()
 

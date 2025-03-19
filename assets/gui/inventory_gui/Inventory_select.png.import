@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by6cnm4pppisy"
-path="res://.godot/imported/hunger_indicator.png-39e68d4cc942c72759d56702efec686b.ctex"
+uid="uid://i0m0rfk6klu1"
+path="res://.godot/imported/Inventory_select.png-bd43d354e517af0d85131c07f9be61ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/hunger_indicator.png"
-dest_files=["res://.godot/imported/hunger_indicator.png-39e68d4cc942c72759d56702efec686b.ctex"]
+source_file="res://assets/gui/inventory_gui/Inventory_select.png"
+dest_files=["res://.godot/imported/Inventory_select.png-bd43d354e517af0d85131c07f9be61ca.ctex"]
 
 [params]
 

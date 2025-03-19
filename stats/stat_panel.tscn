@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfj5bos66gy5v"]
+[gd_scene load_steps=4 format=3 uid="uid://bfj5bos66gy5v"]
 
 [ext_resource type="Script" path="res://stats/stat_indicator_gui.gd" id="1_onx5m"]
 [ext_resource type="Texture2D" uid="uid://c3ffm52wixheb" path="res://assets/items/meat.png" id="2_nnc0t"]
+[ext_resource type="Theme" uid="uid://wi6hfg8u1cn0" path="res://assets/gui/text_theme.tres" id="3_dmx4e"]
 
 [node name="StatPanel" type="PanelContainer"]
 size_flags_horizontal = 3
@@ -10,9 +11,29 @@ script = ExtResource("1_onx5m")
 [node name="Indicator" type="ColorRect" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 color = Color(0, 1, 0, 1)
 
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("2_nnc0t")
 stretch_mode = 3
+
+[node name="Dimmer" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.494118)
+
+[node name="Value" type="Label" parent="."]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_dmx4e")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 1
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

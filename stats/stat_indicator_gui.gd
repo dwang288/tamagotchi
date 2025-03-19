@@ -13,6 +13,8 @@ func _ready():
 	$Icon.texture = icon_texture
 
 func update(value: float):
+
+	$Value.text = str(floor(value*100))
 	# Color should change from green at 100 to yellow at 50% to red at 0%
 	# and then to flashing
 	# TODO: Use the set colors instead of hardcoding
@@ -39,3 +41,13 @@ func update(value: float):
 		indicator_node.color.r = 0
 		indicator_node.color.g = 0
 		indicator_node.color.b = 1
+
+
+func _on_mouse_entered():
+	$Dimmer.visible = true
+	$Value.visible = true
+
+
+func _on_mouse_exited():
+	$Dimmer.visible = false
+	$Value.visible = false

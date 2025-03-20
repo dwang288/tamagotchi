@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://tamagotchi/tamagotchi.gd" id="1_bkvew"]
 [ext_resource type="PackedScene" uid="uid://c1un2smflu4vf" path="res://emotes/emote.tscn" id="2_u1764"]
-[ext_resource type="Texture2D" uid="uid://drgcf6tsuvifa" path="res://assets/sprite_sheets/plave/noah_sheet.png" id="3_y7jpe"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_87iff"]
+load_path = "res://.godot/imported/noah_sheet.png-1014269eecaf8ef6d03404f872e5de3a.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udhen"]
 size = Vector2(19, 31)
@@ -65,7 +67,7 @@ region_rect = Rect2(96, 64, 48, 16)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -15)
-texture = ExtResource("3_y7jpe")
+texture = SubResource("CompressedTexture2D_87iff")
 hframes = 3
 frame = 2
 region_enabled = true

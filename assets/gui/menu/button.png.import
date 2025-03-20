@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pch6gbqkbwub"
-path="res://.godot/imported/yejun_sheet.png-9a92ea2c649d00578e5fd0e9699de9b7.ctex"
+uid="uid://dt7eks5w3dspl"
+path="res://.godot/imported/button.png-1d00525971e5775cf5ee5a25b9988632.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite_sheets/plave/yejun_sheet.png"
-dest_files=["res://.godot/imported/yejun_sheet.png-9a92ea2c649d00578e5fd0e9699de9b7.ctex"]
+source_file="res://assets/gui/menu/button.png"
+dest_files=["res://.godot/imported/button.png-1d00525971e5775cf5ee5a25b9988632.ctex"]
 
 [params]
 

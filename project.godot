@@ -27,6 +27,10 @@ window/size/window_width_override=256
 window/size/window_height_override=256
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom_font="res://assets/TinyPixie2.ttf"
+
 [input]
 
 ui_focus_next={

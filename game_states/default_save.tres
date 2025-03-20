@@ -1,19 +1,11 @@
-[gd_resource type="Resource" script_class="GameStateResource" load_steps=30 format=3]
+[gd_resource type="Resource" script_class="GameStateResource" load_steps=14 format=3]
 
 [ext_resource type="Script" path="res://inventory/inventory_resource.gd" id="1_yt4nl"]
 [ext_resource type="Script" path="res://game_states/game_state_resource.gd" id="2_8s45o"]
 [ext_resource type="Resource" path="res://items/itemResources/lollipop.tres" id="2_x84sv"]
 [ext_resource type="Script" path="res://inventory/inventory_slot_resource.gd" id="3_pqsaf"]
-[ext_resource type="Resource" path="res://items/itemResources/candy.tres" id="4_xder8"]
-[ext_resource type="Animation" path="res://tamagotchi/plave/yejun/animations/feed.res" id="5_cndya"]
-[ext_resource type="Animation" path="res://tamagotchi/plave/yejun/animations/idle.res" id="6_yenr4"]
-[ext_resource type="Animation" path="res://tamagotchi/plave/yejun/animations/sleep.res" id="7_k55ce"]
-[ext_resource type="Script" path="res://tamagotchi/tamagotchi_resource.gd" id="8_jhcjf"]
-[ext_resource type="Script" path="res://stats/stat_drain_rates_resource.gd" id="9_56xx2"]
-[ext_resource type="Script" path="res://stats/stats_resource.gd" id="10_ct5jy"]
-[ext_resource type="Animation" path="res://tamagotchi/plave/noah/animations/feed.res" id="11_owrpn"]
-[ext_resource type="Animation" path="res://tamagotchi/plave/noah/animations/idle.res" id="12_mwcni"]
-[ext_resource type="Animation" path="res://tamagotchi/plave/noah/animations/sleep.res" id="13_yyis5"]
+[ext_resource type="Resource" path="res://tamagotchi/plave/yejun/yejun.tres" id="5_gxvx3"]
+[ext_resource type="Resource" path="res://tamagotchi/plave/noah/noah.tres" id="6_h68wl"]
 
 [sub_resource type="Resource" id="Resource_soa3e"]
 script = ExtResource("3_pqsaf")
@@ -22,8 +14,7 @@ amount = 1
 
 [sub_resource type="Resource" id="Resource_pmm7q"]
 script = ExtResource("3_pqsaf")
-item = ExtResource("4_xder8")
-amount = 1
+amount = 0
 
 [sub_resource type="Resource" id="Resource_2iup4"]
 script = ExtResource("3_pqsaf")
@@ -41,81 +32,11 @@ amount = 0
 script = ExtResource("3_pqsaf")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_8jfcl"]
+[sub_resource type="Resource" id="Resource_0oe5g"]
 script = ExtResource("1_yt4nl")
 slots = Array[ExtResource("3_pqsaf")]([SubResource("Resource_soa3e"), SubResource("Resource_pmm7q"), SubResource("Resource_2iup4"), SubResource("Resource_8mcem"), SubResource("Resource_vd5t7"), SubResource("Resource_xgygd")])
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_x6upc"]
-_data = {
-"feed": ExtResource("5_cndya"),
-"idle": ExtResource("6_yenr4"),
-"sleep": ExtResource("7_k55ce")
-}
-
-[sub_resource type="Resource" id="Resource_fsob4"]
-script = ExtResource("9_56xx2")
-hunger = 3.0
-hygiene = 0.0
-happiness = 0.0
-health = 0.0
-rest = 3.0
-
-[sub_resource type="Resource" id="Resource_a0ded"]
-script = ExtResource("10_ct5jy")
-hunger = 0.0
-hygiene = 100.0
-happiness = 100.0
-health = 5.0
-rest = 43.8784
-maxHunger = 100.0
-maxHygiene = 100.0
-maxHappiness = 100.0
-maxHealth = 100.0
-maxRest = 100.0
-
-[sub_resource type="Resource" id="Resource_4k28w"]
-script = ExtResource("8_jhcjf")
-stat_drain_rates = SubResource("Resource_fsob4")
-stats = SubResource("Resource_a0ded")
-is_awake = false
-animation_library = SubResource("AnimationLibrary_x6upc")
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5e60y"]
-_data = {
-"feed": ExtResource("11_owrpn"),
-"idle": ExtResource("12_mwcni"),
-"sleep": ExtResource("13_yyis5")
-}
-
-[sub_resource type="Resource" id="Resource_gwuwo"]
-script = ExtResource("9_56xx2")
-hunger = 3.0
-hygiene = 0.0
-happiness = 0.0
-health = 0.0
-rest = 3.0
-
-[sub_resource type="Resource" id="Resource_waste"]
-script = ExtResource("10_ct5jy")
-hunger = 75.8811
-hygiene = 100.0
-happiness = 100.0
-health = 100.0
-rest = 44.5184
-maxHunger = 100.0
-maxHygiene = 100.0
-maxHappiness = 100.0
-maxHealth = 100.0
-maxRest = 100.0
-
-[sub_resource type="Resource" id="Resource_vwici"]
-script = ExtResource("8_jhcjf")
-stat_drain_rates = SubResource("Resource_gwuwo")
-stats = SubResource("Resource_waste")
-is_awake = false
-animation_library = SubResource("AnimationLibrary_5e60y")
-
 [resource]
 script = ExtResource("2_8s45o")
-tamagotchis = Array[ExtResource("8_jhcjf")]([SubResource("Resource_4k28w"), SubResource("Resource_vwici")])
-inventory = SubResource("Resource_8jfcl")
+tamagotchis = Array[Resource("res://tamagotchi/tamagotchi_resource.gd")]([ExtResource("5_gxvx3"), ExtResource("6_h68wl")])
+inventory = SubResource("Resource_0oe5g")

@@ -1,5 +1,6 @@
 extends Node
 
+@export var timer: Timer = Timer.new()
 @export var save_interval: float = 5.0
 @export var game_state: GameStateResource = preload("res://game_states/default_save.tres")
 
@@ -8,18 +9,30 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var timer = Timer.new()
 	timer.wait_time = save_interval
 	timer.autostart = true
 	timer.timeout.connect(save_game)
 	add_child(timer)
 
-# TODO: Add new game function
+# TODO: Create new resource from resource files on disk, not just duplicate resource file with embeds
 func new_game():
 	# create a new GameState resource with default child resources (unique)
-	print("Hello")
+	print("creating new game")
+	pause_autosave()
+	# overwrite existing file
+	# TODO: Doesn't work, might need to go in 
+	ResourceSaver.save(load("res://game_states/default_save_backup.tres").duplicate(true), game_state.get_path())
+	# quit window
+	get_tree().quit()
+
+func pause_autosave():
+	timer.stop()
+
+func resume_autosave():
+	timer.start()
 
 func save_game():
+	print("Saving")
 	ResourceSaver.save(game_state, game_state.get_path())
 
 

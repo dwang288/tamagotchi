@@ -10,11 +10,10 @@ default_font_size = 6
 
 [node name="TestButton" type="Control"]
 layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
+anchors_preset = 0
 offset_left = -39.0
-offset_bottom = 31.0
+offset_top = -1.0
+offset_bottom = 30.0
 grow_horizontal = 0
 theme = SubResource("Theme_3k4m0")
 
@@ -23,20 +22,22 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -21.0
-offset_top = 14.0
-offset_right = -1.0
-offset_bottom = 29.0
+offset_left = -20.0
+offset_top = 1.0
+offset_bottom = 16.0
 grow_horizontal = 0
 text = "add"
 script = ExtResource("2_7ldn8")
 
 [node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = -5.0
-offset_top = 31.0
-offset_right = 38.0
-offset_bottom = 45.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -43.0
+offset_top = 18.0
+offset_bottom = 32.0
+grow_horizontal = 0
 text = "new game"
 script = ExtResource("3_p4al0")
 

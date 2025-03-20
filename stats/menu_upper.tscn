@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfg0bc7qty7hq"]
+[gd_scene load_steps=9 format=3 uid="uid://bfg0bc7qty7hq"]
 
 [ext_resource type="Script" path="res://stats/stats_update_gui.gd" id="1_yqf36"]
 [ext_resource type="PackedScene" uid="uid://bfj5bos66gy5v" path="res://stats/stat_panel.tscn" id="2_0k51n"]
@@ -7,21 +7,34 @@
 [ext_resource type="Texture2D" uid="uid://bole11g5srwvp" path="res://assets/gui/status_gui/hygiene_indicator.png" id="4_oje41"]
 [ext_resource type="Texture2D" uid="uid://bydopulk53x2b" path="res://assets/gui/status_gui/health_indicator.png" id="5_6nq4f"]
 [ext_resource type="Texture2D" uid="uid://b0u0ukea4q73a" path="res://assets/gui/status_gui/rest_indicator.png" id="6_tv4gm"]
+[ext_resource type="PackedScene" uid="uid://drt8ijavylpcu" path="res://menu/button_container.tscn" id="8_sbix5"]
 
 [node name="MenuUpper" type="Control"]
+custom_minimum_size = Vector2(128, 18)
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.148
-offset_top = 1.0
-offset_bottom = 0.0559998
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yqf36")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.329412, 0.341176, 0.439216, 1)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 18.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 1
 
 [node name="Stats" type="HBoxContainer" parent="HBoxContainer"]
@@ -51,13 +64,6 @@ icon_texture = ExtResource("5_6nq4f")
 layout_mode = 2
 icon_texture = ExtResource("6_tv4gm")
 
-[node name="MenuContainer" type="PanelContainer" parent="HBoxContainer"]
+[node name="MenuContainer" parent="HBoxContainer" instance=ExtResource("8_sbix5")]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/MenuContainer"]
-layout_mode = 2
-color = Color(0.568627, 0.454902, 0.607843, 1)
-
-[node name="TextureButton" type="TextureButton" parent="HBoxContainer/MenuContainer"]
-layout_mode = 2
+label = "Menu"

@@ -20,40 +20,39 @@ script = ExtResource("1_jsu87")
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
 anchor_right = 1.0
-anchor_bottom = 0.992
-offset_bottom = -0.832001
+anchor_bottom = 1.0
+offset_bottom = -1.0
 mouse_filter = 2
 texture = ExtResource("2_7l7pc")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 20.0
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_right = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_raalj")
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.055
-anchor_right = 0.937
-anchor_bottom = 1.0
-offset_left = -0.0400004
-offset_right = 0.0639954
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 1
 
-[node name="Slot1" parent="HBoxContainer" instance=ExtResource("3_qstqa")]
+[node name="Slot1" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_qstqa")]
 layout_mode = 2
 
-[node name="Slot2" parent="HBoxContainer" instance=ExtResource("3_qstqa")]
+[node name="Slot2" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_qstqa")]
 layout_mode = 2
 
-[node name="Slot3" parent="HBoxContainer" instance=ExtResource("3_qstqa")]
+[node name="Slot3" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_qstqa")]
 layout_mode = 2
 
-[node name="Slot4" parent="HBoxContainer" instance=ExtResource("3_qstqa")]
+[node name="Slot4" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_qstqa")]
 layout_mode = 2
 
-[node name="Slot5" parent="HBoxContainer" instance=ExtResource("3_qstqa")]
+[node name="Slot5" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_qstqa")]
 layout_mode = 2
 
-[node name="Slot6" parent="HBoxContainer" instance=ExtResource("3_qstqa")]
+[node name="Slot6" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_qstqa")]
 layout_mode = 2

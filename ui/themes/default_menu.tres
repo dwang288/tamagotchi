@@ -25,3 +25,5 @@ RichTextLabel/font_sizes/italics_font_size = 6
 RichTextLabel/font_sizes/mono_font_size = 6
 RichTextLabel/font_sizes/normal_font_size = 6
 RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_70plv")
+TabBar/font_sizes/font_size = 3
+TabContainer/font_sizes/font_size = 3

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4c2wv0guy7fi"]
+[gd_scene load_steps=7 format=3 uid="uid://b4c2wv0guy7fi"]
 
 [ext_resource type="FontFile" uid="uid://dbroep5o2wh2f" path="res://assets/TinyPixie2.ttf" id="1_awtrg"]
 [ext_resource type="Script" path="res://test/new_item_button_test.gd" id="2_7ldn8"]
+[ext_resource type="Resource" uid="uid://cvl6a7l4tsv8d" path="res://items/itemResources/candy.tres" id="3_g7xin"]
 [ext_resource type="Script" path="res://test/new_game_button_test.gd" id="3_p4al0"]
+[ext_resource type="Resource" uid="uid://bqoqm8dmrb26a" path="res://items/itemResources/chicken_breast.tres" id="4_cmtoq"]
 
 [sub_resource type="Theme" id="Theme_3k4m0"]
 default_font = ExtResource("1_awtrg")
@@ -28,6 +30,7 @@ offset_bottom = 16.0
 grow_horizontal = 0
 text = "add"
 script = ExtResource("2_7ldn8")
+items = Array[Resource("res://items/inventory_item_resource.gd")]([ExtResource("3_g7xin"), ExtResource("4_cmtoq")])
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 1

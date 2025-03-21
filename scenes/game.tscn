@@ -33,7 +33,6 @@ offset_bottom = 128.0
 unique_name_in_owner = true
 
 [node name="TestButton" parent="." instance=ExtResource("6_gfyqw")]
-anchors_preset = 0
 offset_left = 90.0
 offset_top = 19.0
 offset_right = 129.0

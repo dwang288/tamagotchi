@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="GameStateResource" load_steps=16 format=3 uid="uid://kfr71sfgi317"]
+[gd_resource type="Resource" script_class="GameStateResource" load_steps=14 format=3 uid="uid://kfr71sfgi317"]
 
 [ext_resource type="Script" path="res://inventory/inventory_resource.gd" id="1_yt4nl"]
 [ext_resource type="Script" path="res://game_states/game_state_resource.gd" id="2_8s45o"]
 [ext_resource type="Resource" uid="uid://debtsaphjnewd" path="res://items/itemResources/lollipop.tres" id="2_x84sv"]
 [ext_resource type="Script" path="res://inventory/inventory_slot_resource.gd" id="3_pqsaf"]
-[ext_resource type="Resource" uid="uid://cvl6a7l4tsv8d" path="res://items/itemResources/candy.tres" id="4_u0uih"]
-[ext_resource type="Resource" uid="uid://bqoqm8dmrb26a" path="res://items/itemResources/chicken_breast.tres" id="5_dnw15"]
 [ext_resource type="Resource" uid="uid://etn86t24vnq6" path="res://tamagotchi/plave/yejun/yejun.tres" id="5_gxvx3"]
 [ext_resource type="Resource" uid="uid://bfuwgqpv05fwb" path="res://tamagotchi/plave/noah/noah.tres" id="6_h68wl"]
 
@@ -16,13 +14,11 @@ amount = 1
 
 [sub_resource type="Resource" id="Resource_pmm7q"]
 script = ExtResource("3_pqsaf")
-item = ExtResource("4_u0uih")
-amount = 5
+amount = 0
 
 [sub_resource type="Resource" id="Resource_2iup4"]
 script = ExtResource("3_pqsaf")
-item = ExtResource("5_dnw15")
-amount = 5
+amount = 0
 
 [sub_resource type="Resource" id="Resource_8mcem"]
 script = ExtResource("3_pqsaf")

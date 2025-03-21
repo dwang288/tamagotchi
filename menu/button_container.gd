@@ -15,8 +15,11 @@ func _process(delta):
 
 func _on_mouse_entered():
 	label_node.set("theme_override_constants/outline_size", 3)
+#	label_node.set("theme_override_constants/default_color", Color(Color.WHITE))
+#	label_node.set("theme_override_constants/font_outline_color", Color.hex(0x545770ff))
 	MouseManager.set_cursor(MouseManager.HAND_POINT)
 
 func _on_mouse_exited():
 	label_node.set("theme_override_constants/outline_size", 0)
+#	label_node.set("theme_override_constants/default_color", Color.hex(0x545770ff))
 	MouseManager.set_default()

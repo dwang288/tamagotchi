@@ -26,16 +26,26 @@ func _process(delta):
 	animation_process()
 
 func interaction_process():
+
 	if mouse_collision && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		current_mouse_position = get_global_mouse_position()
-		if last_mouse_position != Vector2.ZERO:
-			mouse_distance_traveled += last_mouse_position.distance_to(current_mouse_position)
-		last_mouse_position = current_mouse_position
-		resource.increase_hygiene(mouse_distance_traveled)
-	if Input.is_action_just_released("mouse_button_left"):
-		last_mouse_position = Vector2.ZERO
-		current_mouse_position = Vector2.ZERO
-		mouse_distance_traveled = 0.0
+		resource.increase_hygiene(get_mouse_distance_traveled())
+	if Input.is_action_just_released("mouse_button_left") && self.mouse_distance_traveled != 0:
+		# TODO: Rename feed to happy or something more generic
+		feed()
+		reset_mouse_data()
+
+func reset_mouse_data():
+	self.last_mouse_position = Vector2.ZERO
+	self.current_mouse_position = Vector2.ZERO
+	self.mouse_distance_traveled = 0.0
+
+func get_mouse_distance_traveled():
+	self.current_mouse_position = get_global_mouse_position()
+	if self.last_mouse_position != Vector2.ZERO:
+		self.mouse_distance_traveled += self.last_mouse_position.distance_to(self.current_mouse_position)
+	self.last_mouse_position = self.current_mouse_position
+	
+	return mouse_distance_traveled
 
 # Animation functions
 
@@ -66,6 +76,8 @@ func feed():
 
 func _on_area_2d_mouse_entered():
 	mouse_collision = true
+	MouseManager.set_cursor(MouseManager.HAND_OPEN)
 
 func _on_area_2d_mouse_exited():
 	mouse_collision = false
+	MouseManager.set_default()

@@ -15,6 +15,8 @@ func _process(delta):
 
 func _on_mouse_entered():
 	label_node.set("theme_override_constants/outline_size", 3)
+	MouseManager.set_cursor(MouseManager.HAND_POINT)
 
 func _on_mouse_exited():
 	label_node.set("theme_override_constants/outline_size", 0)
+	MouseManager.set_default()

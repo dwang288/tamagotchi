@@ -1,5 +1,6 @@
 extends Panel
 
+@onready var button: Button = $ButtonUseItem
 @onready var item_icon: TextureRect = $CenterContainer/Panel/item
 @onready var amount_label: Label = $CenterContainer/Panel/Label
 
@@ -30,13 +31,16 @@ func _on_button_use_item_pressed():
 
 
 func _on_mouse_entered():
-	get_node("ButtonUseItem").grab_focus()
+	$ButtonUseItem.grab_focus()
+	if item_slot:
+		MouseManager.set_cursor(MouseManager.HAND_POINT)
 
 func _on_mouse_exited():
-	get_node("ButtonUseItem").release_focus()
+	$ButtonUseItem.release_focus()
+	MouseManager.set_default()
 
 func _on_button_use_item_focus_entered():
-	get_node("Selector").visible = true
+	$Selector.visible = true
 
 func _on_button_use_item_focus_exited():
-	get_node("Selector").visible = false
+	$Selector.visible = false

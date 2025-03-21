@@ -59,11 +59,11 @@ func process_happiness(delta):
 
 
 func increase_hygiene(mouse_distance_traveled: float):
+	is_awake = true
 	# TODO: Add hygiene gain rate to tamagotchi stat rates
 	var hygiene_increase = mouse_distance_traveled * .005
 	if stats.hygiene < stats.maxHygiene:
 		stats.hygiene = min(stats.hygiene + hygiene_increase, stats.maxHygiene)
-	print(stats.hygiene)
 	
 
 func use_item_in_slot(slot: InventorySlotResource):

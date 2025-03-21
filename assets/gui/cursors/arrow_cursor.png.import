@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcsgd0wqx2krj"
-path="res://.godot/imported/yejun_sheet.png-9a92ea2c649d00578e5fd0e9699de9b7.ctex"
+uid="uid://bhtx2ju4d8piy"
+path="res://.godot/imported/arrow_cursor.png-33d92425522328d1d7027897b353c792.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite_sheets/plave/yejun_sheet.png"
-dest_files=["res://.godot/imported/yejun_sheet.png-9a92ea2c649d00578e5fd0e9699de9b7.ctex"]
+source_file="res://assets/gui/cursors/arrow_cursor.png"
+dest_files=["res://.godot/imported/arrow_cursor.png-33d92425522328d1d7027897b353c792.ctex"]
 
 [params]
 

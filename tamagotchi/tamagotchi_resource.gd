@@ -7,14 +7,12 @@ signal stat_changed(tamagotchi: TamagotchiResource)
 signal item_consumed(slot: InventorySlotResource)
 
 # Animation signals
-signal fed
+signal item_used
 
 @export var stat_drain_rates: StatDrainRatesResource
 @export var stats: StatsResource
 @export var is_awake: bool
 @export var animation_library: AnimationLibrary
-
-# TODO: All data manipulation should be in a proper node, not a resource
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(delta):
@@ -26,7 +24,7 @@ func process(delta):
 
 	stat_changed.emit(self)
 
-# TODO: Process functions should be in another class/node
+# TODO: Stop initializing new variables within the process loop
 func process_hunger(delta):
 	if is_awake:
 		var newHunger = stats.hunger - delta * stat_drain_rates.hunger
@@ -48,12 +46,26 @@ func process_rest(delta):
 func process_health(delta):
 	# should not decay unless there's some condition
 	pass
+
 func process_hygiene(delta):
 	# hygiene decay unless 0, at whch point tamagotchi gets the dirty sprite
-	pass
+	if is_awake:
+		var newHygiene = stats.hygiene - delta * stat_drain_rates.hygiene
+		stats.hygiene = newHygiene if newHygiene >= 0 else 0
+
 func process_happiness(delta):
 	# if some other stats at 0 then decay
 	pass
+
+
+func increase_hygiene(mouse_distance_traveled: float):
+	# TODO: Add hygiene gain rate to tamagotchi stat rates
+	var hygiene_increase = mouse_distance_traveled * .005
+	if stats.hygiene < stats.maxHygiene:
+		stats.hygiene = min(stats.hygiene + hygiene_increase, stats.maxHygiene)
+	print(stats.hygiene)
+	
+
 func use_item_in_slot(slot: InventorySlotResource):
 	# TODO: loop through item properties and apply so I can add
 	# new stats in peace
@@ -70,7 +82,7 @@ func use_item_in_slot(slot: InventorySlotResource):
 		stats.health = newHealth if newHealth <= stats.maxHealth else stats.maxHealth
 		stats.rest = newRest if newRest <= stats.maxRest else stats.maxRest
 
-		fed.emit()
+		item_used.emit()
 		is_awake = true
 		if slot.item.is_consumable:
 			item_consumed.emit(slot)

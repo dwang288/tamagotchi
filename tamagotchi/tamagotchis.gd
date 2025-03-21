@@ -52,7 +52,3 @@ func set_active_tamagotchi(tamagotchi_index: int):
 
 func click_item(slot: InventorySlotResource):
 	tamagotchi_nodes[active_tamagotchi_index].resource.use_item_in_slot(slot)
-
-func _process(delta):
-	for node in tamagotchi_nodes.values():
-		node.resource.process(delta)

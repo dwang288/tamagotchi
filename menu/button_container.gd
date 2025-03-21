@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Control
 
 @export var label: String
 @onready var label_node: RichTextLabel = %RichTextLabel

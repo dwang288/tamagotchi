@@ -11,13 +11,11 @@ extends Control
 @onready var right_inventory_button = $MarginContainer/HBoxContainer/RightButtonContainer/RightInventoryButton
 
 @onready var min_offset: int = 0
-@onready var max_offset: int = inventory.slot_resources.size() - columns
+@onready var max_offset: int = max(inventory.slot_resources.size() - columns, 0)
 
 
 func _ready():
-
 	slots.resize(columns)
-	print(inventory.slot_resources.size())
 	for i in range(min(inventory.slot_resources.size(), columns)):
 		slots[i] = slot_scene.instantiate()
 		%InventoryContainer.add_child(slots[i])
@@ -27,12 +25,16 @@ func _ready():
 	# TODO: Check if that node exists first
 	%InventoryContainer.get_child(0).get_node("UseItemButton").grab_focus()
 
-# TODO: Also call update when scrolling through container
 func update():
 	for i in range(min(inventory.slot_resources.size(), slots.size())):
 		slots[i].update(inventory.slot_resources[i + slot_offset])
+	
+	check_slot_offset()
 
-	# Check left/right offset arrows
+
+
+# Check left/right offset arrows
+func check_slot_offset():
 	if slot_offset <= min_offset:
 		left_inventory_button.visible = false
 	else:

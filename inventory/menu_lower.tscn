@@ -46,11 +46,12 @@ theme_override_constants/margin_right = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 0
 
 [node name="LeftButtonContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(4, 2.08165e-12)
+custom_minimum_size = Vector2(6, 2.08165e-12)
 layout_mode = 2
+theme_override_constants/margin_right = 0
 
 [node name="LeftInventoryButton" type="Button" parent="MarginContainer/HBoxContainer/LeftButtonContainer"]
 layout_mode = 2
@@ -58,7 +59,12 @@ theme = ExtResource("3_4bowf")
 icon = ExtResource("3_ovg17")
 icon_alignment = 1
 
-[node name="InventoryContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(115, 2.08165e-12)
+layout_mode = 2
+theme_override_constants/margin_left = 1
+
+[node name="InventoryContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_raalj")
 layout_mode = 2
@@ -66,7 +72,7 @@ mouse_filter = 2
 theme_override_constants/separation = 1
 
 [node name="RightButtonContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(4, 2.08165e-12)
+custom_minimum_size = Vector2(6, 2.08165e-12)
 layout_mode = 2
 
 [node name="RightInventoryButton" type="Button" parent="MarginContainer/HBoxContainer/RightButtonContainer"]
@@ -74,14 +80,6 @@ layout_mode = 2
 theme = ExtResource("3_4bowf")
 icon = ExtResource("4_oqsqw")
 icon_alignment = 1
-
-[node name="GridContainer" type="GridContainer" parent="."]
-visible = false
-layout_mode = 2
-offset_left = 7.0
-offset_right = 7.0
-offset_bottom = 40.0
-columns = 6
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LeftButtonContainer/LeftInventoryButton" to="." method="_on_left_inventory_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/RightButtonContainer/RightInventoryButton" to="." method="_on_right_inventory_button_pressed"]

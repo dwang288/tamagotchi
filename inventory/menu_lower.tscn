@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmlvlmj5ijc5"]
+
+[ext_resource type="Script" path="res://inventory/menu_lower.gd" id="1_vl0j4"]
+[ext_resource type="Texture2D" uid="uid://civwj381a1nuo" path="res://assets/gui/inventory_gui/inventory_hsh.png" id="2_xd71o"]
+[ext_resource type="Theme" uid="uid://1y31veihu3xb" path="res://ui/themes/inventory_arrow_texture.tres" id="3_4bowf"]
+[ext_resource type="Texture2D" uid="uid://xsjaduvgtxtj" path="res://assets/gui/inventory_gui/inventory_arrow_left.png" id="3_ovg17"]
+[ext_resource type="Texture2D" uid="uid://8w4152k6rv2q" path="res://assets/gui/inventory_gui/inventory_arrow_right.png" id="4_oqsqw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_raalj"]
+
+[node name="MenuLower" type="Control"]
+custom_minimum_size = Vector2(128, 20)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_vl0j4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("2_xd71o")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="LeftButtonContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(4, 2.08165e-12)
+layout_mode = 2
+
+[node name="LeftInventoryButton" type="Button" parent="MarginContainer/HBoxContainer/LeftButtonContainer"]
+layout_mode = 2
+theme = ExtResource("3_4bowf")
+icon = ExtResource("3_ovg17")
+icon_alignment = 1
+
+[node name="InventoryContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_raalj")
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 1
+
+[node name="RightButtonContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(4, 2.08165e-12)
+layout_mode = 2
+
+[node name="RightInventoryButton" type="Button" parent="MarginContainer/HBoxContainer/RightButtonContainer"]
+layout_mode = 2
+theme = ExtResource("3_4bowf")
+icon = ExtResource("4_oqsqw")
+icon_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 7.0
+offset_right = 7.0
+offset_bottom = 40.0
+columns = 6
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/LeftButtonContainer/LeftInventoryButton" to="." method="_on_left_inventory_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/RightButtonContainer/RightInventoryButton" to="." method="_on_right_inventory_button_pressed"]

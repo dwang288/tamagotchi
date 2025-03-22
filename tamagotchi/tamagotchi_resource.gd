@@ -67,8 +67,7 @@ func increase_hygiene(mouse_distance_traveled: float):
 	
 
 func use_item_in_slot(slot: InventorySlotResource):
-	# TODO: loop through item properties and apply so I can add
-	# new stats in peace
+	# TODO: Make sure stat can't drop below 0
 	if slot.item.is_usable:
 		var newHunger = stats.hunger + slot.item.hunger
 		var newHygiene = stats.hygiene + slot.item.hygiene

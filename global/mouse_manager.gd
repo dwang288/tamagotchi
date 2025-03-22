@@ -12,11 +12,18 @@ enum { ARROW, HAND_POINT, HAND_OPEN, HAND_GRAB }
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-	
+
+	# Overrid default mouse cursors
 	Input.set_custom_mouse_cursor(cursor_arrow, Input.CURSOR_ARROW)
 	Input.set_custom_mouse_cursor(cursor_point, Input.CURSOR_POINTING_HAND, cursor_hand_hotspot)
 	Input.set_custom_mouse_cursor(cursor_open, Input.CURSOR_MOVE, cursor_hand_hotspot)
 	Input.set_custom_mouse_cursor(cursor_grab, Input.CURSOR_DRAG, cursor_hand_hotspot)
+
+# Set cursor when it enters the viewport
+func _notification(notif):
+	if notif == NOTIFICATION_WM_MOUSE_ENTER:
+		# Reapply cursor
+		Input.set_custom_mouse_cursor(cursor_arrow)
 
 func set_cursor(cursor):
 	if cursor == self.ARROW:

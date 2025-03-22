@@ -1,7 +1,7 @@
 extends Panel
 
-@onready var button: Button = $ButtonUseItem
-@onready var item_icon: TextureRect = $CenterContainer/Panel/item
+@onready var button: Button = $UseItemButton
+@onready var item_icon: TextureRect = $CenterContainer/Panel/ItemTexture
 @onready var amount_label: Label = $CenterContainer/Panel/Label
 
 @export var item_slot: InventorySlotResource
@@ -31,12 +31,12 @@ func _on_button_use_item_pressed():
 
 
 func _on_mouse_entered():
-	$ButtonUseItem.grab_focus()
+	button.grab_focus()
 	if item_slot:
 		MouseManager.set_cursor(MouseManager.HAND_POINT)
 
 func _on_mouse_exited():
-	$ButtonUseItem.release_focus()
+	button.release_focus()
 	MouseManager.set_default()
 
 func _on_button_use_item_focus_entered():

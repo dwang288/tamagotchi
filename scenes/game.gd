@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 class_name Game
 
@@ -23,8 +23,7 @@ func connection_setup():
 	connect_to_stats_gui(tamagotchis_node.tamagotchi_nodes[tamagotchis_node.active_tamagotchi_index])
 
 	# Connect on click signal between menu item and inventory slot
-	for slot in $MenuLower/MarginContainer/HBoxContainer.get_children():
-		slot.clicked_item.connect(tamagotchis_node.click_item)
+	$MenuLower.connect_slots_on_click_signal(tamagotchis_node.click_item)
 
 	# Connect item consumed success to inventory deletion of item
 	for tamagotchi_node in tamagotchis_node.get_children():

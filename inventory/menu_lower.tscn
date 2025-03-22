@@ -55,6 +55,8 @@ theme_override_constants/margin_right = 0
 
 [node name="LeftInventoryButton" type="Button" parent="MarginContainer/HBoxContainer/LeftButtonContainer"]
 layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 theme = ExtResource("3_4bowf")
 icon = ExtResource("3_ovg17")
 icon_alignment = 1
@@ -77,6 +79,8 @@ layout_mode = 2
 
 [node name="RightInventoryButton" type="Button" parent="MarginContainer/HBoxContainer/RightButtonContainer"]
 layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
 theme = ExtResource("3_4bowf")
 icon = ExtResource("4_oqsqw")
 icon_alignment = 1

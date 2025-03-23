@@ -73,6 +73,12 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 1
 
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+columns = 6
+
 [node name="RightButtonContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(6, 2.08165e-12)
 layout_mode = 2

@@ -1,46 +1,8 @@
-[gd_resource type="Resource" script_class="InventoryResource" load_steps=13 format=3 uid="uid://dn84gt5g4kpnd"]
+[gd_resource type="Resource" script_class="InventoryResource" load_steps=2 format=3 uid="uid://dn84gt5g4kpnd"]
 
-[ext_resource type="Resource" uid="uid://debtsaphjnewd" path="res://items/itemResources/lollipop.tres" id="2_nq2m1"]
 [ext_resource type="Script" path="res://inventory/inventory_resource.gd" id="2_pgjvb"]
-[ext_resource type="Script" path="res://inventory/inventory_slot_resource.gd" id="3_phck6"]
-
-[sub_resource type="Resource" id="Resource_5bmt5"]
-script = ExtResource("3_phck6")
-item = ExtResource("2_nq2m1")
-amount = 1
-
-[sub_resource type="Resource" id="Resource_ygb0y"]
-script = ExtResource("3_phck6")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_e4gq1"]
-script = ExtResource("3_phck6")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_olhrn"]
-script = ExtResource("3_phck6")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_3jd7a"]
-script = ExtResource("3_phck6")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_2bupy"]
-script = ExtResource("3_phck6")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_fdj7o"]
-script = ExtResource("3_phck6")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_uteju"]
-script = ExtResource("3_phck6")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_o8f6e"]
-script = ExtResource("3_phck6")
-amount = 0
 
 [resource]
 script = ExtResource("2_pgjvb")
-slot_resources = Array[ExtResource("3_phck6")]([SubResource("Resource_5bmt5"), SubResource("Resource_ygb0y"), SubResource("Resource_e4gq1"), SubResource("Resource_olhrn"), SubResource("Resource_3jd7a"), SubResource("Resource_2bupy"), SubResource("Resource_fdj7o"), SubResource("Resource_uteju"), SubResource("Resource_o8f6e")])
+inventory_capacity = 12
+slot_resources = Array[Resource("res://inventory/inventory_slot_resource.gd")]([])

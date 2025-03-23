@@ -8,21 +8,24 @@ extends Panel
 
 signal clicked_item(slot: InventorySlotResource)
 
-func update(slot: InventorySlotResource):
 
-	if slot.item:
-		item_slot = slot
-		item_icon.visible = true
-		item_icon.texture = slot.item.texture
-		if slot.amount == 0 || slot.amount == 1:
-			amount_label.visible = false
-		else:
-			amount_label.visible = true
-			amount_label.text = str(slot.amount)
-	else:
-		item_slot = null
-		item_icon.visible = false
+func update_slot(slot: InventorySlotResource):
+	item_slot = slot
+	item_icon.visible = true
+	item_icon.texture = slot.item.texture
+	if slot.amount == 0 || slot.amount == 1:
 		amount_label.visible = false
+	else:
+		amount_label.visible = true
+		amount_label.text = str(slot.amount)
+
+
+func clear_slot():
+	item_slot = null
+	item_icon.visible = false
+	item_icon.texture = null
+	amount_label.visible = false
+	amount_label.text = str(0)
 
 
 func _on_button_use_item_pressed():

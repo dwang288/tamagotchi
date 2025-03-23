@@ -26,8 +26,8 @@ func _process(delta):
 			$Icon.visible = true
 		time_passed = 0.0  # Reset timer
 
-func update(value: float):
-	self.value = value
+func update(stat_value: float):
+	self.value = stat_value
 	$Value.text = str(floor(value*100))
 	# Color should change from green at 100 to yellow at 50% to red at 0%
 	# and then to flashing

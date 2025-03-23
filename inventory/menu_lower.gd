@@ -15,44 +15,70 @@ extends Control
 
 
 func _ready():
+	# TODO: slots initialized should be a multiple of columns
 	slots.resize(columns)
-	for i in range(min(inventory.slot_resources.size(), columns)):
+	for i in columns:
 		slots[i] = slot_scene.instantiate()
 		%InventoryContainer.add_child(slots[i])
 	inventory.updated.connect(update)
 	update()
-	
-	# TODO: Check if that node exists first
-	%InventoryContainer.get_child(0).get_node("UseItemButton").grab_focus()
+
+	if %InventoryContainer.get_child_count() > 0:
+		%InventoryContainer.get_child(0).get_node("UseItemButton").grab_focus()
 
 func update():
-	for i in range(min(inventory.slot_resources.size(), slots.size())):
-		slots[i].update(inventory.slot_resources[i + slot_offset])
-	
-	check_slot_offset()
 
+	set_valid_offsets()
+	
+	# Iterating through the slot nodes in the case that there's more nodes than slot resources
+	for i in range(slots.size()):
+		if i < inventory.slot_resources.size():
+			slots[i].update_slot(inventory.slot_resources[i + slot_offset])
+		else:
+			slots[i].clear_slot()
+
+	set_arrow_visibility()
 
 
 # Check left/right offset arrows
-func check_slot_offset():
+# Show right arrow if there's more resources in front
+#	Check if inventory.slot_resources.size() is > current offset + slots.size()
+# Show left arrow if there's more resources behind
+#	Just an offset check
+func set_arrow_visibility():
+	
+	# Check if offset at all
 	if slot_offset <= min_offset:
 		left_inventory_button.visible = false
 	else:
 		left_inventory_button.visible = true
-	
-	if slot_offset >= max_offset:
+
+	# print("condition 1: ", inventory.slot_resources.size() <= (slot_offset + slots.size(), " condition 2: ", slot_offset >= max_offset)
+	# print("slot_offset: ", slot_offset, " max_offset: ", max_offset)
+	if inventory.slot_resources.size() <= (slot_offset + slots.size()) || slot_offset >= max_offset:
 		right_inventory_button.visible = false
 	else:
 		right_inventory_button.visible = true
+
 
 func connect_slots_on_click_signal(function: Callable):
 	for slot in %InventoryContainer.get_children():
 		slot.clicked_item.connect(function)
 
+
+func set_valid_offsets():
+	# Set max offset depending on # of slot_resources
+	max_offset = max(inventory.slot_resources.size() - slots.size(), 0)
+	
+	if slot_offset > max_offset:
+		slot_offset = max_offset
+
+
 func _on_left_inventory_button_pressed():
 	if slot_offset > min_offset:
 		slot_offset -= 1
 		update()
+
 
 func _on_right_inventory_button_pressed():
 	if slot_offset < max_offset:

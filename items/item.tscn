@@ -1,10 +1,27 @@
-[gd_scene format=3 uid="uid://b82pp2eweitui"]
+[gd_scene load_steps=3 format=3 uid="uid://b82pp2eweitui"]
+
+[ext_resource type="Script" path="res://items/item.gd" id="1_qp0pk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpr0d"]
+size = Vector2(16, 16)
 
 [node name="Item" type="Node2D"]
+script = ExtResource("1_qp0pk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_kpr0d")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
-stretch_mode = 2
+grow_horizontal = 2
+grow_vertical = 2

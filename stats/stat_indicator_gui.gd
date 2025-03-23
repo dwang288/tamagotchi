@@ -1,7 +1,11 @@
 extends PanelContainer
 
 @export var icon_texture: Texture2D
+
 @onready var indicator_node: ColorRect = $Indicator
+@onready var icon_node: TextureRect = $Icon
+@onready var dimmer_node: ColorRect = $Dimmer
+@onready var value_node: Label = $Value
 
 @export_category("Indicator colors")
 @export var value: float
@@ -13,7 +17,7 @@ extends PanelContainer
 @export var time_passed: float = 0.0  # Accumulator
 
 func _ready():
-	$Icon.texture = icon_texture
+	icon_node.texture = icon_texture
 
 func _process(delta):
 	# TODO: Clean up. Potentially use a Timer node on the parent container
@@ -21,14 +25,14 @@ func _process(delta):
 	time_passed += delta
 	if time_passed >= flash_time:
 		if self.value == 0:
-			$Icon.visible = !$Icon.visible
+			icon_node.visible = !icon_node.visible
 		else:
-			$Icon.visible = true
+			icon_node.visible = true
 		time_passed = 0.0  # Reset timer
 
 func update(stat_value: float):
 	self.value = stat_value
-	$Value.text = str(floor(value*100))
+	value_node.text = str(floor(value*100))
 	# Color should change from green at 100 to yellow at 50% to red at 0%
 	# and then to flashing
 	# TODO: Use the set colors instead of hardcoding
@@ -52,10 +56,10 @@ func update(stat_value: float):
 
 
 func _on_mouse_entered():
-	$Dimmer.visible = true
-	$Value.visible = true
+	dimmer_node.visible = true
+	value_node.visible = true
 
 
 func _on_mouse_exited():
-	$Dimmer.visible = false
-	$Value.visible = false
+	dimmer_node.visible = false
+	value_node.visible = false

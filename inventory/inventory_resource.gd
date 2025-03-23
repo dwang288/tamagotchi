@@ -36,3 +36,9 @@ func delete(slot_resource: InventorySlotResource):
 		updated.emit()
 		return
 	print("Could not find item to be deleted")
+
+func swap_items_by_index(index1: int, index2: int):
+	var temp = slot_resources[index2]
+	slot_resources[index2] = slot_resources[index1]
+	slot_resources[index1] = temp
+	updated.emit()

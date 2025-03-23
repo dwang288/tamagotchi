@@ -6,6 +6,7 @@ extends Node
 @export var cursor_grab = load("res://assets/gui/cursors/hand_grab_cursor.png")
 
 @export var cursor_hand_hotspot: Vector2 = Vector2(5, 0)
+@export var grabbed_item: Node2D
 
 enum { ARROW, HAND_POINT, HAND_OPEN, HAND_GRAB }
 
@@ -21,9 +22,18 @@ func _ready():
 
 # Set cursor when it enters the viewport
 func _notification(notif):
+	# TODO: Doesn't always work? Kind of buggy
 	if notif == NOTIFICATION_WM_MOUSE_ENTER:
 		# Reapply cursor
 		Input.set_custom_mouse_cursor(cursor_arrow)
+	if notif == NOTIFICATION_DRAG_END:
+		grabbed_item = null
+
+func _process(delta):
+	if grabbed_item:
+		# TODO: For some reason, global_position isn't being set
+		grabbed_item.global_position = get_viewport().get_mouse_position()
+		print(grabbed_item.global_position)
 
 func set_cursor(cursor):
 	if cursor == self.ARROW:
@@ -38,6 +48,6 @@ func set_cursor(cursor):
 func set_default():
 	Input.set_custom_mouse_cursor(cursor_arrow, Input.CURSOR_ARROW)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func set_grabbed_item(item: Node2D):
+	grabbed_item = item
+	add_child(grabbed_item)

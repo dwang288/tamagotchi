@@ -10,6 +10,7 @@ signal active_tamagotchi_changed(tamagotchi: Tamagotchi)
 @onready var tamagotchi_scene = preload("res://tamagotchi/tamagotchi.tscn")
 # TODO: Add types in 4.4 [index, PackedScene]
 @onready var tamagotchi_nodes: Dictionary = {}
+@onready var tamagotchi_marker_node: Marker2D = $TamagotchiMarker2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +20,7 @@ func _ready():
 	for i in tamagotchi_resources.size():
 
 		tamagotchi_nodes[i] = tamagotchi_scene.instantiate()
-		tamagotchi_nodes[i].position = $TamagotchiMarker2D.position
+		tamagotchi_nodes[i].position = tamagotchi_marker_node.position
 		tamagotchi_nodes[i].initialize(tamagotchi_resources[i])
 		add_child(tamagotchi_nodes[i])
 

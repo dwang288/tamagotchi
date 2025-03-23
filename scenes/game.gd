@@ -23,7 +23,7 @@ func connection_setup():
 	connect_to_stats_gui(tamagotchis_node.tamagotchi_nodes[tamagotchis_node.active_tamagotchi_index])
 
 	# Connect on click signal between menu item and inventory slot
-	$MenuLower.connect_slots_on_click_signal(tamagotchis_node.click_item)
+	menu_lower_node.connect_slots_on_click_signal(tamagotchis_node.click_item)
 
 	# Connect item consumed success to inventory deletion of item
 	for tamagotchi_node in tamagotchis_node.get_children():

@@ -64,21 +64,22 @@ func _notification(what):
 		amount_label.visible = true
 
 func _get_drag_data(at_position):
-	being_dragged = true
-	MouseManager.set_cursor(MouseManager.HAND_GRAB)
+	if item_slot:
+		being_dragged = true
+		MouseManager.set_cursor(MouseManager.HAND_GRAB)
 
-	var drag_preview = SceneManager.scenes["drag_preview"].instantiate()
-	var item_node = SceneManager.scenes["item"].instantiate()
-	item_node.item_resource = self.item_slot.item
+		var drag_preview = SceneManager.scenes["drag_preview"].instantiate()
+		var item_node = SceneManager.scenes["item"].instantiate()
+		item_node.item_resource = self.item_slot.item
 
-	drag_preview.node = item_node
+		drag_preview.node = item_node
 
-	set_drag_preview(drag_preview)
+		set_drag_preview(drag_preview)
 
-	item_icon.visible = false
-	amount_label.visible = false
+		item_icon.visible = false
+		amount_label.visible = false
 
-	return self
+		return self
 
 func _can_drop_data(at_position, data):
 	return data is Slot && self.item_slot

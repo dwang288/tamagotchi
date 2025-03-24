@@ -1,52 +1,27 @@
-[gd_resource type="Resource" script_class="GameStateResource" load_steps=16 format=3]
+[gd_resource type="Resource" script_class="GameStateResource" load_steps=11 format=3]
 
 [ext_resource type="Script" path="res://inventory/inventory_resource.gd" id="1_fspag"]
 [ext_resource type="Script" path="res://game_states/game_state_resource.gd" id="2_8s45o"]
 [ext_resource type="Resource" path="res://items/itemResources/chicken_breast.tres" id="2_js6sr"]
 [ext_resource type="Script" path="res://inventory/inventory_slot_resource.gd" id="3_jotr8"]
-[ext_resource type="Resource" path="res://items/itemResources/candy.tres" id="4_hg4sv"]
+[ext_resource type="Resource" path="res://items/itemResources/candy.tres" id="4_wcehb"]
 [ext_resource type="Resource" path="res://tamagotchi/plave/yejun/yejun.tres" id="5_gxvx3"]
 [ext_resource type="Resource" path="res://tamagotchi/plave/noah/noah.tres" id="6_h68wl"]
 
-[sub_resource type="Resource" id="Resource_8if7m"]
+[sub_resource type="Resource" id="Resource_p3g40"]
 script = ExtResource("3_jotr8")
-item = ExtResource("2_js6sr")
-amount = 10
-
-[sub_resource type="Resource" id="Resource_7ou6j"]
-script = ExtResource("3_jotr8")
-item = ExtResource("2_js6sr")
-amount = 10
-
-[sub_resource type="Resource" id="Resource_7hs5s"]
-script = ExtResource("3_jotr8")
-item = ExtResource("4_hg4sv")
-amount = 3
-
-[sub_resource type="Resource" id="Resource_arvly"]
-script = ExtResource("3_jotr8")
-item = ExtResource("4_hg4sv")
-amount = 10
-
-[sub_resource type="Resource" id="Resource_x1kjf"]
-script = ExtResource("3_jotr8")
-item = ExtResource("4_hg4sv")
-amount = 10
-
-[sub_resource type="Resource" id="Resource_6jueo"]
-script = ExtResource("3_jotr8")
-item = ExtResource("2_js6sr")
-amount = 10
-
-[sub_resource type="Resource" id="Resource_kursf"]
-script = ExtResource("3_jotr8")
-item = ExtResource("4_hg4sv")
+item = ExtResource("4_wcehb")
 amount = 4
+
+[sub_resource type="Resource" id="Resource_eqrqi"]
+script = ExtResource("3_jotr8")
+item = ExtResource("2_js6sr")
+amount = 7
 
 [sub_resource type="Resource" id="Resource_t8q1k"]
 script = ExtResource("1_fspag")
 inventory_capacity = 12
-slot_resources = Array[ExtResource("3_jotr8")]([SubResource("Resource_8if7m"), SubResource("Resource_7ou6j"), SubResource("Resource_7hs5s"), SubResource("Resource_arvly"), SubResource("Resource_x1kjf"), SubResource("Resource_6jueo"), SubResource("Resource_kursf")])
+slot_resources = Array[ExtResource("3_jotr8")]([SubResource("Resource_p3g40"), SubResource("Resource_eqrqi")])
 
 [resource]
 script = ExtResource("2_8s45o")

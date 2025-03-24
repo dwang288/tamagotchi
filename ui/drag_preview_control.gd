@@ -1,6 +1,5 @@
 extends Control
 
-
 @export var node: Node2D
 
 @onready var node_container: MarginContainer = $NodeContainer

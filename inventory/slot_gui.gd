@@ -87,12 +87,6 @@ func _can_drop_data(at_position, data):
 func _drop_data(at_position, data):
 	# The swap should change the actual InventoryResource
 	swapped_item.emit(data, self)
-	
-	item_icon.visible = true
-	data.amount_label.visible = true
-	
-	data.item_icon.visible = true
-	data.amount_label.visible = true
 
 	being_dragged = false
 

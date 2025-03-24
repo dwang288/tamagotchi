@@ -1,7 +1,7 @@
 extends Node
 
 @export var timer: Timer = Timer.new()
-@export var save_interval: float = 5.0
+@export var SAVE_INTERVAL: float = 5.0
 @export var game_state: GameStateResource = preload("res://game_states/default_save.tres")
 
 # TODO: Have option to make a new game and erase old save files,
@@ -9,7 +9,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timer.wait_time = save_interval
+	timer.wait_time = SAVE_INTERVAL
 	timer.autostart = true
 	timer.timeout.connect(save_game)
 	add_child(timer)

@@ -13,8 +13,8 @@ extends PanelContainer
 @export var midColor: Color
 @export var emptyColor: Color
 
-@export var flash_time: float = 0.5  # Time interval in seconds
-@export var time_passed: float = 0.0  # Accumulator
+@export var FLASH_TIME: float = 0.5  # Time interval in seconds
+@export var TIME_PASSED: float = 0.0  # Accumulator
 
 func _ready():
 	icon_node.texture = icon_texture
@@ -22,13 +22,13 @@ func _ready():
 func _process(delta):
 	# TODO: Clean up. Potentially use a Timer node on the parent container
 	# Flash icon if value is at 0
-	time_passed += delta
-	if time_passed >= flash_time:
+	TIME_PASSED += delta
+	if TIME_PASSED >= FLASH_TIME:
 		if self.value == 0:
 			icon_node.visible = !icon_node.visible
 		else:
 			icon_node.visible = true
-		time_passed = 0.0  # Reset timer
+		TIME_PASSED = 0.0  # Reset timer
 
 func update(stat_value: float):
 	self.value = stat_value

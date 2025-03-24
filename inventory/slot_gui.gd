@@ -58,10 +58,13 @@ func _on_button_use_item_focus_exited():
 
 func _notification(what):
 	if what == NOTIFICATION_DRAG_END and being_dragged:
-		print("Drag ended on: ", self)
 		MouseManager.set_default()
+
 		item_icon.visible = true
 		amount_label.visible = true
+		being_dragged = false
+
+		# print("slot_index: ", slot_index, " being dragged: ", being_dragged, " amount_label visible: ", amount_label.visible, " amount_label: ", amount_label.text)
 
 func _get_drag_data(at_position):
 	if item_slot:
@@ -71,9 +74,7 @@ func _get_drag_data(at_position):
 		var drag_preview = SceneManager.scenes["drag_preview"].instantiate()
 		var item_node = SceneManager.scenes["item"].instantiate()
 		item_node.item_resource = self.item_slot.item
-
 		drag_preview.node = item_node
-
 		set_drag_preview(drag_preview)
 
 		item_icon.visible = false
@@ -88,5 +89,5 @@ func _drop_data(at_position, data):
 	# The swap should change the actual InventoryResource
 	swapped_item.emit(data, self)
 
-	being_dragged = false
+
 

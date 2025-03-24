@@ -3,7 +3,9 @@ extends Control
 class_name Inventory
 
 @export var inventory: Resource = GameStateManager.game_state.inventory
+# For when there's only one row of inventory
 @export var columns: int = 6
+@export var rows: int = 1
 @export var slot_offset: int = 0
 
 @onready var slot_scene: PackedScene = load("res://inventory/slot.tscn")
@@ -14,13 +16,14 @@ class_name Inventory
 @onready var right_inventory_button = $MarginContainer/HBoxContainer/RightButtonContainer/RightInventoryButton
 
 @onready var min_offset: int = 0
-@onready var max_offset: int = max(inventory.slot_resources.size() - columns, 0)
+@onready var max_offset: int = max(inventory.slot_resources.size() - page_slot_count, 0)
 
+var page_slot_count: int = columns * rows
 
 func _ready():
 	# TODO: slots initialized should be a multiple of columns
-	slots.resize(columns)
-	for i in columns:
+	slots.resize(page_slot_count)
+	for i in page_slot_count:
 		slots[i] = slot_scene.instantiate()
 		slots[i].slot_index = i
 		inventory_node.add_child(slots[i])
@@ -93,12 +96,12 @@ func set_valid_offsets():
 
 func _on_left_inventory_button_pressed():
 	if slot_offset > min_offset:
-		slot_offset -= columns
+		slot_offset -= page_slot_count
 		update()
 
 
 func _on_right_inventory_button_pressed():
 	if slot_offset < max_offset:
-		slot_offset += columns
+		slot_offset += page_slot_count
 		update()
 		

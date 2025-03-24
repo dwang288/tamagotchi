@@ -7,7 +7,6 @@ extends Control
 func _ready():
 	node_container.add_child(node)
 	if node.has_node("GrabMarker"):
-		print("does this even  run")
 		node.position = node.get_node("GrabMarker").position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

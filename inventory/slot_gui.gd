@@ -34,41 +34,6 @@ func clear_slot():
 	amount_label.text = str(0)
 
 
-func _notification(what):
-	if what == NOTIFICATION_DRAG_END and being_dragged:
-		print("Drag ended on: ", self)
-		item_icon.visible = true
-		amount_label.visible = true
-
-func _get_drag_data(at_position):
-	being_dragged = true
-
-	var item_node = SceneManager.scenes["item"].instantiate()
-	item_node.item_resource = item_slot.item
-
-	MouseManager.set_grabbed_item(item_node)
-
-	item_icon.visible = false
-	amount_label.visible = false
-
-	# Need to return the index of the GUI slot
-	return self
-
-func _can_drop_data(at_position, data):
-	return data is Slot && self.item_slot
-
-func _drop_data(at_position, data):
-	# The swap should change the actual InventoryResource
-	swapped_item.emit(data, self)
-	
-	item_icon.visible = true
-	data.amount_label.visible = true
-	
-	data.item_icon.visible = true
-	data.amount_label.visible = true
-
-	being_dragged = false
-
 func _on_button_use_item_pressed():
 	if item_slot:
 		clicked_item.emit(item_slot)
@@ -87,3 +52,46 @@ func _on_button_use_item_focus_entered():
 
 func _on_button_use_item_focus_exited():
 	selector_icon.visible = false
+
+
+# Inventory drag/drop logic
+
+func _notification(what):
+	if what == NOTIFICATION_DRAG_END and being_dragged:
+		print("Drag ended on: ", self)
+		MouseManager.set_default()
+		item_icon.visible = true
+		amount_label.visible = true
+
+func _get_drag_data(at_position):
+	being_dragged = true
+	MouseManager.set_cursor(MouseManager.HAND_GRAB)
+
+	var drag_preview = SceneManager.scenes["drag_preview"].instantiate()
+	var item_node = SceneManager.scenes["item"].instantiate()
+	item_node.item_resource = self.item_slot.item
+
+	drag_preview.node = item_node
+
+	set_drag_preview(drag_preview)
+
+	item_icon.visible = false
+	amount_label.visible = false
+
+	return self
+
+func _can_drop_data(at_position, data):
+	return data is Slot && self.item_slot
+
+func _drop_data(at_position, data):
+	# The swap should change the actual InventoryResource
+	swapped_item.emit(data, self)
+	
+	item_icon.visible = true
+	data.amount_label.visible = true
+	
+	data.item_icon.visible = true
+	data.amount_label.visible = true
+
+	being_dragged = false
+

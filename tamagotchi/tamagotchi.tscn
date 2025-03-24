@@ -92,5 +92,8 @@ active = true
 parameters/conditions/awake = false
 parameters/conditions/sleeping = false
 
+[node name="GrabMarker" type="Marker2D" parent="."]
+position = Vector2(0, -15)
+
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -6,6 +6,7 @@
 size = Vector2(16, 16)
 
 [node name="Item" type="Node2D"]
+position = Vector2(-8, -8)
 script = ExtResource("1_qp0pk")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -25,3 +26,7 @@ offset_right = 8.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GrabMarker" type="Marker2D" parent="."]
+position = Vector2(8, 8)

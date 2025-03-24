@@ -26,14 +26,11 @@ func _notification(notif):
 	if notif == NOTIFICATION_WM_MOUSE_ENTER:
 		# Reapply cursor
 		Input.set_custom_mouse_cursor(cursor_arrow)
-	if notif == NOTIFICATION_DRAG_END:
-		grabbed_item = null
 
 func _process(delta):
 	if grabbed_item:
 		# TODO: For some reason, global_position isn't being set
 		grabbed_item.global_position = get_viewport().get_mouse_position()
-		print(grabbed_item.global_position)
 
 func set_cursor(cursor):
 	if cursor == self.ARROW:
@@ -50,4 +47,7 @@ func set_default():
 
 func set_grabbed_item(item: Node2D):
 	grabbed_item = item
-	add_child(grabbed_item)
+
+func clear_grabbed_item():
+	grabbed_item.queue_free()
+	grabbed_item = null

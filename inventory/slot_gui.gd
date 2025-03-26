@@ -56,17 +56,12 @@ func _on_button_use_item_focus_exited():
 
 # Inventory drag/drop logic
 
-func _notification(what):
-	if what == NOTIFICATION_DRAG_END and being_dragged:
-		MouseManager.set_default()
+func _gui_input(event):
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			start_drag()
 
-		item_icon.visible = true
-		amount_label.visible = true
-		being_dragged = false
-
-		# print("slot_index: ", slot_index, " being dragged: ", being_dragged, " amount_label visible: ", amount_label.visible, " amount_label: ", amount_label.text)
-
-func _get_drag_data(at_position):
+func start_drag():
 	if item_slot:
 		being_dragged = true
 		MouseManager.set_cursor(MouseManager.HAND_GRAB)
@@ -75,14 +70,15 @@ func _get_drag_data(at_position):
 		var item_node = SceneManager.scenes["item"].instantiate()
 		item_node.item_resource = self.item_slot.item
 		drag_preview.node = item_node
-		set_drag_preview(drag_preview)
+		
+		get_tree().current_scene.add_child(drag_preview)
 
 		item_icon.visible = false
 		amount_label.visible = false
 
 		return self
 
-func _can_drop_data(at_position, data):
+func can_drop(at_position, data):
 	return data is Slot && self.item_slot
 
 func _drop_data(at_position, data):

@@ -10,6 +10,7 @@ position = Vector2(-8, -8)
 script = ExtResource("1_qp0pk")
 
 [node name="Area2D" type="Area2D" parent="."]
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_kpr0d")

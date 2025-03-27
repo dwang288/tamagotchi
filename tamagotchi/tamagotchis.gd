@@ -16,7 +16,6 @@ signal active_tamagotchi_changed(tamagotchi: Tamagotchi)
 func _ready():
 	# Instantiate and add tamagotchi node
 	tamagotchi_resources = GameStateManager.game_state.tamagotchis
-	print(tamagotchi_resources)
 	for i in tamagotchi_resources.size():
 
 		tamagotchi_nodes[i] = tamagotchi_scene.instantiate()

@@ -57,31 +57,28 @@ func process_happiness(delta):
 	# if some other stats at 0 then decay
 	pass
 
+# mouse_distance_traveled is optional in case it's a draggable item
+func apply_item_stats(item: InventoryItemResource, mouse_distance_traveled: float = 1):
+	stats.hunger += item.hunger * mouse_distance_traveled
+	stats.hygiene += item.hygiene * mouse_distance_traveled
+	stats.happiness += item.happiness * mouse_distance_traveled
+	stats.health += item.health * mouse_distance_traveled
+	stats.rest += item.rest * mouse_distance_traveled
 
-func increase_hygiene(mouse_distance_traveled: float):
-	is_awake = true
-	# TODO: Add hygiene gain rate to tamagotchi stat rates
-	var hygiene_increase = mouse_distance_traveled * .005
-	if stats.hygiene < stats.maxHygiene:
-		stats.hygiene = min(stats.hygiene + hygiene_increase, stats.maxHygiene)
-	
+	set_valid_stats()
 
 func use_item_in_slot(slot: InventorySlotResource):
 	# TODO: Make sure stat can't drop below 0
 	if slot.item.is_usable:
-		var newHunger = stats.hunger + slot.item.hunger
-		var newHygiene = stats.hygiene + slot.item.hygiene
-		var newHappiness = stats.happiness + slot.item.happiness
-		var newHealth = stats.health + slot.item.health
-		var newRest = stats.rest + slot.item.rest
-
-		stats.hunger = newHunger if newHunger <= stats.maxHunger else stats.maxHunger
-		stats.hygiene = newHygiene if newHygiene <= stats.maxHygiene else stats.maxHygiene
-		stats.happiness = newHappiness if newHappiness <= stats.maxHappiness else stats.maxHappiness
-		stats.health = newHealth if newHealth <= stats.maxHealth else stats.maxHealth
-		stats.rest = newRest if newRest <= stats.maxRest else stats.maxRest
-
+		apply_item_stats(slot.item)
 		item_used.emit()
 		is_awake = true
 		if slot.item.is_consumable:
 			item_consumed.emit(slot)
+
+func set_valid_stats():
+	stats.hunger = max(min(stats.hunger, stats.maxHunger), 0)
+	stats.hygiene = max(min(stats.hygiene, stats.maxHygiene), 0)
+	stats.happiness = max(min(stats.happiness, stats.maxHappiness), 0)
+	stats.health = max(min(stats.health, stats.maxHealth), 0)
+	stats.rest = max(min(stats.rest, stats.maxRest), 0)

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItemResource" load_steps=3 format=3 uid="uid://bii1mb3vopam5"]
+
+[ext_resource type="Script" path="res://items/inventory_item_resource.gd" id="1_ng2q3"]
+[ext_resource type="Texture2D" uid="uid://0bm4nas66gf8" path="res://assets/items/soap.png" id="2_6lj7k"]
+
+[resource]
+script = ExtResource("1_ng2q3")
+name = "Soap"
+texture = ExtResource("2_6lj7k")
+maxAmount = 1
+is_usable = true
+is_consumable = false
+is_grabbable = true
+hunger = 0.0
+hygiene = 0.005
+happiness = 0.0
+health = 0.0
+rest = 0.0

@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://tuh4skbiwlkn"]
+[gd_scene load_steps=2 format=3 uid="uid://cj4hfxrsgsack"]
 
 [ext_resource type="Script" path="res://ui/drag_preview_control.gd" id="1_spmn0"]
 
 [node name="DragPreviewControl" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 script = ExtResource("1_spmn0")
 
 [node name="NodeContainer" type="MarginContainer" parent="."]

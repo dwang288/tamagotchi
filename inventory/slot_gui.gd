@@ -18,30 +18,36 @@ signal swapped_item(slot1: Slot, slot2: Slot)
 
 func update_slot(slot: InventorySlotResource):
 	item_slot = slot
-	item_icon.visible = true
-	item_icon.texture = slot.item.texture
-	if slot.amount == 0 || slot.amount == 1:
-		amount_label.visible = false
-	else:
-		amount_label.visible = true
-		amount_label.text = str(slot.amount)
+	item_icon.texture = item_slot.item.texture
+	amount_label.text = str(item_slot.amount)
+	set_slot_visibility(true)
 
 func clear_slot():
-	item_slot = null
 	item_icon.visible = false
-	item_icon.texture = null
 	amount_label.visible = false
+	item_slot = null
+	item_icon.texture = null
 	amount_label.text = str(0)
+
+func set_slot_visibility(is_visible):
+	item_icon.visible = is_visible
+	if item_slot.amount == 0 || item_slot.amount == 1:
+		amount_label.visible = false
+	else:
+		amount_label.visible = is_visible
 
 
 func _on_button_use_item_pressed():
-	if item_slot:
+	if item_slot and not item_slot.item.is_grabbable:
 		clicked_item.emit(item_slot)
 
 func _on_mouse_entered():
 	button.grab_focus()
 	if item_slot:
-		MouseManager.set_cursor(MouseManager.HAND_POINT)
+		if item_slot.item.is_grabbable:
+			MouseManager.set_cursor(MouseManager.HAND_OPEN)
+		else:
+			MouseManager.set_cursor(MouseManager.HAND_POINT)
 
 func _on_mouse_exited():
 	button.release_focus()
@@ -58,11 +64,10 @@ func _on_button_use_item_focus_exited():
 
 func _notification(what):
 	if what == NOTIFICATION_DRAG_END and being_dragged:
-		MouseManager.set_default()
 
-		item_icon.visible = true
-		amount_label.visible = true
+		set_slot_visibility(true)
 		being_dragged = false
+		MouseManager.set_default()
 
 		# print("slot_index: ", slot_index, " being dragged: ", being_dragged, " amount_label visible: ", amount_label.visible, " amount_label: ", amount_label.text)
 
@@ -71,14 +76,13 @@ func _get_drag_data(at_position):
 		being_dragged = true
 		MouseManager.set_cursor(MouseManager.HAND_GRAB)
 
-		var drag_preview = SceneManager.scenes["drag_preview"].instantiate()
+		var drag_preview_control = SceneManager.scenes["drag_preview_control"].instantiate()
 		var item_node = SceneManager.scenes["item"].instantiate()
 		item_node.item_resource = self.item_slot.item
-		drag_preview.node = item_node
-		set_drag_preview(drag_preview)
+		drag_preview_control.node = item_node
+		set_drag_preview(drag_preview_control)
 
-		item_icon.visible = false
-		amount_label.visible = false
+		set_slot_visibility(false)
 
 		return self
 

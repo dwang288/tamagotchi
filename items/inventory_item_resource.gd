@@ -8,6 +8,7 @@ class_name InventoryItemResource
 
 @export var is_usable: bool
 @export var is_consumable: bool
+@export var is_grabbable: bool
 
 @export_category("Stats")
 @export var hunger: float

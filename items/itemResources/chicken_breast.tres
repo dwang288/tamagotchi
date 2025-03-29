@@ -6,10 +6,12 @@
 [resource]
 script = ExtResource("1_7r223")
 name = "Chicken Breast"
+description = "It's fuel, not food."
 texture = ExtResource("2_qrefa")
 maxAmount = 10
 is_usable = true
 is_consumable = true
+is_grabbable = false
 hunger = 50.0
 hygiene = 0.0
 happiness = -20.0

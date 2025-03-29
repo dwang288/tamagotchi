@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_ng2q3")
 name = "Soap"
+description = "Scrub your tama with this!"
 texture = ExtResource("2_6lj7k")
 maxAmount = 1
 is_usable = true

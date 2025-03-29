@@ -1,27 +1,39 @@
-[gd_resource type="Resource" script_class="GameStateResource" load_steps=11 format=3]
+[gd_resource type="Resource" script_class="GameStateResource" load_steps=15 format=3 uid="uid://c76atf5tcnxkw"]
 
 [ext_resource type="Script" path="res://inventory/inventory_resource.gd" id="1_fspag"]
 [ext_resource type="Script" path="res://game_states/game_state_resource.gd" id="2_8s45o"]
-[ext_resource type="Resource" path="res://items/itemResources/soap.tres" id="2_alrvs"]
+[ext_resource type="Resource" uid="uid://bii1mb3vopam5" path="res://items/itemResources/soap.tres" id="2_alrvs"]
 [ext_resource type="Script" path="res://inventory/inventory_slot_resource.gd" id="3_jotr8"]
-[ext_resource type="Resource" path="res://items/itemResources/chicken_breast.tres" id="4_d3hdr"]
-[ext_resource type="Resource" path="res://tamagotchi/plave/yejun/yejun.tres" id="5_gxvx3"]
-[ext_resource type="Resource" path="res://tamagotchi/plave/noah/noah.tres" id="6_h68wl"]
-
-[sub_resource type="Resource" id="Resource_jden2"]
-script = ExtResource("3_jotr8")
-item = ExtResource("4_d3hdr")
-amount = 7
+[ext_resource type="Resource" uid="uid://debtsaphjnewd" path="res://items/itemResources/lollipop.tres" id="4_2bw4w"]
+[ext_resource type="Resource" uid="uid://cvl6a7l4tsv8d" path="res://items/itemResources/candy.tres" id="5_76gtx"]
+[ext_resource type="Resource" uid="uid://etn86t24vnq6" path="res://tamagotchi/plave/yejun/yejun.tres" id="5_gxvx3"]
+[ext_resource type="Resource" uid="uid://bfuwgqpv05fwb" path="res://tamagotchi/plave/noah/noah.tres" id="6_h68wl"]
+[ext_resource type="Resource" uid="uid://bqoqm8dmrb26a" path="res://items/itemResources/chicken_breast.tres" id="6_o5dyn"]
 
 [sub_resource type="Resource" id="Resource_ck0fr"]
 script = ExtResource("3_jotr8")
 item = ExtResource("2_alrvs")
 amount = 1
 
+[sub_resource type="Resource" id="Resource_4o2ee"]
+script = ExtResource("3_jotr8")
+item = ExtResource("4_2bw4w")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_0dqh0"]
+script = ExtResource("3_jotr8")
+item = ExtResource("5_76gtx")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_xrmnx"]
+script = ExtResource("3_jotr8")
+item = ExtResource("6_o5dyn")
+amount = 1
+
 [sub_resource type="Resource" id="Resource_t8q1k"]
 script = ExtResource("1_fspag")
 inventory_capacity = 12
-slot_resources = Array[ExtResource("3_jotr8")]([SubResource("Resource_jden2"), SubResource("Resource_ck0fr")])
+slot_resources = Array[ExtResource("3_jotr8")]([SubResource("Resource_ck0fr"), SubResource("Resource_4o2ee"), SubResource("Resource_0dqh0"), SubResource("Resource_xrmnx")])
 
 [resource]
 script = ExtResource("2_8s45o")

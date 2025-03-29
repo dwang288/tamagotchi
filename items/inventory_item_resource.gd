@@ -3,6 +3,7 @@ extends Resource
 class_name InventoryItemResource
 
 @export var name: String = ""
+@export var description: String = ""
 @export var texture: Texture2D
 @export var maxAmount: int
 

@@ -7,9 +7,9 @@
 script = ExtResource("1_e7w0y")
 name = "Lollipop"
 texture = ExtResource("2_kj5my")
-maxAmount = 1
+maxAmount = 10
 is_usable = true
-is_consumable = false
+is_consumable = true
 is_grabbable = false
 hunger = 10.0
 hygiene = 0.0

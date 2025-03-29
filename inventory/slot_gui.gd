@@ -16,6 +16,9 @@ var being_dragged = false
 signal clicked_item(slot: InventorySlotResource)
 signal swapped_item(slot1: Slot, slot2: Slot)
 
+signal hovered(item_description: String)
+signal exited_hover
+
 func update_slot(slot: InventorySlotResource):
 	item_slot = slot
 	item_icon.texture = item_slot.item.texture
@@ -44,6 +47,9 @@ func _on_button_use_item_pressed():
 func _on_mouse_entered():
 	button.grab_focus()
 	if item_slot:
+		# Update tooltip info
+		hovered.emit(construct_item_tooltip())
+		# Update cursor depending on if item is grabbable
 		if item_slot.item.is_grabbable:
 			MouseManager.set_cursor(MouseManager.HAND_OPEN)
 		else:
@@ -51,6 +57,7 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	button.release_focus()
+	exited_hover.emit()
 	MouseManager.set_default()
 
 func _on_button_use_item_focus_entered():
@@ -59,9 +66,26 @@ func _on_button_use_item_focus_entered():
 func _on_button_use_item_focus_exited():
 	selector_icon.visible = false
 
+# TODO: Break tooltip creation into its own builder class
+func construct_item_tooltip() -> String:
+	var item = item_slot.item
+	var item_attr = {"name": item.name, "description": item.description, "hunger": item.hunger, "hygiene": item.hygiene, "happiness": item.happiness, "health": item.health, "rest": item.rest}
+	# TODO: Only add stat if the stat value is non zero
+	var item_format = """{name}
+
+{description}
+
+Hunger: {hunger}
+Hygiene: {hygiene}
+Happiness: {happiness}
+Health: {health}
+Rest: {rest}
+"""
+	return item_format.format(item_attr)
 
 # Inventory drag/drop logic
 
+# TODO: Figure out how to forward these notifications into a component that can be reused
 func _notification(what):
 	if what == NOTIFICATION_DRAG_END and being_dragged:
 

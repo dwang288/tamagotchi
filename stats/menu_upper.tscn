@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfg0bc7qty7hq"]
+[gd_scene load_steps=11 format=3 uid="uid://bfg0bc7qty7hq"]
 
 [ext_resource type="Script" path="res://stats/stats_update_gui.gd" id="1_yqf36"]
 [ext_resource type="PackedScene" uid="uid://bfj5bos66gy5v" path="res://stats/stat_panel.tscn" id="2_0k51n"]
@@ -8,8 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://bydopulk53x2b" path="res://assets/gui/status_gui/health_indicator.png" id="5_6nq4f"]
 [ext_resource type="Texture2D" uid="uid://b0u0ukea4q73a" path="res://assets/gui/status_gui/rest_indicator.png" id="6_tv4gm"]
 [ext_resource type="PackedScene" uid="uid://drt8ijavylpcu" path="res://menu/button_container.tscn" id="8_sbix5"]
+[ext_resource type="Texture2D" uid="uid://opemjbeflg26" path="res://assets/gui/menu/menu.png" id="9_ltdng"]
+[ext_resource type="Texture2D" uid="uid://bljaqr1sorl1k" path="res://assets/gui/menu/menu_hover.png" id="10_bpkid"]
 
 [node name="MenuUpper" type="Control"]
+clip_contents = true
 custom_minimum_size = Vector2(128, 18)
 layout_mode = 3
 anchors_preset = 10
@@ -62,4 +65,6 @@ icon_texture = ExtResource("6_tv4gm")
 
 [node name="MenuContainer" parent="HBoxContainer" instance=ExtResource("8_sbix5")]
 layout_mode = 2
-label = "Menu"
+size_flags_horizontal = 1
+icon_closed = ExtResource("9_ltdng")
+icon_closed_hover = ExtResource("10_bpkid")

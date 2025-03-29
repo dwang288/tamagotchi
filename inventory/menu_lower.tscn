@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmlvlmj5ijc5"]
+[gd_scene load_steps=8 format=3 uid="uid://bmlvlmj5ijc5"]
 
 [ext_resource type="Script" path="res://inventory/menu_lower.gd" id="1_vl0j4"]
+[ext_resource type="PackedScene" uid="uid://cmu3jchcrcy00" path="res://ui/tooltip_control.tscn" id="2_7u65s"]
 [ext_resource type="Texture2D" uid="uid://civwj381a1nuo" path="res://assets/gui/inventory_gui/inventory_hsh.png" id="2_xd71o"]
 [ext_resource type="Theme" uid="uid://1y31veihu3xb" path="res://ui/themes/inventory_arrow_texture.tres" id="3_4bowf"]
 [ext_resource type="Texture2D" uid="uid://xsjaduvgtxtj" path="res://assets/gui/inventory_gui/inventory_arrow_left.png" id="3_ovg17"]
@@ -19,6 +20,16 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 script = ExtResource("1_vl0j4")
+
+[node name="TooltipControl" parent="." instance=ExtResource("2_7u65s")]
+visible = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -2.1
+anchor_right = 0.305
+anchor_bottom = -2.1
+offset_right = -0.0400009
+offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

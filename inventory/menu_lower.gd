@@ -14,6 +14,7 @@ class_name Inventory
 @onready var inventory_node = %InventoryContainer
 @onready var left_inventory_button = $MarginContainer/HBoxContainer/LeftButtonContainer/LeftInventoryButton
 @onready var right_inventory_button = $MarginContainer/HBoxContainer/RightButtonContainer/RightInventoryButton
+@onready var tooltip_control = $TooltipControl
 
 @onready var min_offset: int = 0
 @onready var max_offset: int = max(inventory.slot_resources.size() - page_slot_count, 0)
@@ -32,6 +33,7 @@ func _ready():
 	inventory.updated.connect(update)
 	
 	connect_slots_on_swap_signal(swap_items)
+	connect_slots_on_hover_signal(tooltip_control.update, tooltip_control.close)
 	
 	update()
 
@@ -74,6 +76,10 @@ func set_arrow_visibility():
 	else:
 		right_inventory_button.visible = true
 
+func connect_slots_on_hover_signal(update: Callable, close: Callable):
+	for slot in inventory_node.get_children():
+		slot.hovered.connect(update)
+		slot.exited_hover.connect(close)
 
 func connect_slots_on_click_signal(function: Callable):
 	for slot in inventory_node.get_children():
@@ -82,7 +88,6 @@ func connect_slots_on_click_signal(function: Callable):
 func connect_slots_on_swap_signal(function: Callable):
 	for slot in inventory_node.get_children():
 		slot.swapped_item.connect(function)
-
 
 func set_valid_offsets():
 	# Set max offset depending on # of slot_resources

@@ -5,5 +5,5 @@
 [node name="Room" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(64, 63)
+position = Vector2(0, 45)
 texture = ExtResource("1_pnf20")

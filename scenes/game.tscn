@@ -16,25 +16,33 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mjsvt")
 
-[node name="Room" parent="." instance=ExtResource("3_oweaq")]
+[node name="GameScene" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Room" parent="GameScene" instance=ExtResource("3_oweaq")]
+position = Vector2(64, 18)
+
+[node name="Tamagotchis" parent="GameScene" instance=ExtResource("6_4tleb")]
+unique_name_in_owner = true
+position = Vector2(64, 101)
 
 [node name="MenuUpper" parent="." instance=ExtResource("4_40pju")]
-anchors_preset = 0
-anchor_right = 0.0
-offset_right = 128.0
+layout_mode = 1
 offset_bottom = 18.0
-grow_horizontal = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MenuLower" parent="." instance=ExtResource("1_26lm1")]
 layout_mode = 1
 
-[node name="Tamagotchis" parent="." instance=ExtResource("6_4tleb")]
-unique_name_in_owner = true
-
 [node name="TestButton" parent="." instance=ExtResource("6_gfyqw")]
-offset_left = 90.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
 offset_top = 19.0
-offset_right = 129.0
 offset_bottom = 50.0
-grow_horizontal = 1

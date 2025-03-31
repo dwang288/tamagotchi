@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://biwqrmdna8qk2"]
+[gd_scene load_steps=6 format=3 uid="uid://biwqrmdna8qk2"]
 
 [ext_resource type="Script" path="res://inventory/slot_gui.gd" id="1_wcmnk"]
 [ext_resource type="FontFile" uid="uid://dbroep5o2wh2f" path="res://assets/TinyPixie2.ttf" id="2_gqy1x"]
+[ext_resource type="Texture2D" uid="uid://gbsmr15kkt60" path="res://assets/gui/inventory_gui/inventory_slot_middle.png" id="2_ynpw8"]
 [ext_resource type="Texture2D" uid="uid://dto3dhr7uyu5e" path="res://assets/gui/inventory_gui/inventory_select_hsh.png" id="3_udek1"]
 
 [sub_resource type="Theme" id="Theme_rgwiu"]
@@ -23,6 +24,10 @@ layout_mode = 0
 offset_right = 18.0
 offset_bottom = 18.0
 
+[node name="Background" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("2_ynpw8")
+
 [node name="Panel" type="Panel" parent="CenterContainer"]
 layout_mode = 2
 
@@ -32,7 +37,6 @@ offset_left = -8.0
 offset_top = -7.0
 offset_right = 8.0
 offset_bottom = 9.0
-expand_mode = 3
 stretch_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/Panel"]

@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("2_pgjvb")
-inventory_capacity = 12
+capacity = 16
 slot_resources = Array[Resource("res://inventory/inventory_slot_resource.gd")]([])

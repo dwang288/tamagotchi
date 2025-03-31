@@ -6,4 +6,3 @@
 script = ExtResource("1_hguru")
 
 [node name="TamagotchiMarker2D" type="Marker2D" parent="."]
-position = Vector2(63, 104)

@@ -5,7 +5,7 @@ class_name InventoryResource
 signal updated
 
 # inventory_capacity should be a multiple of the number of inventory UI columns
-@export var inventory_capacity: int = 12
+@export var capacity: int
 @export var slot_resources: Array[InventorySlotResource]
 
 func insert(item: InventoryItemResource):
@@ -20,7 +20,7 @@ func insert(item: InventoryItemResource):
 
 	# if the item doesn't exist or has reached max capacity, then as long as we're still under inventory_capacity,
 	# create a new slot_resource with the item and add it to slot_resources
-	if slot_resources.size() < inventory_capacity:
+	if slot_resources.size() < capacity:
 		var slot_resource = InventorySlotResource.new()
 		slot_resource.item = item
 		slot_resource.amount = 1

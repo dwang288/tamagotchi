@@ -3,28 +3,24 @@ extends Control
 class_name Inventory
 
 @export var inventory: Resource = GameStateManager.game_state.inventory
-# For when there's only one row of inventory
-@export var columns: int = 6
-@export var rows: int = 1
-@export var slot_offset: int = 0
+
+# TODO: See if we can avoid hardcoding this
+@export var arrow_width: int
 
 @onready var slot_scene: PackedScene = load("res://inventory/slot.tscn")
 @onready var slots: Array[Panel]
 
 @onready var inventory_node = %InventoryContainer
-@onready var left_inventory_button = $MarginContainer/HBoxContainer/LeftButtonContainer/LeftInventoryButton
-@onready var right_inventory_button = $MarginContainer/HBoxContainer/RightButtonContainer/RightInventoryButton
+@onready var left_inventory_button = %LeftInventoryButton
+@onready var right_inventory_button = %RightInventoryButton
+@onready var scroll_container = %ScrollContainer
 @onready var tooltip_control = $TooltipControl
 
-@onready var min_offset: int = 0
-@onready var max_offset: int = max(inventory.slot_resources.size() - page_slot_count, 0)
-
-var page_slot_count: int = columns * rows
-
 func _ready():
-	# TODO: slots initialized should be a multiple of columns
-	slots.resize(page_slot_count)
-	for i in page_slot_count:
+	arrow_width = left_inventory_button.get_parent_area_size().x + right_inventory_button.get_parent_area_size().x
+	
+	slots.resize(inventory.capacity)
+	for i in inventory.capacity:
 		slots[i] = slot_scene.instantiate()
 		slots[i].slot_index = i
 		inventory_node.add_child(slots[i])
@@ -34,47 +30,48 @@ func _ready():
 	
 	connect_slots_on_swap_signal(swap_items)
 	connect_slots_on_hover_signal(tooltip_control.update, tooltip_control.close)
-	
-	update()
+
+	# Responsive inventory calculations
+	get_tree().get_root().size_changed.connect(on_window_resized)
 
 	if inventory_node.get_child_count() > 0:
 		inventory_node.get_child(0).get_node("UseItemButton").grab_focus()
 
+	update()
+	
+	# Need to wait a frame for max scroll to update for whatever reason
+	await get_tree().process_frame
+	set_arrow_visibility()
+
+func on_window_resized():
+	set_arrow_visibility()
+
 func update():
 
-	set_valid_offsets()
-	
 	# Iterating through the slot nodes in the case that there's more nodes than slot resources
 	for i in range(slots.size()):
 		if i < inventory.slot_resources.size():
-			slots[i].update_slot(inventory.slot_resources[i + slot_offset])
+			slots[i].update_slot(inventory.slot_resources[i])
 		else:
 			slots[i].clear_slot()
 
 	set_arrow_visibility()
 
 func swap_items(slot1: Slot, slot2: Slot):
-	inventory.swap_items_by_index(slot1.slot_index + slot_offset, slot2.slot_index + slot_offset)
+	inventory.swap_items_by_index(slot1.slot_index, slot2.slot_index)
 
-# Check left/right offset arrows
-# Show right arrow if there's more resources in front
-#	Check if inventory.slot_resources.size() is > current offset + slots.size()
-# Show left arrow if there's more resources behind
-#	Just an offset check
+# Check left/right arrows
 func set_arrow_visibility():
-	
-	# Check if offset at all
-	if slot_offset <= min_offset:
-		left_inventory_button.visible = false
-	else:
+	print(scroll_container.get_h_scroll_bar().value + get_viewport_rect().size.x, " ", scroll_container.get_h_scroll_bar().min_value, " ", scroll_container.get_h_scroll_bar().max_value)
+	if scroll_container.get_h_scroll_bar().value > scroll_container.get_h_scroll_bar().min_value:
 		left_inventory_button.visible = true
-
-	# print("condition 1: ", inventory.slot_resources.size() <= (slot_offset + slots.size(), " condition 2: ", slot_offset >= max_offset)
-	# print("slot_offset: ", slot_offset, " max_offset: ", max_offset)
-	if inventory.slot_resources.size() <= (slot_offset + slots.size()) || slot_offset >= max_offset:
-		right_inventory_button.visible = false
 	else:
+		left_inventory_button.visible = false
+
+	if scroll_container.get_h_scroll_bar().value + get_viewport_rect().size.x - arrow_width < scroll_container.get_h_scroll_bar().max_value:
 		right_inventory_button.visible = true
+	else:
+		right_inventory_button.visible = false
 
 func connect_slots_on_hover_signal(update: Callable, close: Callable):
 	for slot in inventory_node.get_children():
@@ -89,24 +86,16 @@ func connect_slots_on_swap_signal(function: Callable):
 	for slot in inventory_node.get_children():
 		slot.swapped_item.connect(function)
 
-func set_valid_offsets():
-	# Set max offset depending on # of slot_resources
-	max_offset = max(inventory.slot_resources.size() - slots.size(), 0)
-	
-	if slot_offset > max_offset:
-		slot_offset = max_offset
-	if slot_offset < min_offset:
-		slot_offset = min_offset
-
-
 func _on_left_inventory_button_pressed():
-	if slot_offset > min_offset:
-		slot_offset -= page_slot_count
-		update()
-
+	scroll_container.scroll_horizontal -= scroll_container.scroll_horizontal_custom_step
+	set_arrow_visibility()
 
 func _on_right_inventory_button_pressed():
-	if slot_offset < max_offset:
-		slot_offset += page_slot_count
-		update()
+	scroll_container.scroll_horizontal += scroll_container.scroll_horizontal_custom_step
+	set_arrow_visibility()
 		
+func _on_scroll_container_scroll_started():
+	set_arrow_visibility()
+
+func _on_scroll_container_scroll_ended():
+	set_arrow_visibility()

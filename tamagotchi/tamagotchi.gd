@@ -29,6 +29,7 @@ func _process(delta):
 func interaction_process():
 
 	# Check and apply draggables
+	# TODO: Getting this error: tamagotchi.gd:32 @ interaction_process(): Parameter "p_area" is null.
 	if mouse_collision and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and collision_area.overlaps_area(collided_item_area):
 		if collided_item_area and collided_item_area.get_parent().item_resource.is_grabbable:
 			resource.apply_item_stats(collided_item_area.get_parent().item_resource, get_mouse_distance_traveled())

@@ -25,9 +25,10 @@ SceneManager="*res://global/scene_manager.gd"
 
 window/size/viewport_width=128
 window/size/viewport_height=128
-window/size/window_width_override=256
+window/size/window_width_override=512
 window/size/window_height_override=256
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
 
 [gui]
 

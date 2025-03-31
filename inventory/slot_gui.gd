@@ -57,8 +57,9 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	button.release_focus()
-	exited_hover.emit()
 	MouseManager.set_default()
+	# TODO: Don't close the tooltip immediately
+	exited_hover.emit()
 
 func _on_button_use_item_focus_entered():
 	selector_icon.visible = true

@@ -10,16 +10,25 @@ signal active_tamagotchi_changed(tamagotchi: Tamagotchi)
 @onready var tamagotchi_scene = preload("res://tamagotchi/tamagotchi.tscn")
 # TODO: Add types in 4.4 [index, PackedScene]
 @onready var tamagotchi_nodes: Dictionary = {}
-@onready var tamagotchi_marker_node: Marker2D = $TamagotchiMarker2D
+@onready var tamagotchi_marker_nodes: Array[Marker2D]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Instantiate and add tamagotchi node
 	tamagotchi_resources = GameStateManager.game_state.tamagotchis
+	
+	var tamagotchi_position_interval_x = get_viewport_rect().size.x/(tamagotchi_resources.size()+1)
+	var tamagotchi_position_y = 0
+	tamagotchi_marker_nodes.resize(tamagotchi_resources.size())
+
 	for i in tamagotchi_resources.size():
 
+		tamagotchi_marker_nodes[i] = Marker2D.new()
+		tamagotchi_marker_nodes[i].position.x = tamagotchi_position_interval_x * (i+1)
+		tamagotchi_marker_nodes[i].position.y = tamagotchi_position_y
+
 		tamagotchi_nodes[i] = tamagotchi_scene.instantiate()
-		tamagotchi_nodes[i].position = tamagotchi_marker_node.position
+		tamagotchi_nodes[i].position = tamagotchi_marker_nodes[i].position
 		tamagotchi_nodes[i].initialize(tamagotchi_resources[i])
 		add_child(tamagotchi_nodes[i])
 
@@ -41,14 +50,16 @@ func switch_active_tamagotchi():
 
 # Remove old tamagotchi from being able to affect the stats UI, set to inactive
 func set_inactive_tamagotchi(tamagotchi_index: int):
+	tamagotchi_nodes[tamagotchi_index].active_indicator.visible = false
 	for connection in tamagotchi_nodes[tamagotchi_index].resource.stat_changed.get_connections():
 		tamagotchi_nodes[tamagotchi_index].resource.stat_changed.disconnect(connection["callable"])
-	tamagotchi_nodes[tamagotchi_index].visible = false
+	# tamagotchi_nodes[tamagotchi_index].visible = false
 
 # Connect new tamagotchi, set to active
 func set_active_tamagotchi(tamagotchi_index: int):
+	tamagotchi_nodes[tamagotchi_index].active_indicator.visible = true
 	active_tamagotchi_changed.emit(tamagotchi_nodes[tamagotchi_index])
-	tamagotchi_nodes[tamagotchi_index].visible = true
+	# tamagotchi_nodes[tamagotchi_index].visible = true
 
 func click_item(slot: InventorySlotResource):
 	tamagotchi_nodes[active_tamagotchi_index].resource.use_item_in_slot(slot)

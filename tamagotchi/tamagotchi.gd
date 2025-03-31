@@ -4,14 +4,16 @@ class_name Tamagotchi
 
 @export var resource: TamagotchiResource
 @onready var collision_area: Area2D = $Area2D
+@onready var active_indicator: AnimatedSprite2D = %ActiveIndicator
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 
-@onready var mouse_collision: bool
-@onready var last_mouse_position = Vector2.ZERO
-@onready var current_mouse_position = Vector2.ZERO
-@onready var mouse_distance_traveled = 0.0
+var mouse_collision: bool
+var last_mouse_position = Vector2.ZERO
+var current_mouse_position = Vector2.ZERO
+var mouse_distance_traveled = 0.0
 
 var collided_item_area: Area2D
 

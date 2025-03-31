@@ -5,8 +5,8 @@ class_name Game
 @onready var tamagotchi_scene = preload("res://tamagotchi/tamagotchi.tscn")
 
 @onready var tamagotchis_node: Node2D = %Tamagotchis
-@onready var menu_upper_node: Control = $MenuUpper
-@onready var menu_lower_node: Control = $MenuLower
+@onready var menu_upper_node: Control = %MenuUpper
+@onready var menu_lower_node: Control = %MenuLower
 
 
 func _ready():

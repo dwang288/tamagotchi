@@ -4,7 +4,7 @@ class_name Inventory
 
 @export var inventory: Resource = GameStateManager.game_state.inventory
 # For when there's only one row of inventory
-@export var columns: int = 6
+@export var columns: int = 12
 @export var rows: int = 1
 @export var slot_offset: int = 0
 
@@ -12,8 +12,8 @@ class_name Inventory
 @onready var slots: Array[Panel]
 
 @onready var inventory_node = %InventoryContainer
-@onready var left_inventory_button = $MarginContainer/HBoxContainer/LeftButtonContainer/LeftInventoryButton
-@onready var right_inventory_button = $MarginContainer/HBoxContainer/RightButtonContainer/RightInventoryButton
+@onready var left_inventory_button = %LeftInventoryButton
+@onready var right_inventory_button = %RightInventoryButton
 @onready var tooltip_control = $TooltipControl
 
 @onready var min_offset: int = 0

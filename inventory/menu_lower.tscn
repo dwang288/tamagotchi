@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://inventory/menu_lower.gd" id="1_vl0j4"]
 [ext_resource type="PackedScene" uid="uid://cmu3jchcrcy00" path="res://ui/tooltip_control.tscn" id="2_7u65s"]
-[ext_resource type="Texture2D" uid="uid://civwj381a1nuo" path="res://assets/gui/inventory_gui/inventory_hsh.png" id="2_xd71o"]
 [ext_resource type="Theme" uid="uid://1y31veihu3xb" path="res://ui/themes/inventory_arrow_texture.tres" id="3_4bowf"]
+[ext_resource type="Texture2D" uid="uid://pp1kad0rim2" path="res://assets/gui/inventory_gui/inventory_long.png" id="3_d44hd"]
 [ext_resource type="Texture2D" uid="uid://xsjaduvgtxtj" path="res://assets/gui/inventory_gui/inventory_arrow_left.png" id="3_ovg17"]
 [ext_resource type="Texture2D" uid="uid://8w4152k6rv2q" path="res://assets/gui/inventory_gui/inventory_arrow_right.png" id="4_oqsqw"]
 
@@ -16,20 +16,18 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 script = ExtResource("1_vl0j4")
 
 [node name="TooltipControl" parent="." instance=ExtResource("2_7u65s")]
-visible = true
+visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_top = -2.1
-anchor_right = 0.305
-anchor_bottom = -2.1
-offset_right = -0.0400009
-offset_bottom = 40.0
+anchor_top = -0.1
+anchor_bottom = -0.1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -41,30 +39,47 @@ offset_top = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
-texture = ExtResource("2_xd71o")
+texture = ExtResource("3_d44hd")
+stretch_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -20.0
 grow_horizontal = 2
 grow_vertical = 0
+patch_margin_left = 24
+patch_margin_top = 2
+patch_margin_right = 9
+patch_margin_bottom = 2
+axis_stretch_horizontal = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
+alignment = 1
 
 [node name="LeftButtonContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(6, 2.08165e-12)
+custom_minimum_size = Vector2(12, 2.08165e-12)
 layout_mode = 2
-theme_override_constants/margin_right = 0
 
-[node name="LeftInventoryButton" type="Button" parent="MarginContainer/HBoxContainer/LeftButtonContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/LeftButtonContainer"]
+layout_mode = 2
+
+[node name="LeftInventoryButton" type="Button" parent="MarginContainer/HBoxContainer/LeftButtonContainer/CenterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
@@ -73,28 +88,28 @@ icon = ExtResource("3_ovg17")
 icon_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(115, 2.08165e-12)
 layout_mode = 2
-theme_override_constants/margin_left = 1
+size_flags_horizontal = 3
 
 [node name="InventoryContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_raalj")
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/separation = 1
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-columns = 6
+alignment = 1
 
 [node name="RightButtonContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(6, 2.08165e-12)
+custom_minimum_size = Vector2(12, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/RightButtonContainer"]
 layout_mode = 2
 
-[node name="RightInventoryButton" type="Button" parent="MarginContainer/HBoxContainer/RightButtonContainer"]
+[node name="RightInventoryButton" type="Button" parent="MarginContainer/HBoxContainer/RightButtonContainer/CenterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
@@ -102,5 +117,5 @@ theme = ExtResource("3_4bowf")
 icon = ExtResource("4_oqsqw")
 icon_alignment = 1
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/LeftButtonContainer/LeftInventoryButton" to="." method="_on_left_inventory_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/RightButtonContainer/RightInventoryButton" to="." method="_on_right_inventory_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/LeftButtonContainer/CenterContainer/LeftInventoryButton" to="." method="_on_left_inventory_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/RightButtonContainer/CenterContainer/RightInventoryButton" to="." method="_on_right_inventory_button_pressed"]

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CoinsResource" load_steps=2 format=3 uid="uid://qhxsqabar1ta"]
+
+[ext_resource type="Script" path="res://game/coins_resource.gd" id="1_f5wt7"]
+
+[resource]
+script = ExtResource("1_f5wt7")
+coins = 11
+max_coins = 99999

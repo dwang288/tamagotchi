@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4c2wv0guy7fi"]
+[gd_scene load_steps=8 format=3 uid="uid://b4c2wv0guy7fi"]
 
 [ext_resource type="Theme" uid="uid://dyx683dtm8jcu" path="res://ui/themes/default_menu.tres" id="1_unbns"]
 [ext_resource type="Script" path="res://test/new_item_button_test.gd" id="2_7ldn8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://test/new_game_button_test.gd" id="3_p4al0"]
 [ext_resource type="Resource" uid="uid://bqoqm8dmrb26a" path="res://items/itemResources/chicken_breast.tres" id="4_cmtoq"]
 [ext_resource type="Resource" uid="uid://debtsaphjnewd" path="res://items/itemResources/lollipop.tres" id="5_b4xk0"]
+[ext_resource type="Script" path="res://test/update_coins_button_test.gd" id="7_lw355"]
 
 [node name="TestButton" type="Control"]
 layout_mode = 3
@@ -16,30 +17,28 @@ offset_bottom = 30.0
 grow_horizontal = 0
 theme = ExtResource("1_unbns")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -20.0
-offset_top = 1.0
-offset_bottom = 16.0
-grow_horizontal = 0
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
 text = "add"
 script = ExtResource("2_7ldn8")
 items = Array[Resource("res://items/inventory_item_resource.gd")]([ExtResource("3_g7xin"), ExtResource("4_cmtoq"), ExtResource("5_b4xk0")])
 
-[node name="Button2" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -43.0
-offset_top = 18.0
-offset_bottom = 32.0
-grow_horizontal = 0
+[node name="Button2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
 text = "new game"
 script = ExtResource("3_p4al0")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
-[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
+[node name="Button3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "add coins"
+script = ExtResource("7_lw355")
+
+[connection signal="pressed" from="HBoxContainer/Button" to="HBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="HBoxContainer/Button2" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button3" to="HBoxContainer/Button3" method="_on_pressed"]

@@ -1,5 +1,15 @@
 extends Control
 
+class_name MenuUpper
+
+@export var coins_resource: CoinsResource = GameStateManager.game_state.coins
+
+@onready var coin_container_node: CoinsContainer = %CoinsContainer
+
+func _ready():
+	coins_resource.updated_coins.connect(coin_container_node.update)
+
+# TODO: Should belong in a script attached to Stats
 func update(tamagotchi_resource: TamagotchiResource):
 	var hungerValue = tamagotchi_resource.stats.hunger / tamagotchi_resource.stats.maxHunger
 	var hygieneValue = tamagotchi_resource.stats.hygiene / tamagotchi_resource.stats.maxHygiene

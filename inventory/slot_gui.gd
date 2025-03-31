@@ -95,7 +95,7 @@ func _notification(what):
 
 		# print("slot_index: ", slot_index, " being dragged: ", being_dragged, " amount_label visible: ", amount_label.visible, " amount_label: ", amount_label.text)
 
-func _get_drag_data(at_position):
+func _get_drag_data(_at_position):
 	if item_slot:
 		being_dragged = true
 		MouseManager.set_cursor(MouseManager.HAND_GRAB)
@@ -110,10 +110,10 @@ func _get_drag_data(at_position):
 
 		return self
 
-func _can_drop_data(at_position, data):
+func _can_drop_data(_at_position, data):
 	return data is Slot && self.item_slot
 
-func _drop_data(at_position, data):
+func _drop_data(_at_position, data):
 	# The swap should change the actual InventoryResource
 	swapped_item.emit(data, self)
 

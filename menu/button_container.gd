@@ -1,5 +1,7 @@
 extends Control
 
+class_name ButtonContainer
+
 @export var label: String
 @export var icon_closed: Texture2D
 @export var icon_closed_hover: Texture2D
@@ -26,10 +28,6 @@ func _ready():
 		icon_node.texture = icon_closed
 	else:
 		icon_node.visible = false
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func _on_mouse_entered():
 	label_node.set("theme_override_constants/outline_size", 3)

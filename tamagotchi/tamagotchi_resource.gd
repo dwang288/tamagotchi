@@ -59,6 +59,7 @@ func process_happiness(delta):
 
 # mouse_distance_traveled is optional in case it's a draggable item
 func apply_item_stats(item: InventoryItemResource, mouse_distance_traveled: float = 1):
+	is_awake = true
 	stats.hunger += item.hunger * mouse_distance_traveled
 	stats.hygiene += item.hygiene * mouse_distance_traveled
 	stats.happiness += item.happiness * mouse_distance_traveled
@@ -72,7 +73,7 @@ func use_item_in_slot(slot: InventorySlotResource):
 	if slot.item.is_usable:
 		apply_item_stats(slot.item)
 		item_used.emit()
-		is_awake = true
+
 		if slot.item.is_consumable:
 			item_consumed.emit(slot)
 

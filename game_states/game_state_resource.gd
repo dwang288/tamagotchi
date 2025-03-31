@@ -4,3 +4,4 @@ class_name GameStateResource
 
 @export var tamagotchis: Array[TamagotchiResource]
 @export var inventory: InventoryResource
+@export var coins: CoinsResource

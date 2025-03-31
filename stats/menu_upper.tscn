@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfg0bc7qty7hq"]
+[gd_scene load_steps=14 format=3 uid="uid://bfg0bc7qty7hq"]
 
 [ext_resource type="Script" path="res://stats/stats_update_gui.gd" id="1_yqf36"]
 [ext_resource type="PackedScene" uid="uid://bfj5bos66gy5v" path="res://stats/stat_panel.tscn" id="2_0k51n"]
+[ext_resource type="PackedScene" uid="uid://b4drrfkarmpfy" path="res://menu/info_container.tscn" id="2_unf50"]
+[ext_resource type="Script" path="res://menu/coin_container.gd" id="3_rvrkp"]
 [ext_resource type="Texture2D" uid="uid://by6cnm4pppisy" path="res://assets/gui/status_gui/hunger_indicator.png" id="3_xwsa4"]
 [ext_resource type="Texture2D" uid="uid://diddmi51k641w" path="res://assets/gui/status_gui/happiness_indicator.png" id="4_efjtb"]
+[ext_resource type="Texture2D" uid="uid://b125axc436bbl" path="res://assets/gui/misc/coin.png" id="4_hpo3l"]
 [ext_resource type="Texture2D" uid="uid://bole11g5srwvp" path="res://assets/gui/status_gui/hygiene_indicator.png" id="4_oje41"]
 [ext_resource type="Texture2D" uid="uid://bydopulk53x2b" path="res://assets/gui/status_gui/health_indicator.png" id="5_6nq4f"]
 [ext_resource type="Texture2D" uid="uid://b0u0ukea4q73a" path="res://assets/gui/status_gui/rest_indicator.png" id="6_tv4gm"]
@@ -35,6 +38,13 @@ anchor_right = 1.0
 offset_bottom = 18.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
+
+[node name="CoinsContainer" parent="HBoxContainer" instance=ExtResource("2_unf50")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 2.08165e-12)
+layout_mode = 2
+script = ExtResource("3_rvrkp")
+coin_icon = ExtResource("4_hpo3l")
 
 [node name="Stats" type="HBoxContainer" parent="HBoxContainer"]
 unique_name_in_owner = true

@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://dijkqwvc20tip"]
+
+[ext_resource type="Script" path="res://game/game.gd" id="1_7q1e7"]
+[ext_resource type="PackedScene" uid="uid://b0hwch0cgemgf" path="res://room/room.tscn" id="2_05qe6"]
+[ext_resource type="PackedScene" uid="uid://srysuxqoa2cn" path="res://tamagotchi/tamagotchis.tscn" id="3_uy1pc"]
+[ext_resource type="PackedScene" uid="uid://b4c2wv0guy7fi" path="res://test/test_buttons.tscn" id="4_sfcvn"]
+[ext_resource type="PackedScene" uid="uid://bmlvlmj5ijc5" path="res://inventory/menu_lower.tscn" id="5_3rgac"]
+[ext_resource type="PackedScene" uid="uid://bfg0bc7qty7hq" path="res://stats/menu_upper.tscn" id="6_lsdqe"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7q1e7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Room" parent="Control" instance=ExtResource("2_05qe6")]
+position = Vector2(128, 18)
+
+[node name="Tamagotchis" parent="Control" instance=ExtResource("3_uy1pc")]
+unique_name_in_owner = true
+position = Vector2(0, 105)
+
+[node name="TestButton" parent="." instance=ExtResource("4_sfcvn")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_top = 18.0
+offset_bottom = 51.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuLower" parent="CanvasLayer" instance=ExtResource("5_3rgac")]
+unique_name_in_owner = true
+
+[node name="MenuUpper" parent="CanvasLayer" instance=ExtResource("6_lsdqe")]
+unique_name_in_owner = true
+offset_bottom = 18.0
+metadata/_edit_use_anchors_ = true

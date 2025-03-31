@@ -17,6 +17,7 @@ func _ready():
 	# Instantiate and add tamagotchi node
 	tamagotchi_resources = GameStateManager.game_state.tamagotchis
 	
+	# TODO: Save positions of tamagotchis somehow
 	var tamagotchi_position_interval_x = get_viewport_rect().size.x/(tamagotchi_resources.size()+1)
 	var tamagotchi_position_y = 0
 	tamagotchi_marker_nodes.resize(tamagotchi_resources.size())

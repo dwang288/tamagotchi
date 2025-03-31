@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://b0hwch0cgemgf"]
 
-[ext_resource type="Texture2D" uid="uid://d3mobvv5patio" path="res://assets/room/bg_hsh.png" id="1_pnf20"]
+[ext_resource type="Texture2D" uid="uid://dwygb6p45k1df" path="res://assets/room/bg_hsh_long.png" id="1_b0d26"]
 
 [node name="Room" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(0, 45)
-texture = ExtResource("1_pnf20")
+texture = ExtResource("1_b0d26")

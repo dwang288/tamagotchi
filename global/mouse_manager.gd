@@ -29,7 +29,7 @@ func _notification(notif):
 		# Reapply cursor
 		Input.set_custom_mouse_cursor(cursor_arrow)
 
-func _process(delta):
+func _process(_delta):
 	if grabbed_item:
 		# TODO: For some reason, global_position isn't being set
 		grabbed_item.global_position = get_viewport().get_mouse_position()

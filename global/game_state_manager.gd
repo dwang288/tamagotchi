@@ -38,7 +38,3 @@ func save_game():
 
 func add_tamagotchi(resource: TamagotchiResource):
 	game_state.tamagotchis.append(resource)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

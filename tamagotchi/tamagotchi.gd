@@ -10,6 +10,8 @@ class_name Tamagotchi
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 
+signal mouse_clicked(tamagotchi: Tamagotchi)
+
 var mouse_collision: bool
 var last_mouse_position = Vector2.ZERO
 var current_mouse_position = Vector2.ZERO
@@ -29,16 +31,24 @@ func _process(delta):
 	animation_process()
 
 func interaction_process():
+	check_clicked_interaction()
+	check_dragging_item_interaction()
 
-	# Check and apply draggables
-	if mouse_collision and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and collision_area.overlaps_area(collided_item_area):
+# Click interaction
+
+func check_clicked_interaction():
+	if mouse_collision && Input.is_action_just_pressed("mouse_button_left"): # Check for click to switch active
+		mouse_clicked.emit(self)
+
+# Calculating draggable items logic
+
+func check_dragging_item_interaction():
+	if mouse_collision and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and collision_area.overlaps_area(collided_item_area): # Check and apply draggables
 		if collided_item_area and collided_item_area.get_parent().item_resource.is_grabbable:
 			resource.apply_item_stats(collided_item_area.get_parent().item_resource, get_mouse_distance_traveled())
 	if Input.is_action_just_released("mouse_button_left") && self.mouse_distance_traveled != 0:
 		play_animation_heart()
 		reset_mouse_data()
-
-# Calculating draggable items logic
 
 func reset_mouse_data():
 	self.last_mouse_position = Vector2.ZERO
@@ -88,7 +98,6 @@ func _on_area_2d_mouse_entered():
 func _on_area_2d_mouse_exited():
 	mouse_collision = false
 	MouseManager.set_default()
-
 
 func _on_area_2d_area_entered(area):
 	if area.get_parent() is Item and area.get_parent().item_resource.is_grabbable:

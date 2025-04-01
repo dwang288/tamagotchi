@@ -39,13 +39,6 @@ offset_bottom = 18.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
 
-[node name="CoinsContainer" parent="HBoxContainer" instance=ExtResource("2_unf50")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 2.08165e-12)
-layout_mode = 2
-script = ExtResource("3_rvrkp")
-coin_icon = ExtResource("4_hpo3l")
-
 [node name="Stats" type="HBoxContainer" parent="HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 2.08165e-12)
@@ -72,6 +65,13 @@ icon_texture = ExtResource("5_6nq4f")
 [node name="RestPanel" parent="HBoxContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
 icon_texture = ExtResource("6_tv4gm")
+
+[node name="CoinsContainer" parent="HBoxContainer" instance=ExtResource("2_unf50")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 2.08165e-12)
+layout_mode = 2
+script = ExtResource("3_rvrkp")
+coin_icon = ExtResource("4_hpo3l")
 
 [node name="MenuContainer" parent="HBoxContainer" instance=ExtResource("8_sbix5")]
 layout_mode = 2

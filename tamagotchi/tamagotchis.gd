@@ -10,6 +10,7 @@ signal active_tamagotchi_changed(tamagotchi: Tamagotchi)
 @onready var tamagotchi_scene = preload("res://tamagotchi/tamagotchi.tscn")
 # TODO: Add types in 4.4 [index, PackedScene]
 @onready var tamagotchi_nodes: Dictionary = {}
+# Array for where to position tamas when they're loaded in
 @onready var tamagotchi_marker_nodes: Array[Marker2D]
 
 # Called when the node enters the scene tree for the first time.
@@ -31,6 +32,8 @@ func _ready():
 		tamagotchi_nodes[i] = tamagotchi_scene.instantiate()
 		tamagotchi_nodes[i].position = tamagotchi_marker_nodes[i].position
 		tamagotchi_nodes[i].initialize(tamagotchi_resources[i])
+
+		tamagotchi_nodes[i].mouse_clicked.connect(switch_active_tamagotchi)
 		add_child(tamagotchi_nodes[i])
 
 	set_active_tamagotchi(active_tamagotchi_index)
@@ -40,12 +43,15 @@ func _unhandled_input(event):
 		switch_active_tamagotchi()
 
 # Tab to set the active tamagotchi to the next one
-func switch_active_tamagotchi():
+func switch_active_tamagotchi(tama: Tamagotchi = null):
 	var prev_active_tamagotchi_index = active_tamagotchi_index
-	if active_tamagotchi_index >= tamagotchi_resources.size() - 1:
-		active_tamagotchi_index = 0
-	else:
-		active_tamagotchi_index += 1
+	if tama: # for when a specific signal is sent
+		active_tamagotchi_index = tamagotchi_nodes.find_key(tama)
+	else: # for when tabbing through
+		if active_tamagotchi_index >= tamagotchi_resources.size() - 1:
+			active_tamagotchi_index = 0
+		else:
+			active_tamagotchi_index += 1
 	set_inactive_tamagotchi(prev_active_tamagotchi_index)
 	set_active_tamagotchi(active_tamagotchi_index)
 

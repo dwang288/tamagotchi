@@ -10,6 +10,13 @@ class_name Tamagotchi
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 
+@onready var emote_animation_player: AnimationPlayer = $Emote/AnimationPlayer
+@onready var emote_animation_tree: AnimationTree = $Emote/AnimationTree
+@onready var emote_state_machine: AnimationNodeStateMachinePlayback = emote_animation_tree["parameters/playback"]
+
+@onready var is_being_cleaned: bool
+@onready var is_unwell: bool
+
 signal mouse_clicked(tamagotchi: Tamagotchi)
 
 var mouse_collision: bool
@@ -45,8 +52,10 @@ func check_clicked_interaction():
 func check_dragging_item_interaction():
 	if mouse_collision and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and collision_area.overlaps_area(collided_item_area): # Check and apply draggables
 		if collided_item_area and collided_item_area.get_parent().item_resource.is_grabbable:
+			is_being_cleaned = true
 			resource.apply_item_stats(collided_item_area.get_parent().item_resource, get_mouse_distance_traveled())
 	if Input.is_action_just_released("mouse_button_left") && self.mouse_distance_traveled != 0:
+		is_being_cleaned = false
 		play_animation_heart()
 		reset_mouse_data()
 
@@ -67,26 +76,40 @@ func get_mouse_distance_traveled():
 
 func animation_setup():
 	animation_player.add_animation_library("animation", resource.animation_library)
+	emote_animation_player.add_animation_library("emote", load("res://emotes/emote.res"))
 
 	if state_machine is AnimationNodeStateMachinePlayback:
 		var state_machine_node = animation_tree.tree_root
 
-		state_machine_node.get_node("idle").animation = "animation/idle"
+		state_machine_node.get_node("idle").get_node("idle").animation = "animation/idle"
+		state_machine_node.get_node("idle").get_node("unwell").animation = "animation/unwell"
 		state_machine_node.get_node("feed").animation = "animation/feed"
+		state_machine_node.get_node("clean").animation = "animation/clean"
 		state_machine_node.get_node("sleep").animation = "animation/sleep"
-	
+
+	if emote_state_machine is AnimationNodeStateMachinePlayback:
+		var emote_state_machine_node = emote_animation_tree.tree_root
+
+		emote_state_machine_node.get_node("idle").get_node("idle").animation = "emote/idle"
+		emote_state_machine_node.get_node("idle").get_node("hunger").animation = "emote/hunger"
+		emote_state_machine_node.get_node("idle").get_node("hygiene").animation = "emote/hygiene"
+		emote_state_machine_node.get_node("idle").get_node("hunger").animation = "emote/happiness"
+		emote_state_machine_node.get_node("idle").get_node("hygiene").animation = "emote/health"
+		emote_state_machine_node.get_node("love").animation = "emote/love"
+		emote_state_machine_node.get_node("sleep").animation = "emote/sleep"
+
 	resource.item_used.connect(play_animation_heart)
 
 func animation_process():
-	if resource.is_awake:
-		animation_tree["parameters/conditions/awake"] = true
-		animation_tree["parameters/conditions/sleeping"] = false
-	elif !resource.is_awake:
-		animation_tree["parameters/conditions/awake"] = false
-		animation_tree["parameters/conditions/sleeping"] = true
+	print(resource.stats_low.keys())
+	if resource.stats_low.keys().size() > 0:
+		is_unwell = true
+	else:
+		is_unwell = false
 
 func play_animation_heart():
 	state_machine.travel("feed")
+	emote_state_machine.travel("love")
 
 # GUI Signal functions
 

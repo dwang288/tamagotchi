@@ -1,19 +1,19 @@
-[gd_resource type="Resource" script_class="GameStateResource" load_steps=25 format=3]
+[gd_resource type="Resource" script_class="GameStateResource" load_steps=18 format=3]
 
 [ext_resource type="Script" path="res://game/coins_resource.gd" id="1_aonhe"]
 [ext_resource type="Script" path="res://inventory/inventory_resource.gd" id="1_fspag"]
 [ext_resource type="Script" path="res://game_states/game_state_resource.gd" id="2_8s45o"]
 [ext_resource type="Resource" path="res://items/itemResources/soap.tres" id="2_84krq"]
 [ext_resource type="Script" path="res://inventory/inventory_slot_resource.gd" id="3_15nmh"]
-[ext_resource type="Resource" path="res://items/itemResources/chicken_breast.tres" id="4_vsf5u"]
-[ext_resource type="Resource" path="res://items/itemResources/candy.tres" id="5_dxhyv"]
 [ext_resource type="Resource" path="res://tamagotchi/plave/yejun/yejun.tres" id="5_gxvx3"]
+[ext_resource type="Resource" path="res://items/itemResources/lollipop.tres" id="6_f1eld"]
 [ext_resource type="Resource" path="res://tamagotchi/plave/noah/noah.tres" id="6_h68wl"]
-[ext_resource type="Resource" path="res://items/itemResources/lollipop.tres" id="6_i1j5p"]
+[ext_resource type="Resource" path="res://items/itemResources/chicken_breast.tres" id="7_jys3x"]
+[ext_resource type="Resource" path="res://items/itemResources/candy.tres" id="7_y1cpe"]
 
 [sub_resource type="Resource" id="Resource_ayksq"]
 script = ExtResource("1_aonhe")
-coins = 5555
+coins = 21109
 max_coins = 99999
 
 [sub_resource type="Resource" id="Resource_2tcsq"]
@@ -21,65 +21,30 @@ script = ExtResource("3_15nmh")
 item = ExtResource("2_84krq")
 amount = 1
 
-[sub_resource type="Resource" id="Resource_rc2jh"]
+[sub_resource type="Resource" id="Resource_cvmui"]
 script = ExtResource("3_15nmh")
-item = ExtResource("4_vsf5u")
+item = ExtResource("6_f1eld")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_8hmr2"]
+script = ExtResource("3_15nmh")
+item = ExtResource("7_jys3x")
+amount = 4
+
+[sub_resource type="Resource" id="Resource_viune"]
+script = ExtResource("3_15nmh")
+item = ExtResource("7_y1cpe")
 amount = 7
 
-[sub_resource type="Resource" id="Resource_k7dul"]
+[sub_resource type="Resource" id="Resource_dpc2n"]
 script = ExtResource("3_15nmh")
-item = ExtResource("5_dxhyv")
+item = ExtResource("6_f1eld")
 amount = 3
-
-[sub_resource type="Resource" id="Resource_2cf8x"]
-script = ExtResource("3_15nmh")
-item = ExtResource("4_vsf5u")
-amount = 9
-
-[sub_resource type="Resource" id="Resource_l60hf"]
-script = ExtResource("3_15nmh")
-item = ExtResource("4_vsf5u")
-amount = 7
-
-[sub_resource type="Resource" id="Resource_a3x3i"]
-script = ExtResource("3_15nmh")
-item = ExtResource("6_i1j5p")
-amount = 5
-
-[sub_resource type="Resource" id="Resource_07r27"]
-script = ExtResource("3_15nmh")
-item = ExtResource("5_dxhyv")
-amount = 7
-
-[sub_resource type="Resource" id="Resource_vm22p"]
-script = ExtResource("3_15nmh")
-item = ExtResource("6_i1j5p")
-amount = 7
-
-[sub_resource type="Resource" id="Resource_xlbm7"]
-script = ExtResource("3_15nmh")
-item = ExtResource("5_dxhyv")
-amount = 7
-
-[sub_resource type="Resource" id="Resource_ruc71"]
-script = ExtResource("3_15nmh")
-item = ExtResource("5_dxhyv")
-amount = 8
-
-[sub_resource type="Resource" id="Resource_1lgsv"]
-script = ExtResource("3_15nmh")
-item = ExtResource("6_i1j5p")
-amount = 2
-
-[sub_resource type="Resource" id="Resource_8gnh6"]
-script = ExtResource("3_15nmh")
-item = ExtResource("5_dxhyv")
-amount = 1
 
 [sub_resource type="Resource" id="Resource_w2hj0"]
 script = ExtResource("1_fspag")
 inventory_capacity = 16
-slot_resources = Array[ExtResource("3_15nmh")]([SubResource("Resource_2tcsq"), SubResource("Resource_rc2jh"), SubResource("Resource_k7dul"), SubResource("Resource_2cf8x"), SubResource("Resource_l60hf"), SubResource("Resource_a3x3i"), SubResource("Resource_07r27"), SubResource("Resource_vm22p"), SubResource("Resource_xlbm7"), SubResource("Resource_ruc71"), SubResource("Resource_1lgsv"), SubResource("Resource_8gnh6")])
+slot_resources = Array[ExtResource("3_15nmh")]([SubResource("Resource_2tcsq"), SubResource("Resource_cvmui"), SubResource("Resource_8hmr2"), SubResource("Resource_viune"), SubResource("Resource_dpc2n")])
 
 [resource]
 script = ExtResource("2_8s45o")

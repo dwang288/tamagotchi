@@ -40,6 +40,20 @@ func _ready():
 	if inventory_node.get_child_count() > 0:
 		inventory_node.get_child(0).get_node("UseItemButton").grab_focus()
 
+
+func connect_slots_on_hover_signal(update: Callable, close: Callable):
+	for slot in inventory_node.get_children():
+		slot.hovered.connect(update)
+		slot.exited_hover.connect(close)
+
+func connect_slots_on_click_signal(function: Callable):
+	for slot in inventory_node.get_children():
+		slot.clicked_item.connect(function)
+
+func connect_slots_on_swap_signal(function: Callable):
+	for slot in inventory_node.get_children():
+		slot.swapped_item.connect(function)
+
 func update():
 
 	set_valid_offsets()
@@ -55,6 +69,8 @@ func update():
 
 func swap_items(slot1: Slot, slot2: Slot):
 	inventory.swap_items_by_index(slot1.slot_index + slot_offset, slot2.slot_index + slot_offset)
+
+# Offset logic
 
 # Check left/right offset arrows
 # Show right arrow if there's more resources in front
@@ -76,18 +92,6 @@ func set_arrow_visibility():
 	else:
 		right_inventory_button.visible = true
 
-func connect_slots_on_hover_signal(update: Callable, close: Callable):
-	for slot in inventory_node.get_children():
-		slot.hovered.connect(update)
-		slot.exited_hover.connect(close)
-
-func connect_slots_on_click_signal(function: Callable):
-	for slot in inventory_node.get_children():
-		slot.clicked_item.connect(function)
-
-func connect_slots_on_swap_signal(function: Callable):
-	for slot in inventory_node.get_children():
-		slot.swapped_item.connect(function)
 
 func set_valid_offsets():
 	# Set max offset depending on # of slot_resources

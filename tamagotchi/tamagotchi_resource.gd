@@ -11,8 +11,13 @@ signal item_used
 
 @export var stat_drain_rates: StatDrainRatesResource
 @export var stats: StatsResource
+@export var stats_low_threshold: float = 0.5
+@export var stats_low: Dictionary
 @export var is_awake: bool
+
 @export var animation_library: AnimationLibrary
+
+enum StatTypes { HUNGER, HYGIENE, HAPPINESS, HEALTH, REST }
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(delta):
@@ -21,6 +26,7 @@ func process(delta):
 	process_happiness(delta)
 	process_health(delta)
 	process_rest(delta)
+	process_low_stats(delta)
 
 	stat_changed.emit(self)
 
@@ -56,6 +62,27 @@ func process_hygiene(delta):
 func process_happiness(delta):
 	# if some other stats at 0 then decay
 	pass
+
+func process_low_stats(_delta):
+	if stats.hunger/stats.maxHunger < stats_low_threshold:
+		stats_low[StatTypes.HUNGER] = true
+	else:
+		stats_low.erase(StatTypes.HUNGER)
+		
+	if stats.hygiene/stats.maxHygiene < stats_low_threshold:
+		stats_low[StatTypes.HYGIENE] = true
+	else:
+		stats_low.erase(StatTypes.HYGIENE)
+
+	if stats.happiness/stats.maxHappiness < stats_low_threshold:
+		stats_low[StatTypes.HAPPINESS] = true
+	else:
+		stats_low.erase(StatTypes.HAPPINESS)
+
+	if stats.health/stats.maxHealth < stats_low_threshold:
+		stats_low[StatTypes.HEALTH] = true
+	else:
+		stats_low.erase(StatTypes.HEALTH)
 
 # mouse_distance_traveled is optional in case it's a draggable item
 func apply_item_stats(item: InventoryItemResource, mouse_distance_traveled: float = 1):

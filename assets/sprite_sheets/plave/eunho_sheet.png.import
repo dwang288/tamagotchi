@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgpnymmas4uae"
-path="res://.godot/imported/plave_big.png-78ebea4315fcf4e858c53bc44bb486b8.ctex"
+uid="uid://dtgrvxe1e0dfd"
+path="res://.godot/imported/eunho_sheet.png-3fb25e5f3bdcf6e47da3b03df2890afe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite_sheets/plave/plave_big.png"
-dest_files=["res://.godot/imported/plave_big.png-78ebea4315fcf4e858c53bc44bb486b8.ctex"]
+source_file="res://assets/sprite_sheets/plave/eunho_sheet.png"
+dest_files=["res://.godot/imported/eunho_sheet.png-3fb25e5f3bdcf6e47da3b03df2890afe.ctex"]
 
 [params]
 

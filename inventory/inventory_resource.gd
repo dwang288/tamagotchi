@@ -9,7 +9,6 @@ signal updated
 @export var slot_resources: Array[InventorySlotResource]
 
 func insert(item: InventoryItemResource):
-	print(slot_resources.size())
 	# slot_resources is the array of all actual items in the inventory
 	# first check if item already exists, at which point add to the existing one
 	for slot_resource in slot_resources:

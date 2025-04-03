@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameStateResource" load_steps=18 format=3]
+[gd_resource type="Resource" script_class="GameStateResource" load_steps=19 format=3]
 
 [ext_resource type="Script" path="res://game/coins_resource.gd" id="1_aonhe"]
 [ext_resource type="Script" path="res://inventory/inventory_resource.gd" id="1_fspag"]
@@ -29,22 +29,27 @@ amount = 10
 [sub_resource type="Resource" id="Resource_8hmr2"]
 script = ExtResource("3_15nmh")
 item = ExtResource("7_jys3x")
-amount = 4
+amount = 5
 
 [sub_resource type="Resource" id="Resource_viune"]
 script = ExtResource("3_15nmh")
 item = ExtResource("7_y1cpe")
-amount = 7
+amount = 10
 
-[sub_resource type="Resource" id="Resource_dpc2n"]
+[sub_resource type="Resource" id="Resource_y8dje"]
 script = ExtResource("3_15nmh")
 item = ExtResource("6_f1eld")
-amount = 3
+amount = 9
+
+[sub_resource type="Resource" id="Resource_x6ls2"]
+script = ExtResource("3_15nmh")
+item = ExtResource("7_y1cpe")
+amount = 1
 
 [sub_resource type="Resource" id="Resource_w2hj0"]
 script = ExtResource("1_fspag")
 inventory_capacity = 16
-slot_resources = Array[ExtResource("3_15nmh")]([SubResource("Resource_2tcsq"), SubResource("Resource_cvmui"), SubResource("Resource_8hmr2"), SubResource("Resource_viune"), SubResource("Resource_dpc2n")])
+slot_resources = Array[ExtResource("3_15nmh")]([SubResource("Resource_2tcsq"), SubResource("Resource_cvmui"), SubResource("Resource_8hmr2"), SubResource("Resource_viune"), SubResource("Resource_y8dje"), SubResource("Resource_x6ls2")])
 
 [resource]
 script = ExtResource("2_8s45o")

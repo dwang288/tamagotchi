@@ -1,12 +1,10 @@
-[gd_scene load_steps=62 format=3 uid="uid://b7qpptii07lf6"]
+[gd_scene load_steps=60 format=3 uid="uid://b7qpptii07lf6"]
 
 [ext_resource type="Script" path="res://tamagotchi/tamagotchi.gd" id="1_bkvew"]
 [ext_resource type="Texture2D" uid="uid://bcsgd0wqx2krj" path="res://assets/sprite_sheets/plave/yejun_sheet.png" id="2_824qc"]
 [ext_resource type="PackedScene" uid="uid://c1un2smflu4vf" path="res://emotes/emote.tscn" id="2_u1764"]
 [ext_resource type="Texture2D" uid="uid://b5tdkioinx2ym" path="res://assets/gui/misc/active_tamagotchi_marker_sheet.png" id="3_wi2p0"]
-[ext_resource type="AnimationLibrary" uid="uid://c3v84htefqeog" path="res://tamagotchi/plave/yejun/animations/animation.res" id="4_3ma35"]
 [ext_resource type="Texture2D" uid="uid://do4xbejytwydg" path="res://assets/emotes/bubble_emotes_sheet.png" id="4_bb1gs"]
-[ext_resource type="AnimationLibrary" uid="uid://bb1d0nv3dmknh" path="res://emotes/emote.res" id="5_c5grn"]
 
 [sub_resource type="Animation" id="Animation_45tap"]
 length = 0.6
@@ -104,35 +102,35 @@ animation = &"emote/idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_12ora"]
 switch_mode = 2
-advance_mode = 0
+advance_mode = 2
 advance_expression = "resource.stats_low.has(1)"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4qgb7"]
 switch_mode = 2
-advance_mode = 0
+advance_mode = 2
 advance_expression = "resource.stats_low.has(2)"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a16xj"]
 switch_mode = 2
-advance_mode = 0
+advance_mode = 2
 advance_expression = "resource.stats_low.has(3)"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wdmbv"]
 priority = 2
 switch_mode = 2
-advance_mode = 0
+advance_mode = 2
 advance_expression = "resource.stats_low.has(2)"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r15lf"]
 priority = 3
 switch_mode = 2
-advance_mode = 0
+advance_mode = 2
 advance_expression = "resource.stats_low.has(3)"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c5yia"]
 priority = 2
 switch_mode = 2
-advance_mode = 0
+advance_mode = 2
 advance_expression = "resource.stats_low.has(3)"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8yeai"]
@@ -144,27 +142,27 @@ advance_expression = "resource.stats_low.has(0)"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m8npw"]
 priority = 2
-advance_mode = 0
+advance_mode = 2
 advance_expression = "resource.stats_low.has(1)"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ehubl"]
 priority = 3
-advance_mode = 0
+advance_mode = 2
 advance_expression = "resource.stats_low.has(2)"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2jrxi"]
 priority = 4
-advance_mode = 0
+advance_mode = 2
 advance_expression = "resource.stats_low.has(3)"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ynsfe"]
 switch_mode = 2
-advance_mode = 0
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xjcbt"]
 priority = 2
 switch_mode = 2
-advance_mode = 0
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_78stc"]
 priority = 3
@@ -190,7 +188,7 @@ states/hygiene/position = Vector2(351, 331)
 states/idle/node = SubResource("AnimationNodeAnimation_a534p")
 states/idle/position = Vector2(246, 138)
 transitions = ["hunger", "hygiene", SubResource("AnimationNodeStateMachineTransition_12ora"), "hygiene", "happiness", SubResource("AnimationNodeStateMachineTransition_4qgb7"), "happiness", "health", SubResource("AnimationNodeStateMachineTransition_a16xj"), "hunger", "happiness", SubResource("AnimationNodeStateMachineTransition_wdmbv"), "hunger", "health", SubResource("AnimationNodeStateMachineTransition_r15lf"), "hygiene", "health", SubResource("AnimationNodeStateMachineTransition_c5yia"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_8yeai"), "idle", "hunger", SubResource("AnimationNodeStateMachineTransition_b87s4"), "idle", "hygiene", SubResource("AnimationNodeStateMachineTransition_m8npw"), "idle", "happiness", SubResource("AnimationNodeStateMachineTransition_ehubl"), "idle", "health", SubResource("AnimationNodeStateMachineTransition_2jrxi"), "health", "idle", SubResource("AnimationNodeStateMachineTransition_ynsfe"), "happiness", "idle", SubResource("AnimationNodeStateMachineTransition_xjcbt"), "hygiene", "idle", SubResource("AnimationNodeStateMachineTransition_78stc"), "hunger", "idle", SubResource("AnimationNodeStateMachineTransition_nqe0l")]
-graph_offset = Vector2(-247.312, -15.9173)
+graph_offset = Vector2(-247.312, 95.5294)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m0165"]
 animation = &"emote/love"
@@ -408,8 +406,7 @@ region_rect = Rect2(96, 192, 64, 16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Emote"]
 libraries = {
-"": SubResource("AnimationLibrary_8thb2"),
-"emote": ExtResource("5_c5grn")
+"": SubResource("AnimationLibrary_8thb2")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Emote"]
@@ -427,8 +424,7 @@ shape = SubResource("RectangleShape2D_udhen")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_cr776"),
-"animation": ExtResource("4_3ma35")
+"": SubResource("AnimationLibrary_cr776")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

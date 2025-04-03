@@ -26,6 +26,9 @@ var mouse_distance_traveled = 0.0
 
 var collided_item_area: Area2D
 
+# For debugging purposes
+var emote_nested_idle_state_machine
+
 func _ready():
 	animation_setup()
 
@@ -93,15 +96,17 @@ func animation_setup():
 		emote_state_machine_node.get_node("idle").get_node("idle").animation = "emote/idle"
 		emote_state_machine_node.get_node("idle").get_node("hunger").animation = "emote/hunger"
 		emote_state_machine_node.get_node("idle").get_node("hygiene").animation = "emote/hygiene"
-		emote_state_machine_node.get_node("idle").get_node("hunger").animation = "emote/happiness"
-		emote_state_machine_node.get_node("idle").get_node("hygiene").animation = "emote/health"
+		emote_state_machine_node.get_node("idle").get_node("happiness").animation = "emote/happiness"
+		emote_state_machine_node.get_node("idle").get_node("health").animation = "emote/health"
 		emote_state_machine_node.get_node("love").animation = "emote/love"
 		emote_state_machine_node.get_node("sleep").animation = "emote/sleep"
 
 	resource.item_used.connect(play_animation_heart)
 
+	emote_nested_idle_state_machine = emote_animation_tree["parameters/idle/playback"]
+
 func animation_process():
-	print(resource.stats_low.keys())
+	# print(emote_nested_idle_state_machine.get_current_node())
 	if resource.stats_low.keys().size() > 0:
 		is_unwell = true
 	else:

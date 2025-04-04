@@ -65,7 +65,7 @@ func set_inactive_tamagotchi(tamagotchi_index: int):
 # Connect new tamagotchi, set to active
 func set_active_tamagotchi(tamagotchi_index: int):
 	tamagotchi_nodes[tamagotchi_index].active_indicator.visible = true
-	active_tamagotchi_changed.emit(tamagotchi_nodes[tamagotchi_index])
+	active_tamagotchi_changed.emit(tamagotchi_nodes[tamagotchi_index].resource)
 
 func click_item(slot: InventorySlotResource):
 	tamagotchi_nodes[active_tamagotchi_index].resource.use_item_in_slot(slot)

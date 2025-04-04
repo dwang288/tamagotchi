@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bole11g5srwvp"
-path="res://.godot/imported/hygiene_indicator.png-2f90887bde05d98d644049d010a93dc6.ctex"
+uid="uid://rsiaiwjoq00k"
+path="res://.godot/imported/exp_bar_under.png-c2287de76124b7d9205f5514d86d94bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/status_gui/hygiene_indicator.png"
-dest_files=["res://.godot/imported/hygiene_indicator.png-2f90887bde05d98d644049d010a93dc6.ctex"]
+source_file="res://assets/gui/progress_bar/exp_bar_under.png"
+dest_files=["res://.godot/imported/exp_bar_under.png-c2287de76124b7d9205f5514d86d94bd.ctex"]
 
 [params]
 

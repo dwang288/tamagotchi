@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmu3jchcrcy00"]
 
 [ext_resource type="Script" path="res://ui/tooltip_control.gd" id="1_37d2o"]
-[ext_resource type="Texture2D" uid="uid://cpx5kfxxt6ppb" path="res://assets/gui/menu/frame.png" id="2_w1l7x"]
+[ext_resource type="Texture2D" uid="uid://bp6swmfv40sun" path="res://assets/gui/menu/button3.png" id="2_sld76"]
 [ext_resource type="Theme" uid="uid://cr5fa5khdjfpk" path="res://ui/themes/profile_button.tres" id="3_7r0hk"]
 
 [node name="TooltipControl" type="Control"]
@@ -14,33 +14,33 @@ grow_vertical = 2
 script = ExtResource("1_37d2o")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-z_index = 1
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -8.0
-offset_right = 57.0
+offset_top = -6.0
+offset_right = 36.0
 grow_vertical = 0
 
 [node name="Background" type="NinePatchRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("2_w1l7x")
-patch_margin_left = 3
-patch_margin_top = 3
-patch_margin_right = 3
-patch_margin_bottom = 3
+texture = ExtResource("2_sld76")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_7r0hk")
+theme_override_constants/line_separation = 1
 fit_content = true
 scroll_active = false

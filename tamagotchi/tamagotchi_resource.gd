@@ -11,6 +11,7 @@ signal item_used
 
 @export var level: int
 @export var exp: int
+@export var exp_cap: int
 
 @export var stat_drain_rates: StatDrainRatesResource
 @export var stats: StatsResource
@@ -69,22 +70,22 @@ func process_happiness(delta):
 	pass
 
 func process_low_stats(_delta):
-	if stats.hunger/stats.maxHunger < stats_low_threshold:
+	if stats.get_hunger_ratio() < stats_low_threshold:
 		stats_low[StatTypes.HUNGER] = true
 	else:
 		stats_low.erase(StatTypes.HUNGER)
 		
-	if stats.hygiene/stats.maxHygiene < stats_low_threshold:
+	if stats.get_hygiene_ratio() < stats_low_threshold:
 		stats_low[StatTypes.HYGIENE] = true
 	else:
 		stats_low.erase(StatTypes.HYGIENE)
 
-	if stats.happiness/stats.maxHappiness < stats_low_threshold:
+	if stats.get_happiness_ratio() < stats_low_threshold:
 		stats_low[StatTypes.HAPPINESS] = true
 	else:
 		stats_low.erase(StatTypes.HAPPINESS)
 
-	if stats.health/stats.maxHealth < stats_low_threshold:
+	if stats.get_health_ratio() < stats_low_threshold:
 		stats_low[StatTypes.HEALTH] = true
 	else:
 		stats_low.erase(StatTypes.HEALTH)
@@ -98,7 +99,7 @@ func apply_item_stats(item: InventoryItemResource, mouse_distance_traveled: floa
 	stats.health += item.health * mouse_distance_traveled
 	stats.rest += item.rest * mouse_distance_traveled
 
-	set_valid_stats()
+	stats.set_valid_stats()
 
 func use_item_in_slot(slot: InventorySlotResource):
 	# TODO: Make sure stat can't drop below 0
@@ -109,9 +110,3 @@ func use_item_in_slot(slot: InventorySlotResource):
 		if slot.item.is_consumable:
 			item_consumed.emit(slot)
 
-func set_valid_stats():
-	stats.hunger = max(min(stats.hunger, stats.maxHunger), 0)
-	stats.hygiene = max(min(stats.hygiene, stats.maxHygiene), 0)
-	stats.happiness = max(min(stats.happiness, stats.maxHappiness), 0)
-	stats.health = max(min(stats.health, stats.maxHealth), 0)
-	stats.rest = max(min(stats.rest, stats.maxRest), 0)

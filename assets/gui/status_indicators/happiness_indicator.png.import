@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bydopulk53x2b"
-path="res://.godot/imported/health_indicator.png-4ebac0b92c684e524ec039ad6c97a08c.ctex"
+uid="uid://diddmi51k641w"
+path="res://.godot/imported/happiness_indicator.png-a30efaf4d68705352f2bda3e192d5197.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/status_gui/health_indicator.png"
-dest_files=["res://.godot/imported/health_indicator.png-4ebac0b92c684e524ec039ad6c97a08c.ctex"]
+source_file="res://assets/gui/status_indicators/happiness_indicator.png"
+dest_files=["res://.godot/imported/happiness_indicator.png-a30efaf4d68705352f2bda3e192d5197.ctex"]
 
 [params]
 

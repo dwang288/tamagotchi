@@ -1,23 +1,24 @@
-[gd_scene load_steps=19 format=3 uid="uid://bfg0bc7qty7hq"]
+[gd_scene load_steps=20 format=3 uid="uid://bfg0bc7qty7hq"]
 
 [ext_resource type="Script" path="res://stats/stats_update_gui.gd" id="1_yqf36"]
 [ext_resource type="PackedScene" uid="uid://bfj5bos66gy5v" path="res://stats/stat_panel.tscn" id="2_0k51n"]
 [ext_resource type="Texture2D" uid="uid://cpx5kfxxt6ppb" path="res://assets/gui/menu/frame.png" id="2_5h5f2"]
 [ext_resource type="PackedScene" uid="uid://b4drrfkarmpfy" path="res://menu/info_container.tscn" id="2_unf50"]
-[ext_resource type="Texture2D" uid="uid://xtnyaunhc474" path="res://assets/sprite_sheets/plave/yejun/yejun_profile.png" id="3_f0t46"]
 [ext_resource type="Theme" uid="uid://cr5fa5khdjfpk" path="res://ui/themes/profile_button.tres" id="3_qaq27"]
 [ext_resource type="Script" path="res://menu/coin_container.gd" id="3_rvrkp"]
-[ext_resource type="Texture2D" uid="uid://by6cnm4pppisy" path="res://assets/gui/status_gui/hunger_indicator.png" id="3_xwsa4"]
 [ext_resource type="Theme" uid="uid://wi6hfg8u1cn0" path="res://assets/gui/text_theme.tres" id="4_d2v10"]
-[ext_resource type="Texture2D" uid="uid://diddmi51k641w" path="res://assets/gui/status_gui/happiness_indicator.png" id="4_efjtb"]
 [ext_resource type="Texture2D" uid="uid://b125axc436bbl" path="res://assets/gui/misc/coin.png" id="4_hpo3l"]
-[ext_resource type="Texture2D" uid="uid://bole11g5srwvp" path="res://assets/gui/status_gui/hygiene_indicator.png" id="4_oje41"]
-[ext_resource type="Texture2D" uid="uid://bydopulk53x2b" path="res://assets/gui/status_gui/health_indicator.png" id="5_6nq4f"]
 [ext_resource type="Texture2D" uid="uid://bos5fgrm5tls8" path="res://assets/gui/progress_bar/exp_bar.png" id="5_mounm"]
-[ext_resource type="Texture2D" uid="uid://b0u0ukea4q73a" path="res://assets/gui/status_gui/rest_indicator.png" id="6_tv4gm"]
+[ext_resource type="Texture2D" uid="uid://rsiaiwjoq00k" path="res://assets/gui/progress_bar/exp_bar_under.png" id="6_fdj3w"]
 [ext_resource type="PackedScene" uid="uid://drt8ijavylpcu" path="res://menu/button_container.tscn" id="8_sbix5"]
+[ext_resource type="Texture2D" uid="uid://p2kqvgdjswdw" path="res://assets/gui/progress_bar/exp_bar_fill.png" id="8_yxryr"]
+[ext_resource type="Texture2D" uid="uid://by6cnm4pppisy" path="res://assets/gui/status_indicators/hunger_indicator.png" id="9_7c4jo"]
 [ext_resource type="Texture2D" uid="uid://opemjbeflg26" path="res://assets/gui/menu/menu.png" id="9_ltdng"]
 [ext_resource type="Texture2D" uid="uid://bljaqr1sorl1k" path="res://assets/gui/menu/menu_hover.png" id="10_bpkid"]
+[ext_resource type="Texture2D" uid="uid://bole11g5srwvp" path="res://assets/gui/status_indicators/hygiene_indicator.png" id="10_jt82r"]
+[ext_resource type="Texture2D" uid="uid://diddmi51k641w" path="res://assets/gui/status_indicators/happiness_indicator.png" id="11_uoc1p"]
+[ext_resource type="Texture2D" uid="uid://bydopulk53x2b" path="res://assets/gui/status_indicators/health_indicator.png" id="12_n0naq"]
+[ext_resource type="Texture2D" uid="uid://b0u0ukea4q73a" path="res://assets/gui/status_indicators/rest_indicator.png" id="13_qddsq"]
 
 [node name="MenuUpper" type="Control"]
 clip_contents = true
@@ -66,27 +67,27 @@ theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
 [node name="ActiveProfileButton" type="Button" parent="HBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_qaq27")
-icon = ExtResource("3_f0t46")
 icon_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 alignment = 1
 
 [node name="LevelContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(30, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 2
+theme_override_constants/margin_bottom = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/LevelContainer"]
 layout_mode = 2
@@ -104,12 +105,14 @@ theme_override_constants/margin_bottom = 2
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ExpContainer"]
 layout_mode = 2
-nine_patch_stretch = true
-stretch_margin_left = 2
-stretch_margin_top = 2
-stretch_margin_right = 2
-stretch_margin_bottom = 2
+value = 50.0
+stretch_margin_left = 1
+stretch_margin_top = 1
+stretch_margin_right = 1
+stretch_margin_bottom = 1
+texture_under = ExtResource("6_fdj3w")
 texture_over = ExtResource("5_mounm")
+texture_progress = ExtResource("8_yxryr")
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -126,23 +129,23 @@ theme_override_constants/separation = 1
 
 [node name="HungerPanel" parent="HBoxContainer/MarginContainer2/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
-icon_texture = ExtResource("3_xwsa4")
+icon_texture = ExtResource("9_7c4jo")
 
 [node name="HygienePanel" parent="HBoxContainer/MarginContainer2/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
-icon_texture = ExtResource("4_oje41")
+icon_texture = ExtResource("10_jt82r")
 
 [node name="HappinessPanel" parent="HBoxContainer/MarginContainer2/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
-icon_texture = ExtResource("4_efjtb")
+icon_texture = ExtResource("11_uoc1p")
 
 [node name="HealthPanel" parent="HBoxContainer/MarginContainer2/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
-icon_texture = ExtResource("5_6nq4f")
+icon_texture = ExtResource("12_n0naq")
 
 [node name="RestPanel" parent="HBoxContainer/MarginContainer2/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
-icon_texture = ExtResource("6_tv4gm")
+icon_texture = ExtResource("13_qddsq")
 
 [node name="CoinsContainer" parent="HBoxContainer" instance=ExtResource("2_unf50")]
 unique_name_in_owner = true

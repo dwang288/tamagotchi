@@ -72,14 +72,11 @@ func construct_item_tooltip() -> String:
 	var item_attr = {"name": item.name, "description": item.description, "hunger": item.hunger, "hygiene": item.hygiene, "happiness": item.happiness, "health": item.health, "rest": item.rest}
 	# TODO: Only add stat if the stat value is non zero
 	var item_format = """{name}
-
-{description}
-
-Hunger: {hunger}
-Hygiene: {hygiene}
-Happiness: {happiness}
-Health: {health}
-Rest: {rest}
+<<hunger>> {hunger}
+<<hygiene>> {hygiene}
+<<happiness>> {happiness}
+<<health>> {health}
+<<rest>> {rest}
 """
 	return item_format.format(item_attr)
 

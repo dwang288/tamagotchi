@@ -20,8 +20,9 @@ func connection_setup():
 	
 	# Connect active tamagotchi switch to stats gui
 	tamagotchis_node.active_tamagotchi_changed.connect(connect_to_stats_gui)
-	# TODO: Calling this manually once because Stats hasn't been initialized yet, clean up
-	connect_to_stats_gui(tamagotchis_node.tamagotchi_nodes[tamagotchis_node.active_tamagotchi_index])
+	tamagotchis_node.active_tamagotchi_changed.connect(menu_upper_node.update_active_profile)
+	
+	setup_active()
 
 	# Connect on click signal between menu item and inventory slot
 	menu_lower_node.connect_slots_on_click_signal(tamagotchis_node.click_item)
@@ -31,5 +32,12 @@ func connection_setup():
 		if tamagotchi_node is Tamagotchi:
 			tamagotchi_node.resource.item_consumed.connect(menu_lower_node.inventory.delete)
 
-func connect_to_stats_gui(tamagotchi: Tamagotchi):
-	tamagotchi.resource.stat_changed.connect(menu_upper_node.update)
+func connect_to_stats_gui(resource: TamagotchiResource):
+	resource.stat_changed.connect(menu_upper_node.update_stats)
+
+# Initial game setup for active tamagotchi
+func setup_active():
+	var active_tamagotchi_resource = tamagotchis_node.tamagotchi_nodes[tamagotchis_node.active_tamagotchi_index].resource
+
+	menu_upper_node.update_active_profile(active_tamagotchi_resource)
+	connect_to_stats_gui(active_tamagotchi_resource)

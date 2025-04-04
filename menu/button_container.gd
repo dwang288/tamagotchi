@@ -17,6 +17,7 @@ class_name ButtonContainer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+	# Use label if available
 	if label:
 		label_node.text += "[center]"
 		label_node.text += label
@@ -24,6 +25,7 @@ func _ready():
 	else:
 		label_node.visible = false
 	
+	# Use icon if availa
 	if icon_closed:
 		icon_node.texture = icon_closed
 	else:

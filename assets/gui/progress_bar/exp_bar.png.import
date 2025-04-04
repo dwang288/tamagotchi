@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://boyhfdbwhy6hu"
-path="res://.godot/imported/noah_sheet.png-1014269eecaf8ef6d03404f872e5de3a.ctex"
+uid="uid://bos5fgrm5tls8"
+path="res://.godot/imported/exp_bar.png-c9deafabe889bfecaa805fcc84db9df4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite_sheets/plave/noah_sheet.png"
-dest_files=["res://.godot/imported/noah_sheet.png-1014269eecaf8ef6d03404f872e5de3a.ctex"]
+source_file="res://assets/gui/progress_bar/exp_bar.png"
+dest_files=["res://.godot/imported/exp_bar.png-c9deafabe889bfecaa805fcc84db9df4.ctex"]
 
 [params]
 

@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfj5bos66gy5v"]
+[gd_scene load_steps=4 format=3 uid="uid://bfj5bos66gy5v"]
 
 [ext_resource type="Script" path="res://stats/stat_indicator_gui.gd" id="1_onx5m"]
 [ext_resource type="Theme" uid="uid://wi6hfg8u1cn0" path="res://assets/gui/text_theme.tres" id="3_dmx4e"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4gybq"]
+
 [node name="StatPanel" type="PanelContainer"]
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4gybq")
 script = ExtResource("1_onx5m")
+full_color = Color(0.568627, 1, 0.223529, 1)
+mid_color = Color(0.964706, 0.945098, 0.313726, 1)
+empty_color = Color(1, 0.396078, 0.337255, 1)
 
 [node name="Indicator" type="ColorRect" parent="."]
 layout_mode = 2

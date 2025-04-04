@@ -9,9 +9,9 @@ extends PanelContainer
 
 @export_category("Indicator colors")
 @export var value: float
-@export var fullColor: Color
-@export var midColor: Color
-@export var emptyColor: Color
+@export var full_color: Color
+@export var mid_color: Color
+@export var empty_color: Color
 
 @export var FLASH_TIME: float = 0.5  # Time interval in seconds
 @export var TIME_PASSED: float = 0.0  # Accumulator
@@ -35,19 +35,12 @@ func update(stat_value: float):
 	value_node.text = str(floor(value*100))
 	# Color should change from green at 100 to yellow at 50% to red at 0%
 	# and then to flashing
-	# TODO: Use the set colors instead of hardcoding
 	if value < .5 && value >= 0:
-		indicator_node.color.r = 1
-		indicator_node.color.g = value*2
-		indicator_node.color.b = 0
+		indicator_node.color = empty_color.lerp(mid_color, value*2)
 	elif value == .5:
-		indicator_node.color.r = 1
-		indicator_node.color.g = 1
-		indicator_node.color.b = 0
+		indicator_node.color = mid_color
 	elif value > .5 && value <= 1:
-		indicator_node.color.r = (1-value)*2
-		indicator_node.color.g = 1
-		indicator_node.color.b = 0
+		indicator_node.color = mid_color.lerp(full_color, (value-.5)*2)
 	else:
 		# Should never hit this case, error case
 		indicator_node.color.r = 0

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmu3jchcrcy00"]
 
 [ext_resource type="Script" path="res://ui/tooltip_control.gd" id="1_37d2o"]
-[ext_resource type="Theme" uid="uid://dyx683dtm8jcu" path="res://ui/themes/default_menu.tres" id="2_phlg0"]
 [ext_resource type="Texture2D" uid="uid://cpx5kfxxt6ppb" path="res://assets/gui/menu/frame.png" id="2_w1l7x"]
+[ext_resource type="Theme" uid="uid://cr5fa5khdjfpk" path="res://ui/themes/profile_button.tres" id="3_7r0hk"]
 
 [node name="TooltipControl" type="Control"]
 layout_mode = 3
@@ -41,6 +41,6 @@ theme_override_constants/margin_bottom = 4
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("2_phlg0")
+theme = ExtResource("3_7r0hk")
 fit_content = true
 scroll_active = false

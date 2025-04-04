@@ -43,6 +43,7 @@ func _unhandled_input(event):
 		switch_active_tamagotchi()
 
 # Tab to set the active tamagotchi to the next one
+# TODO: Split up cycling and selecting cases into two diff functions?
 func switch_active_tamagotchi(tama: Tamagotchi = null):
 	var prev_active_tamagotchi_index = active_tamagotchi_index
 	if tama: # for when a specific signal is sent
@@ -60,13 +61,11 @@ func set_inactive_tamagotchi(tamagotchi_index: int):
 	tamagotchi_nodes[tamagotchi_index].active_indicator.visible = false
 	for connection in tamagotchi_nodes[tamagotchi_index].resource.stat_changed.get_connections():
 		tamagotchi_nodes[tamagotchi_index].resource.stat_changed.disconnect(connection["callable"])
-	# tamagotchi_nodes[tamagotchi_index].visible = false
 
 # Connect new tamagotchi, set to active
 func set_active_tamagotchi(tamagotchi_index: int):
 	tamagotchi_nodes[tamagotchi_index].active_indicator.visible = true
 	active_tamagotchi_changed.emit(tamagotchi_nodes[tamagotchi_index])
-	# tamagotchi_nodes[tamagotchi_index].visible = true
 
 func click_item(slot: InventorySlotResource):
 	tamagotchi_nodes[active_tamagotchi_index].resource.use_item_in_slot(slot)

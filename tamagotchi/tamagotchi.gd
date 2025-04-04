@@ -81,6 +81,8 @@ func animation_setup():
 	animation_player.add_animation_library("animation", resource.animation_library)
 	emote_animation_player.add_animation_library("emote", load("res://emotes/emote.res"))
 
+	# TODO: Sprite state machine and emote state machine nodes should be in two different subcomponents
+
 	if state_machine is AnimationNodeStateMachinePlayback:
 		var state_machine_node = animation_tree.tree_root
 
@@ -93,7 +95,9 @@ func animation_setup():
 	if emote_state_machine is AnimationNodeStateMachinePlayback:
 		var emote_state_machine_node = emote_animation_tree.tree_root
 
+		# TODO: Change advance conditions in state machine to use the enum
 		emote_state_machine_node.get_node("idle").get_node("idle").animation = "emote/idle"
+		emote_state_machine_node.get_node("idle").get_node("reset").animation = "emote/reset"
 		emote_state_machine_node.get_node("idle").get_node("hunger").animation = "emote/hunger"
 		emote_state_machine_node.get_node("idle").get_node("hygiene").animation = "emote/hygiene"
 		emote_state_machine_node.get_node("idle").get_node("happiness").animation = "emote/happiness"
@@ -112,6 +116,9 @@ func animation_process():
 	else:
 		is_unwell = false
 
+# TODO: After splitting up animation state machines into separate components, create functions within
+# component classes to take in an enum of the animation state to travel to
+# Component classes should have a map of enums to state name strings
 func play_animation_heart():
 	state_machine.travel("feed")
 	emote_state_machine.travel("love")

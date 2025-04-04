@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsf853kqjq6rq"
-path="res://.godot/imported/bamby_sheet.png-ac0703de70ba97fe265e65c8537835da.ctex"
+uid="uid://dtgrvxe1e0dfd"
+path="res://.godot/imported/eunho_sheet.png-20e3fa15ff7f515054975d10053aed5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite_sheets/plave/bamby_sheet.png"
-dest_files=["res://.godot/imported/bamby_sheet.png-ac0703de70ba97fe265e65c8537835da.ctex"]
+source_file="res://assets/sprite_sheets/plave/eunho/eunho_sheet.png"
+dest_files=["res://.godot/imported/eunho_sheet.png-20e3fa15ff7f515054975d10053aed5d.ctex"]
 
 [params]
 

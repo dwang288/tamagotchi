@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcsgd0wqx2krj"
-path="res://.godot/imported/yejun_sheet.png-9a92ea2c649d00578e5fd0e9699de9b7.ctex"
+uid="uid://boyhfdbwhy6hu"
+path="res://.godot/imported/noah_sheet.png-541a74a93f6788bead31b66563e5b7bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite_sheets/plave/yejun_sheet.png"
-dest_files=["res://.godot/imported/yejun_sheet.png-9a92ea2c649d00578e5fd0e9699de9b7.ctex"]
+source_file="res://assets/sprite_sheets/plave/noah/noah_sheet.png"
+dest_files=["res://.godot/imported/noah_sheet.png-541a74a93f6788bead31b66563e5b7bd.ctex"]
 
 [params]
 

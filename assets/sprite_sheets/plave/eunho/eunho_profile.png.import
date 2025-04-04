@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr7vy4s6gisc2"
-path="res://.godot/imported/hamin_sheet.png-3e4eeba9053854f8054df2564315b041.ctex"
+uid="uid://cq0r4dc3wsx6l"
+path="res://.godot/imported/eunho_profile.png-f1529cb06b2bdf5a5069c804cc797e8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite_sheets/plave/hamin_sheet.png"
-dest_files=["res://.godot/imported/hamin_sheet.png-3e4eeba9053854f8054df2564315b041.ctex"]
+source_file="res://assets/sprite_sheets/plave/eunho/eunho_profile.png"
+dest_files=["res://.godot/imported/eunho_profile.png-f1529cb06b2bdf5a5069c804cc797e8f.ctex"]
 
 [params]
 

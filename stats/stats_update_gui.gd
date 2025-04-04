@@ -9,8 +9,13 @@ class_name MenuUpper
 func _ready():
 	coins_resource.updated_coins.connect(coin_container_node.update)
 
-# TODO: Should belong in a script attached to Stats
+func update_active_profile(tamagotchi_resource: TamagotchiResource):
+	pass
+
+
 func update(tamagotchi_resource: TamagotchiResource):
+	# TODO: Should be calculating this in a script attached to Stats, return percentage
+
 	var hungerValue = tamagotchi_resource.stats.hunger / tamagotchi_resource.stats.maxHunger
 	var hygieneValue = tamagotchi_resource.stats.hygiene / tamagotchi_resource.stats.maxHygiene
 	var happinessValue = tamagotchi_resource.stats.happiness / tamagotchi_resource.stats.maxHappiness

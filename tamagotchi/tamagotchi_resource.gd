@@ -9,13 +9,18 @@ signal item_consumed(slot: InventorySlotResource)
 # Animation signals
 signal item_used
 
+@export var level: int
+@export var exp: int
+
 @export var stat_drain_rates: StatDrainRatesResource
 @export var stats: StatsResource
+# TODO: Move stats_low_threshold and stats_low into stats resource
 @export var stats_low_threshold: float = 0.5
 @export var stats_low: Dictionary
 @export var is_awake: bool
 
 @export var animation_library: AnimationLibrary
+@export var profile_icon: Texture2D
 
 enum StatTypes { HUNGER, HYGIENE, HAPPINESS, HEALTH, REST }
 

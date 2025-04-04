@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4drrfkarmpfy"]
 
-[ext_resource type="Theme" uid="uid://dyx683dtm8jcu" path="res://ui/themes/default_menu.tres" id="1_wag0o"]
+[ext_resource type="Theme" uid="uid://cr5fa5khdjfpk" path="res://ui/themes/profile_button.tres" id="1_jm41w"]
 [ext_resource type="Texture2D" uid="uid://cpx5kfxxt6ppb" path="res://assets/gui/menu/frame.png" id="2_31qg8"]
 
 [node name="InfoContainer" type="MarginContainer"]
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_wag0o")
+theme = ExtResource("1_jm41w")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2

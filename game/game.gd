@@ -19,8 +19,7 @@ func connection_setup():
 	$TestButton/HBoxContainer/Button3.add_coins.connect(GameStateManager.game_state.coins.update_coins)
 	
 	# Connect active tamagotchi switch to stats gui
-	tamagotchis_node.active_tamagotchi_changed.connect(connect_to_stats_gui)
-	tamagotchis_node.active_tamagotchi_changed.connect(menu_upper_node.update_active_profile)
+	tamagotchis_node.active_tamagotchi_changed.connect(menu_upper_node.update_active_tamagotchi)
 	
 	setup_active()
 
@@ -32,12 +31,8 @@ func connection_setup():
 		if tamagotchi_node is Tamagotchi:
 			tamagotchi_node.resource.item_consumed.connect(menu_lower_node.inventory.delete)
 
-func connect_to_stats_gui(resource: TamagotchiResource):
-	resource.stat_changed.connect(menu_upper_node.update_stats)
-
 # Initial game setup for active tamagotchi
 func setup_active():
 	var active_tamagotchi_resource = tamagotchis_node.tamagotchi_nodes[tamagotchis_node.active_tamagotchi_index].resource
 
-	menu_upper_node.update_active_profile(active_tamagotchi_resource)
-	connect_to_stats_gui(active_tamagotchi_resource)
+	menu_upper_node.update_active_tamagotchi(active_tamagotchi_resource)

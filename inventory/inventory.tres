@@ -1,8 +1,15 @@
-[gd_resource type="Resource" script_class="InventoryResource" load_steps=2 format=3 uid="uid://dn84gt5g4kpnd"]
+[gd_resource type="Resource" script_class="InventoryResource" load_steps=5 format=3 uid="uid://dn84gt5g4kpnd"]
 
+[ext_resource type="Resource" uid="uid://bii1mb3vopam5" path="res://items/itemResources/soap.tres" id="2_c4f2s"]
 [ext_resource type="Script" path="res://inventory/inventory_resource.gd" id="2_pgjvb"]
+[ext_resource type="Script" path="res://inventory/inventory_slot_resource.gd" id="3_72vsk"]
+
+[sub_resource type="Resource" id="Resource_m4ql6"]
+script = ExtResource("3_72vsk")
+item = ExtResource("2_c4f2s")
+amount = 1
 
 [resource]
 script = ExtResource("2_pgjvb")
 inventory_capacity = 16
-slot_resources = Array[Resource("res://inventory/inventory_slot_resource.gd")]([])
+slot_resources = Array[ExtResource("3_72vsk")]([SubResource("Resource_m4ql6")])

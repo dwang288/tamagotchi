@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bfg0bc7qty7hq"]
+[gd_scene load_steps=21 format=3 uid="uid://bfg0bc7qty7hq"]
 
 [ext_resource type="Script" path="res://stats/stats_update_gui.gd" id="1_yqf36"]
 [ext_resource type="PackedScene" uid="uid://bfj5bos66gy5v" path="res://stats/stat_panel.tscn" id="2_0k51n"]
@@ -9,6 +9,7 @@
 [ext_resource type="Theme" uid="uid://wi6hfg8u1cn0" path="res://assets/gui/text_theme.tres" id="4_d2v10"]
 [ext_resource type="Texture2D" uid="uid://b125axc436bbl" path="res://assets/gui/misc/coin.png" id="4_hpo3l"]
 [ext_resource type="Texture2D" uid="uid://bos5fgrm5tls8" path="res://assets/gui/progress_bar/exp_bar.png" id="5_mounm"]
+[ext_resource type="Script" path="res://menu/level_label.gd" id="5_s7c53"]
 [ext_resource type="Texture2D" uid="uid://rsiaiwjoq00k" path="res://assets/gui/progress_bar/exp_bar_under.png" id="6_fdj3w"]
 [ext_resource type="PackedScene" uid="uid://drt8ijavylpcu" path="res://menu/button_container.tscn" id="8_sbix5"]
 [ext_resource type="Texture2D" uid="uid://p2kqvgdjswdw" path="res://assets/gui/progress_bar/exp_bar_fill.png" id="8_yxryr"]
@@ -45,10 +46,10 @@ offset_bottom = 18.0
 grow_horizontal = 2
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+[node name="ProfileContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/MarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/ProfileContainer"]
 layout_mode = 2
 texture = ExtResource("2_5h5f2")
 region_rect = Rect2(0, 0, 16, 16)
@@ -57,55 +58,57 @@ patch_margin_top = 2
 patch_margin_right = 14
 patch_margin_bottom = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ProfileContainer"]
 layout_mode = 2
 theme_override_constants/separation = -1
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ProfileContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
-[node name="ActiveProfileButton" type="Button" parent="HBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="ActiveProfileButton" type="Button" parent="HBoxContainer/ProfileContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_qaq27")
 icon_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(30, 2.08165e-12)
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ProfileContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 2.08165e-12)
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="LevelContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="LevelContainer" type="MarginContainer" parent="HBoxContainer/ProfileContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/LevelContainer"]
+[node name="LevelLabel" type="RichTextLabel" parent="HBoxContainer/ProfileContainer/HBoxContainer/VBoxContainer/LevelContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("4_d2v10")
 bbcode_enabled = true
 text = "Lvl.1"
 fit_content = true
 scroll_active = false
+script = ExtResource("5_s7c53")
 
-[node name="ExpContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ExpContainer" type="MarginContainer" parent="HBoxContainer/ProfileContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 2
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ExpContainer"]
+[node name="ExpProgressBar" type="TextureProgressBar" parent="HBoxContainer/ProfileContainer/HBoxContainer/VBoxContainer/ExpContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-value = 50.0
+nine_patch_stretch = true
 stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
@@ -113,43 +116,53 @@ stretch_margin_bottom = 1
 texture_under = ExtResource("6_fdj3w")
 texture_over = ExtResource("5_mounm")
 texture_progress = ExtResource("8_yxryr")
+texture_progress_offset = Vector2(2, 2.08165e-12)
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+[node name="ExpValue" type="Label" parent="HBoxContainer/ProfileContainer/HBoxContainer/VBoxContainer/ExpContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 1
 theme_override_constants/margin_right = 1
 
-[node name="Stats" type="HBoxContainer" parent="HBoxContainer/MarginContainer2"]
+[node name="Stats" type="HBoxContainer" parent="HBoxContainer/StatsContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 1
 
-[node name="HungerPanel" parent="HBoxContainer/MarginContainer2/Stats" instance=ExtResource("2_0k51n")]
+[node name="HungerPanel" parent="HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
 icon_texture = ExtResource("9_7c4jo")
 
-[node name="HygienePanel" parent="HBoxContainer/MarginContainer2/Stats" instance=ExtResource("2_0k51n")]
+[node name="HygienePanel" parent="HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
 icon_texture = ExtResource("10_jt82r")
 
-[node name="HappinessPanel" parent="HBoxContainer/MarginContainer2/Stats" instance=ExtResource("2_0k51n")]
+[node name="HappinessPanel" parent="HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
 icon_texture = ExtResource("11_uoc1p")
 
-[node name="HealthPanel" parent="HBoxContainer/MarginContainer2/Stats" instance=ExtResource("2_0k51n")]
+[node name="HealthPanel" parent="HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
 icon_texture = ExtResource("12_n0naq")
 
-[node name="RestPanel" parent="HBoxContainer/MarginContainer2/Stats" instance=ExtResource("2_0k51n")]
+[node name="RestPanel" parent="HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
 icon_texture = ExtResource("13_qddsq")
 
 [node name="CoinsContainer" parent="HBoxContainer" instance=ExtResource("2_unf50")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 2.08165e-12)
+custom_minimum_size = Vector2(45, 2.08165e-12)
 layout_mode = 2
 script = ExtResource("3_rvrkp")
 coin_icon = ExtResource("4_hpo3l")

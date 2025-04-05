@@ -1,16 +1,19 @@
-[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://d0a5j0jmy6a8d"]
+[gd_resource type="Resource" script_class="StatsResource" load_steps=2 format=3 uid="uid://d0a5j0jmy6a8d"]
 
 [ext_resource type="Script" path="res://stats/stats_resource.gd" id="1_fqudm"]
 
 [resource]
 script = ExtResource("1_fqudm")
+level = 1
+exp = 0.0
+max_exp = 100.0
 hunger = 100.0
 hygiene = 100.0
 happiness = 50.0
 health = 100.0
 rest = 100.0
-maxHunger = 100.0
-maxHygiene = 100.0
-maxHappiness = 100.0
-maxHealth = 100.0
-maxRest = 100.0
+max_hunger = 100.0
+max_hygiene = 100.0
+max_happiness = 100.0
+max_health = 100.0
+max_rest = 100.0

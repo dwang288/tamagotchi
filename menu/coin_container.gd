@@ -9,9 +9,7 @@ class_name CoinsContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	label.add_image(coin_icon)
-	label.add_text(" x ")
-	label.add_text(str(coins))
+	update(coins)
 
 func update(coins: int):
 	label.clear()

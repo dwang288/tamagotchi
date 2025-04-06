@@ -11,6 +11,7 @@ class_name Game
 
 func _ready():
 	connection_setup()
+	setup_active()
 
 func connection_setup():
 	# Test add serum button
@@ -20,8 +21,6 @@ func connection_setup():
 	
 	# Connect active tamagotchi switch to stats gui
 	tamagotchis_node.active_tamagotchi_changed.connect(menu_upper_node.update_active_tamagotchi)
-	
-	setup_active()
 
 	# Connect on click signal between menu item and inventory slot
 	menu_lower_node.connect_slots_on_click_signal(tamagotchis_node.click_item)

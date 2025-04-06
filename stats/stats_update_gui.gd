@@ -11,6 +11,8 @@ class_name MenuUpper
 @onready var level_label: RichTextLabel = %LevelLabel
 @onready var exp_progress_bar: TextureProgressBar = %ExpProgressBar
 
+# TODO: Break ProfileContainer node into own scene tree
+
 func _ready():
 	coins_resource.updated_coins.connect(coin_container_node.update)
 

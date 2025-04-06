@@ -11,7 +11,8 @@ class_name CoinsContainer
 func _ready():
 	update(coins)
 
-func update(coins: int):
+func update(new_coins: int):
+	coins = new_coins
 	label.clear()
 	label.add_image(coin_icon)
 	label.add_text(" x ")

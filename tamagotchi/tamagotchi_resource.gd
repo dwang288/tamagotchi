@@ -17,7 +17,7 @@ signal stats_increased
 @export var stat_drain_rates: StatDrainRatesResource
 @export var stats: StatsResource
 # TODO: Move stats_low_threshold and stats_low into stats resource
-@export var stats_low_threshold: float = 0.5
+@export var stats_low_threshold: float = 0.3
 @export var stats_low: Dictionary
 @export var is_awake: bool
 

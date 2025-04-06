@@ -8,11 +8,9 @@
 
 [resource]
 script = ExtResource("2_8g3ex")
-level = 0
-exp = 0
 stat_drain_rates = ExtResource("3_fyach")
 stats = ExtResource("4_3iag4")
-stats_low_threshold = 0.5
+stats_low_threshold = 0.3
 stats_low = {}
 is_awake = true
 animation_library = ExtResource("1_50ddu")

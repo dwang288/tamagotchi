@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmdvav6usn41v"]
+
+[ext_resource type="Script" path="res://ui/cursor_effects/cursor_effect_particle.gd" id="1_uo14x"]
+
+[node name="CursorEffectParticle" type="TextureRect"]
+script = ExtResource("1_uo14x")
+
+[node name="DeletionTimer" type="Timer" parent="."]
+wait_time = 0.229
+one_shot = true
+
+[connection signal="timeout" from="DeletionTimer" to="." method="_on_deletion_timer_timeout"]

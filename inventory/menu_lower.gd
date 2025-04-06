@@ -41,10 +41,10 @@ func _ready():
 		inventory_node.get_child(0).get_node("UseItemButton").grab_focus()
 
 
-func connect_slots_on_hover_signal(update: Callable, close: Callable):
+func connect_slots_on_hover_signal(hovering_function: Callable, exited_function: Callable):
 	for slot in inventory_node.get_children():
-		slot.hovered.connect(update)
-		slot.exited_hover.connect(close)
+		slot.hovered.connect(hovering_function)
+		slot.exited_hover.connect(exited_function)
 
 func connect_slots_on_click_signal(function: Callable):
 	for slot in inventory_node.get_children():

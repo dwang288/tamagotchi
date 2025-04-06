@@ -55,12 +55,17 @@ func check_clicked_interaction():
 func check_dragging_item_interaction():
 	if mouse_collision and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and collision_area.overlaps_area(collided_item_area): # Check and apply draggables
 		if collided_item_area and collided_item_area.get_parent().item_resource.is_grabbable:
-			is_being_cleaned = true
+			# TODO: Clear emote too when cleaning
+			if is_being_cleaned == false:
+				is_being_cleaned = true
+				MouseManager.set_cursor_trail(CursorEffect.EffectType.BUBBLE)
 			resource.apply_item_stats(collided_item_area.get_parent().item_resource, get_mouse_distance_traveled())
-	if Input.is_action_just_released("mouse_button_left") && self.mouse_distance_traveled != 0:
+			
+	if Input.is_action_just_released("mouse_button_left") && is_being_cleaned:
 		is_being_cleaned = false
-		play_animation_heart()
+		MouseManager.remove_cursor_trail()
 		reset_mouse_data()
+		play_animation_heart()
 
 func reset_mouse_data():
 	self.last_mouse_position = Vector2.ZERO

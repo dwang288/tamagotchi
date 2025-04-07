@@ -17,7 +17,7 @@ func connection_setup():
 	# Test add serum button
 	$TestButton/HBoxContainer/Button.sent_item.connect(menu_lower_node.inventory.insert)
 	$TestButton/HBoxContainer/Button2.new_game.connect(GameStateManager.new_game)
-	$TestButton/HBoxContainer/Button3.add_coins.connect(GameStateManager.game_state.coins.update_coins)
+	$TestButton/HBoxContainer/Button3.add_coins.connect(GameStateManager.game_state.coins.modify_coins)
 	
 	# Connect active tamagotchi switch to stats gui
 	tamagotchis_node.active_tamagotchi_changed.connect(menu_upper_node.update_active_tamagotchi)

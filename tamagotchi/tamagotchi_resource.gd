@@ -28,7 +28,7 @@ signal stats_increased
 
 func add_exp(additional_exp: int):
 	stats.exp += additional_exp
-	if stats.exp >= stats.max_exp:
+	if stats.exp >= stats.exp_cap:
 		level_up()
 	exp_changed.emit(self)
 
@@ -40,57 +40,66 @@ func level_up():
 		stats.StatTypes.HEALTH: 0,
 		stats.StatTypes.REST: 0
 	}
-	while stats.exp >= stats.max_exp:
-		stats.exp -= stats.max_exp
+	while stats.exp >= stats.exp_cap:
+		stats.exp -= stats.exp_cap
 		stats.level += 1
-		stats.max_exp = stats.get_max_exp(stats.level)
+		# TODO: Maybe stats increases should be done off individual growth rates like in Fire Emblem
+		# TODO: Every stat increase should be added to a queue in order to play the animation
+		stats.exp_cap = stats.get_exp_cap(stats.level)
 
 	leveled_up.emit(self)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(delta):
-	process_hunger(delta)
-	process_hygiene(delta)
+	if is_awake:
+		process_hunger(delta)
+		process_hygiene(delta)
 	process_happiness(delta)
 	process_health(delta)
 	process_rest(delta)
 	process_low_stats(delta)
 
+	stats.set_valid_stats()
+
 	stat_changed.emit(self)
 
-# TODO: Stop initializing new variables within the process loop
 func process_hunger(delta):
 	if is_awake:
-		var new_hunger = stats.hunger - delta * stat_drain_rates.hunger
-		stats.hunger = new_hunger if new_hunger >= 0 else 0
+		stats.hunger -= delta * stat_drain_rates.hunger
+
+func process_hygiene(delta):
+	# TODO: Tamagotchi gets the dirty sprite when hygiene 0
+	if is_awake:
+		stats.hygiene -= stat_drain_rates.hygiene * delta
+
+func process_happiness(delta):
+	# if some other stats at 0 then decay
+	pass
+
+func process_health(delta):
+	if stats.hunger <= 0:
+		stats.health -= stat_drain_rates.health * delta
+	if stats.hygiene <= 0:
+		stats.health -= stat_drain_rates.health * delta
+
+	# Recover health while asleep
+	if stats.hunger > 0 and stats.hygiene > 0 and !is_awake:
+		# TODO: Gain rate should be separate
+		stats.health += stat_drain_rates.health * delta
 	
 func process_rest(delta):
 	if stats.rest <= 0 && is_awake:
 		is_awake = false
 	if stats.rest >= stats.max_rest && !is_awake:
 		is_awake = true
+
 	if is_awake:
-		var new_rest = stats.rest - delta * stat_drain_rates.rest
-		stats.rest = new_rest if new_rest >= 0 else 0
+		stats.rest -= stat_drain_rates.rest * delta
 	else:
-		# TODO: Add real sleep
-		var new_rest = stats.rest + delta * stat_drain_rates.rest
-		stats.rest = new_rest if new_rest <= stats.max_rest else stats.max_rest
+		# TODO: Sleep Gain rate should be a separate value
+		stats.rest += stat_drain_rates.rest * delta
 
-func process_health(delta):
-	# should not decay unless there's some condition
-	pass
-
-func process_hygiene(delta):
-	# hygiene decay unless 0, at whch point tamagotchi gets the dirty sprite
-	if is_awake:
-		var new_hygiene = stats.hygiene - delta * stat_drain_rates.hygiene
-		stats.hygiene = new_hygiene if new_hygiene >= 0 else 0
-
-func process_happiness(delta):
-	# if some other stats at 0 then decay
-	pass
 
 func process_low_stats(_delta):
 	if stats.get_hunger_ratio() < stats_low_threshold:
@@ -113,7 +122,7 @@ func process_low_stats(_delta):
 	else:
 		stats_low.erase(stats.StatTypes.HEALTH)
 
-# mouse_distance_traveled is optional in case it's a draggable item
+# mouse_distance_traveled is optional, only passed in if it's a draggable item
 func apply_item_stats(item: InventoryItemResource, mouse_distance_traveled: float = 1):
 	is_awake = true
 	stats.hunger += item.hunger * mouse_distance_traveled
@@ -128,13 +137,8 @@ func use_item_in_slot(slot: InventorySlotResource):
 	if slot.item.is_usable:
 		apply_item_stats(slot.item)
 		item_used.emit()
-		
-		# TODO: Temporarily adding 10 exp whenever you use an item.
-		# Maybe should be placed elsewhere or should calculate sum of all stats on item for exp?
-		# Or have a special exp given stat in the item resource?
+		add_exp(slot.item.get_exp())
 
-		add_exp(10)
-		
 		if slot.item.is_consumable:
 			item_consumed.emit(slot)
 

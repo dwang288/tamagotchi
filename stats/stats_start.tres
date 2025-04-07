@@ -6,7 +6,9 @@
 script = ExtResource("1_fqudm")
 level = 1
 exp = 0.0
-max_exp = 100.0
+exp_cap = 100.0
+base_exp = 100.0
+exp_cap_growth_factor = 1.2
 hunger = 100.0
 hygiene = 100.0
 happiness = 50.0

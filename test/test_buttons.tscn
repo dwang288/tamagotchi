@@ -25,9 +25,10 @@ theme_override_constants/separation = 0
 
 [node name="Button" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "add"
+text = "gacha"
 script = ExtResource("2_7ldn8")
 items = Array[Resource("res://items/inventory_item_resource.gd")]([ExtResource("3_g7xin"), ExtResource("4_cmtoq"), ExtResource("5_b4xk0")])
+gacha_cost = 50
 
 [node name="Button2" type="Button" parent="HBoxContainer"]
 layout_mode = 2

@@ -17,3 +17,7 @@ class_name InventoryItemResource
 @export var happiness: float
 @export var health: float
 @export var rest: float
+
+func get_exp():
+	# Atm just returning sum of all stats
+	return hunger + hygiene + happiness + health + rest if is_consumable else 0

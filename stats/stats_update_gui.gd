@@ -47,7 +47,7 @@ func update_active_tamagotchi(tamagotchi_resource: TamagotchiResource):
 
 func update_level(tamagotchi_resource: TamagotchiResource):
 	level_label.update_level(tamagotchi_resource.stats.level)
-	exp_progress_bar.max_value = tamagotchi_resource.stats.max_exp
+	exp_progress_bar.max_value = tamagotchi_resource.stats.exp_cap
 
 func update_exp(tamagotchi_resource: TamagotchiResource):
 	exp_progress_bar.value = tamagotchi_resource.stats.exp

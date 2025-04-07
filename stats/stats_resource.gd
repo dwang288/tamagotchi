@@ -5,7 +5,10 @@ class_name StatsResource
 @export_group("Level Info")
 @export var level: int
 @export var exp: float
-@export var max_exp: float
+@export var exp_cap: float
+
+@export var base_exp: float
+@export var exp_cap_growth_factor: float
 
 @export_group("Needs")
 @export var hunger: float
@@ -27,11 +30,11 @@ enum StatTypes { HUNGER, HYGIENE, HAPPINESS, HEALTH, REST }
 # Level functions
 
 func get_exp_ratio() -> float:
-	return exp/max_exp
+	return exp/exp_cap
 
-# TODO: Add max exp calculation based off level
-func get_max_exp(lvl: int) -> float:
-	return 100
+# TODO: Tweak this
+func get_exp_cap(lvl: int) -> float:
+	return base_exp * lvl ** exp_cap_growth_factor
 	
 
 # Needs functions

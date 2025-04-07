@@ -6,8 +6,9 @@ class_name MenuUpper
 @export var active_tamagotchi_resource: TamagotchiResource
 
 @onready var coin_container_node: CoinsContainer = %CoinsContainer
-@onready var profile_button_node: Button = %ActiveProfileButton
+@onready var menu_container_node: ButtonContainer = %MenuContainer
 
+@onready var profile_button_node: Button = %ActiveProfileButton
 @onready var level_label: RichTextLabel = %LevelLabel
 @onready var exp_progress_bar: TextureProgressBar = %ExpProgressBar
 
@@ -15,6 +16,9 @@ class_name MenuUpper
 
 func _ready():
 	coins_resource.updated_coins.connect(coin_container_node.update)
+
+func connect_menu_button_signal(function: Callable):
+	menu_container_node.connect_on_click_signal(function)
 
 func update_active_tamagotchi(tamagotchi_resource: TamagotchiResource):
 	

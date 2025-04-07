@@ -21,6 +21,8 @@ func connection_setup():
 	
 	# Connect active tamagotchi switch to stats gui
 	tamagotchis_node.active_tamagotchi_changed.connect(menu_upper_node.update_active_tamagotchi)
+	
+	menu_upper_node.connect_menu_button_signal(toggle_menu)
 
 	# Connect on click signal between menu item and inventory slot
 	menu_lower_node.connect_slots_on_click_signal(tamagotchis_node.click_item)
@@ -35,3 +37,6 @@ func setup_active():
 	var active_tamagotchi_resource = tamagotchis_node.tamagotchi_nodes[tamagotchis_node.active_tamagotchi_index].resource
 
 	menu_upper_node.update_active_tamagotchi(active_tamagotchi_resource)
+
+func toggle_menu():
+	$TestButton.visible = !$TestButton.visible

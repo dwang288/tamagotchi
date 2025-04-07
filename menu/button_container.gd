@@ -14,6 +14,8 @@ class_name ButtonContainer
 @onready var is_icon_hovered: bool
 @onready var is_icon_open: bool
 
+signal clicked
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -31,7 +33,13 @@ func _ready():
 	else:
 		icon_node.visible = false
 
-func _on_mouse_entered():
+func connect_on_click_signal(function: Callable):
+	clicked.connect(function)
+
+func _on_button_pressed():
+	clicked.emit()
+
+func _on_button_mouse_entered():
 	label_node.set("theme_override_constants/outline_size", 3)
 	if icon_closed_hover:
 		icon_node.texture = icon_closed_hover
@@ -39,7 +47,8 @@ func _on_mouse_entered():
 #	label_node.set("theme_override_constants/font_outline_color", Color.hex(0x545770ff))
 	MouseManager.set_cursor(MouseManager.HAND_POINT)
 
-func _on_mouse_exited():
+
+func _on_button_mouse_exited():
 	label_node.set("theme_override_constants/outline_size", 0)
 	if icon_closed:
 		icon_node.texture = icon_closed

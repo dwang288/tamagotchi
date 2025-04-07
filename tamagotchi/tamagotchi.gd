@@ -6,8 +6,8 @@ class_name Tamagotchi
 @onready var collision_area: Area2D = $Area2D
 @onready var active_indicator: AnimatedSprite2D = %ActiveIndicator
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
+@onready var animation_tree: AnimationTree = $Sprite2D/AnimationTree
 @onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 
 @onready var emote_animation_player: AnimationPlayer = $Emote/AnimationPlayer

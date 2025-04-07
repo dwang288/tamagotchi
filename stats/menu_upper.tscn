@@ -168,6 +168,7 @@ script = ExtResource("3_rvrkp")
 coin_icon = ExtResource("4_hpo3l")
 
 [node name="MenuContainer" parent="HBoxContainer" instance=ExtResource("8_sbix5")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 1
 icon_closed = ExtResource("9_ltdng")

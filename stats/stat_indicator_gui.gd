@@ -43,9 +43,7 @@ func update(stat_value: float):
 		indicator_node.color = mid_color.lerp(full_color, (value-.5)*2)
 	else:
 		# Should never hit this case, error case
-		indicator_node.color.r = 0
-		indicator_node.color.g = 0
-		indicator_node.color.b = 1
+		indicator_node.color = Color.BLUE
 
 
 func _on_mouse_entered():

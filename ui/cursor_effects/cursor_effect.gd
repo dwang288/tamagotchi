@@ -20,9 +20,6 @@ var effect_map = {
 	}
 }
 
-func _process(delta):
-	pass
-
 func _ready():
 	freq_timer.wait_time = effect_map[effect_type]["spawn_frequency"]
 	freq_timer.start()

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameStateResource" load_steps=17 format=3]
+[gd_resource type="Resource" script_class="GameStateResource" load_steps=23 format=3]
 
 [ext_resource type="Script" path="res://game/coins_resource.gd" id="1_aonhe"]
 [ext_resource type="Script" path="res://inventory/inventory_resource.gd" id="1_fspag"]
@@ -13,7 +13,7 @@
 
 [sub_resource type="Resource" id="Resource_mbocx"]
 script = ExtResource("1_aonhe")
-coins = 2027
+coins = 22
 max_coins = 99999
 
 [sub_resource type="Resource" id="Resource_m4ql6"]
@@ -21,25 +21,55 @@ script = ExtResource("4_nc2sd")
 item = ExtResource("3_rjemd")
 amount = 1
 
-[sub_resource type="Resource" id="Resource_odvvx"]
-script = ExtResource("4_nc2sd")
-item = ExtResource("6_15d20")
-amount = 2
-
-[sub_resource type="Resource" id="Resource_8vmie"]
+[sub_resource type="Resource" id="Resource_2o7pa"]
 script = ExtResource("4_nc2sd")
 item = ExtResource("5_mk8e5")
-amount = 4
+amount = 10
 
-[sub_resource type="Resource" id="Resource_g3jw0"]
+[sub_resource type="Resource" id="Resource_tlr2e"]
 script = ExtResource("4_nc2sd")
 item = ExtResource("7_vqxsb")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_0anns"]
+script = ExtResource("4_nc2sd")
+item = ExtResource("6_15d20")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_t8jxc"]
+script = ExtResource("4_nc2sd")
+item = ExtResource("6_15d20")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_1ykm7"]
+script = ExtResource("4_nc2sd")
+item = ExtResource("7_vqxsb")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_euxng"]
+script = ExtResource("4_nc2sd")
+item = ExtResource("5_mk8e5")
+amount = 10
+
+[sub_resource type="Resource" id="Resource_x2sbq"]
+script = ExtResource("4_nc2sd")
+item = ExtResource("5_mk8e5")
 amount = 2
+
+[sub_resource type="Resource" id="Resource_qjtb7"]
+script = ExtResource("4_nc2sd")
+item = ExtResource("6_15d20")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_rlcof"]
+script = ExtResource("4_nc2sd")
+item = ExtResource("7_vqxsb")
+amount = 1
 
 [sub_resource type="Resource" id="Resource_pon0e"]
 script = ExtResource("1_fspag")
 inventory_capacity = 16
-slot_resources = Array[ExtResource("4_nc2sd")]([SubResource("Resource_m4ql6"), SubResource("Resource_odvvx"), SubResource("Resource_8vmie"), SubResource("Resource_g3jw0")])
+slot_resources = Array[ExtResource("4_nc2sd")]([SubResource("Resource_m4ql6"), SubResource("Resource_2o7pa"), SubResource("Resource_tlr2e"), SubResource("Resource_0anns"), SubResource("Resource_t8jxc"), SubResource("Resource_1ykm7"), SubResource("Resource_euxng"), SubResource("Resource_x2sbq"), SubResource("Resource_qjtb7"), SubResource("Resource_rlcof")])
 
 [resource]
 script = ExtResource("2_8s45o")

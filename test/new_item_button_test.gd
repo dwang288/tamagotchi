@@ -7,7 +7,6 @@ signal sent_item(item: InventoryItemResource)
 # Called when the node enters the scene tree for the first time.
 
 func _on_pressed():
-	if items.size() > 0:
+	if items.size() > 0 and GameStateManager.game_state.coins.modify_coins(-gacha_cost):
 		var item = items.pick_random()
 		sent_item.emit(item)
-		GameStateManager.game_state.coins.modify_coins(-gacha_cost)

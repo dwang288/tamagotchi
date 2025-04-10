@@ -1,11 +1,10 @@
-[gd_scene load_steps=76 format=3 uid="uid://b7qpptii07lf6"]
+[gd_scene load_steps=75 format=3 uid="uid://b7qpptii07lf6"]
 
 [ext_resource type="Script" path="res://tamagotchi/tamagotchi.gd" id="1_bkvew"]
-[ext_resource type="Texture2D" uid="uid://bcsgd0wqx2krj" path="res://assets/sprite_sheets/plave/yejun/yejun_sheet.png" id="2_d2xga"]
 [ext_resource type="PackedScene" uid="uid://c1un2smflu4vf" path="res://emotes/emote.tscn" id="2_u1764"]
+[ext_resource type="Texture2D" uid="uid://dtgrvxe1e0dfd" path="res://assets/sprite_sheets/plave/eunho/eunho_sheet.png" id="2_w2c6w"]
 [ext_resource type="Texture2D" uid="uid://b5tdkioinx2ym" path="res://assets/gui/misc/active_tamagotchi_marker_sheet.png" id="3_wi2p0"]
 [ext_resource type="Texture2D" uid="uid://do4xbejytwydg" path="res://assets/emotes/bubble_emotes_sheet.png" id="4_bb1gs"]
-[ext_resource type="AnimationLibrary" uid="uid://bb1d0nv3dmknh" path="res://emotes/emote.res" id="5_y3n8h"]
 
 [sub_resource type="Animation" id="Animation_l38w2"]
 length = 0.001
@@ -30,7 +29,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Rect2(64, 64, 64, 32)]
 }
 tracks/2/type = "value"
@@ -43,7 +42,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_d2xga")]
+"values": [ExtResource("2_w2c6w")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -452,7 +451,7 @@ script = ExtResource("1_bkvew")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -11)
-texture = ExtResource("2_d2xga")
+texture = ExtResource("2_w2c6w")
 hframes = 3
 frame = 1
 region_enabled = true
@@ -478,8 +477,7 @@ region_rect = Rect2(96, 192, 64, 16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Emote"]
 libraries = {
-"": SubResource("AnimationLibrary_8thb2"),
-"emote": ExtResource("5_y3n8h")
+"": SubResource("AnimationLibrary_8thb2")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Emote"]

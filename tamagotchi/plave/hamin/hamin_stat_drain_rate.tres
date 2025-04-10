@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StatDrainRatesResource" load_steps=2 format=3 uid="uid://daumtuh5q47me"]
+
+[ext_resource type="Script" path="res://stats/stat_drain_rates_resource.gd" id="1_bg074"]
+
+[resource]
+script = ExtResource("1_bg074")
+hunger = 1.0
+hygiene = 1.0
+happiness = 1.0
+health = 1.0
+rest = 1.0

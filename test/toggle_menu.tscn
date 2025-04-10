@@ -38,6 +38,7 @@ text = "new game"
 script = ExtResource("3_p4al0")
 
 [node name="Button3" type="Button" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 text = "add coins"
 script = ExtResource("7_lw355")

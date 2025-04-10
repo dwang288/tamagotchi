@@ -1,10 +1,11 @@
-[gd_scene load_steps=63 format=3 uid="uid://b7qpptii07lf6"]
+[gd_scene load_steps=76 format=3 uid="uid://b7qpptii07lf6"]
 
 [ext_resource type="Script" path="res://tamagotchi/tamagotchi.gd" id="1_bkvew"]
 [ext_resource type="Texture2D" uid="uid://bcsgd0wqx2krj" path="res://assets/sprite_sheets/plave/yejun/yejun_sheet.png" id="2_d2xga"]
 [ext_resource type="PackedScene" uid="uid://c1un2smflu4vf" path="res://emotes/emote.tscn" id="2_u1764"]
 [ext_resource type="Texture2D" uid="uid://b5tdkioinx2ym" path="res://assets/gui/misc/active_tamagotchi_marker_sheet.png" id="3_wi2p0"]
 [ext_resource type="Texture2D" uid="uid://do4xbejytwydg" path="res://assets/emotes/bubble_emotes_sheet.png" id="4_bb1gs"]
+[ext_resource type="AnimationLibrary" uid="uid://bb1d0nv3dmknh" path="res://emotes/emote.res" id="5_y3n8h"]
 
 [sub_resource type="Animation" id="Animation_l38w2"]
 length = 0.001
@@ -126,16 +127,16 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wlkja"]
 advance_mode = 2
-advance_expression = "is_being_cleaned"
+advance_expression = "is_being_cleaned || is_being_pet"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_146ix"]
 advance_mode = 2
-advance_expression = "!is_being_cleaned"
+advance_expression = "!is_being_cleaned && !is_being_pet"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4xvuv"]
 states/Start/position = Vector2(193, 94)
 states/clean/node = SubResource("AnimationNodeAnimation_x3w0g")
-states/clean/position = Vector2(563.105, 135.785)
+states/clean/position = Vector2(561.105, 151.785)
 states/feed/node = SubResource("AnimationNodeAnimation_nk5ih")
 states/feed/position = Vector2(424, 227.5)
 states/idle/node = SubResource("AnimationNodeStateMachine_h7qrx")
@@ -143,7 +144,7 @@ states/idle/position = Vector2(333.105, 108)
 states/sleep/node = SubResource("AnimationNodeAnimation_u438w")
 states/sleep/position = Vector2(424, 54.5)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_irql0"), "idle", "sleep", SubResource("AnimationNodeStateMachineTransition_yv0n8"), "sleep", "idle", SubResource("AnimationNodeStateMachineTransition_0q7bq"), "idle", "feed", SubResource("AnimationNodeStateMachineTransition_ux4a5"), "feed", "idle", SubResource("AnimationNodeStateMachineTransition_mi08o"), "idle", "clean", SubResource("AnimationNodeStateMachineTransition_wlkja"), "clean", "idle", SubResource("AnimationNodeStateMachineTransition_146ix")]
-graph_offset = Vector2(39.1049, 7.785)
+graph_offset = Vector2(39.1049, 72.0428)
 
 [sub_resource type="Animation" id="Animation_45tap"]
 length = 0.6
@@ -224,6 +225,12 @@ tracks/5/keys = {
 _data = {
 "RESET": SubResource("Animation_45tap")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h1loc"]
+animation = &"emote/angry"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kyqu7"]
+animation = &"emote/annoyed"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6o4rm"]
 animation = &"emote/happiness"
@@ -345,6 +352,12 @@ graph_offset = Vector2(-247.312, 60.5991)
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m0165"]
 animation = &"emote/love"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v88a3"]
+animation = &"emote/silent"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vpvxm"]
+animation = &"emote/singing"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3rqa8"]
 animation = &"emote/sleep"
 
@@ -365,16 +378,48 @@ advance_expression = "resource.is_awake"
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gq88n"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e8oca"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g0g56"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_td2oc"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ocv4i"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1shyg"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cv7wd"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uy34g"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_w6u1s"]
 states/Start/position = Vector2(146, 112)
+states/angry/node = SubResource("AnimationNodeAnimation_h1loc")
+states/angry/position = Vector2(656, 119.518)
+states/annoyed/node = SubResource("AnimationNodeAnimation_kyqu7")
+states/annoyed/position = Vector2(621, 303.518)
 states/idle/node = SubResource("AnimationNodeStateMachine_im5sl")
 states/idle/position = Vector2(361, 138)
 states/love/node = SubResource("AnimationNodeAnimation_m0165")
-states/love/position = Vector2(483, 327)
+states/love/position = Vector2(485, 365.518)
+states/silent/node = SubResource("AnimationNodeAnimation_v88a3")
+states/silent/position = Vector2(701, 224.518)
+states/singing/node = SubResource("AnimationNodeAnimation_vpvxm")
+states/singing/position = Vector2(294, 365.518)
 states/sleep/node = SubResource("AnimationNodeAnimation_3rqa8")
 states/sleep/position = Vector2(502, 41)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_udrue"), "idle", "sleep", SubResource("AnimationNodeStateMachineTransition_pxknx"), "idle", "love", SubResource("AnimationNodeStateMachineTransition_nycsi"), "sleep", "idle", SubResource("AnimationNodeStateMachineTransition_qfa6l"), "love", "idle", SubResource("AnimationNodeStateMachineTransition_777gn")]
-graph_offset = Vector2(0, 123.311)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_udrue"), "idle", "sleep", SubResource("AnimationNodeStateMachineTransition_pxknx"), "idle", "love", SubResource("AnimationNodeStateMachineTransition_nycsi"), "sleep", "idle", SubResource("AnimationNodeStateMachineTransition_qfa6l"), "love", "idle", SubResource("AnimationNodeStateMachineTransition_777gn"), "idle", "annoyed", SubResource("AnimationNodeStateMachineTransition_gq88n"), "annoyed", "idle", SubResource("AnimationNodeStateMachineTransition_e8oca"), "idle", "singing", SubResource("AnimationNodeStateMachineTransition_g0g56"), "singing", "idle", SubResource("AnimationNodeStateMachineTransition_td2oc"), "idle", "silent", SubResource("AnimationNodeStateMachineTransition_ocv4i"), "silent", "idle", SubResource("AnimationNodeStateMachineTransition_1shyg"), "idle", "angry", SubResource("AnimationNodeStateMachineTransition_cv7wd"), "angry", "idle", SubResource("AnimationNodeStateMachineTransition_uy34g")]
+graph_offset = Vector2(0, 25.5183)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udhen"]
 size = Vector2(17.5, 21.5)
@@ -433,7 +478,8 @@ region_rect = Rect2(96, 192, 64, 16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Emote"]
 libraries = {
-"": SubResource("AnimationLibrary_8thb2")
+"": SubResource("AnimationLibrary_8thb2"),
+"emote": ExtResource("5_y3n8h")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Emote"]

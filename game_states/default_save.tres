@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameStateResource" load_steps=23 format=3]
+[gd_resource type="Resource" script_class="GameStateResource" load_steps=17 format=3]
 
 [ext_resource type="Script" path="res://game/coins_resource.gd" id="1_aonhe"]
 [ext_resource type="Script" path="res://inventory/inventory_resource.gd" id="1_fspag"]
@@ -6,73 +6,45 @@
 [ext_resource type="Resource" path="res://items/itemResources/soap.tres" id="3_rjemd"]
 [ext_resource type="Script" path="res://inventory/inventory_slot_resource.gd" id="4_nc2sd"]
 [ext_resource type="Resource" path="res://tamagotchi/plave/yejun/yejun.tres" id="5_gxvx3"]
-[ext_resource type="Resource" path="res://items/itemResources/candy.tres" id="5_mk8e5"]
-[ext_resource type="Resource" path="res://items/itemResources/chicken_breast.tres" id="6_15d20"]
+[ext_resource type="Resource" path="res://items/itemResources/lollipop.tres" id="5_x684i"]
 [ext_resource type="Resource" path="res://tamagotchi/plave/noah/noah.tres" id="6_h68wl"]
-[ext_resource type="Resource" path="res://items/itemResources/lollipop.tres" id="7_vqxsb"]
+[ext_resource type="Resource" path="res://items/itemResources/candy.tres" id="6_q82q0"]
+[ext_resource type="Resource" path="res://items/itemResources/chicken_breast.tres" id="7_cyqv5"]
 
-[sub_resource type="Resource" id="Resource_mbocx"]
+[sub_resource type="Resource" id="Resource_jjnoc"]
 script = ExtResource("1_aonhe")
-coins = 22
-max_coins = 99999
+coins = 162.185
+max_coins = 999999.0
+gain_rate = 1.1
 
 [sub_resource type="Resource" id="Resource_m4ql6"]
 script = ExtResource("4_nc2sd")
 item = ExtResource("3_rjemd")
 amount = 1
 
-[sub_resource type="Resource" id="Resource_2o7pa"]
+[sub_resource type="Resource" id="Resource_8jfyl"]
 script = ExtResource("4_nc2sd")
-item = ExtResource("5_mk8e5")
-amount = 10
-
-[sub_resource type="Resource" id="Resource_tlr2e"]
-script = ExtResource("4_nc2sd")
-item = ExtResource("7_vqxsb")
-amount = 10
-
-[sub_resource type="Resource" id="Resource_0anns"]
-script = ExtResource("4_nc2sd")
-item = ExtResource("6_15d20")
-amount = 10
-
-[sub_resource type="Resource" id="Resource_t8jxc"]
-script = ExtResource("4_nc2sd")
-item = ExtResource("6_15d20")
-amount = 10
-
-[sub_resource type="Resource" id="Resource_1ykm7"]
-script = ExtResource("4_nc2sd")
-item = ExtResource("7_vqxsb")
-amount = 10
-
-[sub_resource type="Resource" id="Resource_euxng"]
-script = ExtResource("4_nc2sd")
-item = ExtResource("5_mk8e5")
-amount = 10
-
-[sub_resource type="Resource" id="Resource_x2sbq"]
-script = ExtResource("4_nc2sd")
-item = ExtResource("5_mk8e5")
-amount = 2
-
-[sub_resource type="Resource" id="Resource_qjtb7"]
-script = ExtResource("4_nc2sd")
-item = ExtResource("6_15d20")
+item = ExtResource("5_x684i")
 amount = 3
 
-[sub_resource type="Resource" id="Resource_rlcof"]
+[sub_resource type="Resource" id="Resource_nahgg"]
 script = ExtResource("4_nc2sd")
-item = ExtResource("7_vqxsb")
-amount = 1
+item = ExtResource("6_q82q0")
+amount = 3
 
-[sub_resource type="Resource" id="Resource_pon0e"]
+[sub_resource type="Resource" id="Resource_iqu4v"]
+script = ExtResource("4_nc2sd")
+item = ExtResource("7_cyqv5")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_3is6y"]
 script = ExtResource("1_fspag")
 inventory_capacity = 16
-slot_resources = Array[ExtResource("4_nc2sd")]([SubResource("Resource_m4ql6"), SubResource("Resource_2o7pa"), SubResource("Resource_tlr2e"), SubResource("Resource_0anns"), SubResource("Resource_t8jxc"), SubResource("Resource_1ykm7"), SubResource("Resource_euxng"), SubResource("Resource_x2sbq"), SubResource("Resource_qjtb7"), SubResource("Resource_rlcof")])
+slot_resources = Array[ExtResource("4_nc2sd")]([SubResource("Resource_m4ql6"), SubResource("Resource_8jfyl"), SubResource("Resource_nahgg"), SubResource("Resource_iqu4v")])
 
 [resource]
 script = ExtResource("2_8s45o")
 tamagotchis = Array[Resource("res://tamagotchi/tamagotchi_resource.gd")]([ExtResource("5_gxvx3"), ExtResource("6_h68wl")])
-inventory = SubResource("Resource_pon0e")
-coins = SubResource("Resource_mbocx")
+inventory = SubResource("Resource_3is6y")
+coins = SubResource("Resource_jjnoc")
+item_gacha_cost = 0

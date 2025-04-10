@@ -14,6 +14,8 @@ class_name Tamagotchi
 @onready var emote_animation_tree: AnimationTree = $Emote/AnimationTree
 @onready var emote_state_machine: AnimationNodeStateMachinePlayback = emote_animation_tree["parameters/playback"]
 
+@onready var is_active: bool
+@onready var is_being_pet: bool
 @onready var is_being_cleaned: bool
 @onready var is_unwell: bool
 
@@ -43,6 +45,11 @@ func _process(delta):
 func interaction_process():
 	check_clicked_interaction()
 	check_dragging_item_interaction()
+	check_petting_interaction()
+
+func set_active(active: bool):
+	is_active = active
+	active_indicator.visible = active
 
 # Click interaction
 
@@ -50,26 +57,63 @@ func check_clicked_interaction():
 	if mouse_collision && Input.is_action_just_pressed("mouse_button_left"): # Check for click to switch active
 		mouse_clicked.emit(self)
 
+# Calculating petting logic
+
+func check_petting_interaction():
+	if (
+		is_active and
+		mouse_collision and
+		!collided_item_area and
+		Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and
+		get_mouse_distance_traveled() > 20
+	):
+		if !is_being_pet:
+			is_being_pet = true
+			MouseManager.set_cursor_trail(resource.cursor_effect_type)
+			# TODO: Clear emote too when petting
+		resource.apply_interaction_stats(get_mouse_distance_traveled())
+		reset_distance_data()
+	if (
+		is_active and
+		Input.is_action_just_released("mouse_button_left") and
+		is_being_pet
+	):
+		is_being_pet = false
+		MouseManager.remove_cursor_trail()
+		reset_distance_data(true)
+		play_animation_heart()
+
 # Calculating draggable items logic
 
 func check_dragging_item_interaction():
-	if mouse_collision and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and collision_area.overlaps_area(collided_item_area): # Check and apply draggables
-		if collided_item_area and collided_item_area.get_parent().item_resource.is_grabbable:
-			# TODO: Clear emote too when cleaning
-			if is_being_cleaned == false:
-				is_being_cleaned = true
-				MouseManager.set_cursor_trail(CursorEffect.EffectType.BUBBLE)
-			resource.apply_item_stats(collided_item_area.get_parent().item_resource, get_mouse_distance_traveled())
-			
-	if Input.is_action_just_released("mouse_button_left") && is_being_cleaned:
+	if (
+		is_active and
+		mouse_collision and
+		Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and
+		collided_item_area and
+		collision_area.overlaps_area(collided_item_area) and
+		collided_item_area.get_parent().item_resource.is_grabbable
+	): # Check and apply draggables
+		# TODO: Clear emote too when cleaning
+		if !is_being_cleaned:
+			is_being_cleaned = true
+			MouseManager.set_cursor_trail(CursorEffect.EffectType.BUBBLE)
+		resource.apply_item_stats(collided_item_area.get_parent().item_resource, get_mouse_distance_traveled())
+		reset_distance_data()
+	if (
+		is_active and
+		Input.is_action_just_released("mouse_button_left") and
+		is_being_cleaned
+	):
 		is_being_cleaned = false
 		MouseManager.remove_cursor_trail()
-		reset_mouse_data()
+		reset_distance_data(true)
 		play_animation_heart()
 
-func reset_mouse_data():
-	self.last_mouse_position = Vector2.ZERO
-	self.current_mouse_position = Vector2.ZERO
+func reset_distance_data(all: bool = false):
+	if all:
+		self.last_mouse_position = Vector2.ZERO
+		self.current_mouse_position = Vector2.ZERO
 	self.mouse_distance_traveled = 0.0
 
 func get_mouse_distance_traveled():
@@ -108,7 +152,10 @@ func animation_setup():
 		emote_state_machine_node.get_node("idle").get_node("happiness").animation = "emote/happiness"
 		emote_state_machine_node.get_node("idle").get_node("health").animation = "emote/health"
 		emote_state_machine_node.get_node("love").animation = "emote/love"
-		emote_state_machine_node.get_node("sleep").animation = "emote/sleep"
+		emote_state_machine_node.get_node("singing").animation = "emote/singing"
+		emote_state_machine_node.get_node("annoyed").animation = "emote/annoyed"
+		emote_state_machine_node.get_node("angry").animation = "emote/angry"
+		emote_state_machine_node.get_node("silent").animation = "emote/silent"
 
 	resource.item_used.connect(play_animation_heart)
 

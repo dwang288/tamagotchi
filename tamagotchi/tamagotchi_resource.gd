@@ -5,6 +5,7 @@ class_name TamagotchiResource
 # Resource change signals
 signal stat_changed(tamagotchi: TamagotchiResource)
 signal item_consumed(slot: InventorySlotResource)
+signal interacted_with(interaction_distance: float)
 
 # Animation signals
 signal item_used
@@ -23,6 +24,7 @@ signal stats_increased
 
 @export var animation_library: AnimationLibrary
 @export var profile_icon: Texture2D
+@export var cursor_effect_type: CursorEffect.EffectType
 
 # TODO: Move all stat functionality into stats resource
 
@@ -132,6 +134,15 @@ func apply_item_stats(item: InventoryItemResource, mouse_distance_traveled: floa
 	stats.rest += item.rest * mouse_distance_traveled
 
 	stats.set_valid_stats()
+
+# TODO: Make this generic in the future for interactions that don't involve items
+func apply_interaction_stats(mouse_distance_traveled: float):
+	is_awake = true
+	stats.happiness += 0.1 * mouse_distance_traveled # TODO: take multiplier out into rates
+	stats.set_valid_stats()
+	
+	# TODO: Hook this up to CoinManager
+	interacted_with.emit(mouse_distance_traveled)
 
 func use_item_in_slot(slot: InventorySlotResource):
 	if slot.item.is_usable:

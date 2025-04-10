@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_f5wt7")
-coins = 11
-max_coins = 99999
+coins = 2.08165e-12
+max_coins = 999999.0
+gain_rate = 1.1

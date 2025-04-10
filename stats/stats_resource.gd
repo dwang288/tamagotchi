@@ -35,9 +35,12 @@ func get_exp_ratio() -> float:
 # TODO: Tweak this
 func get_exp_cap(lvl: int) -> float:
 	return base_exp * lvl ** exp_cap_growth_factor
-	
+
 
 # Needs functions
+
+func get_overall_stats_ratio() -> float:
+	return (get_hunger_ratio() + get_hygiene_ratio() + get_happiness_ratio() + get_health_ratio() + get_rest_ratio())/5
 
 func get_hunger_ratio() -> float:
 	return hunger/max_hunger

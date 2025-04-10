@@ -7,6 +7,7 @@ class_name Game
 @onready var tamagotchis_node: Node2D = %Tamagotchis
 @onready var menu_upper_node: Control = %MenuUpper
 @onready var menu_lower_node: Control = %MenuLower
+@onready var coin_manager_node: Node2D = %CoinManager
 
 
 func _ready():
@@ -15,9 +16,9 @@ func _ready():
 
 func connection_setup():
 	# Test add serum button
-	$TestButton/HBoxContainer/Button.sent_item.connect(menu_lower_node.inventory.insert)
-	$TestButton/HBoxContainer/Button2.new_game.connect(GameStateManager.new_game)
-	$TestButton/HBoxContainer/Button3.add_coins.connect(GameStateManager.game_state.coins.modify_coins)
+	$CanvasLayer/ToggleMenu/HBoxContainer/Button.sent_item.connect(menu_lower_node.inventory.insert)
+	$CanvasLayer/ToggleMenu/HBoxContainer/Button2.new_game.connect(GameStateManager.new_game)
+	$CanvasLayer/ToggleMenu/HBoxContainer/Button3.add_coins.connect(GameStateManager.game_state.coins.modify_coins)
 	
 	# Connect active tamagotchi switch to stats gui
 	tamagotchis_node.active_tamagotchi_changed.connect(menu_upper_node.update_active_tamagotchi)
@@ -30,6 +31,7 @@ func connection_setup():
 	# Connect item consumed success to inventory deletion of item
 	for tamagotchi_node in tamagotchis_node.get_children():
 		if tamagotchi_node is Tamagotchi:
+			tamagotchi_node.resource.interacted_with.connect(coin_manager_node.increase_coins_from_interaction)
 			tamagotchi_node.resource.item_consumed.connect(menu_lower_node.inventory.delete)
 
 # Initial game setup for active tamagotchi
@@ -39,4 +41,5 @@ func setup_active():
 	menu_upper_node.update_active_tamagotchi(active_tamagotchi_resource)
 
 func toggle_menu():
-	$TestButton.visible = !$TestButton.visible
+	$CanvasLayer/ToggleMenu.visible = !$CanvasLayer/ToggleMenu.visible
+

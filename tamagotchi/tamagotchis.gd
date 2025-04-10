@@ -58,11 +58,11 @@ func switch_active_tamagotchi(tama: Tamagotchi = null):
 
 # Remove old tamagotchi from being able to affect the stats UI, set to inactive
 func set_inactive_tamagotchi(tamagotchi_index: int):
-	tamagotchi_nodes[tamagotchi_index].active_indicator.visible = false
+	tamagotchi_nodes[tamagotchi_index].set_active(false)
 
 # Connect new tamagotchi, set to active
 func set_active_tamagotchi(tamagotchi_index: int):
-	tamagotchi_nodes[tamagotchi_index].active_indicator.visible = true
+	tamagotchi_nodes[tamagotchi_index].set_active(true)
 	active_tamagotchi_changed.emit(tamagotchi_nodes[tamagotchi_index].resource)
 
 func click_item(slot: InventorySlotResource):

@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4c2wv0guy7fi"]
+[gd_scene load_steps=9 format=3 uid="uid://b4c2wv0guy7fi"]
 
 [ext_resource type="Theme" uid="uid://dyx683dtm8jcu" path="res://ui/themes/default_menu.tres" id="1_unbns"]
 [ext_resource type="Script" path="res://test/new_item_button_test.gd" id="2_7ldn8"]
+[ext_resource type="Script" path="res://test/toggle_menu.gd" id="2_mxp8n"]
 [ext_resource type="Resource" uid="uid://cvl6a7l4tsv8d" path="res://items/itemResources/candy.tres" id="3_g7xin"]
 [ext_resource type="Script" path="res://test/new_game_button_test.gd" id="3_p4al0"]
 [ext_resource type="Resource" uid="uid://bqoqm8dmrb26a" path="res://items/itemResources/chicken_breast.tres" id="4_cmtoq"]
 [ext_resource type="Resource" uid="uid://debtsaphjnewd" path="res://items/itemResources/lollipop.tres" id="5_b4xk0"]
 [ext_resource type="Script" path="res://test/update_coins_button_test.gd" id="7_lw355"]
 
-[node name="TestButton" type="Control"]
+[node name="ToggleMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -39.0
@@ -16,6 +17,7 @@ offset_top = -1.0
 offset_bottom = 30.0
 grow_horizontal = 0
 theme = ExtResource("1_unbns")
+script = ExtResource("2_mxp8n")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0

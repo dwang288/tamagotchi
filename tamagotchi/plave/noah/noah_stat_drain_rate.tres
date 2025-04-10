@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_74xc7")
-hunger = 3.0
-hygiene = 3.0
-happiness = 3.0
-health = 3.0
-rest = 3.0
+hunger = 1.0
+hygiene = 1.0
+happiness = 1.0
+health = 1.0
+rest = 1.0

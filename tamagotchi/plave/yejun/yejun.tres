@@ -15,3 +15,4 @@ stats_low = {}
 is_awake = true
 animation_library = ExtResource("1_50ddu")
 profile_icon = ExtResource("2_w5hxs")
+cursor_effect_type = 0

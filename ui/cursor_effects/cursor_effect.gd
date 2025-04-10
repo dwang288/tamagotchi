@@ -6,7 +6,7 @@ class_name CursorEffect
 
 @onready var freq_timer: Timer = $FrequencyTimer # For setting frequency of particle spawns 
 
-enum EffectType { BUBBLE, HEART, SPARKLE }
+enum EffectType { BUBBLE, SPARKLE, FLOWER, FIRE, BINARY }
 
 var effect_map = {
 	EffectType.BUBBLE: { # TODO: move contents into an EffectTypeResource
@@ -16,7 +16,45 @@ var effect_map = {
 		"frame_size_px": 8,
 		"duration": 0.3,
 		"spawn_frequency": 0.03,
-		"jitter_range": 7.0
+		"jitter_range": 9.0
+	},
+	EffectType.SPARKLE: { # TODO: move contents into an EffectTypeResource
+		"sprites": [ load("res://assets/gui/cursors/cursor_effects/sparkle/sparkle1.png"),
+			load("res://assets/gui/cursors/cursor_effects/sparkle/sparkle2.png"),
+			load("res://assets/gui/cursors/cursor_effects/sparkle/sparkle3.png"), ],
+		"frame_size_px": 8,
+		"duration": 0.3,
+		"spawn_frequency": 0.03,
+		"jitter_range": 10.0
+	},
+	EffectType.FLOWER: { # TODO: move contents into an EffectTypeResource
+		"sprites": [ load("res://assets/gui/cursors/cursor_effects/flower/flower1.png"),
+			load("res://assets/gui/cursors/cursor_effects/flower/flower2.png"),
+			load("res://assets/gui/cursors/cursor_effects/flower/flower3.png"),
+			load("res://assets/gui/cursors/cursor_effects/flower/flower4.png"),
+			load("res://assets/gui/cursors/cursor_effects/flower/flower5.png"), ],
+		"frame_size_px": 8,
+		"duration": 0.3,
+		"spawn_frequency": 0.03,
+		"jitter_range": 10.0
+	},
+	EffectType.FIRE: { # TODO: move contents into an EffectTypeResource
+		"sprites": [ load("res://assets/gui/cursors/cursor_effects/fire/fire1.png"),
+			load("res://assets/gui/cursors/cursor_effects/fire/fire2.png"),
+			load("res://assets/gui/cursors/cursor_effects/fire/fire4.png"), ],
+		"frame_size_px": 8,
+		"duration": 0.3,
+		"spawn_frequency": 0.03,
+		"jitter_range": 8.0
+	},
+	EffectType.BINARY: { # TODO: move contents into an EffectTypeResource
+		"sprites": [ load("res://assets/gui/cursors/cursor_effects/binary/binary1.png"),
+			load("res://assets/gui/cursors/cursor_effects/binary/binary2.png"),
+			load("res://assets/gui/cursors/cursor_effects/binary/binary3.png"), ],
+		"frame_size_px": 8,
+		"duration": 0.3,
+		"spawn_frequency": 0.03,
+		"jitter_range": 10.0
 	}
 }
 

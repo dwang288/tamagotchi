@@ -22,4 +22,4 @@ func process_coin_gain(delta):
 	coins_resource.modify_coins(additional_coins)
 
 func increase_coins_from_interaction(mouse_traveled):
-	coins_resource.modify_coins(mouse_traveled/100) # TODO: Pull this number out
+	coins_resource.modify_coins(mouse_traveled/10) # TODO: Pull this number out

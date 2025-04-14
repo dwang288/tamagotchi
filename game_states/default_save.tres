@@ -1,35 +1,35 @@
 [gd_resource type="Resource" script_class="GameStateResource" load_steps=14 format=3]
 
-[ext_resource type="Script" path="res://game/coins_resource.gd" id="1_aonhe"]
-[ext_resource type="Script" path="res://inventory/inventory_resource.gd" id="1_fspag"]
-[ext_resource type="Script" path="res://game_states/game_state_resource.gd" id="2_8s45o"]
-[ext_resource type="Resource" path="res://items/itemResources/soap.tres" id="3_rjemd"]
-[ext_resource type="Script" path="res://inventory/inventory_slot_resource.gd" id="4_nc2sd"]
-[ext_resource type="Resource" path="res://tamagotchi/plave/yejun/yejun.tres" id="5_gxvx3"]
-[ext_resource type="Resource" path="res://tamagotchi/plave/noah/noah.tres" id="6_h68wl"]
-[ext_resource type="Resource" path="res://tamagotchi/plave/bamby/bamby.tres" id="11_s70df"]
-[ext_resource type="Resource" path="res://tamagotchi/plave/eunho/eunho.tres" id="12_grcsi"]
-[ext_resource type="Resource" path="res://tamagotchi/plave/hamin/hamin.tres" id="13_3qjpt"]
+[ext_resource type="Script" path="res://game/coins_resource.gd" id="1_a5gmv"]
+[ext_resource type="Script" path="res://inventory/inventory_resource.gd" id="2_7olx0"]
+[ext_resource type="Resource" path="res://tamagotchi/plave/yejun/yejun.tres" id="3_6eife"]
+[ext_resource type="Resource" path="res://items/itemResources/soap.tres" id="3_ep3l8"]
+[ext_resource type="Script" path="res://inventory/inventory_slot_resource.gd" id="4_fvela"]
+[ext_resource type="Script" path="res://game_states/game_state_resource.gd" id="5_2epns"]
+[ext_resource type="Resource" path="res://tamagotchi/plave/noah/noah.tres" id="7_mkte5"]
+[ext_resource type="Resource" path="res://tamagotchi/plave/bamby/bamby.tres" id="8_n341g"]
+[ext_resource type="Resource" path="res://tamagotchi/plave/eunho/eunho.tres" id="9_xbmi5"]
+[ext_resource type="Resource" path="res://tamagotchi/plave/hamin/hamin.tres" id="10_2lwk1"]
 
-[sub_resource type="Resource" id="Resource_jjnoc"]
-script = ExtResource("1_aonhe")
-coins = 41.313
+[sub_resource type="Resource" id="Resource_k7p10"]
+script = ExtResource("1_a5gmv")
+coins = 2.08165e-12
 max_coins = 999999.0
 gain_rate = 1.1
 
 [sub_resource type="Resource" id="Resource_m4ql6"]
-script = ExtResource("4_nc2sd")
-item = ExtResource("3_rjemd")
+script = ExtResource("4_fvela")
+item = ExtResource("3_ep3l8")
 amount = 1
 
-[sub_resource type="Resource" id="Resource_3is6y"]
-script = ExtResource("1_fspag")
+[sub_resource type="Resource" id="Resource_5d0fr"]
+script = ExtResource("2_7olx0")
 inventory_capacity = 16
-slot_resources = Array[ExtResource("4_nc2sd")]([SubResource("Resource_m4ql6")])
+slot_resources = Array[ExtResource("4_fvela")]([SubResource("Resource_m4ql6")])
 
 [resource]
-script = ExtResource("2_8s45o")
-tamagotchis = Array[Resource("res://tamagotchi/tamagotchi_resource.gd")]([ExtResource("5_gxvx3"), ExtResource("6_h68wl"), ExtResource("11_s70df"), ExtResource("12_grcsi"), ExtResource("13_3qjpt")])
-inventory = SubResource("Resource_3is6y")
-coins = SubResource("Resource_jjnoc")
+script = ExtResource("5_2epns")
+tamagotchis = Array[Resource("res://tamagotchi/tamagotchi_resource.gd")]([ExtResource("3_6eife"), ExtResource("7_mkte5"), ExtResource("8_n341g"), ExtResource("9_xbmi5"), ExtResource("10_2lwk1")])
+inventory = SubResource("Resource_5d0fr")
+coins = SubResource("Resource_k7p10")
 item_gacha_cost = 0

@@ -2,6 +2,7 @@ extends Node
 
 @export var timer: Timer = Timer.new()
 @export var SAVE_INTERVAL: float = 5.0
+@export var skipped_types: Array = [ Texture2D, AnimationLibrary ]
 @export var game_state: GameStateResource = load("res://game_states/default_save.tres")
 
 # TODO: Have option to make a new game and erase old save files,
@@ -23,7 +24,7 @@ func new_game():
 	# print(new_resource.tamagotchis[0].resource_path)
 	ResourceSaver.save(new_resource, game_state.get_path())
 	# quit window
-	# get_tree().quit()
+	get_tree().quit()
 
 func pause_autosave():
 	timer.stop()
@@ -33,7 +34,7 @@ func resume_autosave():
 
 func save_game():
 	print("Saving")
-	ResourceSaver.save(game_state, game_state.get_path(), ResourceSaver.FLAG_REPLACE_SUBRESOURCE_PATHS)
+	ResourceSaver.save(game_state, game_state.get_path())
 
 func deep_duplicate_resource(resource: Resource) -> Resource:
 	if resource == null:
@@ -51,6 +52,13 @@ func deep_duplicate_resource(resource: Resource) -> Resource:
 		if name == "script":
 			continue
 
+		if (
+			value is Texture2D or
+			value is AnimationLibrary
+		):
+			continue
+
+
 		if value is Resource:
 			var nested_copy = deep_duplicate_resource(value)
 			if nested_copy != null:
@@ -60,7 +68,9 @@ func deep_duplicate_resource(resource: Resource) -> Resource:
 			#print(name, " ", copy.resource_path)
 
 		elif typeof(value) == TYPE_ARRAY:
-			var new_array = []
+			print(value)
+			var new_array = value.duplicate()
+			new_array.clear()
 			for item in value:
 				if item is Resource:
 					var item_copy = deep_duplicate_resource(item)

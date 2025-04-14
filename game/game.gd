@@ -42,4 +42,3 @@ func setup_active():
 
 func toggle_menu():
 	$CanvasLayer/ToggleMenu.visible = !$CanvasLayer/ToggleMenu.visible
-

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="IconBBCodeDictResource" load_steps=2 format=3 uid="uid://4w5rlj18q5a0"]
 
-[ext_resource type="Script" path="res://ui/icon_bbcode_dict_resource.gd" id="1_h5fum"]
+[ext_resource type="Script" uid="uid://d2uphv04af8ky" path="res://ui/icon_bbcode_dict_resource.gd" id="1_h5fum"]
 
 [resource]
 script = ExtResource("1_h5fum")

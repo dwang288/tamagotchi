@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="TamagotchiResource" load_steps=5 format=3 uid="uid://bmmt261imy0gt"]
+[gd_resource type="Resource" script_class="TamagotchiResource" load_steps=4 format=3 uid="uid://bmmt261imy0gt"]
 
 [ext_resource type="AnimationLibrary" uid="uid://bwsm0boyv2k8d" path="res://tamagotchi/wolfwood/animations/animation.res" id="1_3gjop"]
-[ext_resource type="Script" path="res://tamagotchi/tamagotchi_resource.gd" id="2_y8a7u"]
-[ext_resource type="Resource" uid="uid://dmnc5ydl0gvwb" path="res://stats/stat_drain_rate.tres" id="3_k31w7"]
+[ext_resource type="Script" uid="uid://cyouq0nm1mlf4" path="res://tamagotchi/tamagotchi_resource.gd" id="2_y8a7u"]
 [ext_resource type="Resource" uid="uid://blusfcfqi0mxw" path="res://tamagotchi/wolfwood/wolfwood_stats_start.tres" id="4_yk50p"]
 
 [resource]
 script = ExtResource("2_y8a7u")
-statDrainRates = ExtResource("3_k31w7")
 stats = ExtResource("4_yk50p")
+stats_low_threshold = 0.3
+stats_low = {}
 is_awake = true
 animation_library = ExtResource("1_3gjop")
+cursor_effect_type = 0

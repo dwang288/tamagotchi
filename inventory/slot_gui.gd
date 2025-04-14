@@ -113,6 +113,3 @@ func _can_drop_data(_at_position, data):
 func _drop_data(_at_position, data):
 	# The swap should change the actual InventoryResource
 	swapped_item.emit(data, self)
-
-
-

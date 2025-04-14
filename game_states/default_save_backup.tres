@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="GameStateResource" load_steps=9 format=3 uid="uid://depvqkmdm5bo7"]
+[gd_resource type="Resource" script_class="GameStateResource" load_steps=10 format=3 uid="uid://depvqkmdm5bo7"]
 
 [ext_resource type="Resource" uid="uid://qhxsqabar1ta" path="res://game/coins.tres" id="1_j33vc"]
 [ext_resource type="Resource" uid="uid://dn84gt5g4kpnd" path="res://inventory/inventory.tres" id="1_whc42"]
-[ext_resource type="Script" path="res://game_states/game_state_resource.gd" id="4_lqwjj"]
+[ext_resource type="Script" uid="uid://cyouq0nm1mlf4" path="res://tamagotchi/tamagotchi_resource.gd" id="4_8lfhd"]
+[ext_resource type="Script" uid="uid://v1w3ipku8e2o" path="res://game_states/game_state_resource.gd" id="4_lqwjj"]
 [ext_resource type="Resource" uid="uid://etn86t24vnq6" path="res://tamagotchi/plave/yejun/yejun.tres" id="5_lk2ck"]
 [ext_resource type="Resource" uid="uid://dcwvfae04y7sb" path="res://tamagotchi/plave/bamby/bamby.tres" id="6_in06s"]
 [ext_resource type="Resource" uid="uid://bfuwgqpv05fwb" path="res://tamagotchi/plave/noah/noah.tres" id="6_tjxw6"]
@@ -11,7 +12,7 @@
 
 [resource]
 script = ExtResource("4_lqwjj")
-tamagotchis = Array[Resource("res://tamagotchi/tamagotchi_resource.gd")]([ExtResource("5_lk2ck"), ExtResource("6_tjxw6"), ExtResource("6_in06s"), ExtResource("7_swqff"), ExtResource("8_0scni")])
+tamagotchis = Array[ExtResource("4_8lfhd")]([ExtResource("5_lk2ck"), ExtResource("6_tjxw6"), ExtResource("6_in06s"), ExtResource("7_swqff"), ExtResource("8_0scni")])
 inventory = ExtResource("1_whc42")
 coins = ExtResource("1_j33vc")
 item_gacha_cost = 0

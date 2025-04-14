@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://srysuxqoa2cn"]
 
-[ext_resource type="Script" path="res://tamagotchi/tamagotchis.gd" id="1_hguru"]
+[ext_resource type="Script" uid="uid://cgidc8h64y3ao" path="res://tamagotchi/tamagotchis.gd" id="1_hguru"]
 
 [node name="Tamagotchis" type="Node2D"]
 script = ExtResource("1_hguru")

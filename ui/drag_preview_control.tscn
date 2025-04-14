@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cj4hfxrsgsack"]
 
-[ext_resource type="Script" path="res://ui/drag_preview_control.gd" id="1_spmn0"]
+[ext_resource type="Script" uid="uid://d1xdku462wws8" path="res://ui/drag_preview_control.gd" id="1_spmn0"]
 
 [node name="DragPreviewControl" type="Control"]
 layout_mode = 3

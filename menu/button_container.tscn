@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://drt8ijavylpcu"]
 
 [ext_resource type="Theme" uid="uid://dyx683dtm8jcu" path="res://ui/themes/default_menu.tres" id="1_vbvps"]
-[ext_resource type="Script" path="res://menu/button_container.gd" id="2_gj5a3"]
+[ext_resource type="Script" uid="uid://br7cjpicmw5pb" path="res://menu/button_container.gd" id="2_gj5a3"]
 
 [node name="ButtonContainer" type="MarginContainer"]
 anchors_preset = 8

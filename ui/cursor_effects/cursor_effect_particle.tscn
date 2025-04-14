@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bmdvav6usn41v"]
 
-[ext_resource type="Script" path="res://ui/cursor_effects/cursor_effect_particle.gd" id="1_uo14x"]
+[ext_resource type="Script" uid="uid://cdafsmgmxnuxj" path="res://ui/cursor_effects/cursor_effect_particle.gd" id="1_uo14x"]
 
 [node name="CursorEffectParticle" type="TextureRect"]
 script = ExtResource("1_uo14x")

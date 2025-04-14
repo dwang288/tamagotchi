@@ -2,7 +2,7 @@
 
 [ext_resource type="AnimationLibrary" uid="uid://bvicy22aa80fo" path="res://tamagotchi/plave/hamin/animations/animation.res" id="1_tuh7k"]
 [ext_resource type="Texture2D" uid="uid://dybg0rikn0r0r" path="res://assets/sprite_sheets/plave/hamin/hamin_profile.png" id="2_xy0nx"]
-[ext_resource type="Script" path="res://tamagotchi/tamagotchi_resource.gd" id="3_xtl1f"]
+[ext_resource type="Script" uid="uid://cyouq0nm1mlf4" path="res://tamagotchi/tamagotchi_resource.gd" id="3_xtl1f"]
 [ext_resource type="Resource" uid="uid://daumtuh5q47me" path="res://tamagotchi/plave/hamin/hamin_stat_drain_rate.tres" id="4_6d5k0"]
 [ext_resource type="Resource" uid="uid://dxdprd51t0fbs" path="res://tamagotchi/plave/hamin/hamin_stats_start.tres" id="5_e21yx"]
 

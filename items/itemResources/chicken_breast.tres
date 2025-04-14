@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InventoryItemResource" load_steps=3 format=3 uid="uid://bqoqm8dmrb26a"]
 
-[ext_resource type="Script" path="res://items/inventory_item_resource.gd" id="1_7r223"]
+[ext_resource type="Script" uid="uid://inhc30j3e4sc" path="res://items/inventory_item_resource.gd" id="1_7r223"]
 [ext_resource type="Texture2D" uid="uid://c130qohy1pa7q" path="res://assets/items/chicken_breast.png" id="2_qrefa"]
 
 [resource]

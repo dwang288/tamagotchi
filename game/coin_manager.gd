@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var coins_resource: CoinsResource = GameStateManager.game_state.coins
-@export var tama_resources: Array[TamagotchiResource] = GameStateManager.game_state.tamagotchis
+@export var tama_resources: Array = GameStateManager.game_state.tamagotchis
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

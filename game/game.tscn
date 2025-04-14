@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://dijkqwvc20tip"]
 
-[ext_resource type="Script" path="res://game/game.gd" id="1_7q1e7"]
+[ext_resource type="Script" uid="uid://ctypsbady56e4" path="res://game/game.gd" id="1_7q1e7"]
 [ext_resource type="PackedScene" uid="uid://b0hwch0cgemgf" path="res://room/room.tscn" id="2_05qe6"]
 [ext_resource type="PackedScene" uid="uid://srysuxqoa2cn" path="res://tamagotchi/tamagotchis.tscn" id="3_uy1pc"]
 [ext_resource type="PackedScene" uid="uid://b4c2wv0guy7fi" path="res://test/toggle_menu.tscn" id="4_sfcvn"]
 [ext_resource type="PackedScene" uid="uid://bmlvlmj5ijc5" path="res://inventory/menu_lower.tscn" id="5_3rgac"]
 [ext_resource type="PackedScene" uid="uid://bfg0bc7qty7hq" path="res://stats/menu_upper.tscn" id="6_lsdqe"]
-[ext_resource type="Script" path="res://game/coin_manager.gd" id="7_koibh"]
+[ext_resource type="Script" uid="uid://uh3qwcg23u82" path="res://game/coin_manager.gd" id="7_koibh"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -15,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_7q1e7")
 
 [node name="Control" type="Control" parent="."]
@@ -24,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Room" parent="Control" instance=ExtResource("2_05qe6")]
 position = Vector2(128, 18)
@@ -36,14 +38,12 @@ position = Vector2(0, 105)
 
 [node name="MenuLower" parent="CanvasLayer" instance=ExtResource("5_3rgac")]
 unique_name_in_owner = true
+metadata/_edit_use_anchors_ = true
 
 [node name="ToggleMenu" parent="CanvasLayer" instance=ExtResource("4_sfcvn")]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -41.0
-offset_top = 18.0
-offset_bottom = 51.0
+offset_top = 19.0
+offset_bottom = 52.0
+metadata/_edit_use_anchors_ = true
 
 [node name="MenuUpper" parent="CanvasLayer" instance=ExtResource("6_lsdqe")]
 unique_name_in_owner = true

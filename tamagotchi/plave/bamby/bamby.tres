@@ -2,7 +2,7 @@
 
 [ext_resource type="AnimationLibrary" uid="uid://c3j5bf7h6q4sx" path="res://tamagotchi/plave/bamby/animations/animation.res" id="1_ytin5"]
 [ext_resource type="Texture2D" uid="uid://doj3ybq1810uy" path="res://assets/sprite_sheets/plave/bamby/bamby_profile.png" id="2_b2aqw"]
-[ext_resource type="Script" path="res://tamagotchi/tamagotchi_resource.gd" id="3_or3c1"]
+[ext_resource type="Script" uid="uid://cyouq0nm1mlf4" path="res://tamagotchi/tamagotchi_resource.gd" id="3_or3c1"]
 [ext_resource type="Resource" uid="uid://cy3mctdhts5wc" path="res://tamagotchi/plave/bamby/bamby_stat_drain_rate.tres" id="4_wlcdi"]
 [ext_resource type="Resource" uid="uid://b8mgugo6imabx" path="res://tamagotchi/plave/bamby/bamby_stats_start.tres" id="5_0cjqm"]
 

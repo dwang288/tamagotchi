@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmu3jchcrcy00"]
 
-[ext_resource type="Script" path="res://ui/tooltip_control.gd" id="1_37d2o"]
+[ext_resource type="Script" uid="uid://beacjpn8hu6kt" path="res://ui/tooltip_control.gd" id="1_37d2o"]
 [ext_resource type="Resource" uid="uid://4w5rlj18q5a0" path="res://ui/icon_bbcode_dict.tres" id="2_oha86"]
 [ext_resource type="Theme" uid="uid://cr5fa5khdjfpk" path="res://ui/themes/profile_button.tres" id="3_7r0hk"]
 [ext_resource type="Texture2D" uid="uid://cpx5kfxxt6ppb" path="res://assets/gui/menu/frame.png" id="3_0371y"]

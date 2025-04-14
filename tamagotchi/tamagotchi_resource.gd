@@ -152,4 +152,3 @@ func use_item_in_slot(slot: InventorySlotResource):
 
 		if slot.item.is_consumable:
 			item_consumed.emit(slot)
-

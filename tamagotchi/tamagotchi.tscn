@@ -1,6 +1,7 @@
-[gd_scene load_steps=75 format=3 uid="uid://b7qpptii07lf6"]
+[gd_scene load_steps=76 format=3 uid="uid://b7qpptii07lf6"]
 
-[ext_resource type="Script" path="res://tamagotchi/tamagotchi.gd" id="1_bkvew"]
+[ext_resource type="Script" uid="uid://nvjkkwl38k2h" path="res://tamagotchi/tamagotchi.gd" id="1_bkvew"]
+[ext_resource type="Resource" uid="uid://etn86t24vnq6" path="res://tamagotchi/plave/yejun/yejun.tres" id="2_712e3"]
 [ext_resource type="PackedScene" uid="uid://c1un2smflu4vf" path="res://emotes/emote.tscn" id="2_u1764"]
 [ext_resource type="Texture2D" uid="uid://dtgrvxe1e0dfd" path="res://assets/sprite_sheets/plave/eunho/eunho_sheet.png" id="2_w2c6w"]
 [ext_resource type="Texture2D" uid="uid://b5tdkioinx2ym" path="res://assets/gui/misc/active_tamagotchi_marker_sheet.png" id="3_wi2p0"]
@@ -71,7 +72,7 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cr776"]
 _data = {
-"RESET": SubResource("Animation_l38w2")
+&"RESET": SubResource("Animation_l38w2")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x3w0g"]
@@ -222,7 +223,7 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8thb2"]
 _data = {
-"RESET": SubResource("Animation_45tap")
+&"RESET": SubResource("Animation_45tap")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h1loc"]
@@ -446,8 +447,8 @@ animations = [{
 }]
 
 [node name="Tamagotchi" type="Node2D"]
-position = Vector2(0, -1)
 script = ExtResource("1_bkvew")
+resource = ExtResource("2_712e3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -11)
@@ -460,14 +461,14 @@ region_rect = Rect2(64, 64, 64, 32)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_cr776")
+&"": SubResource("AnimationLibrary_cr776")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Sprite2D"]
+root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_4xvuv")
-anim_player = NodePath("../AnimationPlayer")
 advance_expression_base_node = NodePath("../..")
-active = true
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="Emote" parent="." instance=ExtResource("2_u1764")]
 visible = true
@@ -477,14 +478,13 @@ region_rect = Rect2(96, 192, 64, 16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Emote"]
 libraries = {
-"": SubResource("AnimationLibrary_8thb2")
+&"": SubResource("AnimationLibrary_8thb2")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Emote"]
 tree_root = SubResource("AnimationNodeStateMachine_w6u1s")
-anim_player = NodePath("../AnimationPlayer")
 advance_expression_base_node = NodePath("../..")
-active = true
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-9, 0)

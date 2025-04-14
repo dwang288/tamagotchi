@@ -54,10 +54,10 @@ func deep_duplicate_resource(resource: Resource) -> Resource:
 
 		if (
 			value is Texture2D or
-			value is AnimationLibrary
+			value is AnimationLibrary or
+			value is InventoryItemResource
 		):
 			continue
-
 
 		if value is Resource:
 			var nested_copy = deep_duplicate_resource(value)

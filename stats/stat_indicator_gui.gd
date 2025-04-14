@@ -32,7 +32,7 @@ func _process(delta):
 
 func update(stat_value: float):
 	self.value = stat_value
-	value_node.text = str(floor(value*100))
+	value_node.text = Utils.print_float_clean(floor(value*100)) + "%"
 	# Color should change from green at 100 to yellow at 50% to red at 0%
 	# and then to flashing
 	if value < .5 && value >= 0:

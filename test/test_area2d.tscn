@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://1flpnaibybt7"]
+
+[sub_resource type="GDScript" id="GDScript_3gwjb"]
+script/source = "extends Area2D
+
+
+func _on_mouse_entered() -> void:
+	print(\"hi\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7albx"]
+size = Vector2(72, 74)
+
+[node name="Node2D" type="Area2D"]
+script = SubResource("GDScript_3gwjb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(26, 27)
+shape = SubResource("RectangleShape2D_7albx")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

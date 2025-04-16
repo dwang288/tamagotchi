@@ -13,8 +13,10 @@ signal item_used
 # Level signals
 signal leveled_up
 signal exp_changed
-signal stats_increased
 
+signal max_stat_increased(resource: StatsResource, stat: StatsResource.StatTypes, increased_amount: int)
+
+@export var stat_growth_rates: StatGrowthRatesResource
 @export var stat_drain_rates: StatDrainRatesResource
 @export var stats: StatsResource
 # TODO: Move stats_low_threshold and stats_low into stats resource
@@ -35,21 +37,62 @@ func add_exp(additional_exp: int):
 	exp_changed.emit(self)
 
 func level_up():
-	var stat_increase = {
-		stats.StatTypes.HUNGER: 0,
-		stats.StatTypes.HYGIENE: 0,
-		stats.StatTypes.HAPPINESS: 0,
-		stats.StatTypes.HEALTH: 0,
-		stats.StatTypes.REST: 0
-	}
+
 	while stats.exp >= stats.exp_cap:
 		stats.exp -= stats.exp_cap
 		stats.level += 1
 		# TODO: Maybe stats increases should be done off individual growth rates like in Fire Emblem
+		all_stat_roll()
 		# TODO: Every stat increase should be added to a queue in order to play the animation
 		stats.exp_cap = stats.get_exp_cap(stats.level)
 
 	leveled_up.emit(self)
+
+func all_stat_roll():
+	var hunger_increase = calculate_stat_increase(stats.StatTypes.HUNGER)
+	if hunger_increase > 0:
+		stats.max_hunger += hunger_increase
+		max_stat_increased.emit(stats, stats.StatTypes.HUNGER, hunger_increase)
+	var hygiene_increase = calculate_stat_increase(stats.StatTypes.HYGIENE)
+	if hygiene_increase > 0:
+		stats.max_hygiene += hygiene_increase
+		max_stat_increased.emit(stats, stats.StatTypes.HYGIENE, hygiene_increase)
+	var happiness_increase = calculate_stat_increase(stats.StatTypes.HAPPINESS)
+	if happiness_increase > 0:
+		stats.max_happiness += happiness_increase
+		max_stat_increased.emit(stats, stats.StatTypes.HAPPINESS, happiness_increase)
+	var health_increase = calculate_stat_increase(stats.StatTypes.HEALTH)
+	if health_increase > 0:
+		stats.max_health += health_increase
+		max_stat_increased.emit(stats, stats.StatTypes.HEALTH, health_increase)
+	var rest_increase = calculate_stat_increase(stats.StatTypes.REST)
+	if rest_increase > 0:
+		stats.max_rest += rest_increase
+		max_stat_increased.emit(stats, stats.StatTypes.REST, rest_increase)
+
+func calculate_stat_increase(stat: StatsResource.StatTypes) -> int:
+	var growth_rate: float
+	match stat:
+		stats.StatTypes.HUNGER:
+			growth_rate = stat_growth_rates.hunger_growth
+		stats.StatTypes.HYGIENE:
+			growth_rate = stat_growth_rates.hygiene_growth
+		stats.StatTypes.HAPPINESS:
+			growth_rate = stat_growth_rates.happiness_growth
+		stats.StatTypes.HEALTH:
+			growth_rate = stat_growth_rates.health_growth
+		stats.StatTypes.REST:
+			growth_rate = stat_growth_rates.rest_growth
+
+	var stat_increase = 0
+	while growth_rate >= 100:
+		stat_increase += 10 # TODO: Put this number in a resource somewhere
+		growth_rate -= 100
+	var roll = randi() % 100
+	if roll < growth_rate:
+		stat_increase += 10
+
+	return stat_increase
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

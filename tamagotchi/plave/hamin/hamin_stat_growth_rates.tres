@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StatGrowthRatesResource" load_steps=2 format=3 uid="uid://bttgerl6ma6lk"]
+
+[ext_resource type="Script" uid="uid://by85lfxb067r" path="res://stats/stat_growth_rates.gd" id="1_lgw0o"]
+
+[resource]
+script = ExtResource("1_lgw0o")
+hunger_growth = 35.0
+hygiene_growth = 35.0
+happiness_growth = 35.0
+health_growth = 35.0
+rest_growth = 35.0
+metadata/_custom_type_script = "uid://by85lfxb067r"

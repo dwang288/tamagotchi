@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://b7qpptii07lf6"]
+[gd_scene load_steps=77 format=3 uid="uid://b7qpptii07lf6"]
 
 [ext_resource type="Script" uid="uid://nvjkkwl38k2h" path="res://tamagotchi/tamagotchi.gd" id="1_bkvew"]
 [ext_resource type="Resource" uid="uid://etn86t24vnq6" path="res://tamagotchi/plave/yejun/yejun.tres" id="2_712e3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dtgrvxe1e0dfd" path="res://assets/sprite_sheets/plave/eunho/eunho_sheet.png" id="2_w2c6w"]
 [ext_resource type="Texture2D" uid="uid://b5tdkioinx2ym" path="res://assets/gui/misc/active_tamagotchi_marker_sheet.png" id="3_wi2p0"]
 [ext_resource type="Texture2D" uid="uid://do4xbejytwydg" path="res://assets/emotes/bubble_emotes_sheet.png" id="4_bb1gs"]
+[ext_resource type="Script" uid="uid://w1bye5l8q8ok" path="res://ui/toast_notifications/toast_notifications.gd" id="6_jr1bs"]
 
 [sub_resource type="Animation" id="Animation_l38w2"]
 length = 0.001
@@ -503,6 +504,21 @@ position = Vector2(0, -31)
 sprite_frames = SubResource("SpriteFrames_krd78")
 autoplay = "default"
 frame_progress = 0.965067
+
+[node name="ToastNotifications" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -51.0
+offset_right = 9.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 1
+alignment = 2
+script = ExtResource("6_jr1bs")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

@@ -27,6 +27,34 @@ class_name StatsResource
 
 enum StatTypes { HUNGER, HYGIENE, HAPPINESS, HEALTH, REST }
 
+@export var stat_dict: Dictionary[StatTypes, Dictionary] = {
+	StatTypes.HUNGER: {
+		"name": "hunger",
+		"value": hunger,
+		"max_value": max_hunger,
+	},
+	StatTypes.HYGIENE: {
+		"name": "hygiene",
+		"value": hygiene,
+		"max_value": max_hygiene,
+	},
+	StatTypes.HAPPINESS: {
+		"name": "happiness",
+		"value": happiness,
+		"max_value": max_happiness,
+	},
+	StatTypes.HEALTH: {
+		"name": "health",
+		"value": health,
+		"max_value": max_health,
+	},
+	StatTypes.REST: {
+		"name": "rest",
+		"value": rest,
+		"max_value": max_rest,
+	},
+}
+
 # Level functions
 
 func get_exp_ratio() -> float:

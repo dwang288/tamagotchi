@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="TamagotchiResource" load_steps=6 format=3 uid="uid://dcwvfae04y7sb"]
+[gd_resource type="Resource" script_class="TamagotchiResource" load_steps=7 format=3 uid="uid://dcwvfae04y7sb"]
 
 [ext_resource type="AnimationLibrary" uid="uid://c3j5bf7h6q4sx" path="res://tamagotchi/plave/bamby/animations/animation.res" id="1_ytin5"]
 [ext_resource type="Texture2D" uid="uid://doj3ybq1810uy" path="res://assets/sprite_sheets/plave/bamby/bamby_profile.png" id="2_b2aqw"]
 [ext_resource type="Script" uid="uid://cyouq0nm1mlf4" path="res://tamagotchi/tamagotchi_resource.gd" id="3_or3c1"]
 [ext_resource type="Resource" uid="uid://cy3mctdhts5wc" path="res://tamagotchi/plave/bamby/bamby_stat_drain_rate.tres" id="4_wlcdi"]
 [ext_resource type="Resource" uid="uid://b8mgugo6imabx" path="res://tamagotchi/plave/bamby/bamby_stats_start.tres" id="5_0cjqm"]
+[ext_resource type="Resource" uid="uid://bchiox6cbme6n" path="res://tamagotchi/plave/bamby/bamby_stat_growth_rates.tres" id="5_fghdv"]
 
 [resource]
 script = ExtResource("3_or3c1")
+stat_growth_rates = ExtResource("5_fghdv")
 stat_drain_rates = ExtResource("4_wlcdi")
 stats = ExtResource("5_0cjqm")
 stats_low_threshold = 0.3

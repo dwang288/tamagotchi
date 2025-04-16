@@ -14,6 +14,8 @@ class_name Tamagotchi
 @onready var emote_animation_tree: AnimationTree = $Emote/AnimationTree
 @onready var emote_state_machine: AnimationNodeStateMachinePlayback = emote_animation_tree["parameters/playback"]
 
+@onready var toast_notifications: VBoxContainer = %ToastNotifications
+
 @onready var is_active: bool
 @onready var is_being_pet: bool
 @onready var is_being_cleaned: bool
@@ -33,6 +35,7 @@ var emote_nested_idle_state_machine
 
 func _ready():
 	animation_setup()
+	connection_setup()
 
 func initialize(r: TamagotchiResource):
 	resource = r
@@ -50,6 +53,9 @@ func interaction_process():
 func set_active(active: bool):
 	is_active = active
 	active_indicator.visible = active
+
+func connection_setup():
+	resource.max_stat_increased.connect(toast_notifications.on_stat_change)
 
 # Click interaction
 

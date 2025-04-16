@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="TamagotchiResource" load_steps=6 format=3 uid="uid://etn86t24vnq6"]
+[gd_resource type="Resource" script_class="TamagotchiResource" load_steps=7 format=3 uid="uid://etn86t24vnq6"]
 
 [ext_resource type="AnimationLibrary" uid="uid://c3v84htefqeog" path="res://tamagotchi/plave/yejun/animations/animation.res" id="1_50ddu"]
 [ext_resource type="Script" uid="uid://cyouq0nm1mlf4" path="res://tamagotchi/tamagotchi_resource.gd" id="2_8g3ex"]
 [ext_resource type="Texture2D" uid="uid://xtnyaunhc474" path="res://assets/sprite_sheets/plave/yejun/yejun_profile.png" id="2_w5hxs"]
 [ext_resource type="Resource" uid="uid://clwgxglsplfff" path="res://tamagotchi/plave/yejun/yejun_stat_drain_rate.tres" id="3_fyach"]
 [ext_resource type="Resource" uid="uid://c0b3q4yg44wam" path="res://tamagotchi/plave/yejun/yejun_stats_start.tres" id="4_3iag4"]
+[ext_resource type="Resource" uid="uid://clrxolsxwtysr" path="res://tamagotchi/plave/yejun/yejun_stat_growth_rates.tres" id="5_ajcxg"]
 
 [resource]
 script = ExtResource("2_8g3ex")
+stat_growth_rates = ExtResource("5_ajcxg")
 stat_drain_rates = ExtResource("3_fyach")
 stats = ExtResource("4_3iag4")
 stats_low_threshold = 0.3

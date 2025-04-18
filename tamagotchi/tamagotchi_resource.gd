@@ -8,10 +8,10 @@ signal item_consumed(slot: InventorySlotResource)
 signal interacted_with(interaction_distance: float)
 
 # Animation signals
-signal item_used
+signal item_used(liked: bool)
 
 # Level signals
-signal leveled_up
+signal leveled_up(resource: TamagotchiResource)
 signal exp_changed
 
 signal max_stat_increased(resource: StatsResource, stat: StatsResource.StatTypes, increased_amount: int)
@@ -25,6 +25,7 @@ signal max_stat_increased(resource: StatsResource, stat: StatsResource.StatTypes
 @export var is_awake: bool
 
 @export var animation_library: AnimationLibrary
+@export var emote_animation_library: AnimationLibrary
 @export var profile_icon: Texture2D
 @export var cursor_effect_type: CursorEffect.EffectType
 
@@ -41,13 +42,12 @@ func level_up():
 	while stats.exp >= stats.exp_cap:
 		stats.exp -= stats.exp_cap
 		stats.level += 1
-		# TODO: Maybe stats increases should be done off individual growth rates like in Fire Emblem
+		leveled_up.emit(self)
 		all_stat_roll()
-		# TODO: Every stat increase should be added to a queue in order to play the animation
 		stats.exp_cap = stats.get_exp_cap(stats.level)
 
-	leveled_up.emit(self)
 
+# TODO: This is gross. Should be able to iterate through these
 func all_stat_roll():
 	var hunger_increase = calculate_stat_increase(stats.StatTypes.HUNGER)
 	if hunger_increase > 0:
@@ -65,10 +65,10 @@ func all_stat_roll():
 	if health_increase > 0:
 		stats.max_health += health_increase
 		max_stat_increased.emit(stats, stats.StatTypes.HEALTH, health_increase)
-	var rest_increase = calculate_stat_increase(stats.StatTypes.REST)
-	if rest_increase > 0:
-		stats.max_rest += rest_increase
-		max_stat_increased.emit(stats, stats.StatTypes.REST, rest_increase)
+	#var rest_increase = calculate_stat_increase(stats.StatTypes.REST)
+	#if rest_increase > 0:
+		#stats.max_rest += rest_increase
+		#max_stat_increased.emit(stats, stats.StatTypes.REST, rest_increase)
 
 func calculate_stat_increase(stat: StatsResource.StatTypes) -> int:
 	var growth_rate: float
@@ -168,15 +168,16 @@ func process_low_stats(_delta):
 		stats_low.erase(stats.StatTypes.HEALTH)
 
 # mouse_distance_traveled is optional, only passed in if it's a draggable item
-func apply_item_stats(item: InventoryItemResource, mouse_distance_traveled: float = 1):
-	is_awake = true
-	stats.hunger += item.hunger * mouse_distance_traveled
-	stats.hygiene += item.hygiene * mouse_distance_traveled
-	stats.happiness += item.happiness * mouse_distance_traveled
-	stats.health += item.health * mouse_distance_traveled
-	stats.rest += item.rest * mouse_distance_traveled
-
+func apply_item_stats(item: InventoryItemResource, mouse_distance_traveled: float = 1) -> Dictionary:
+	var stat_deltas = {
+		stats.StatTypes.HUNGER: stats.apply_stat_change(stats.StatTypes.HUNGER, item.hunger * mouse_distance_traveled),
+		stats.StatTypes.HYGIENE: stats.apply_stat_change(stats.StatTypes.HYGIENE, item.hygiene * mouse_distance_traveled),
+		stats.StatTypes.HAPPINESS: stats.apply_stat_change(stats.StatTypes.HAPPINESS, item.happiness * mouse_distance_traveled),
+		stats.StatTypes.HEALTH: stats.apply_stat_change(stats.StatTypes.HEALTH, item.health * mouse_distance_traveled),
+		stats.StatTypes.REST: stats.apply_stat_change(stats.StatTypes.REST, item.rest * mouse_distance_traveled)
+	}
 	stats.set_valid_stats()
+	return stat_deltas
 
 # TODO: Make this generic in the future for interactions that don't involve items
 func apply_interaction_stats(mouse_distance_traveled: float):
@@ -184,13 +185,14 @@ func apply_interaction_stats(mouse_distance_traveled: float):
 	stats.happiness += 0.1 * mouse_distance_traveled # TODO: take multiplier out into rates
 	stats.set_valid_stats()
 	
-	# TODO: Hook this up to CoinManager
 	interacted_with.emit(mouse_distance_traveled)
 
 func use_item_in_slot(slot: InventorySlotResource):
 	if slot.item.is_usable:
-		apply_item_stats(slot.item)
-		item_used.emit()
+		is_awake = true
+		var stat_deltas = apply_item_stats(slot.item)
+		var liked = true if stat_deltas[stats.StatTypes.HAPPINESS] >= 0 else false
+		item_used.emit(liked)
 		add_exp(slot.item.get_exp())
 
 		if slot.item.is_consumable:

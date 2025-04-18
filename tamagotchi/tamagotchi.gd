@@ -6,13 +6,8 @@ class_name Tamagotchi
 @onready var collision_area: Area2D = $Area2D
 @onready var active_indicator: AnimatedSprite2D = %ActiveIndicator
 
-@onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
-@onready var animation_tree: AnimationTree = $Sprite2D/AnimationTree
-@onready var state_machine: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
-
-@onready var emote_animation_player: AnimationPlayer = $Emote/AnimationPlayer
-@onready var emote_animation_tree: AnimationTree = $Emote/AnimationTree
-@onready var emote_state_machine: AnimationNodeStateMachinePlayback = emote_animation_tree["parameters/playback"]
+@onready var emote: Sprite2D = %Emote
+@onready var sprite: Sprite2D = %Sprite2D
 
 @onready var toast_notifications: VBoxContainer = %ToastNotifications
 
@@ -55,7 +50,8 @@ func set_active(active: bool):
 	active_indicator.visible = active
 
 func connection_setup():
-	resource.max_stat_increased.connect(toast_notifications.on_stat_change)
+	resource.max_stat_increased.connect(toast_notifications.on_max_stat_change)
+	resource.leveled_up.connect(toast_notifications.on_level_up)
 
 # Click interaction
 
@@ -133,39 +129,11 @@ func get_mouse_distance_traveled():
 # Animation functions
 
 func animation_setup():
-	animation_player.add_animation_library("animation", resource.animation_library)
-	emote_animation_player.add_animation_library("emote", load("res://emotes/emote.res"))
 
-	# TODO: Sprite state machine and emote state machine nodes should be in two different subcomponents
+	sprite.animation_setup(resource)
+	emote.animation_setup(resource)
 
-	if state_machine is AnimationNodeStateMachinePlayback:
-		var state_machine_node = animation_tree.tree_root
-
-		state_machine_node.get_node("idle").get_node("idle").animation = "animation/idle"
-		state_machine_node.get_node("idle").get_node("unwell").animation = "animation/unwell"
-		state_machine_node.get_node("feed").animation = "animation/feed"
-		state_machine_node.get_node("clean").animation = "animation/clean"
-		state_machine_node.get_node("sleep").animation = "animation/sleep"
-
-	if emote_state_machine is AnimationNodeStateMachinePlayback:
-		var emote_state_machine_node = emote_animation_tree.tree_root
-
-		# TODO: Change advance conditions in state machine to use the enum
-		emote_state_machine_node.get_node("idle").get_node("idle").animation = "emote/idle"
-		emote_state_machine_node.get_node("idle").get_node("reset").animation = "emote/reset"
-		emote_state_machine_node.get_node("idle").get_node("hunger").animation = "emote/hunger"
-		emote_state_machine_node.get_node("idle").get_node("hygiene").animation = "emote/hygiene"
-		emote_state_machine_node.get_node("idle").get_node("happiness").animation = "emote/happiness"
-		emote_state_machine_node.get_node("idle").get_node("health").animation = "emote/health"
-		emote_state_machine_node.get_node("love").animation = "emote/love"
-		emote_state_machine_node.get_node("singing").animation = "emote/singing"
-		emote_state_machine_node.get_node("annoyed").animation = "emote/annoyed"
-		emote_state_machine_node.get_node("angry").animation = "emote/angry"
-		emote_state_machine_node.get_node("silent").animation = "emote/silent"
-
-	resource.item_used.connect(play_animation_heart)
-
-	emote_nested_idle_state_machine = emote_animation_tree["parameters/idle/playback"]
+	resource.item_used.connect(play_post_item_animation)
 
 func animation_process():
 	# print(emote_nested_idle_state_machine.get_current_node())
@@ -174,12 +142,22 @@ func animation_process():
 	else:
 		is_unwell = false
 
+func play_post_item_animation(liked: bool):
+	if liked:
+		play_animation_heart()
+	else:
+		play_animation_unhappy()
+
 # TODO: After splitting up animation state machines into separate components, create functions within
 # component classes to take in an enum of the animation state to travel to
 # Component classes should have a map of enums to state name strings
 func play_animation_heart():
-	state_machine.travel("feed")
-	emote_state_machine.travel("love")
+	sprite.state_machine.travel("happy")
+	emote.emote_state_machine.travel("love")
+
+func play_animation_unhappy():
+	sprite.state_machine.travel("unhappy")
+	emote.emote_state_machine.travel("unhappy")
 
 # GUI Signal functions
 

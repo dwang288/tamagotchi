@@ -5,8 +5,6 @@ extends Node
 @export var skipped_types: Array = [ Texture2D, AnimationLibrary ]
 @export var game_state: GameStateResource = load("res://game_states/default_save.tres")
 
-# TODO: Have option to make a new game and erase old save files,
-# will need to keep a copy of starting stats
 
 func _ready():
 	timer.wait_time = SAVE_INTERVAL
@@ -14,7 +12,6 @@ func _ready():
 	timer.timeout.connect(save_game)
 	add_child(timer)
 
-# TODO: Create new resource from resource files on disk, not just duplicate resource file with embeds
 func new_game():
 	# create a new GameState resource with default child resources (unique)
 	print("creating new game")

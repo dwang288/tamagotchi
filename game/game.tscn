@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://srysuxqoa2cn" path="res://tamagotchi/tamagotchis.tscn" id="3_uy1pc"]
 [ext_resource type="PackedScene" uid="uid://b4c2wv0guy7fi" path="res://test/toggle_menu.tscn" id="4_sfcvn"]
 [ext_resource type="PackedScene" uid="uid://bmlvlmj5ijc5" path="res://inventory/menu_lower.tscn" id="5_3rgac"]
-[ext_resource type="PackedScene" uid="uid://bfg0bc7qty7hq" path="res://stats/menu_upper.tscn" id="6_lsdqe"]
+[ext_resource type="PackedScene" uid="uid://bfg0bc7qty7hq" path="res://menu/menu_upper.tscn" id="6_lsdqe"]
 [ext_resource type="Script" uid="uid://uh3qwcg23u82" path="res://game/coin_manager.gd" id="7_koibh"]
 
 [node name="Game" type="Control"]

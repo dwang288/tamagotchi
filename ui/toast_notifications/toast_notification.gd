@@ -2,9 +2,10 @@ extends RichTextLabel
 
 @export var duration: float
 
+# TODO: Should pop into position
 func _ready() -> void:
 	modulate.a = 0.0  # Start fully transparent
-	# TODO: Position isn't final position yet, not aligned inside vboxcontainer
+	# TODO: Position at this point isn't final position yet, not aligned inside vboxcontainer
 	position.y += 3  # Start 3px below final position
 	print(global_position)
 	show()

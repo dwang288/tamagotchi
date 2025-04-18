@@ -64,8 +64,23 @@ func get_exp_ratio() -> float:
 func get_exp_cap(lvl: int) -> float:
 	return base_exp * lvl ** exp_cap_growth_factor
 
-
 # Needs functions
+
+func apply_stat_change(type: StatTypes, amount: float) -> float:
+	var change = amount
+	match type:
+		StatTypes.HUNGER:
+			hunger += change
+		StatTypes.HYGIENE:
+			hygiene += change
+		StatTypes.HAPPINESS:
+			happiness += change
+		StatTypes.HEALTH:
+			health += change
+		StatTypes.REST:
+			rest += change
+	return change
+	
 
 func get_overall_stats_ratio() -> float:
 	return (get_hunger_ratio() + get_hygiene_ratio() + get_happiness_ratio() + get_health_ratio() + get_rest_ratio())/5

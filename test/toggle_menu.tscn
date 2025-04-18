@@ -33,7 +33,6 @@ layout_mode = 2
 text = "gacha"
 script = ExtResource("2_7ldn8")
 items = Array[ExtResource("4_j8k1g")]([ExtResource("3_g7xin"), ExtResource("4_cmtoq"), ExtResource("5_b4xk0")])
-gacha_cost = 50
 
 [node name="Button2" type="Button" parent="HBoxContainer"]
 layout_mode = 2

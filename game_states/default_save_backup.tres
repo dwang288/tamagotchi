@@ -15,4 +15,4 @@ script = ExtResource("4_lqwjj")
 tamagotchis = Array[ExtResource("4_8lfhd")]([ExtResource("5_lk2ck"), ExtResource("6_tjxw6"), ExtResource("6_in06s"), ExtResource("7_swqff"), ExtResource("8_0scni")])
 inventory = ExtResource("1_whc42")
 coins = ExtResource("1_j33vc")
-item_gacha_cost = 0
+item_gacha_cost = 50

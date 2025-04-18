@@ -14,7 +14,7 @@ func _process(delta):
 
 # TODO: BS calculation lol
 func process_coin_gain(delta):
-	var sum: float
+	var sum: float = 0
 	for resource in tama_resources:
 		sum += resource.stats.get_overall_stats_ratio() * resource.stats.level ** coins_resource.gain_rate * delta
 	var additional_coins = sum

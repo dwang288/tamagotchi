@@ -1,0 +1,113 @@
+[gd_scene load_steps=25 format=3 uid="uid://cy85k1jibv708"]
+
+[ext_resource type="Texture2D" uid="uid://boyhfdbwhy6hu" path="res://assets/sprite_sheets/plave/noah/noah_sheet.png" id="1_urugg"]
+[ext_resource type="Script" uid="uid://ufmpwh1g0suv" path="res://tamagotchi/tamagotchi_sprite.gd" id="2_j6kxi"]
+
+[sub_resource type="Animation" id="Animation_l38w2"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cr776"]
+_data = {
+&"RESET": SubResource("Animation_l38w2")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x3w0g"]
+animation = &"animation/clean"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nk5ih"]
+animation = &"animation/feed"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x08u5"]
+animation = &"animation/idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3rsvy"]
+animation = &"animation/unwell"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g4dqp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d5po1"]
+advance_mode = 2
+advance_expression = "is_unwell"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4hcla"]
+advance_mode = 2
+advance_expression = "!is_unwell"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h7qrx"]
+states/idle/node = SubResource("AnimationNodeAnimation_x08u5")
+states/idle/position = Vector2(347, 63)
+states/unwell/node = SubResource("AnimationNodeAnimation_3rsvy")
+states/unwell/position = Vector2(460, 63)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_g4dqp"), "idle", "unwell", SubResource("AnimationNodeStateMachineTransition_d5po1"), "unwell", "idle", SubResource("AnimationNodeStateMachineTransition_4hcla")]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u438w"]
+animation = &"animation/sleep"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gjj4q"]
+animation = &"animation/unwell"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_irql0"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yv0n8"]
+advance_mode = 2
+advance_expression = "!resource.is_awake"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0q7bq"]
+advance_mode = 2
+advance_expression = "resource.is_awake"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ux4a5"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mi08o"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wlkja"]
+advance_mode = 2
+advance_expression = "is_being_cleaned || is_being_pet"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_146ix"]
+advance_mode = 2
+advance_expression = "!is_being_cleaned && !is_being_pet"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aiwyd"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gttyq"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4xvuv"]
+states/Start/position = Vector2(193, 94)
+states/clean/node = SubResource("AnimationNodeAnimation_x3w0g")
+states/clean/position = Vector2(561.105, 151.785)
+states/happy/node = SubResource("AnimationNodeAnimation_nk5ih")
+states/happy/position = Vector2(424, 227.5)
+states/idle/node = SubResource("AnimationNodeStateMachine_h7qrx")
+states/idle/position = Vector2(333.105, 108)
+states/sleep/node = SubResource("AnimationNodeAnimation_u438w")
+states/sleep/position = Vector2(468, 18.5)
+states/unhappy/node = SubResource("AnimationNodeAnimation_gjj4q")
+states/unhappy/position = Vector2(258.101, 212.747)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_irql0"), "idle", "sleep", SubResource("AnimationNodeStateMachineTransition_yv0n8"), "sleep", "idle", SubResource("AnimationNodeStateMachineTransition_0q7bq"), "idle", "happy", SubResource("AnimationNodeStateMachineTransition_ux4a5"), "happy", "idle", SubResource("AnimationNodeStateMachineTransition_mi08o"), "idle", "clean", SubResource("AnimationNodeStateMachineTransition_wlkja"), "clean", "idle", SubResource("AnimationNodeStateMachineTransition_146ix"), "idle", "unhappy", SubResource("AnimationNodeStateMachineTransition_aiwyd"), "unhappy", "idle", SubResource("AnimationNodeStateMachineTransition_gttyq")]
+graph_offset = Vector2(-272.899, -20.2534)
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_urugg")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(32, 64, 96, 32)
+script = ExtResource("2_j6kxi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_cr776")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_4xvuv")
+advance_expression_base_node = NodePath("../..")
+anim_player = NodePath("../AnimationPlayer")

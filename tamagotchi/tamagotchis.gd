@@ -8,8 +8,7 @@ signal active_tamagotchi_changed(tamagotchi: Tamagotchi)
 # TODO: save the active index in a resource so i can load it
 @onready var active_tamagotchi_index: int = 0
 @onready var tamagotchi_scene = preload("res://tamagotchi/tamagotchi.tscn")
-# TODO: Add types in 4.4 [index, PackedScene]
-@onready var tamagotchi_nodes: Dictionary = {}
+@onready var tamagotchi_nodes: Dictionary[int, Tamagotchi] = {}
 # Array for where to position tamas when they're loaded in
 @onready var tamagotchi_marker_nodes: Array[Marker2D]
 

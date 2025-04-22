@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7qpptii07lf6"]
+[gd_scene load_steps=11 format=3 uid="uid://b7qpptii07lf6"]
 
 [ext_resource type="Script" uid="uid://nvjkkwl38k2h" path="res://tamagotchi/tamagotchi.gd" id="1_bkvew"]
 [ext_resource type="Resource" uid="uid://etn86t24vnq6" path="res://tamagotchi/plave/yejun/yejun.tres" id="2_712e3"]
 [ext_resource type="PackedScene" uid="uid://c1un2smflu4vf" path="res://emotes/animations/emote.tscn" id="2_u1764"]
 [ext_resource type="PackedScene" uid="uid://cy85k1jibv708" path="res://tamagotchi/tamagotchi_sprite.tscn" id="3_712e3"]
 [ext_resource type="Texture2D" uid="uid://b5tdkioinx2ym" path="res://assets/gui/misc/active_tamagotchi_marker_sheet.png" id="3_wi2p0"]
-[ext_resource type="Texture2D" uid="uid://dyun6e0i670hb" path="res://assets/sprite_sheets/plave/noah/noah_bubble_emotes_sheet.png" id="5_xbyi8"]
 [ext_resource type="Script" uid="uid://w1bye5l8q8ok" path="res://ui/toast_notifications/toast_notifications.gd" id="6_jr1bs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udhen"]
@@ -44,7 +43,6 @@ position = Vector2(0, -11)
 [node name="Emote" parent="." instance=ExtResource("2_u1764")]
 unique_name_in_owner = true
 position = Vector2(-6, -23)
-texture = ExtResource("5_xbyi8")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-9, 0)
@@ -78,6 +76,7 @@ grow_vertical = 0
 theme_override_constants/separation = 1
 alignment = 2
 script = ExtResource("6_jr1bs")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

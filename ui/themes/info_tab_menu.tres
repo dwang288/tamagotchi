@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dj7van0b0mihj"]
+
+[ext_resource type="Texture2D" uid="uid://xsjaduvgtxtj" path="res://assets/gui/inventory_gui/inventory_arrow_left.png" id="1_fuyk3"]
+[ext_resource type="Texture2D" uid="uid://8w4152k6rv2q" path="res://assets/gui/inventory_gui/inventory_arrow_right.png" id="2_i2f6v"]
+[ext_resource type="StyleBox" uid="uid://dflb8ose7sxlb" path="res://ui/themes/tab_texture.tres" id="3_fuyk3"]
+[ext_resource type="StyleBox" uid="uid://11buywi0rq3x" path="res://ui/themes/tab_texture_inactive.tres" id="3_i2f6v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2f6v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1gvh8"]
+
+[resource]
+TabContainer/colors/font_selected_color = Color(0.329412, 0.341176, 0.439216, 1)
+TabContainer/constants/icon_separation = 0
+TabContainer/font_sizes/font_size = 6
+TabContainer/icons/decrement = ExtResource("1_fuyk3")
+TabContainer/icons/decrement_highlight = ExtResource("1_fuyk3")
+TabContainer/icons/increment = ExtResource("2_i2f6v")
+TabContainer/icons/increment_highlight = ExtResource("2_i2f6v")
+TabContainer/styles/panel = SubResource("StyleBoxEmpty_i2f6v")
+TabContainer/styles/tab_disabled = ExtResource("3_i2f6v")
+TabContainer/styles/tab_focus = ExtResource("3_i2f6v")
+TabContainer/styles/tab_hovered = ExtResource("3_i2f6v")
+TabContainer/styles/tab_selected = ExtResource("3_fuyk3")
+TabContainer/styles/tab_unselected = ExtResource("3_i2f6v")
+TabContainer/styles/tabbar_background = SubResource("StyleBoxEmpty_1gvh8")

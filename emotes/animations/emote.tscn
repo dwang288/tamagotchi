@@ -210,7 +210,7 @@ states/sleep/position = Vector2(502, 41)
 states/unhappy/node = SubResource("AnimationNodeAnimation_61vio")
 states/unhappy/position = Vector2(172, 308.518)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_udrue"), "idle", "sleep", SubResource("AnimationNodeStateMachineTransition_pxknx"), "idle", "love", SubResource("AnimationNodeStateMachineTransition_nycsi"), "sleep", "idle", SubResource("AnimationNodeStateMachineTransition_qfa6l"), "love", "idle", SubResource("AnimationNodeStateMachineTransition_777gn"), "idle", "annoyed", SubResource("AnimationNodeStateMachineTransition_gq88n"), "annoyed", "idle", SubResource("AnimationNodeStateMachineTransition_e8oca"), "idle", "singing", SubResource("AnimationNodeStateMachineTransition_g0g56"), "singing", "idle", SubResource("AnimationNodeStateMachineTransition_td2oc"), "idle", "silent", SubResource("AnimationNodeStateMachineTransition_ocv4i"), "silent", "idle", SubResource("AnimationNodeStateMachineTransition_1shyg"), "idle", "angry", SubResource("AnimationNodeStateMachineTransition_cv7wd"), "angry", "idle", SubResource("AnimationNodeStateMachineTransition_uy34g"), "idle", "unhappy", SubResource("AnimationNodeStateMachineTransition_u08ne"), "unhappy", "idle", SubResource("AnimationNodeStateMachineTransition_qyk51")]
-graph_offset = Vector2(0, 85.576)
+graph_offset = Vector2(0, 126.22)
 
 [node name="Emote" type="Sprite2D"]
 visible = false

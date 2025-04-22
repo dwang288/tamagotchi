@@ -8,6 +8,11 @@ class_name ProfileContainer
 @onready var level_label: RichTextLabel = %LevelLabel
 @onready var exp_progress_bar: TextureProgressBar = %ExpProgressBar
 
+signal profile_button_pressed
+
+func connect_on_profile_click_signal(function: Callable):
+	profile_button_pressed.connect(function)
+
 # TODO: Progress bar is filled visually but not numerically
 
 func update_active_tamagotchi(tamagotchi_resource: TamagotchiResource):
@@ -35,3 +40,6 @@ func update_level(tamagotchi_resource: TamagotchiResource):
 func update_exp(tamagotchi_resource: TamagotchiResource):
 	exp_progress_bar.value = tamagotchi_resource.stats.exp
 	%ExpValue.text = str(floor(tamagotchi_resource.stats.get_exp_ratio()*100))
+
+func _on_active_profile_button_pressed() -> void:
+	profile_button_pressed.emit()

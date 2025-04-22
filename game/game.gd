@@ -9,6 +9,8 @@ class_name Game
 @onready var menu_lower_node: Control = %MenuLower
 @onready var coin_manager_node: Node2D = %CoinManager
 
+@onready var tama_info_window: Control = %TamaInfoWindow
+
 
 func _ready():
 	connection_setup()
@@ -22,8 +24,10 @@ func connection_setup():
 	
 	# Connect active tamagotchi switch to stats gui
 	tamagotchis_node.active_tamagotchi_changed.connect(menu_upper_node.update_active_tamagotchi)
+	#tamagotchis_node.active_tamagotchi_changed.connect(tama_info_window.update_active_tamagotchi)
 	
 	menu_upper_node.connect_menu_button_signal(toggle_menu)
+	menu_upper_node.connect_profile_button_signal(toggle_tama_info_window)
 
 	# Connect on click signal between menu item and inventory slot
 	menu_lower_node.connect_slots_on_click_signal(tamagotchis_node.click_item)
@@ -42,3 +46,6 @@ func setup_active():
 
 func toggle_menu():
 	$CanvasLayer/ToggleMenu.visible = !$CanvasLayer/ToggleMenu.visible
+
+func toggle_tama_info_window():
+	tama_info_window.visible = !tama_info_window.visible

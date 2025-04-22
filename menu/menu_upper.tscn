@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://bfg0bc7qty7hq"]
+[gd_scene load_steps=16 format=3 uid="uid://bfg0bc7qty7hq"]
 
+[ext_resource type="Theme" uid="uid://dyx683dtm8jcu" path="res://ui/themes/default_menu.tres" id="1_dj74x"]
 [ext_resource type="Script" uid="uid://dcaynqiip603n" path="res://menu/menu_upper.gd" id="1_yqf36"]
 [ext_resource type="PackedScene" uid="uid://bfj5bos66gy5v" path="res://stats/stat_panel.tscn" id="2_0k51n"]
 [ext_resource type="PackedScene" uid="uid://ksx8umkwdqi3" path="res://menu/profile_container.tscn" id="2_duqhs"]
@@ -22,6 +23,7 @@ layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+theme = ExtResource("1_dj74x")
 script = ExtResource("1_yqf36")
 
 [node name="ColorRect" type="ColorRect" parent="."]

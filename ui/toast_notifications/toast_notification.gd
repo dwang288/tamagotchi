@@ -3,6 +3,7 @@ extends RichTextLabel
 @export var duration: float
 
 # TODO: Should pop into position
+# TODO: Outline of text is getting cut off, maybe not enough space?
 func _ready() -> void:
 	modulate.a = 0.0  # Start fully transparent
 	# TODO: Position at this point isn't final position yet, not aligned inside vboxcontainer

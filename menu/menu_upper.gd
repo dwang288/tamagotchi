@@ -17,6 +17,9 @@ func _ready():
 func connect_menu_button_signal(function: Callable):
 	menu_container_node.connect_on_click_signal(function)
 
+func connect_profile_button_signal(function: Callable):
+	profile_container_node.connect_on_profile_click_signal(function)
+
 func update_active_tamagotchi(tamagotchi_resource: TamagotchiResource):
 
 	profile_container_node.update_active_tamagotchi(tamagotchi_resource)

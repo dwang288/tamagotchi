@@ -1,7 +1,7 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dyx683dtm8jcu"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bcqil81td75pd"]
 
-[ext_resource type="StyleBox" uid="uid://dadd4vo7hwval" path="res://ui/themes/button/button_texture.tres" id="1_cxcwq"]
-[ext_resource type="FontFile" uid="uid://dbroep5o2wh2f" path="res://assets/TinyPixie2.ttf" id="2_jhhl2"]
+[ext_resource type="StyleBox" uid="uid://djfmuro0vno6t" path="res://ui/themes/button/button_texture_blue.tres" id="1_e11sd"]
+[ext_resource type="FontFile" uid="uid://dbroep5o2wh2f" path="res://assets/TinyPixie2.ttf" id="2_hj0xb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70plv"]
 
@@ -12,15 +12,15 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ch4ke"]
 
 [resource]
-default_font = ExtResource("2_jhhl2")
+default_font = ExtResource("2_hj0xb")
 Button/colors/font_color = Color(0.329412, 0.341176, 0.439216, 1)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(1, 1, 1, 1)
 Button/font_sizes/font_size = 6
-Button/styles/focus = ExtResource("1_cxcwq")
-Button/styles/hover = ExtResource("1_cxcwq")
-Button/styles/normal = ExtResource("1_cxcwq")
-Button/styles/pressed = ExtResource("1_cxcwq")
+Button/styles/focus = ExtResource("1_e11sd")
+Button/styles/hover = ExtResource("1_e11sd")
+Button/styles/normal = ExtResource("1_e11sd")
+Button/styles/pressed = ExtResource("1_e11sd")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/default_color = Color(0.329412, 0.341176, 0.439216, 1)
@@ -30,7 +30,7 @@ RichTextLabel/font_sizes/bold_italics_font_size = 6
 RichTextLabel/font_sizes/italics_font_size = 6
 RichTextLabel/font_sizes/mono_font_size = 6
 RichTextLabel/font_sizes/normal_font_size = 6
-RichTextLabel/fonts/normal_font = ExtResource("2_jhhl2")
+RichTextLabel/fonts/normal_font = ExtResource("2_hj0xb")
 RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_70plv")
 TabBar/font_sizes/font_size = 3
 TabContainer/font_sizes/font_size = 6

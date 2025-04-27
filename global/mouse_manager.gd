@@ -64,10 +64,11 @@ func remove_cursor_trail():
 		cursor_trail = null
 
 func set_grabbed_item(item: Node2D):
+	print("hi")
 	if grabbed_item == null:
 		grabbed_item = item
 
 func clear_grabbed_item():
 	if is_instance_valid(grabbed_item):
 		grabbed_item.queue_free()
-		grabbed_item = null
+	grabbed_item = null

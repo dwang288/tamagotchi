@@ -75,15 +75,13 @@ func _notification(what):
 		set_slot_visibility(true)
 		being_dragged = false
 		print("here")
-		MouseManager.set_default()
 
 		# print("slot_index: ", slot_index, " being dragged: ", being_dragged, " amount_label visible: ", amount_label.visible, " amount_label: ", amount_label.text)
 
 func _get_drag_data(_at_position):
 	if item_slot:
 		being_dragged = true
-		MouseManager.set_cursor(MouseManager.HAND_GRAB)
-
+		MouseManager.set_grabbed_item(self.item_slot.item)
 		var drag_preview_control = SceneManager.scenes["drag_preview_control"].instantiate()
 		var item_node = SceneManager.scenes["item"].instantiate()
 		item_node.item_resource = self.item_slot.item

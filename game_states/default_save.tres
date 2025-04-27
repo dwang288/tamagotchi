@@ -1,41 +1,41 @@
-[gd_resource type="Resource" script_class="GameStateResource" load_steps=60 format=3]
+[gd_resource type="Resource" script_class="GameStateResource" load_steps=59 format=3 uid="uid://clvjbiaava6s4"]
 
-[ext_resource type="Script" path="res://game/coins_resource.gd" id="1_3o3ef"]
-[ext_resource type="Script" path="res://inventory/inventory_resource.gd" id="2_8h2gy"]
-[ext_resource type="Script" path="res://inventory/inventory_slot_resource.gd" id="3_p6xfs"]
-[ext_resource type="Script" path="res://tamagotchi/tamagotchi_resource.gd" id="4_3h17q"]
-[ext_resource type="Resource" path="res://items/itemResources/soap.tres" id="4_vcrke"]
-[ext_resource type="Script" path="res://game_states/game_state_resource.gd" id="5_2epns"]
-[ext_resource type="Resource" path="res://items/itemResources/chicken_breast.tres" id="5_jnqcu"]
-[ext_resource type="Resource" path="res://items/itemResources/lollipop.tres" id="6_hf0q8"]
-[ext_resource type="Resource" path="res://items/itemResources/candy.tres" id="7_v7kq6"]
-[ext_resource type="AnimationLibrary" path="res://tamagotchi/plave/yejun/emote_animations/emote.res" id="8_cuv77"]
-[ext_resource type="AnimationLibrary" path="res://tamagotchi/plave/yejun/animations/animation.res" id="8_ea2ab"]
-[ext_resource type="Texture2D" path="res://assets/filler/794F7C46-023F-4AB9-A20E-4190F792DC58.jpg" id="9_osudv"]
-[ext_resource type="Script" path="res://stats/stat_drain_rates_resource.gd" id="9_v33aw"]
-[ext_resource type="Texture2D" path="res://assets/sprite_sheets/plave/yejun/yejun_profile.png" id="9_xqoqo"]
-[ext_resource type="Script" path="res://stats/stats_resource.gd" id="10_vvk0i"]
-[ext_resource type="AnimationLibrary" path="res://tamagotchi/plave/noah/animations/animation.res" id="12_v0ifx"]
-[ext_resource type="Script" path="res://stats/stat_growth_rates.gd" id="13_6i3yd"]
-[ext_resource type="AnimationLibrary" path="res://tamagotchi/plave/bamby/animations/animation.res" id="14_euxg4"]
-[ext_resource type="AnimationLibrary" path="res://tamagotchi/plave/noah/emote_animations/emote.res" id="14_v0ifx"]
-[ext_resource type="Texture2D" path="res://assets/sprite_sheets/plave/noah/noah_profile.png" id="16_euxg4"]
-[ext_resource type="AnimationLibrary" path="res://tamagotchi/plave/eunho/animations/animation.res" id="16_qa7ad"]
-[ext_resource type="Texture2D" path="res://assets/filler/6E455FB7-7D43-47D6-86F6-37FDCB3F98D8.jpg" id="17_6i3yd"]
-[ext_resource type="Texture2D" path="res://assets/filler/IMG_1653.jpeg" id="17_qa7ad"]
-[ext_resource type="AnimationLibrary" path="res://tamagotchi/plave/bamby/emote_animations/emote.res" id="17_xqoqo"]
-[ext_resource type="AnimationLibrary" path="res://tamagotchi/plave/hamin/animations/animation.res" id="18_2mrao"]
-[ext_resource type="Texture2D" path="res://assets/sprite_sheets/plave/bamby/bamby_profile.png" id="19_sm1qc"]
-[ext_resource type="AnimationLibrary" path="res://tamagotchi/plave/eunho/emote_animations/emote.res" id="20_euxg4"]
-[ext_resource type="Texture2D" path="res://assets/sprite_sheets/plave/eunho/eunho_profile.png" id="23_qa7ad"]
-[ext_resource type="AnimationLibrary" path="res://tamagotchi/plave/hamin/emote_animations/emote.res" id="23_sm1qc"]
-[ext_resource type="Texture2D" path="res://assets/filler/IMG_2258.jpeg" id="25_4qu5v"]
-[ext_resource type="Texture2D" path="res://assets/sprite_sheets/plave/hamin/hamin_profile.png" id="26_4qu5v"]
-[ext_resource type="Texture2D" path="res://assets/filler/IMG_1717.jpg" id="29_2mrao"]
+[ext_resource type="Script" uid="uid://wkg0tu7tv1pq" path="res://game/coins_resource.gd" id="1_3o3ef"]
+[ext_resource type="Script" uid="uid://cuae5aqxwr1a4" path="res://inventory/inventory_resource.gd" id="2_8h2gy"]
+[ext_resource type="Script" uid="uid://b67xnrhdtugrs" path="res://inventory/inventory_slot_resource.gd" id="3_p6xfs"]
+[ext_resource type="Script" uid="uid://cyouq0nm1mlf4" path="res://tamagotchi/tamagotchi_resource.gd" id="4_3h17q"]
+[ext_resource type="Resource" uid="uid://bii1mb3vopam5" path="res://items/itemResources/soap.tres" id="4_vcrke"]
+[ext_resource type="Script" uid="uid://v1w3ipku8e2o" path="res://game_states/game_state_resource.gd" id="5_2epns"]
+[ext_resource type="Resource" uid="uid://debtsaphjnewd" path="res://items/itemResources/lollipop.tres" id="5_jnqcu"]
+[ext_resource type="Resource" uid="uid://bqoqm8dmrb26a" path="res://items/itemResources/chicken_breast.tres" id="6_hf0q8"]
+[ext_resource type="Resource" uid="uid://cvl6a7l4tsv8d" path="res://items/itemResources/candy.tres" id="7_v7kq6"]
+[ext_resource type="AnimationLibrary" uid="uid://chr65y8cbjf8c" path="res://tamagotchi/plave/yejun/emote_animations/emote.res" id="8_cuv77"]
+[ext_resource type="AnimationLibrary" uid="uid://c3v84htefqeog" path="res://tamagotchi/plave/yejun/animations/animation.res" id="8_ea2ab"]
+[ext_resource type="Texture2D" uid="uid://wr480t2u12be" path="res://assets/filler/794F7C46-023F-4AB9-A20E-4190F792DC58.jpg" id="9_osudv"]
+[ext_resource type="Script" uid="uid://cwhnp7ibwgtck" path="res://stats/stat_drain_rates_resource.gd" id="9_v33aw"]
+[ext_resource type="Texture2D" uid="uid://xtnyaunhc474" path="res://assets/sprite_sheets/plave/yejun/yejun_profile.png" id="9_xqoqo"]
+[ext_resource type="Script" uid="uid://bnn57gl472pss" path="res://stats/stats_resource.gd" id="10_vvk0i"]
+[ext_resource type="AnimationLibrary" uid="uid://diqulf2u2n6ct" path="res://tamagotchi/plave/noah/animations/animation.res" id="12_v0ifx"]
+[ext_resource type="Script" uid="uid://by85lfxb067r" path="res://stats/stat_growth_rates.gd" id="13_6i3yd"]
+[ext_resource type="AnimationLibrary" uid="uid://c3j5bf7h6q4sx" path="res://tamagotchi/plave/bamby/animations/animation.res" id="14_euxg4"]
+[ext_resource type="AnimationLibrary" uid="uid://cia583pogvcco" path="res://tamagotchi/plave/noah/emote_animations/emote.res" id="14_v0ifx"]
+[ext_resource type="Texture2D" uid="uid://bj76l0pmd16cp" path="res://assets/sprite_sheets/plave/noah/noah_profile.png" id="16_euxg4"]
+[ext_resource type="AnimationLibrary" uid="uid://macxhs2dgqay" path="res://tamagotchi/plave/eunho/animations/animation.res" id="16_qa7ad"]
+[ext_resource type="Texture2D" uid="uid://61ubgd3i2or5" path="res://assets/filler/6E455FB7-7D43-47D6-86F6-37FDCB3F98D8.jpg" id="17_6i3yd"]
+[ext_resource type="Texture2D" uid="uid://8ky565led6ht" path="res://assets/filler/IMG_1653.jpeg" id="17_qa7ad"]
+[ext_resource type="AnimationLibrary" uid="uid://datt7wwl46bvi" path="res://tamagotchi/plave/bamby/emote_animations/emote.res" id="17_xqoqo"]
+[ext_resource type="AnimationLibrary" uid="uid://bvicy22aa80fo" path="res://tamagotchi/plave/hamin/animations/animation.res" id="18_2mrao"]
+[ext_resource type="Texture2D" uid="uid://doj3ybq1810uy" path="res://assets/sprite_sheets/plave/bamby/bamby_profile.png" id="19_sm1qc"]
+[ext_resource type="AnimationLibrary" uid="uid://kcj727xd16fp" path="res://tamagotchi/plave/eunho/emote_animations/emote.res" id="20_euxg4"]
+[ext_resource type="Texture2D" uid="uid://cq0r4dc3wsx6l" path="res://assets/sprite_sheets/plave/eunho/eunho_profile.png" id="23_qa7ad"]
+[ext_resource type="AnimationLibrary" uid="uid://n1j4tfyovpkr" path="res://tamagotchi/plave/hamin/emote_animations/emote.res" id="23_sm1qc"]
+[ext_resource type="Texture2D" uid="uid://g5nqyshm54a0" path="res://assets/filler/IMG_2258.jpeg" id="25_4qu5v"]
+[ext_resource type="Texture2D" uid="uid://dybg0rikn0r0r" path="res://assets/sprite_sheets/plave/hamin/hamin_profile.png" id="26_4qu5v"]
+[ext_resource type="Texture2D" uid="uid://h4nlyt2dtp2n" path="res://assets/filler/IMG_1717.jpg" id="29_2mrao"]
 
 [sub_resource type="Resource" id="Resource_jnqcu"]
 script = ExtResource("1_3o3ef")
-coins = 305776.0
+coins = 347614.0
 max_coins = 999999.0
 gain_rate = 1.1
 
@@ -44,30 +44,25 @@ script = ExtResource("3_p6xfs")
 item = ExtResource("4_vcrke")
 amount = 1
 
-[sub_resource type="Resource" id="Resource_2mrao"]
-script = ExtResource("3_p6xfs")
-item = ExtResource("7_v7kq6")
-amount = 2
-
 [sub_resource type="Resource" id="Resource_ux2xa"]
 script = ExtResource("3_p6xfs")
 item = ExtResource("6_hf0q8")
 amount = 3
 
-[sub_resource type="Resource" id="Resource_elv5m"]
+[sub_resource type="Resource" id="Resource_hw2l5"]
 script = ExtResource("3_p6xfs")
 item = ExtResource("5_jnqcu")
-amount = 3
+amount = 2
 
-[sub_resource type="Resource" id="Resource_fanbv"]
+[sub_resource type="Resource" id="Resource_elv5m"]
 script = ExtResource("3_p6xfs")
 item = ExtResource("7_v7kq6")
-amount = 2
+amount = 5
 
 [sub_resource type="Resource" id="Resource_v7kq6"]
 script = ExtResource("2_8h2gy")
 inventory_capacity = 16
-slot_resources = Array[ExtResource("3_p6xfs")]([SubResource("Resource_hf0q8"), SubResource("Resource_2mrao"), SubResource("Resource_ux2xa"), SubResource("Resource_elv5m"), SubResource("Resource_fanbv")])
+slot_resources = Array[ExtResource("3_p6xfs")]([SubResource("Resource_hf0q8"), SubResource("Resource_ux2xa"), SubResource("Resource_hw2l5"), SubResource("Resource_elv5m")])
 
 [sub_resource type="Resource" id="Resource_v33aw"]
 script = ExtResource("9_v33aw")
@@ -93,11 +88,11 @@ exp = 30.498
 exp_cap = 560.579
 base_exp = 50.0
 exp_cap_growth_factor = 1.1
-hunger = 683.803
-hygiene = 729.967
+hunger = 674.979
+hygiene = 727.08
 happiness = 140.0
 health = 150.0
-rest = 1.53513
+rest = 82.8904
 max_hunger = 750.0
 max_hygiene = 730.0
 max_happiness = 140.0
@@ -140,7 +135,7 @@ stat_drain_rates = SubResource("Resource_v33aw")
 stats = SubResource("Resource_gjk0a")
 stats_low_threshold = 0.3
 stats_low = {}
-is_awake = true
+is_awake = false
 animation_library = ExtResource("8_ea2ab")
 emote_animation_library = ExtResource("8_cuv77")
 profile_icon = ExtResource("9_xqoqo")
@@ -165,19 +160,19 @@ metadata/_custom_type_script = "uid://by85lfxb067r"
 
 [sub_resource type="Resource" id="Resource_tkqmj"]
 script = ExtResource("10_vvk0i")
-level = 9
-exp = 435.497
-exp_cap = 560.579
+level = 11
+exp = 55.4553
+exp_cap = 699.04
 base_exp = 50.0
 exp_cap_growth_factor = 1.1
-hunger = 614.718
-hygiene = 720.494
-happiness = 120.0
-health = 123.5
-rest = 1543.5
-max_hunger = 740.0
-max_hygiene = 770.0
-max_happiness = 120.0
+hunger = 739.156
+hygiene = 774.151
+happiness = 130.0
+health = 117.0
+rest = 1444.5
+max_hunger = 750.0
+max_hygiene = 780.0
+max_happiness = 130.0
 max_health = 130.0
 max_rest = 2880.0
 stat_dict = Dictionary[int, Dictionary]({
@@ -247,11 +242,11 @@ exp = 267.956
 exp_cap = 492.458
 base_exp = 50.0
 exp_cap_growth_factor = 1.1
-hunger = 599.654
-hygiene = 630.645
+hunger = 500.657
+hygiene = 531.648
 happiness = 100.0
 health = 89.0
-rest = 1543.5
+rest = 1444.5
 max_hunger = 730.0
 max_hygiene = 730.0
 max_happiness = 100.0
@@ -324,11 +319,11 @@ exp = 460.497
 exp_cap = 560.579
 base_exp = 50.0
 exp_cap_growth_factor = 1.1
-hunger = 601.407
-hygiene = 632.686
+hunger = 502.41
+hygiene = 533.689
 happiness = 135.387
 health = 120.0
-rest = 1543.5
+rest = 1444.5
 max_hunger = 740.0
 max_hygiene = 730.0
 max_happiness = 140.0
@@ -397,15 +392,15 @@ metadata/_custom_type_script = "uid://by85lfxb067r"
 [sub_resource type="Resource" id="Resource_waxv1"]
 script = ExtResource("10_vvk0i")
 level = 7
-exp = 23.1404
+exp = 193.14
 exp_cap = 425.185
 base_exp = 50.0
 exp_cap_growth_factor = 1.1
-hunger = 592.899
-hygiene = 603.777
-happiness = 82.0381
+hunger = 720.238
+hygiene = 504.78
+happiness = 80.0
 health = 100.0
-rest = 1543.5
+rest = 1444.5
 max_hunger = 730.0
 max_hygiene = 740.0
 max_happiness = 100.0

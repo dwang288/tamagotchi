@@ -65,7 +65,7 @@ func check_petting_interaction():
 	if (
 		is_active and
 		mouse_collision and
-		!collided_item_area and # TODO: Even when dragging item, collided_item_area is still null sometimes
+		!MouseManager.grabbed_item and # TODO: check if i'm holding an item officially instead
 		Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and
 		get_mouse_distance_traveled() > 20
 	):
@@ -91,7 +91,8 @@ func check_dragging_item_interaction():
 	if (
 		is_active and
 		mouse_collision and
-		Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and
+		Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and # TODO: check if i'm holding an item officially as well
+		MouseManager.grabbed_item and
 		collided_item_area and
 		collision_area.overlaps_area(collided_item_area) and
 		collided_item_area.get_parent().item_resource.is_grabbable
@@ -163,12 +164,12 @@ func play_animation_unhappy():
 
 func _on_area_2d_mouse_entered():
 	mouse_collision = true
-	if not collided_item_area:
+	if !MouseManager.grabbed_item:  # TODO: Instead of checking for collided item area should check if I'm grabbing anything
 		MouseManager.set_cursor(MouseManager.HAND_OPEN)
 
 func _on_area_2d_mouse_exited():
 	mouse_collision = false
-	if not collided_item_area:
+	if !MouseManager.grabbed_item: # TODO: Instead of checking for collided item area should check if I'm grabbing anything
 		MouseManager.set_default()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

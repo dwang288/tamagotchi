@@ -74,6 +74,7 @@ func _notification(what):
 
 		set_slot_visibility(true)
 		being_dragged = false
+		print("here")
 		MouseManager.set_default()
 
 		# print("slot_index: ", slot_index, " being dragged: ", being_dragged, " amount_label visible: ", amount_label.visible, " amount_label: ", amount_label.text)

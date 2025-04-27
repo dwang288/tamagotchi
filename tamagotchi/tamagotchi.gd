@@ -97,7 +97,7 @@ func check_dragging_item_interaction():
 		collided_item_area.get_parent().item_resource.is_grabbable
 	): # Check and apply draggables
 		# TODO: Clear emote too when cleaning
-		if !is_being_cleaned:
+		if !is_being_cleaned and collided_item_area.get_parent().item_resource.hygiene > 0:
 			is_being_cleaned = true
 			MouseManager.set_cursor_trail(CursorEffect.EffectType.BUBBLE)
 		resource.apply_item_stats(collided_item_area.get_parent().item_resource, get_mouse_distance_traveled())
@@ -163,17 +163,18 @@ func play_animation_unhappy():
 
 func _on_area_2d_mouse_entered():
 	mouse_collision = true
-	if not MouseManager.grabbed_item:
+	if not collided_item_area:
 		MouseManager.set_cursor(MouseManager.HAND_OPEN)
 
 func _on_area_2d_mouse_exited():
 	mouse_collision = false
-	MouseManager.set_default()
+	if not collided_item_area:
+		MouseManager.set_default()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.get_parent() is Item and area.get_parent().item_resource.is_grabbable:
+	if area.get_parent() is Item:
 		collided_item_area = area
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	if area.get_parent() is Item and area.get_parent().item_resource.is_grabbable:
+	if area.get_parent() is Item:
 		collided_item_area = null

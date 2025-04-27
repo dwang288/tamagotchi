@@ -35,7 +35,7 @@
 
 [sub_resource type="Resource" id="Resource_jnqcu"]
 script = ExtResource("1_3o3ef")
-coins = 284931.0
+coins = 305776.0
 max_coins = 999999.0
 gain_rate = 1.1
 
@@ -49,14 +49,14 @@ script = ExtResource("3_p6xfs")
 item = ExtResource("7_v7kq6")
 amount = 2
 
-[sub_resource type="Resource" id="Resource_elv5m"]
-script = ExtResource("3_p6xfs")
-item = ExtResource("5_jnqcu")
-amount = 3
-
 [sub_resource type="Resource" id="Resource_ux2xa"]
 script = ExtResource("3_p6xfs")
 item = ExtResource("6_hf0q8")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_elv5m"]
+script = ExtResource("3_p6xfs")
+item = ExtResource("5_jnqcu")
 amount = 3
 
 [sub_resource type="Resource" id="Resource_fanbv"]
@@ -67,7 +67,7 @@ amount = 2
 [sub_resource type="Resource" id="Resource_v7kq6"]
 script = ExtResource("2_8h2gy")
 inventory_capacity = 16
-slot_resources = Array[ExtResource("3_p6xfs")]([SubResource("Resource_hf0q8"), SubResource("Resource_2mrao"), SubResource("Resource_elv5m"), SubResource("Resource_ux2xa"), SubResource("Resource_fanbv")])
+slot_resources = Array[ExtResource("3_p6xfs")]([SubResource("Resource_hf0q8"), SubResource("Resource_2mrao"), SubResource("Resource_ux2xa"), SubResource("Resource_elv5m"), SubResource("Resource_fanbv")])
 
 [sub_resource type="Resource" id="Resource_v33aw"]
 script = ExtResource("9_v33aw")
@@ -93,11 +93,11 @@ exp = 30.498
 exp_cap = 560.579
 base_exp = 50.0
 exp_cap_growth_factor = 1.1
-hunger = 708.051
-hygiene = 729.901
+hunger = 683.803
+hygiene = 729.967
 happiness = 140.0
 health = 150.0
-rest = 1.53411
+rest = 1.53513
 max_hunger = 750.0
 max_hygiene = 730.0
 max_happiness = 140.0
@@ -170,11 +170,11 @@ exp = 435.497
 exp_cap = 560.579
 base_exp = 50.0
 exp_cap_growth_factor = 1.1
-hunger = 663.209
-hygiene = 768.985
+hunger = 614.718
+hygiene = 720.494
 happiness = 120.0
 health = 123.5
-rest = 1592.0
+rest = 1543.5
 max_hunger = 740.0
 max_hygiene = 770.0
 max_happiness = 120.0
@@ -247,11 +247,11 @@ exp = 267.956
 exp_cap = 492.458
 base_exp = 50.0
 exp_cap_growth_factor = 1.1
-hunger = 648.145
-hygiene = 679.136
+hunger = 599.654
+hygiene = 630.645
 happiness = 100.0
 health = 89.0
-rest = 1592.0
+rest = 1543.5
 max_hunger = 730.0
 max_hygiene = 730.0
 max_happiness = 100.0
@@ -324,11 +324,11 @@ exp = 460.497
 exp_cap = 560.579
 base_exp = 50.0
 exp_cap_growth_factor = 1.1
-hunger = 649.898
-hygiene = 681.177
+hunger = 601.407
+hygiene = 632.686
 happiness = 135.387
 health = 120.0
-rest = 1592.0
+rest = 1543.5
 max_hunger = 740.0
 max_hygiene = 730.0
 max_happiness = 140.0
@@ -401,11 +401,11 @@ exp = 23.1404
 exp_cap = 425.185
 base_exp = 50.0
 exp_cap_growth_factor = 1.1
-hunger = 641.39
-hygiene = 652.268
+hunger = 592.899
+hygiene = 603.777
 happiness = 82.0381
 health = 100.0
-rest = 1592.0
+rest = 1543.5
 max_hunger = 730.0
 max_hygiene = 740.0
 max_happiness = 100.0

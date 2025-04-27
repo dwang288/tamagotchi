@@ -67,18 +67,18 @@ func get_exp_cap(lvl: int) -> float:
 # Needs functions
 
 func apply_stat_change(type: StatTypes, amount: float) -> float:
-	var change = amount
+	var change = amount/100
 	match type:
 		StatTypes.HUNGER:
-			hunger += change
+			hunger += max_hunger * change
 		StatTypes.HYGIENE:
-			hygiene += change
+			hygiene += max_hygiene * change
 		StatTypes.HAPPINESS:
-			happiness += change
+			happiness += max_happiness * change
 		StatTypes.HEALTH:
-			health += change
+			health += max_health * change
 		StatTypes.REST:
-			rest += change
+			rest += max_rest * change
 	return change
 	
 

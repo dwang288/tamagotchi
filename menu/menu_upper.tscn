@@ -22,71 +22,75 @@ custom_minimum_size = Vector2(128, 18)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 19.0
 grow_horizontal = 2
 theme = ExtResource("1_dj74x")
 script = ExtResource("1_yqf36")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 19)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 18.0
+offset_bottom = 19.0
 grow_horizontal = 2
 color = Color(0.329412, 0.341176, 0.439216, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 18.0
-grow_horizontal = 2
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 19.0
+theme_override_constants/margin_bottom = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="ProfileContainer" parent="HBoxContainer" instance=ExtResource("2_duqhs")]
+[node name="ProfileContainer" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_duqhs")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StatsContainer" type="MarginContainer" parent="HBoxContainer"]
+[node name="StatsContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 1
 theme_override_constants/margin_right = 1
 
-[node name="Stats" type="HBoxContainer" parent="HBoxContainer/StatsContainer"]
+[node name="Stats" type="HBoxContainer" parent="MarginContainer/HBoxContainer/StatsContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 1
 
-[node name="HungerPanel" parent="HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
+[node name="HungerPanel" parent="MarginContainer/HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
 icon_texture = ExtResource("9_7c4jo")
 
-[node name="HygienePanel" parent="HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
+[node name="HygienePanel" parent="MarginContainer/HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
 icon_texture = ExtResource("10_jt82r")
 
-[node name="HappinessPanel" parent="HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
+[node name="HappinessPanel" parent="MarginContainer/HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
 icon_texture = ExtResource("11_uoc1p")
 
-[node name="HealthPanel" parent="HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
+[node name="HealthPanel" parent="MarginContainer/HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
 icon_texture = ExtResource("12_n0naq")
 
-[node name="RestPanel" parent="HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
+[node name="RestPanel" parent="MarginContainer/HBoxContainer/StatsContainer/Stats" instance=ExtResource("2_0k51n")]
 layout_mode = 2
 icon_texture = ExtResource("13_qddsq")
 
-[node name="CoinsContainer" parent="HBoxContainer" instance=ExtResource("2_unf50")]
+[node name="CoinsContainer" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_unf50")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 2.08165e-12)
 layout_mode = 2
 script = ExtResource("3_rvrkp")
 coin_icon = ExtResource("4_hpo3l")
 
-[node name="MenuContainer" parent="HBoxContainer" instance=ExtResource("8_sbix5")]
+[node name="MenuContainer" parent="MarginContainer/HBoxContainer" instance=ExtResource("8_sbix5")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 1

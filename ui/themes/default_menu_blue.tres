@@ -33,6 +33,7 @@ RichTextLabel/font_sizes/normal_font_size = 6
 RichTextLabel/fonts/normal_font = ExtResource("2_hj0xb")
 RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_70plv")
 TabBar/font_sizes/font_size = 3
+TabContainer/constants/side_margin = 4
 TabContainer/font_sizes/font_size = 6
 TabContainer/styles/panel = SubResource("StyleBoxEmpty_hoxjc")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxEmpty_bmgca")

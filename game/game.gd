@@ -4,12 +4,12 @@ class_name Game
 
 @onready var tamagotchi_scene = preload("res://tamagotchi/tamagotchi.tscn")
 
-@onready var tamagotchis_node: Node2D = %Tamagotchis
-@onready var menu_upper_node: Control = %MenuUpper
-@onready var menu_lower_node: Control = %MenuLower
+@onready var tamagotchis_node: Tamagotchis = %Tamagotchis
+@onready var menu_upper_node: MenuUpper = %MenuUpper
+@onready var menu_lower_node: Inventory = %MenuLower
 @onready var coin_manager_node: Node2D = %CoinManager
 
-@onready var tama_info_window: Control = %TamaInfoWindow
+@onready var tama_info_window: TamaInfoWindow = %TamaInfoWindow
 
 
 func _ready():
@@ -24,7 +24,9 @@ func connection_setup():
 	
 	# Connect active tamagotchi switch to stats gui
 	tamagotchis_node.active_tamagotchi_changed.connect(menu_upper_node.update_active_tamagotchi)
-	#tamagotchis_node.active_tamagotchi_changed.connect(tama_info_window.update_active_tamagotchi)
+	tamagotchis_node.active_tamagotchi_changed.connect(tama_info_window.update_active_tamagotchi)
+	
+	tama_info_window.profile_container.active_profile_changed.connect(tamagotchis_node.step_active_tamagotchi)
 	
 	menu_upper_node.connect_menu_button_signal(toggle_menu)
 	menu_upper_node.connect_profile_button_signal(toggle_tama_info_window)
@@ -43,6 +45,7 @@ func setup_active():
 	var active_tamagotchi_resource = tamagotchis_node.tamagotchi_nodes[tamagotchis_node.active_tamagotchi_index].resource
 
 	menu_upper_node.update_active_tamagotchi(active_tamagotchi_resource)
+	tama_info_window.update_active_tamagotchi(active_tamagotchi_resource)
 
 func toggle_menu():
 	$CanvasLayer/ToggleMenu.visible = !$CanvasLayer/ToggleMenu.visible

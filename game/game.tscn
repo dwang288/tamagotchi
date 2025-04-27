@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dijkqwvc20tip"]
+[gd_scene load_steps=20 format=3 uid="uid://dijkqwvc20tip"]
 
 [ext_resource type="Script" uid="uid://ctypsbady56e4" path="res://game/game.gd" id="1_7q1e7"]
 [ext_resource type="PackedScene" uid="uid://b0hwch0cgemgf" path="res://room/room.tscn" id="2_05qe6"]
@@ -6,19 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://b4c2wv0guy7fi" path="res://test/toggle_menu.tscn" id="4_sfcvn"]
 [ext_resource type="PackedScene" uid="uid://bmlvlmj5ijc5" path="res://inventory/menu_lower.tscn" id="5_3rgac"]
 [ext_resource type="PackedScene" uid="uid://bfg0bc7qty7hq" path="res://menu/menu_upper.tscn" id="6_lsdqe"]
-[ext_resource type="Script" uid="uid://b3wge0akdjqyp" path="res://menu/tama_info_window.gd" id="7_4cobl"]
+[ext_resource type="Script" uid="uid://b3wge0akdjqyp" path="res://info_window/tama_info_window.gd" id="7_4cobl"]
 [ext_resource type="Script" uid="uid://uh3qwcg23u82" path="res://game/coin_manager.gd" id="7_koibh"]
 [ext_resource type="Theme" uid="uid://bcqil81td75pd" path="res://ui/themes/default_menu_blue.tres" id="7_ln7ps"]
-[ext_resource type="Texture2D" uid="uid://b2csvhu302kv6" path="res://assets/filler/ABFE836A-4874-4787-AA95-B0D552DDB03D.jpg" id="8_3vho3"]
 [ext_resource type="Theme" uid="uid://dj7van0b0mihj" path="res://ui/themes/info_tab_menu.tres" id="8_j8tme"]
-[ext_resource type="Theme" uid="uid://wi6hfg8u1cn0" path="res://assets/gui/text_theme.tres" id="8_l8g03"]
 [ext_resource type="Texture2D" uid="uid://d80ko41ui64p" path="res://assets/gui/menu/window_bg.png" id="9_ln7ps"]
-[ext_resource type="Theme" uid="uid://1y31veihu3xb" path="res://ui/themes/inventory_arrow_texture.tres" id="10_dxwpq"]
-[ext_resource type="Texture2D" uid="uid://5q0w1ca1wujb" path="res://assets/gui/inventory_gui/arrow_up.png" id="11_mhvfb"]
-[ext_resource type="Texture2D" uid="uid://c130qohy1pa7q" path="res://assets/items/chicken_breast.png" id="11_vsp63"]
-[ext_resource type="Texture2D" uid="uid://cksyjg10nkg51" path="res://assets/items/candy.png" id="12_b686c"]
-[ext_resource type="Texture2D" uid="uid://dl4um4aatrdih" path="res://assets/gui/inventory_gui/arrow_down.png" id="13_5e03w"]
+[ext_resource type="PackedScene" uid="uid://baqmvvfqhai86" path="res://info_window/info_profile_container.tscn" id="10_ln7ps"]
+[ext_resource type="PackedScene" uid="uid://bg512cv1ten4s" path="res://info_window/info_tab_basic.tscn" id="12_pxxsx"]
+[ext_resource type="Script" uid="uid://bxqdslogq5c73" path="res://game/info_tab_container.gd" id="12_u8s88"]
 [ext_resource type="PackedScene" uid="uid://drt8ijavylpcu" path="res://menu/button_container.tscn" id="13_b686c"]
+[ext_resource type="PackedScene" uid="uid://7yfiuj1kxda1" path="res://info_window/info_tab_records.tscn" id="13_u8s88"]
+[ext_resource type="PackedScene" uid="uid://bdxdf2qrlmjmw" path="res://info_window/info_tab_messages.tscn" id="14_dxwpq"]
 [ext_resource type="Texture2D" uid="uid://xbfbb7p1nylb" path="res://assets/gui/menu/close.png" id="14_ee6o4"]
 [ext_resource type="Texture2D" uid="uid://i7rafcwkv1la" path="res://assets/gui/menu/close_hover.png" id="17_ln7ps"]
 
@@ -42,30 +40,22 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Room" parent="Control" instance=ExtResource("2_05qe6")]
-position = Vector2(128, 18)
+position = Vector2(128, 19)
 
 [node name="Tamagotchis" parent="Control" instance=ExtResource("3_uy1pc")]
 unique_name_in_owner = true
-position = Vector2(0, 105)
+position = Vector2(0, 93)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="MenuLower" parent="CanvasLayer" instance=ExtResource("5_3rgac")]
-unique_name_in_owner = true
-metadata/_edit_use_anchors_ = true
 
 [node name="ToggleMenu" parent="CanvasLayer" instance=ExtResource("4_sfcvn")]
 offset_top = 19.0
 offset_bottom = 52.0
 metadata/_edit_use_anchors_ = true
 
-[node name="MenuUpper" parent="CanvasLayer" instance=ExtResource("6_lsdqe")]
-unique_name_in_owner = true
-offset_bottom = 18.0
-metadata/_edit_use_anchors_ = true
-
 [node name="TamaInfoWindow" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchor_top = 0.148
 anchor_right = 1.0
@@ -100,293 +90,47 @@ theme_override_constants/margin_right = 2
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="ProfileContainer" type="MarginContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(64, 0)
+[node name="ProfileContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer" instance=ExtResource("10_ln7ps")]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/ProfileContainer"]
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="NameContainer" type="MarginContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/ProfileContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 2
-
-[node name="NameLabel" type="RichTextLabel" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/ProfileContainer/VBoxContainer/NameContainer"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 2
-bbcode_enabled = true
-text = "Han Noah
-"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PortraitContainer" type="MarginContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/ProfileContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/ProfileContainer/VBoxContainer/PortraitContainer"]
-layout_mode = 2
-theme_override_constants/separation = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/ProfileContainer/VBoxContainer/PortraitContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="PrevProfileButton" type="Button" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/ProfileContainer/VBoxContainer/PortraitContainer/VBoxContainer/CenterContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("10_dxwpq")
-icon = ExtResource("11_mhvfb")
-
-[node name="PortraitTexture" type="TextureRect" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/ProfileContainer/VBoxContainer/PortraitContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("8_3vho3")
-expand_mode = 4
-
-[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/ProfileContainer/VBoxContainer/PortraitContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="NextProfileButton" type="Button" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/ProfileContainer/VBoxContainer/PortraitContainer/VBoxContainer/CenterContainer2"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("10_dxwpq")
-icon = ExtResource("13_5e03w")
 
 [node name="TabContainer" type="TabContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("8_j8tme")
 current_tab = 0
+script = ExtResource("12_u8s88")
 
-[node name="Info" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("8_l8g03")
-metadata/_tab_index = 0
-
-[node name="InfoContainer" type="MarginContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info"]
-layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer"]
+[node name="Basic" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer" instance=ExtResource("12_pxxsx")]
 layout_mode = 2
 
-[node name="StatsMsgsContainer" type="HBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="BasicInfoContainer" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/BasicInfoContainer"]
-layout_mode = 2
-
-[node name="NameLabel" type="RichTextLabel" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/BasicInfoContainer/MarginContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "Han Noah"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="LevelContainer" type="MarginContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/BasicInfoContainer"]
-layout_mode = 2
-
-[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/BasicInfoContainer/LevelContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "Level 1000"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="ExpContainer" type="MarginContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/BasicInfoContainer"]
-layout_mode = 2
-
-[node name="ExpLabel" type="RichTextLabel" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/BasicInfoContainer/ExpContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "Exp 1982038/19283019"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Stats" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/Stats"]
-layout_mode = 2
-
-[node name="StatusLabel" type="RichTextLabel" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/HBoxContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "Status"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="EffectLabel" type="RichTextLabel" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/HBoxContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "Effect1"
-fit_content = true
-autowrap_mode = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/Stats"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 1
-
-[node name="HungerLabel" type="RichTextLabel" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/MarginContainer/VBoxContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "[img]res://assets/gui/status_icons/hunger_icon.png[/img] 8923498/2734987"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="HygieneLabel" type="RichTextLabel" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/MarginContainer/VBoxContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "[img]res://assets/gui/status_icons/hygiene_icon.png[/img] 8923498/2734987"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="HappinessLabel" type="RichTextLabel" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/MarginContainer/VBoxContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "[img]res://assets/gui/status_icons/happiness_icon.png[/img] 8923498/2734987"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="HealthLabel" type="RichTextLabel" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/MarginContainer/VBoxContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "[img]res://assets/gui/status_icons/health_icon.png[/img] 8923498/2734987"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="RestLabel" type="RichTextLabel" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Info/InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/MarginContainer/VBoxContainer"]
-layout_mode = 2
-bbcode_enabled = true
-text = "[img]res://assets/gui/status_icons/rest_icon.png[/img] 8923498/2734987"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Records" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer"]
+[node name="Records" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer" instance=ExtResource("13_u8s88")]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("8_l8g03")
-metadata/_tab_index = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Records"]
-layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Records/MarginContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Records/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Liked" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Records/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Records/MarginContainer/VBoxContainer/HBoxContainer/Liked"]
-layout_mode = 2
-text = "Liked"
-fit_content = true
-autowrap_mode = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Records/MarginContainer/VBoxContainer/HBoxContainer/Liked"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Records/MarginContainer/VBoxContainer/HBoxContainer/Liked/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("11_vsp63")
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Records/MarginContainer/VBoxContainer/HBoxContainer/Liked/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("12_b686c")
-
-[node name="Disliked" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Records/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Records/MarginContainer/VBoxContainer/HBoxContainer/Disliked"]
-layout_mode = 2
-text = "Disliked"
-fit_content = true
-autowrap_mode = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Records/MarginContainer/VBoxContainer/HBoxContainer/Disliked"]
-layout_mode = 2
-
-[node name="Messages" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("8_l8g03")
-metadata/_tab_index = 2
-
-[node name="MsgsContainer" type="MarginContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Messages"]
-layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Messages/MsgsContainer"]
-layout_mode = 2
-
-[node name="Msgs" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Messages/MsgsContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Messages/MsgsContainer/VBoxContainer/Msgs"]
-layout_mode = 2
-bbcode_enabled = true
-text = "Messages (Last 50)"
-fit_content = true
-autowrap_mode = 0
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Messages/MsgsContainer/VBoxContainer/Msgs"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer/Messages/MsgsContainer/VBoxContainer/Msgs/ScrollContainer"]
+[node name="Messages" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer/TabContainer" instance=ExtResource("14_dxwpq")]
 layout_mode = 2
 
 [node name="ButtonContainer" parent="CanvasLayer/TamaInfoWindow/MarginContainer/MarginContainer/HBoxContainer" instance=ExtResource("13_b686c")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme = ExtResource("7_ln7ps")
 icon_closed = ExtResource("14_ee6o4")
 icon_closed_hover = ExtResource("17_ln7ps")
+
+[node name="MenuLower" parent="CanvasLayer" instance=ExtResource("5_3rgac")]
+unique_name_in_owner = true
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuUpper" parent="CanvasLayer" instance=ExtResource("6_lsdqe")]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_bottom = 0.0078125
+offset_bottom = 18.0
+metadata/_edit_use_anchors_ = true
 
 [node name="CoinManager" type="Node2D" parent="."]
 unique_name_in_owner = true

@@ -12,9 +12,13 @@ signal item_used(liked: bool)
 
 # Level signals
 signal leveled_up(resource: TamagotchiResource)
-signal exp_changed
+signal exp_changed(resource: TamagotchiResource)
+signal max_exp_change(resource: TamagotchiResource)
 
 signal max_stat_increased(resource: StatsResource, stat: StatsResource.StatTypes, increased_amount: int)
+
+@export var name: String
+@export var profile_large: Texture2D
 
 @export var stat_growth_rates: StatGrowthRatesResource
 @export var stat_drain_rates: StatDrainRatesResource
@@ -169,6 +173,7 @@ func process_low_stats(_delta):
 
 # mouse_distance_traveled is optional, only passed in if it's a draggable item
 func apply_item_stats(item: InventoryItemResource, mouse_distance_traveled: float = 1) -> Dictionary:
+	is_awake = true
 	var stat_deltas = {
 		stats.StatTypes.HUNGER: stats.apply_stat_change(stats.StatTypes.HUNGER, item.hunger * mouse_distance_traveled),
 		stats.StatTypes.HYGIENE: stats.apply_stat_change(stats.StatTypes.HYGIENE, item.hygiene * mouse_distance_traveled),
@@ -182,14 +187,13 @@ func apply_item_stats(item: InventoryItemResource, mouse_distance_traveled: floa
 # TODO: Make this generic in the future for interactions that don't involve items
 func apply_interaction_stats(mouse_distance_traveled: float):
 	is_awake = true
-	stats.happiness += 0.1 * mouse_distance_traveled # TODO: take multiplier out into rates
+	stats.apply_stat_change(stats.StatTypes.HAPPINESS, 0.1 * mouse_distance_traveled) # TODO: take multiplier out into rates
 	stats.set_valid_stats()
 	
 	interacted_with.emit(mouse_distance_traveled)
 
 func use_item_in_slot(slot: InventorySlotResource):
 	if slot.item.is_usable:
-		is_awake = true
 		var stat_deltas = apply_item_stats(slot.item)
 		var liked = true if stat_deltas[stats.StatTypes.HAPPINESS] >= 0 else false
 		item_used.emit(liked)

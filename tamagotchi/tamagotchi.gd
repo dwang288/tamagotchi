@@ -65,7 +65,7 @@ func check_petting_interaction():
 	if (
 		is_active and
 		mouse_collision and
-		!collided_item_area and
+		!collided_item_area and # TODO: Even when dragging item, collided_item_area is still null sometimes
 		Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and
 		get_mouse_distance_traveled() > 20
 	):
@@ -170,6 +170,10 @@ func _on_area_2d_mouse_exited():
 	mouse_collision = false
 	MouseManager.set_default()
 
-func _on_area_2d_area_entered(area):
+func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent() is Item and area.get_parent().item_resource.is_grabbable:
 		collided_item_area = area
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.get_parent() is Item and area.get_parent().item_resource.is_grabbable:
+		collided_item_area = null

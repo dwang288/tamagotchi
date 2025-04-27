@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://7yfiuj1kxda1"]
+
+[ext_resource type="Theme" uid="uid://wi6hfg8u1cn0" path="res://assets/gui/text_theme.tres" id="1_nf7ru"]
+[ext_resource type="Texture2D" uid="uid://c130qohy1pa7q" path="res://assets/items/chicken_breast.png" id="2_rilm1"]
+[ext_resource type="Texture2D" uid="uid://cksyjg10nkg51" path="res://assets/items/candy.png" id="3_amt7p"]
+
+[node name="Records" type="VBoxContainer"]
+size_flags_horizontal = 3
+theme = ExtResource("1_nf7ru")
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Liked" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked"]
+layout_mode = 2
+text = "Liked"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("2_rilm1")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("3_amt7p")
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("3_amt7p")
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("3_amt7p")
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("3_amt7p")
+
+[node name="TextureRect6" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked/HFlowContainer"]
+layout_mode = 2
+texture = ExtResource("3_amt7p")
+
+[node name="Disliked" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/Disliked"]
+layout_mode = 2
+text = "Disliked"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Disliked"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0

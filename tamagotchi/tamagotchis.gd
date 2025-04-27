@@ -39,19 +39,22 @@ func _ready():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("switch_active_tamagotchi"):
-		switch_active_tamagotchi()
+		step_active_tamagotchi(1)
+
+func step_active_tamagotchi(step: int):
+	var prev_active_tamagotchi_index = active_tamagotchi_index
+	active_tamagotchi_index += step
+
+	active_tamagotchi_index = ((active_tamagotchi_index % tamagotchi_resources.size()) + tamagotchi_resources.size()) % tamagotchi_resources.size()
+
+	set_inactive_tamagotchi(prev_active_tamagotchi_index)
+	set_active_tamagotchi(active_tamagotchi_index)
 
 # Tab to set the active tamagotchi to the next one
-# TODO: Split up cycling and selecting cases into two diff functions?
-func switch_active_tamagotchi(tama: Tamagotchi = null):
+func switch_active_tamagotchi(tama: Tamagotchi):
 	var prev_active_tamagotchi_index = active_tamagotchi_index
-	if tama: # for when a specific signal is sent
-		active_tamagotchi_index = tamagotchi_nodes.find_key(tama)
-	else: # for when tabbing through
-		if active_tamagotchi_index >= tamagotchi_resources.size() - 1:
-			active_tamagotchi_index = 0
-		else:
-			active_tamagotchi_index += 1
+	active_tamagotchi_index = tamagotchi_nodes.find_key(tama)
+
 	set_inactive_tamagotchi(prev_active_tamagotchi_index)
 	set_active_tamagotchi(active_tamagotchi_index)
 

@@ -10,8 +10,10 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1gvh8"]
 
 [resource]
+TabContainer/colors/font_hovered_color = Color(0, 0.631373, 0.807843, 1)
 TabContainer/colors/font_selected_color = Color(0.329412, 0.341176, 0.439216, 1)
 TabContainer/constants/icon_separation = 0
+TabContainer/constants/side_margin = 0
 TabContainer/font_sizes/font_size = 6
 TabContainer/icons/decrement = ExtResource("1_fuyk3")
 TabContainer/icons/decrement_highlight = ExtResource("1_fuyk3")

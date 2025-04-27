@@ -1,15 +1,18 @@
-[gd_resource type="Resource" script_class="TamagotchiResource" load_steps=8 format=3 uid="uid://bfuwgqpv05fwb"]
+[gd_resource type="Resource" script_class="TamagotchiResource" load_steps=9 format=3 uid="uid://bfuwgqpv05fwb"]
 
 [ext_resource type="AnimationLibrary" uid="uid://diqulf2u2n6ct" path="res://tamagotchi/plave/noah/animations/animation.res" id="1_sevlt"]
 [ext_resource type="Script" uid="uid://cyouq0nm1mlf4" path="res://tamagotchi/tamagotchi_resource.gd" id="2_1e06h"]
 [ext_resource type="Texture2D" uid="uid://bj76l0pmd16cp" path="res://assets/sprite_sheets/plave/noah/noah_profile.png" id="2_2ni3y"]
 [ext_resource type="AnimationLibrary" uid="uid://cia583pogvcco" path="res://tamagotchi/plave/noah/emote_animations/emote.res" id="2_lnimw"]
 [ext_resource type="Resource" uid="uid://b5kho7wt3dkf7" path="res://tamagotchi/plave/noah/noah_stat_drain_rate.tres" id="3_q3dqc"]
+[ext_resource type="Texture2D" uid="uid://8ky565led6ht" path="res://assets/filler/IMG_1653.jpeg" id="4_2fo76"]
 [ext_resource type="Resource" uid="uid://sxyfj5uum0x7" path="res://tamagotchi/plave/noah/noah_stats_start.tres" id="4_v3fhu"]
 [ext_resource type="Resource" uid="uid://bkp3wn64kvqtj" path="res://tamagotchi/plave/noah/noah_stat_growth_rates.tres" id="6_2fo76"]
 
 [resource]
 script = ExtResource("2_1e06h")
+name = "Noah"
+profile_large = ExtResource("4_2fo76")
 stat_growth_rates = ExtResource("6_2fo76")
 stat_drain_rates = ExtResource("3_q3dqc")
 stats = ExtResource("4_v3fhu")

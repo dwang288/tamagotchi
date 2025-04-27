@@ -12,7 +12,7 @@ func _notification(what):
 
 		slot_visibility_changed.emit(true)
 		being_dragged = false
-		MouseManager.set_default()
+		#MouseManager.set_default()
 
 		# print("slot_index: ", slot_index, " being dragged: ", being_dragged, " amount_label visible: ", amount_label.visible, " amount_label: ", amount_label.text)
 

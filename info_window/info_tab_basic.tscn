@@ -1,0 +1,141 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg512cv1ten4s"]
+
+[ext_resource type="Theme" uid="uid://wi6hfg8u1cn0" path="res://assets/gui/text_theme.tres" id="1_2x0ir"]
+[ext_resource type="Script" uid="uid://b8yjrt7tnwael" path="res://info_window/info_tab_basic.gd" id="2_cb1ha"]
+
+[node name="Basic" type="VBoxContainer"]
+size_flags_horizontal = 3
+theme = ExtResource("1_2x0ir")
+script = ExtResource("2_cb1ha")
+full_color = Color(0.286077, 0.68953, 0.304189, 1)
+mid_color = Color(0.799985, 0.689413, 0.274154, 1)
+empty_color = Color(0.860564, 0.239509, 0.22418, 1)
+metadata/_tab_index = 0
+
+[node name="InfoContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoContainer"]
+layout_mode = 2
+
+[node name="StatsMsgsContainer" type="HBoxContainer" parent="InfoContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BasicInfoContainer" type="VBoxContainer" parent="InfoContainer/VBoxContainer/StatsMsgsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameContainer" type="MarginContainer" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/BasicInfoContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="RichTextLabel" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/BasicInfoContainer/NameContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "Han Noah"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="LevelContainer" type="MarginContainer" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/BasicInfoContainer"]
+layout_mode = 2
+
+[node name="LevelLabel" type="RichTextLabel" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/BasicInfoContainer/LevelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "Level 1000"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ExpContainer" type="MarginContainer" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/BasicInfoContainer"]
+layout_mode = 2
+
+[node name="ExpLabel" type="RichTextLabel" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/BasicInfoContainer/ExpContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "Exp 1982038/19283019"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Stats" type="VBoxContainer" parent="InfoContainer/VBoxContainer/StatsMsgsContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/Stats"]
+layout_mode = 2
+
+[node name="StatusLabel" type="RichTextLabel" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/HBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Status"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="EffectLabel" type="RichTextLabel" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/Stats"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="HungerLabel" type="RichTextLabel" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[img]res://assets/gui/status_icons/hunger_icon.png[/img] 8923498/2734987"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HygieneLabel" type="RichTextLabel" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[img]res://assets/gui/status_icons/hygiene_icon.png[/img] 8923498/2734987"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HappinessLabel" type="RichTextLabel" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[img]res://assets/gui/status_icons/happiness_icon.png[/img] 8923498/2734987"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HealthLabel" type="RichTextLabel" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[img]res://assets/gui/status_icons/health_icon.png[/img] 8923498/2734987"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="RestLabel" type="RichTextLabel" parent="InfoContainer/VBoxContainer/StatsMsgsContainer/Stats/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[img]res://assets/gui/status_icons/rest_icon.png[/img] 8923498/2734987"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="TamagotchiResource" load_steps=9 format=3 uid="uid://dsyi1bnunyvvf"]
+[gd_resource type="Resource" script_class="TamagotchiResource" load_steps=10 format=3 uid="uid://dsyi1bnunyvvf"]
 
 [ext_resource type="AnimationLibrary" uid="uid://macxhs2dgqay" path="res://tamagotchi/plave/eunho/animations/animation.res" id="1_6v12w"]
 [ext_resource type="AnimationLibrary" uid="uid://kcj727xd16fp" path="res://tamagotchi/plave/eunho/emote_animations/emote.res" id="2_b6ty6"]
 [ext_resource type="Texture2D" uid="uid://cq0r4dc3wsx6l" path="res://assets/sprite_sheets/plave/eunho/eunho_profile.png" id="2_e1cvn"]
 [ext_resource type="Script" uid="uid://cyouq0nm1mlf4" path="res://tamagotchi/tamagotchi_resource.gd" id="3_fkjix"]
+[ext_resource type="Resource" uid="uid://cil5lgrcemy8" path="res://tamagotchi/plave/eunho/eunho_preferences.tres" id="3_xnsss"]
 [ext_resource type="Resource" uid="uid://o7twwfiksxfr" path="res://tamagotchi/plave/eunho/eunho_stat_drain_rate.tres" id="4_7ktrg"]
 [ext_resource type="Texture2D" uid="uid://g5nqyshm54a0" path="res://assets/filler/IMG_2258.jpeg" id="4_dsts5"]
 [ext_resource type="Resource" uid="uid://sdopcdt56r64" path="res://tamagotchi/plave/eunho/eunho_stats_start.tres" id="5_pxu3n"]
@@ -13,6 +14,7 @@
 script = ExtResource("3_fkjix")
 name = "Eunho"
 profile_large = ExtResource("4_dsts5")
+preferences = ExtResource("3_xnsss")
 stat_growth_rates = ExtResource("6_dsts5")
 stat_drain_rates = ExtResource("4_7ktrg")
 stats = ExtResource("5_pxu3n")

@@ -20,6 +20,8 @@ signal max_stat_increased(resource: StatsResource, stat: StatsResource.StatTypes
 @export var name: String
 @export var profile_large: Texture2D
 
+@export var preferences: PreferencesResource
+
 @export var stat_growth_rates: StatGrowthRatesResource
 @export var stat_drain_rates: StatDrainRatesResource
 @export var stats: StatsResource
@@ -198,6 +200,5 @@ func use_item_in_slot(slot: InventorySlotResource):
 		var liked = true if stat_deltas[stats.StatTypes.HAPPINESS] >= 0 else false
 		item_used.emit(liked)
 		add_exp(slot.item.get_exp())
-
 		if slot.item.is_consumable:
 			item_consumed.emit(slot)

@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="TamagotchiResource" load_steps=9 format=3 uid="uid://bri510i21b1yn"]
+[gd_resource type="Resource" script_class="TamagotchiResource" load_steps=10 format=3 uid="uid://bri510i21b1yn"]
 
 [ext_resource type="AnimationLibrary" uid="uid://bvicy22aa80fo" path="res://tamagotchi/plave/hamin/animations/animation.res" id="1_tuh7k"]
 [ext_resource type="AnimationLibrary" uid="uid://n1j4tfyovpkr" path="res://tamagotchi/plave/hamin/emote_animations/emote.res" id="2_qnfhe"]
 [ext_resource type="Texture2D" uid="uid://dybg0rikn0r0r" path="res://assets/sprite_sheets/plave/hamin/hamin_profile.png" id="2_xy0nx"]
+[ext_resource type="Resource" uid="uid://d326gntv1rfly" path="res://tamagotchi/plave/hamin/hamin_preferences.tres" id="3_l6ivk"]
 [ext_resource type="Script" uid="uid://cyouq0nm1mlf4" path="res://tamagotchi/tamagotchi_resource.gd" id="3_xtl1f"]
 [ext_resource type="Resource" uid="uid://daumtuh5q47me" path="res://tamagotchi/plave/hamin/hamin_stat_drain_rate.tres" id="4_6d5k0"]
 [ext_resource type="Texture2D" uid="uid://h4nlyt2dtp2n" path="res://assets/filler/IMG_1717.jpg" id="4_kl0cj"]
@@ -13,6 +14,7 @@
 script = ExtResource("3_xtl1f")
 name = "Hamin"
 profile_large = ExtResource("4_kl0cj")
+preferences = ExtResource("3_l6ivk")
 stat_growth_rates = ExtResource("6_kl0cj")
 stat_drain_rates = ExtResource("4_6d5k0")
 stats = ExtResource("5_e21yx")

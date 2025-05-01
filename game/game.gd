@@ -35,6 +35,7 @@ func connection_setup():
 	menu_lower_node.connect_slots_on_click_signal(tamagotchis_node.click_item)
 
 	# Connect item consumed success to inventory deletion of item
+	# TODO: Pass these functions into a function in Tamagotchis that connects them to the signal
 	for tamagotchi_node in tamagotchis_node.get_children():
 		if tamagotchi_node is Tamagotchi:
 			tamagotchi_node.resource.interacted_with.connect(coin_manager_node.increase_coins_from_interaction)

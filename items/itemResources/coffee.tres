@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryItemResource" load_steps=3 format=3 uid="uid://cxlu1hls6ca00"]
+
+[ext_resource type="Script" uid="uid://inhc30j3e4sc" path="res://items/inventory_item_resource.gd" id="1_lt7ra"]
+[ext_resource type="Texture2D" uid="uid://csp83ogwxb5v1" path="res://assets/items/coffee.png" id="2_8y5lw"]
+
+[resource]
+script = ExtResource("1_lt7ra")
+name = "Coffee"
+description = ""
+texture = ExtResource("2_8y5lw")
+maxAmount = 10
+is_usable = true
+is_consumable = true
+is_grabbable = false
+hunger = 0.0
+hygiene = 0.0
+happiness = 0.0
+health = -5.0
+rest = 10.0
+metadata/_custom_type_script = "uid://inhc30j3e4sc"

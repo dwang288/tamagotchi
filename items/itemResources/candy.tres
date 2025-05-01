@@ -14,6 +14,6 @@ is_consumable = true
 is_grabbable = false
 hunger = 10.0
 hygiene = 0.0
-happiness = 50.0
+happiness = 15.0
 health = -5.0
 rest = 0.0

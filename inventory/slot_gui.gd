@@ -34,7 +34,7 @@ func clear_slot():
 
 func set_slot_visibility(is_visible):
 	item_icon.visible = is_visible
-	if item_slot.amount == 0 || item_slot.amount == 1:
+	if !item_slot || item_slot.amount == 0 || item_slot.amount == 1:
 		amount_label.visible = false
 	else:
 		amount_label.visible = is_visible

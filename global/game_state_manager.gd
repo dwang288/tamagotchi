@@ -64,6 +64,7 @@ func deep_duplicate_resource(resource: Resource) -> Resource:
 			#print(name, " ", nested_copy.resource_path)
 			#print(name, " ", copy.resource_path)
 
+		# TODO: Add save type for dictionaries
 		elif typeof(value) == TYPE_ARRAY:
 			print(value)
 			var new_array = value.duplicate()

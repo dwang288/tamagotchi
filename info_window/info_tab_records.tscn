@@ -1,12 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://7yfiuj1kxda1"]
+[gd_scene load_steps=3 format=3 uid="uid://7yfiuj1kxda1"]
 
 [ext_resource type="Theme" uid="uid://wi6hfg8u1cn0" path="res://assets/gui/text_theme.tres" id="1_nf7ru"]
-[ext_resource type="Texture2D" uid="uid://c130qohy1pa7q" path="res://assets/items/chicken_breast.png" id="2_rilm1"]
-[ext_resource type="Texture2D" uid="uid://cksyjg10nkg51" path="res://assets/items/candy.png" id="3_amt7p"]
+[ext_resource type="Script" uid="uid://d0jsc0lfjkdyg" path="res://info_window/info_tab_records.gd" id="2_amt7p"]
 
 [node name="Records" type="VBoxContainer"]
 size_flags_horizontal = 3
 theme = ExtResource("1_nf7ru")
+script = ExtResource("2_amt7p")
 metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -25,7 +25,6 @@ layout_mode = 2
 [node name="Liked" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked"]
 layout_mode = 2
@@ -33,39 +32,15 @@ text = "Liked"
 fit_content = true
 autowrap_mode = 0
 
-[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked"]
+[node name="LikedContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked/HFlowContainer"]
-layout_mode = 2
-texture = ExtResource("2_rilm1")
-
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked/HFlowContainer"]
-layout_mode = 2
-texture = ExtResource("3_amt7p")
-
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked/HFlowContainer"]
-layout_mode = 2
-texture = ExtResource("3_amt7p")
-
-[node name="TextureRect4" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked/HFlowContainer"]
-layout_mode = 2
-texture = ExtResource("3_amt7p")
-
-[node name="TextureRect5" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked/HFlowContainer"]
-layout_mode = 2
-texture = ExtResource("3_amt7p")
-
-[node name="TextureRect6" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Liked/HFlowContainer"]
-layout_mode = 2
-texture = ExtResource("3_amt7p")
-
 [node name="Disliked" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/Disliked"]
 layout_mode = 2
@@ -73,7 +48,8 @@ text = "Disliked"
 fit_content = true
 autowrap_mode = 0
 
-[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Disliked"]
+[node name="DislikedContainer" type="HFlowContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Disliked"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0

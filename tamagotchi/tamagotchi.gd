@@ -10,6 +10,7 @@ class_name Tamagotchi
 @onready var sprite: Sprite2D = %Sprite2D
 
 @onready var toast_notifications: VBoxContainer = %ToastNotifications
+@onready var drop_space: Control = %DropSpace
 
 @onready var is_active: bool
 @onready var is_being_pet: bool
@@ -52,6 +53,8 @@ func set_active(active: bool):
 func connection_setup():
 	resource.max_stat_increased.connect(toast_notifications.on_max_stat_change)
 	resource.leveled_up.connect(toast_notifications.on_level_up)
+	
+	drop_space.item_dropped.connect(resource.use_item_in_slot)
 
 # Click interaction
 

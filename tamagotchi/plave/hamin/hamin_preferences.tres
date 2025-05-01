@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PreferencesResource" load_steps=4 format=3 uid="uid://d326gntv1rfly"]
+
+[ext_resource type="Script" uid="uid://inhc30j3e4sc" path="res://items/inventory_item_resource.gd" id="1_5ugu8"]
+[ext_resource type="Resource" uid="uid://38ewhkf3nwmr" path="res://items/itemResources/americano.tres" id="2_ochk5"]
+[ext_resource type="Script" uid="uid://bhvj4w3uok3gf" path="res://tamagotchi/preferences_resource.gd" id="3_jv3u4"]
+
+[resource]
+script = ExtResource("3_jv3u4")
+foods_liked = Dictionary[ExtResource("1_5ugu8"), bool]({
+ExtResource("2_ochk5"): false
+})
+foods_disliked = Dictionary[ExtResource("1_5ugu8"), bool]({})
+metadata/_custom_type_script = "uid://bhvj4w3uok3gf"

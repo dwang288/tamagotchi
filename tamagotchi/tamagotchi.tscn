@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7qpptii07lf6"]
+[gd_scene load_steps=12 format=3 uid="uid://b7qpptii07lf6"]
 
 [ext_resource type="Script" uid="uid://nvjkkwl38k2h" path="res://tamagotchi/tamagotchi.gd" id="1_bkvew"]
 [ext_resource type="Resource" uid="uid://etn86t24vnq6" path="res://tamagotchi/plave/yejun/yejun.tres" id="2_712e3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cy85k1jibv708" path="res://tamagotchi/tamagotchi_sprite.tscn" id="3_712e3"]
 [ext_resource type="Texture2D" uid="uid://b5tdkioinx2ym" path="res://assets/gui/misc/active_tamagotchi_marker_sheet.png" id="3_wi2p0"]
 [ext_resource type="Script" uid="uid://w1bye5l8q8ok" path="res://ui/toast_notifications/toast_notifications.gd" id="6_jr1bs"]
+[ext_resource type="Script" uid="uid://dp8n5wh577dnx" path="res://tamagotchi/tamagotchi_drop_space.gd" id="7_xbyi8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udhen"]
 size = Vector2(17.5, 21.5)
@@ -35,6 +36,16 @@ animations = [{
 [node name="Tamagotchi" type="Node2D"]
 script = ExtResource("1_bkvew")
 resource = ExtResource("2_712e3")
+
+[node name="DropSpace" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -8.0
+offset_top = -22.0
+offset_right = 10.0
+mouse_filter = 1
+script = ExtResource("7_xbyi8")
 
 [node name="Sprite2D" parent="." instance=ExtResource("3_712e3")]
 unique_name_in_owner = true

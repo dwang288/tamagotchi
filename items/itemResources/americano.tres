@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryItemResource" load_steps=3 format=3 uid="uid://38ewhkf3nwmr"]
+
+[ext_resource type="Script" uid="uid://inhc30j3e4sc" path="res://items/inventory_item_resource.gd" id="1_6ehme"]
+[ext_resource type="Texture2D" uid="uid://dpsxnfhytmicf" path="res://assets/items/americano.png" id="2_ugryi"]
+
+[resource]
+script = ExtResource("1_6ehme")
+name = "Americano"
+description = ""
+texture = ExtResource("2_ugryi")
+maxAmount = 10
+is_usable = true
+is_consumable = true
+is_grabbable = false
+hunger = 0.0
+hygiene = 0.0
+happiness = 0.0
+health = -10.0
+rest = 15.0
+metadata/_custom_type_script = "uid://inhc30j3e4sc"

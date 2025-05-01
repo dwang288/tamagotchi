@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryItemResource" load_steps=3 format=3 uid="uid://5v3lh2qby87m"]
+
+[ext_resource type="Script" uid="uid://inhc30j3e4sc" path="res://items/inventory_item_resource.gd" id="1_tvhiv"]
+[ext_resource type="Texture2D" uid="uid://cl2xpvm5unrxp" path="res://assets/items/red_pepper.png" id="2_pgp6y"]
+
+[resource]
+script = ExtResource("1_tvhiv")
+name = "Chili Pepper"
+description = ""
+texture = ExtResource("2_pgp6y")
+maxAmount = 10
+is_usable = true
+is_consumable = true
+is_grabbable = false
+hunger = 5.0
+hygiene = 0.0
+happiness = 0.0
+health = 0.0
+rest = 0.0
+metadata/_custom_type_script = "uid://inhc30j3e4sc"

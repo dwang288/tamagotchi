@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4c2wv0guy7fi"]
+[gd_scene load_steps=14 format=3 uid="uid://b4c2wv0guy7fi"]
 
 [ext_resource type="Theme" uid="uid://dyx683dtm8jcu" path="res://ui/themes/default_menu.tres" id="1_unbns"]
 [ext_resource type="Script" uid="uid://d1xlw4jqsxfxu" path="res://test/new_item_button_test.gd" id="2_7ldn8"]
@@ -9,6 +9,10 @@
 [ext_resource type="Script" uid="uid://inhc30j3e4sc" path="res://items/inventory_item_resource.gd" id="4_j8k1g"]
 [ext_resource type="Resource" uid="uid://debtsaphjnewd" path="res://items/itemResources/lollipop.tres" id="5_b4xk0"]
 [ext_resource type="Script" uid="uid://7ucif16cll30" path="res://test/update_coins_button_test.gd" id="7_lw355"]
+[ext_resource type="Resource" uid="uid://38ewhkf3nwmr" path="res://items/itemResources/americano.tres" id="8_wenh7"]
+[ext_resource type="Resource" uid="uid://5v3lh2qby87m" path="res://items/itemResources/chili_pepper.tres" id="9_ja7um"]
+[ext_resource type="Resource" uid="uid://cxlu1hls6ca00" path="res://items/itemResources/coffee.tres" id="10_4hh3r"]
+[ext_resource type="Resource" uid="uid://b2dmc0jjgj2xs" path="res://items/itemResources/pizza.tres" id="11_1sr50"]
 
 [node name="ToggleMenu" type="Control"]
 layout_mode = 3
@@ -32,7 +36,7 @@ theme_override_constants/separation = 0
 layout_mode = 2
 text = "gacha"
 script = ExtResource("2_7ldn8")
-items = Array[ExtResource("4_j8k1g")]([ExtResource("3_g7xin"), ExtResource("4_cmtoq"), ExtResource("5_b4xk0")])
+items = Array[ExtResource("4_j8k1g")]([ExtResource("3_g7xin"), ExtResource("4_cmtoq"), ExtResource("5_b4xk0"), ExtResource("8_wenh7"), ExtResource("9_ja7um"), ExtResource("10_4hh3r"), ExtResource("11_1sr50")])
 
 [node name="Button2" type="Button" parent="HBoxContainer"]
 layout_mode = 2

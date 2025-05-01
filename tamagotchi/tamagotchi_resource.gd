@@ -17,6 +17,8 @@ signal max_exp_change(resource: TamagotchiResource)
 
 signal max_stat_increased(resource: StatsResource, stat: StatsResource.StatTypes, increased_amount: int)
 
+signal discovered_preference(resource: TamagotchiResource)
+
 @export var name: String
 @export var profile_large: Texture2D
 
@@ -196,6 +198,8 @@ func apply_interaction_stats(mouse_distance_traveled: float):
 
 func use_item_in_slot(slot: InventorySlotResource):
 	if slot.item.is_usable:
+		if preferences.discover_preference(slot.item):
+			discovered_preference.emit(self)
 		var stat_deltas = apply_item_stats(slot.item)
 		var liked = true if stat_deltas[stats.StatTypes.HAPPINESS] >= 0 else false
 		item_used.emit(liked)

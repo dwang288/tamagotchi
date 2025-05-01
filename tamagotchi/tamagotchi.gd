@@ -53,7 +53,6 @@ func set_active(active: bool):
 func connection_setup():
 	resource.max_stat_increased.connect(toast_notifications.on_max_stat_change)
 	resource.leveled_up.connect(toast_notifications.on_level_up)
-	
 	drop_space.item_dropped.connect(resource.use_item_in_slot)
 
 # Click interaction

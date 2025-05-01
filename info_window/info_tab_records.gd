@@ -9,13 +9,13 @@ func update_active_tamagotchi(tamagotchi_resource: TamagotchiResource):
 
 	# Disconnect previous tamagotchi's signals from GUI
 	if active_tamagotchi_resource:
-		if active_tamagotchi_resource.leveled_up.is_connected(update_preferences):
-			active_tamagotchi_resource.leveled_up.disconnect(update_preferences)
+		if active_tamagotchi_resource.discovered_preference.is_connected(update_preferences):
+			active_tamagotchi_resource.discovered_preference.disconnect(update_preferences)
 
 	active_tamagotchi_resource = tamagotchi_resource
 	
 	# Connect new signals to GUI
-	active_tamagotchi_resource.leveled_up.connect(update_preferences)
+	active_tamagotchi_resource.discovered_preference.connect(update_preferences)
 	
 	# Update the GUI once
 	update_preferences(active_tamagotchi_resource)
